@@ -9,10 +9,20 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
-    var sampleTable: [Int] = [1,1,1,1,1]
+    // title and colors for each cell
+    var menuItems: [String] = ["Schedule", "Live Updates", "FAQs", "Workshops", "Sponsors"]
+    let cellColors: [UIColor] =
+        [
+            UIColor(hex: 0xFF9500, alpha: 1),
+            UIColor(hex: 0x057AFF, alpha: 1),
+            UIColor(hex: 0x26AE60, alpha: 1),
+            UIColor(hex: 0xFF3B31, alpha: 1),
+            UIColor(hex: 0x5755D6, alpha: 1)
+        ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set constant height of cells and remove default separators
         self.tableView.rowHeight = 130
         self.tableView.separatorStyle = .none
         self.tableView.register(menuItemTableViewCell.self, forCellReuseIdentifier: menuItemTableViewCell.identifier)
@@ -25,16 +35,16 @@ class HomeViewController: UITableViewController {
     func setupNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "KnightHacks"
+        self.navigationItem.title = "Where to?"
     }
     
     // MARK: - TABLE DATASOURCE FUNCTIONS
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-//        cell.textLabel?.text = "\(sampleTable[indexPath.row])"
-//        return cell
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: menuItemTableViewCell.identifier, for: indexPath) as! menuItemTableViewCell
+        
+        cell.customTitleLabel.text = menuItems[indexPath.row]
+        cell.customIconView.image = UIImage(named: menuItems[indexPath.row].lowercased())
+        cell.customBackground.backgroundColor = cellColors[indexPath.row]
         
         return cell
     }
@@ -43,11 +53,16 @@ class HomeViewController: UITableViewController {
         return 1
     }
     
+    // return number of menu options
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleTable.count
+        return menuItems.count
     }
     
     // MARK: - TABLE DELEGATE FUNCTIONS
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 
 }
 

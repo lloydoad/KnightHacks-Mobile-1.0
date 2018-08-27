@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4C4197B2213338680002CBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B1213338680002CBEB /* AppDelegate.swift */; };
-		4C4197B4213338680002CBEB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B3213338680002CBEB /* HomeView.swift */; };
+		4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B3213338680002CBEB /* HomeViewController.swift */; };
 		4C4197B7213338690002CBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B5213338690002CBEB /* Main.storyboard */; };
 		4C4197B92133386D0002CBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B82133386D0002CBEB /* Assets.xcassets */; };
 		4C4197BC2133386D0002CBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */; };
 		4C4197C72133386E0002CBEB /* KH_prototype_oneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197C62133386E0002CBEB /* KH_prototype_oneTests.swift */; };
 		4C4197D22133386E0002CBEB /* KH_prototype_oneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197D12133386E0002CBEB /* KH_prototype_oneUITests.swift */; };
 		4C4197E021333ED40002CBEB /* menuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197DF21333ED40002CBEB /* menuItemTableViewCell.swift */; };
+		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		4C4197AE213338680002CBEB /* KH_prototype_one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KH_prototype_one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4197B1213338680002CBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C4197B3213338680002CBEB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4C4197B3213338680002CBEB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4C4197B6213338690002CBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C4197B82133386D0002CBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C4197BB2133386D0002CBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		4C4197D12133386E0002CBEB /* KH_prototype_oneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KH_prototype_oneUITests.swift; sourceTree = "<group>"; };
 		4C4197D32133386E0002CBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4197DF21333ED40002CBEB /* menuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuItemTableViewCell.swift; sourceTree = "<group>"; };
+		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,9 @@
 		4C4197A5213338680002CBEB = {
 			isa = PBXGroup;
 			children = (
+				4CF3F96F21337546007DE8EC /* Conroller */,
+				4CF3F96E2133753A007DE8EC /* View */,
+				4CF3F96D21337533007DE8EC /* Model */,
 				4C4197B0213338680002CBEB /* KH_prototype_one */,
 				4C4197C52133386E0002CBEB /* KH_prototype_oneTests */,
 				4C4197D02133386E0002CBEB /* KH_prototype_oneUITests */,
@@ -99,9 +104,7 @@
 		4C4197B0213338680002CBEB /* KH_prototype_one */ = {
 			isa = PBXGroup;
 			children = (
-				4C4197B1213338680002CBEB /* AppDelegate.swift */,
-				4C4197DF21333ED40002CBEB /* menuItemTableViewCell.swift */,
-				4C4197B3213338680002CBEB /* HomeView.swift */,
+				4CF3F96B21336CA9007DE8EC /* Helpers.swift */,
 				4C4197B5213338690002CBEB /* Main.storyboard */,
 				4C4197B82133386D0002CBEB /* Assets.xcassets */,
 				4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */,
@@ -126,6 +129,30 @@
 				4C4197D32133386E0002CBEB /* Info.plist */,
 			);
 			path = KH_prototype_oneUITests;
+			sourceTree = "<group>";
+		};
+		4CF3F96D21337533007DE8EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4CF3F96E2133753A007DE8EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C4197DF21333ED40002CBEB /* menuItemTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4CF3F96F21337546007DE8EC /* Conroller */ = {
+			isa = PBXGroup;
+			children = (
+				4C4197B1213338680002CBEB /* AppDelegate.swift */,
+				4C4197B3213338680002CBEB /* HomeViewController.swift */,
+			);
+			path = Conroller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C4197B4213338680002CBEB /* HomeView.swift in Sources */,
+				4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */,
 				4C4197B2213338680002CBEB /* AppDelegate.swift in Sources */,
 				4C4197E021333ED40002CBEB /* menuItemTableViewCell.swift in Sources */,
+				4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
