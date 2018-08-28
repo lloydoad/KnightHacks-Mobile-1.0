@@ -27,15 +27,16 @@ class HomeViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         self.tableView.register(MenuItemTableViewCell.self, forCellReuseIdentifier: MenuItemTableViewCell.identifier)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
-        setupNavigationBar()
-    }
-
-    func setupNavigationBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        super.viewWillAppear(animated)
+        
+        // setup navigation
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Where to?"
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.view.backgroundColor = .white
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     // MARK: - TABLE DATASOURCE FUNCTIONS
@@ -65,7 +66,7 @@ class HomeViewController: UITableViewController {
         switch menuItems[indexPath.row] {
         case "Schedule":
             let nextView = ScheduleTableViewController()
-            present(UINavigationController(rootViewController: nextView), animated: true, completion: nil)
+            self.navigationController?.pushViewController(nextView, animated: true)
             break
         default:
             break

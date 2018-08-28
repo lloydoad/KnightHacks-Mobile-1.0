@@ -15,10 +15,12 @@ class ScheduleTableViewController: UITableViewController{
         super.viewDidLoad()
         
         // Setup navigation bar
-        self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0x5755D6, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = BACKGROUND_COLOR
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.backgroundColor = BACKGROUND_COLOR
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.largeTitleDisplayMode = .never
         
         // Setup tableview
         self.tableView.estimatedRowHeight = COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT - 10
@@ -31,10 +33,10 @@ class ScheduleTableViewController: UITableViewController{
     func colorBounceView(with color: UIColor) {
         var frame = self.view.bounds
         frame.origin.y = -frame.size.height
-        
+
         let view = UIView(frame: frame)
         view.backgroundColor = color
-        
+
         self.view.addSubview(view)
     }
     
@@ -73,6 +75,9 @@ class ScheduleTableViewController: UITableViewController{
     // MARK: - TABLE DELEGATE FUNCTIONS
 
     
+    override func willMove(toParentViewController parent: UIViewController?) {
+        self.navigationController?.navigationBar.barTintColor = .white
+    }
     
     
     
