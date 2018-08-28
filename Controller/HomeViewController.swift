@@ -25,7 +25,7 @@ class HomeViewController: UITableViewController {
         // set constant height of cells and remove default separators
         self.tableView.rowHeight = 130
         self.tableView.separatorStyle = .none
-        self.tableView.register(menuItemTableViewCell.self, forCellReuseIdentifier: menuItemTableViewCell.identifier)
+        self.tableView.register(MenuItemTableViewCell.self, forCellReuseIdentifier: MenuItemTableViewCell.identifier)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +40,7 @@ class HomeViewController: UITableViewController {
     
     // MARK: - TABLE DATASOURCE FUNCTIONS
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: menuItemTableViewCell.identifier, for: indexPath) as! menuItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemTableViewCell.identifier, for: indexPath) as! MenuItemTableViewCell
         
         cell.customTitleLabel.text = menuItems[indexPath.row]
         cell.customIconView.image = UIImage(named: menuItems[indexPath.row].lowercased())
@@ -62,6 +62,14 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        switch menuItems[indexPath.row] {
+        case "Schedule":
+            let nextView = ScheduleTableViewController()
+            present(UINavigationController(rootViewController: nextView), animated: true, completion: nil)
+            break
+        default:
+            break
+        }
     }
 
 }
