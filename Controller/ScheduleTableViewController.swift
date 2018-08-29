@@ -17,7 +17,7 @@ class ScheduleTableViewController: UITableViewController{
         // Setup navigation bar
         self.navigationController?.navigationBar.barTintColor = BACKGROUND_COLOR
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.backgroundColor = BACKGROUND_COLOR
+        self.navigationController?.navigationBar.backgroundColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.largeTitleDisplayMode = .never
@@ -69,7 +69,8 @@ class ScheduleTableViewController: UITableViewController{
     
     // return number of events + filter menu
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleEventData.count + 1
+//        return sampleEventData.count + 1
+        return 30
     }
     
     // MARK: - TABLE DELEGATE FUNCTIONS
