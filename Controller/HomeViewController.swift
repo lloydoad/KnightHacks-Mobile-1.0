@@ -10,14 +10,13 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     // title and colors for each cell
-    var menuItems: [String] = ["Schedule", "Live Updates", "FAQs", "Workshops", "Sponsors"]
-    let cellColors: [UIColor] =
+    var menuItems: [MenuButton] =
         [
-            UIColor(hex: 0xFF9500, alpha: 1),
-            UIColor(hex: 0x057AFF, alpha: 1),
-            UIColor(hex: 0x26AE60, alpha: 1),
-            UIColor(hex: 0xFF3B31, alpha: 1),
-            UIColor(hex: 0x5755D6, alpha: 1)
+            MenuButton(name: "Schedule", color: ORANGE_COLOR),
+            MenuButton(name: "Live Updates", color: BLUE_COLOR),
+            MenuButton(name: "FAQs", color: GREEN_COLOR),
+            MenuButton(name: "Workshops", color: RED_COLOR),
+            MenuButton(name: "Sponsors", color: BACKGROUND_COLOR)
         ]
     
     override func viewDidLoad() {
@@ -43,9 +42,9 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemTableViewCell.identifier, for: indexPath) as! MenuItemTableViewCell
         
-        cell.customTitleLabel.text = menuItems[indexPath.row]
-        cell.customIconView.image = UIImage(named: menuItems[indexPath.row].lowercased())
-        cell.customBackground.backgroundColor = cellColors[indexPath.row]
+        cell.customTitleLabel.text = menuItems[indexPath.row].name
+        cell.customIconView.image = menuItems[indexPath.row].icon
+        cell.customBackground.backgroundColor = menuItems[indexPath.row].color
         
         return cell
     }
@@ -63,7 +62,7 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        switch menuItems[indexPath.row] {
+        switch menuItems[indexPath.row].name {
         case "Schedule":
             let nextView = ScheduleTableViewController()
             self.navigationController?.pushViewController(nextView, animated: true)
