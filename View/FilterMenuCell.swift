@@ -35,6 +35,7 @@ class FilterMenuTableViewCell: UITableViewCell {
         filterMenuCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: contentView.bounds.width, height: filterMenuHeight), collectionViewLayout: flowlayout)
         filterMenuCollectionView.register(FilterButtonCollectionViewCell.self, forCellWithReuseIdentifier: FilterButtonCollectionViewCell.identifier)
         filterMenuCollectionView.isScrollEnabled = true
+        filterMenuCollectionView.alpha = 1
         filterMenuCollectionView.backgroundColor = BACKGROUND_COLOR
         
         // Constraints to handle size and position

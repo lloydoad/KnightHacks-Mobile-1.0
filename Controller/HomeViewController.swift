@@ -37,7 +37,7 @@ class HomeViewController: UITableViewController {
         self.navigationController?.view.backgroundColor = .white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-    
+
     // MARK: - TABLE DATASOURCE FUNCTIONS
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemTableViewCell.identifier, for: indexPath) as! MenuItemTableViewCell
@@ -64,7 +64,16 @@ class HomeViewController: UITableViewController {
         
         switch menuItems[indexPath.row].name {
         case "Schedule":
-            let nextView = ScheduleTableViewController()
+            let filterButtons: [FilterButton] =
+                [
+                    FilterButton(name: "all"),
+                    FilterButton(name: "all"),
+                    FilterButton(name: "all"),
+                    FilterButton(name: "all"),
+                    FilterButton(name: "all")
+                ]
+            let nextView = ScheduleViewController(style: .plain, filterOptions: filterButtons, rowHeight: 70, rowCount: 10)
+
             self.navigationController?.pushViewController(nextView, animated: true)
             break
         default:

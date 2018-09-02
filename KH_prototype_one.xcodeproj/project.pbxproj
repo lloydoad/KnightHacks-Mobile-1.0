@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C229628213A6FDB001EE130 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C229627213A6FDB001EE130 /* ScheduleViewController.swift */; };
+		4C22962A213AF316001EE130 /* EventItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C229629213AF316001EE130 /* EventItemCell.swift */; };
 		4C4197B2213338680002CBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B1213338680002CBEB /* AppDelegate.swift */; };
 		4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B3213338680002CBEB /* HomeViewController.swift */; };
 		4C4197B7213338690002CBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B5213338690002CBEB /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C229627213A6FDB001EE130 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		4C229629213AF316001EE130 /* EventItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemCell.swift; sourceTree = "<group>"; };
 		4C4197AE213338680002CBEB /* KH_prototype_one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KH_prototype_one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4197B1213338680002CBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C4197B3213338680002CBEB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C229626213A6C1C001EE130 /* BaseTableView */ = {
+			isa = PBXGroup;
+			children = (
+				4CD9DD162135970200E200CB /* CustomTableController.swift */,
+				4C5069D8213787B700095F64 /* CustomTable.swift */,
+				4C5069D6213786F900095F64 /* FilterMenuController.swift */,
+			);
+			path = BaseTableView;
+			sourceTree = "<group>";
+		};
 		4C4197A5213338680002CBEB = {
 			isa = PBXGroup;
 			children = (
@@ -157,9 +171,11 @@
 		4CF3F96E2133753A007DE8EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4C229626213A6C1C001EE130 /* BaseTableView */,
 				4C4197DF21333ED40002CBEB /* MenuItemCell.swift */,
 				4CD9DD1A2135A59300E200CB /* FilterMenuCell.swift */,
 				4C5069D42137869F00095F64 /* FilterButtonCell.swift */,
+				4C229629213AF316001EE130 /* EventItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,9 +185,7 @@
 			children = (
 				4C4197B1213338680002CBEB /* AppDelegate.swift */,
 				4C4197B3213338680002CBEB /* HomeViewController.swift */,
-				4CD9DD162135970200E200CB /* CustomTableController.swift */,
-				4C5069D8213787B700095F64 /* CustomTable.swift */,
-				4C5069D6213786F900095F64 /* FilterMenuController.swift */,
+				4C229627213A6FDB001EE130 /* ScheduleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,7 +323,9 @@
 			files = (
 				4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */,
 				4CD9DD172135970200E200CB /* CustomTableController.swift in Sources */,
+				4C22962A213AF316001EE130 /* EventItemCell.swift in Sources */,
 				4C4197B2213338680002CBEB /* AppDelegate.swift in Sources */,
+				4C229628213A6FDB001EE130 /* ScheduleViewController.swift in Sources */,
 				4C4197E021333ED40002CBEB /* MenuItemCell.swift in Sources */,
 				4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */,
 				4CD9DD1B2135A59300E200CB /* FilterMenuCell.swift in Sources */,

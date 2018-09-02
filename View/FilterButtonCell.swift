@@ -10,17 +10,18 @@ import UIKit
 
 class FilterButtonCollectionViewCell: UICollectionViewCell {
     static var identifier = "FilterButtonCollectionViewCell"
-    var customBackgroundView: UIView!
     var customBackgroundShadow: UIView!
     var customText: UILabel!
-    var customImage: UIImage!
+    var customImage: UIView!
     var customLabel: UILabel!
+    var insetImageContainer: UIImageView!
     let backgroundDiameter: CGFloat = 85
     let borderThickness: CGFloat = 3
     
     // inits
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = .clear
         setupView()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -58,25 +59,40 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(customLabel)
         
         let innerCircleDiameter = backgroundDiameter - borderThickness
-        customBackgroundView = makeCustomView(width: innerCircleDiameter, height: innerCircleDiameter)
-        customBackgroundView.layer.borderColor = BACKGROUND_COLOR.cgColor
-        customBackgroundView.layer.borderWidth = borderThickness
-        customBackgroundShadow.addSubview(customBackgroundView)
-        customBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        customBackgroundView.centerXAnchor.constraint(equalTo: customBackgroundShadow.centerXAnchor).isActive = true
-        customBackgroundView.centerYAnchor.constraint(equalTo: customBackgroundShadow.centerYAnchor).isActive = true
-        customBackgroundView.widthAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
-        customBackgroundView.heightAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
+        customImage = UIView()
+        customImage.translatesAutoresizingMaskIntoConstraints = false
+        customImage.backgroundColor = .white
+        customImage.layer.cornerRadius = innerCircleDiameter / 2
+        customImage.layer.borderColor = BACKGROUND_COLOR.cgColor
+        customImage.layer.borderWidth = borderThickness
+        customImage.layoutMargins = UIEdgeInsetsMake(20, 20, 20, 20)
+        customImage.clipsToBounds = true
+        
+        customBackgroundShadow.addSubview(customImage)
+        customImage.heightAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
+        customImage.widthAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
+        customImage.centerYAnchor.constraint(equalTo: customBackgroundShadow.centerYAnchor).isActive = true
+        customImage.centerXAnchor.constraint(equalTo: customBackgroundShadow.centerXAnchor).isActive = true
+        
+        insetImageContainer = UIImageView()
+        insetImageContainer.translatesAutoresizingMaskIntoConstraints = false
+        insetImageContainer.backgroundColor = .white
+        insetImageContainer.contentMode = .scaleAspectFit
+        customImage.addSubview(insetImageContainer)
+        insetImageContainer.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        insetImageContainer.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        insetImageContainer.centerYAnchor.constraint(equalTo: customImage.centerYAnchor).isActive = true
+        insetImageContainer.centerXAnchor.constraint(equalTo: customImage.centerXAnchor).isActive = true
     }
     
     // Change borders and circumference when selected
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                customBackgroundView.layer.borderWidth = borderThickness
+                customImage.layer.borderWidth = borderThickness
                 customBackgroundShadow.backgroundColor = .white
             } else {
-                customBackgroundView.layer.borderWidth = 0
+                customImage.layer.borderWidth = 0
                 customBackgroundShadow.backgroundColor = .clear
             }
         }

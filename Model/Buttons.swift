@@ -11,7 +11,7 @@ import UIKit
 struct FilterButton {
     var name: String
     var image: UIImage {
-        if let img = UIImage(named: self.name.lowercased())  {
+        if let img = UIImage(named: "\(self.name.lowercased()) filter icon")  {
             return img
         } else {
             return UIImage()
@@ -27,7 +27,7 @@ struct MenuButton {
     var name: String
     var color: UIColor
     var icon: UIImage {
-        if let img = UIImage(named: self.name.lowercased())  {
+        if let img = UIImage(named: (self.name.lowercased()))  {
             return img
         } else {
             return UIImage()
