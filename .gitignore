@@ -1,0 +1,58 @@
+# Xcode
+#
+
+## Build generated
+build/
+DerivedData/
+.Trashes
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+
+## Xcode temporary files
+*~.nib
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+#
+# Packages/
+.build/
+
+# CocoaPods
+# We are keeping the pods on version control
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage/Checkouts
+
+Carthage/Build
+
+# fastlane
+#
+fastlane/report.xml
+fastlane/screenshots
+
+.DS_Store
