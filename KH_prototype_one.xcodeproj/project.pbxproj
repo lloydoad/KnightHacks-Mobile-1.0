@@ -21,6 +21,9 @@
 		4C5069D52137869F00095F64 /* FilterButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5069D42137869F00095F64 /* FilterButtonCell.swift */; };
 		4C5069D7213786F900095F64 /* FilterMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5069D6213786F900095F64 /* FilterMenuController.swift */; };
 		4C5069D9213787B700095F64 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5069D8213787B700095F64 /* CustomTable.swift */; };
+		4C9829002140BE0100104208 /* TableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9828FF2140BE0100104208 /* TableObjects.swift */; };
+		4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9829012140F20D00104208 /* SponsorsViewController.swift */; };
+		4C9829042140F22100104208 /* WorkshopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9829032140F22100104208 /* WorkshopsViewController.swift */; };
 		4CD9DD172135970200E200CB /* CustomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9DD162135970200E200CB /* CustomTableController.swift */; };
 		4CD9DD1921359D3500E200CB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9DD1821359D3500E200CB /* Constants.swift */; };
 		4CD9DD1B2135A59300E200CB /* FilterMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9DD1A2135A59300E200CB /* FilterMenuCell.swift */; };
@@ -65,6 +68,9 @@
 		4C5069D42137869F00095F64 /* FilterButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonCell.swift; sourceTree = "<group>"; };
 		4C5069D6213786F900095F64 /* FilterMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuController.swift; sourceTree = "<group>"; };
 		4C5069D8213787B700095F64 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
+		4C9828FF2140BE0100104208 /* TableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableObjects.swift; sourceTree = "<group>"; };
+		4C9829012140F20D00104208 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
+		4C9829032140F22100104208 /* WorkshopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopsViewController.swift; sourceTree = "<group>"; };
 		4CD9DD162135970200E200CB /* CustomTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableController.swift; sourceTree = "<group>"; };
 		4CD9DD1821359D3500E200CB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4CD9DD1A2135A59300E200CB /* FilterMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuCell.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				4C5069D2213742A000095F64 /* Buttons.swift */,
+				4C9828FF2140BE0100104208 /* TableObjects.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,7 +192,9 @@
 			children = (
 				4C4197B1213338680002CBEB /* AppDelegate.swift */,
 				4C4197B3213338680002CBEB /* HomeViewController.swift */,
+				4C9829032140F22100104208 /* WorkshopsViewController.swift */,
 				4C229627213A6FDB001EE130 /* ScheduleViewController.swift */,
+				4C9829012140F20D00104208 /* SponsorsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,8 +337,11 @@
 				4C229628213A6FDB001EE130 /* ScheduleViewController.swift in Sources */,
 				4C4197E021333ED40002CBEB /* MenuItemCell.swift in Sources */,
 				4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */,
+				4C9829042140F22100104208 /* WorkshopsViewController.swift in Sources */,
 				4CD9DD1B2135A59300E200CB /* FilterMenuCell.swift in Sources */,
 				4C5069D9213787B700095F64 /* CustomTable.swift in Sources */,
+				4C9829002140BE0100104208 /* TableObjects.swift in Sources */,
+				4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */,
 				4CD9DD1921359D3500E200CB /* Constants.swift in Sources */,
 				4C5069D7213786F900095F64 /* FilterMenuController.swift in Sources */,
 				4C5069D3213742A000095F64 /* Buttons.swift in Sources */,

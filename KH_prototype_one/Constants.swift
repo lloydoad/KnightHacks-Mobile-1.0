@@ -18,3 +18,15 @@ let BACKGROUND_COLOR = UIColor(hex: 0x5755D6, alpha: 1)
 let NAVBAR_HEIGHT: CGFloat = 64
 // reduced total height of filter menu because menu took up a lot of space on smaller devices
 let COMBINED_FILTER_HEIGHT: CGFloat = 200
+
+// filter enumerations
+enum Filter: String {
+    case workshops = "workshops"
+    case all = "all"
+    case talks = "talks"
+    case internships = "internships"
+    case full_time = "full-time"
+    case development = "development"
+    case design = "design"
+    case NOT_SET = "nil"
+}

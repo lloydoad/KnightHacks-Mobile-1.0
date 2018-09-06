@@ -36,7 +36,7 @@ extension CustomTableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return tableDataContent.count + 1
     }
     
     // return number of events + filter menu
@@ -44,7 +44,37 @@ extension CustomTableViewController {
         if section == 0 {
             return 1
         } else {
-            return numberOfRows
+            return tableDataContent[section - 1].1.count
+        }
+    }
+    
+    // set height for header
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 || hasHeaders == false {
+            return 0
+        } else {
+            return headerRowHeight
+        }
+    }
+    
+    // title for headers
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if hasHeaders {
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+            let customHeaderView = UIVisualEffectView(effect: blurEffect)
+            customHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: headerRowHeight)
+            customHeaderView.alpha = 0.9
+            let headerLabel = UILabel()
+            headerLabel.font = UIFont.systemFont(ofSize: 36)
+            headerLabel.text = tableDataContent[section - 1].0.capitalized
+            headerLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            customHeaderView.contentView.addSubview(headerLabel)
+            headerLabel.centerYAnchor.constraint(equalTo: customHeaderView.contentView.centerYAnchor).isActive = true
+            headerLabel.leadingAnchor.constraint(equalTo: customHeaderView.contentView.leadingAnchor, constant: 38).isActive = true
+            return customHeaderView
+        } else {
+            return nil
         }
     }
     

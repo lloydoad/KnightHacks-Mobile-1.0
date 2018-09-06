@@ -66,14 +66,40 @@ class HomeViewController: UITableViewController {
         case "Schedule":
             let filterButtons: [FilterButton] =
                 [
-                    FilterButton(name: "all"),
-                    FilterButton(name: "all"),
-                    FilterButton(name: "all"),
-                    FilterButton(name: "all"),
-                    FilterButton(name: "all")
+                    FilterButton(input: Filter.NOT_SET),
+                    FilterButton(input: Filter.talks),
+                    FilterButton(input: Filter.workshops),
+                    FilterButton(input: Filter.all)
                 ]
-            let nextView = ScheduleViewController(style: .plain, filterOptions: filterButtons, rowHeight: 70, rowCount: 10)
-
+            let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
+            
+            let nextView = ScheduleViewController(style: .plain, filterOptions: filterButtons, rowHeight: 107, content: sampleRetrievedData)
+            self.navigationController?.pushViewController(nextView, animated: true)
+            break
+        case "Workshops":
+            let filterButtons: [FilterButton] =
+                [
+                    FilterButton(input: Filter.NOT_SET),
+                    FilterButton(input: Filter.design),
+                    FilterButton(input: Filter.development),
+                    FilterButton(input: Filter.all)
+            ]
+            let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
+            
+            let nextView = WorkshopsViewController(style: .plain, filterOptions: filterButtons, rowHeight: 107, content: sampleRetrievedData)
+            self.navigationController?.pushViewController(nextView, animated: true)
+            break
+        case "Sponsors":
+            let filterButtons: [FilterButton] =
+                [
+                    FilterButton(input: Filter.NOT_SET),
+                    FilterButton(input: Filter.talks),
+                    FilterButton(input: Filter.workshops),
+                    FilterButton(input: Filter.all)
+            ]
+            let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
+            
+            let nextView = SponsorsViewController(style: .plain, filterOptions: filterButtons, rowHeight: 107, content: sampleRetrievedData)
             self.navigationController?.pushViewController(nextView, animated: true)
             break
         default:
