@@ -60,8 +60,11 @@ class CustomTableViewController: UITableViewController {
     
     // Smooth out filter menu transition
     override func viewDidAppear(_ animated: Bool) {
+        // if initial screen load, scroll table and filter menu
         if !isBarAnimationComplete {
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            let lastIndexInCollectionView = IndexPath(row: filterOptions.count - 1, section: 0)
+            self.filterMenuCollectionViewReference.scrollToItem(at: lastIndexInCollectionView, at: .right, animated: true)
             isBarAnimationComplete = true
         }
     }

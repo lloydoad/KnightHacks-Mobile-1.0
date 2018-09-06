@@ -93,8 +93,8 @@ class HomeViewController: UITableViewController {
             let filterButtons: [FilterButton] =
                 [
                     FilterButton(input: Filter.NOT_SET),
-                    FilterButton(input: Filter.talks),
-                    FilterButton(input: Filter.workshops),
+                    FilterButton(input: Filter.internships),
+                    FilterButton(input: Filter.full_time),
                     FilterButton(input: Filter.all)
             ]
             let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]

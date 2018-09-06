@@ -19,7 +19,7 @@ extension CustomTableViewController: UICollectionViewDelegate, UICollectionViewD
         
         cell.insetImageContainer.image = filterOptions[indexPath.row].image
         cell.customLabel.text = filterOptions[indexPath.row].name.capitalized
-        
+                
         return cell
     }
 }
