@@ -18,8 +18,8 @@ struct FilterButton {
         }
     }
     
-    init(name: String) {
-        self.name = name
+    init(input: Filter) {
+        self.name = input.rawValue
     }
 }
 

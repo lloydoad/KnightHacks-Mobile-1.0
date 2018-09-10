@@ -11,19 +11,20 @@ import UIKit
 class CustomTableViewController: UITableViewController {
     var upperViewColor: UIColor = BACKGROUND_COLOR
     var filterMenuCollectionViewReference: UICollectionView!
-    var headerRowHeight: CGFloat = 80
+    var headerRowHeight: CGFloat = 60
     var isBarAnimationComplete: Bool = false
+    var hasHeaders: Bool = true
     
     // Must override in child class
     var otherRowHeight: CGFloat!
-    var numberOfRows: Int!
     var filterOptions: [FilterButton] = []
+    var tableDataContent: [(String,[Int])] = []
     
-    init(style: UITableViewStyle, filterOptions: [FilterButton], rowHeight: CGFloat, rowCount: Int) {
+    init(style: UITableViewStyle, filterOptions: [FilterButton], rowHeight: CGFloat, content: [(String,[Int])] = [("",[])]) {
         super.init(style: style)
         self.filterOptions = filterOptions
-        self.numberOfRows = rowCount
         self.otherRowHeight = rowHeight
+        self.tableDataContent = content
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,8 +60,11 @@ class CustomTableViewController: UITableViewController {
     
     // Smooth out filter menu transition
     override func viewDidAppear(_ animated: Bool) {
+        // if initial screen load, scroll table and filter menu
         if !isBarAnimationComplete {
             self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            let lastIndexInCollectionView = IndexPath(row: filterOptions.count - 1, section: 0)
+            self.filterMenuCollectionViewReference.scrollToItem(at: lastIndexInCollectionView, at: .right, animated: true)
             isBarAnimationComplete = true
         }
     }

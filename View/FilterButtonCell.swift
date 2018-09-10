@@ -45,7 +45,7 @@ class FilterButtonCollectionViewCell: UICollectionViewCell {
         // NOTE cutoff point for label
         customLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 70, height: 14))
         customLabel.backgroundColor = .clear
-        customLabel.text = "TEST TEST"
+        customLabel.text = "NO LABEL"
         customLabel.textColor = .white
         customLabel.textAlignment = .center
         customLabel.font = UIFont.systemFont(ofSize: 14)
