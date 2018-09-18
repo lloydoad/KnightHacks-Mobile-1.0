@@ -171,22 +171,3 @@ class DynamicTableViewCell: UITableViewCell {
         return view
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
