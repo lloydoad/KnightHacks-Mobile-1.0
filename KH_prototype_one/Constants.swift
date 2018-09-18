@@ -18,6 +18,9 @@ let BACKGROUND_COLOR = UIColor(hex: 0x5755D6, alpha: 1)
 let NAVBAR_HEIGHT: CGFloat = 64
 // reduced total height of filter menu because menu took up a lot of space on smaller devices
 let COMBINED_FILTER_HEIGHT: CGFloat = 200
+// controls the height of the live count in live update view
+let LIVE_UPDATE_VIEW_HEIGHT: CGFloat = 146
+
 
 // Filter enumerations
 // Determines type of filter returned

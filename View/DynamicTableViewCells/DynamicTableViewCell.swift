@@ -28,6 +28,7 @@ class DynamicTableViewCell: UITableViewCell {
     var contentImageView: UIImageView?
     var itemDescriptionLabel: UILabel?
     var itemTagLabel: UILabel?
+    var horizontalTagStack: UIStackView?
     
     // change cell structure everytime celltype is changed
     var cellType: FormattedTableViewCellType = .defaultCell {
@@ -42,6 +43,11 @@ class DynamicTableViewCell: UITableViewCell {
         }
     }
     var hasRegularRightDetail: Bool = false {
+        didSet {
+            reloadView()
+        }
+    }
+    var hasStyledTags: Bool = false {
         didSet {
             reloadView()
         }
@@ -127,7 +133,18 @@ class DynamicTableViewCell: UITableViewCell {
         return label
     }
     
-    func createTagInView() -> UIView {
+    func addNewTag(tag: String = "default tag") {
+        var view: UIView
+        if hasStyledTags {
+            view = createTagInView(defaultText: tag)
+        } else {
+            view = createFormattedLabel(type: .minorParagraph, defaultText: tag, alignment: .center)
+        }
+        guard let hts = horizontalTagStack else {return}
+        hts.insertArrangedSubview(view, at: 0)
+    }
+    
+    func createTagInView(defaultText: String = "default tag") -> UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 81, height: 22))
         view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -143,7 +160,7 @@ class DynamicTableViewCell: UITableViewCell {
         gradient.colors = [UIColor(hex: 0x0CB2FF, alpha: 1).cgColor, UIColor(hex: 0x057AFF, alpha: 1).cgColor]
         view.layer.insertSublayer(gradient, at: 0)
         
-        itemTagLabel = createFormattedLabel(type: .minorParagraph, defaultText: "default tag", alignment: .left)
+        itemTagLabel = createFormattedLabel(type: .minorParagraph, defaultText: defaultText, alignment: .center)
         itemTagLabel?.textColor = .white
         itemTagLabel?.translatesAutoresizingMaskIntoConstraints = false
         

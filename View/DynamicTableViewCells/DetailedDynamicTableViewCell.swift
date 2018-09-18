@@ -54,19 +54,22 @@ extension DynamicTableViewCell {
         
         mainVerticalStack.addArrangedSubview(contentImageView!)
         mainVerticalStack.addArrangedSubview(innerHorizontalStack)
+        
+        horizontalTagStack = UIStackView()
+        horizontalTagStack!.axis = .horizontal
+        horizontalTagStack!.alignment = .leading
+        horizontalTagStack!.distribution = .fill
+        horizontalTagStack!.spacing = 10
+        horizontalTagStack!.translatesAutoresizingMaskIntoConstraints = false
+        
         if hasUpperTags {
-            let horizontalStack = UIStackView()
-            horizontalStack.axis = .horizontal
-            horizontalStack.alignment = .leading
-            horizontalStack.distribution = .fill
-            horizontalStack.spacing = 10
-            horizontalStack.translatesAutoresizingMaskIntoConstraints = false
-            mainVerticalStack.addArrangedSubview(horizontalStack)
-            horizontalStack.addArrangedSubview(createTagInView())
-            horizontalStack.addArrangedSubview(createTagInView())
-            horizontalStack.addArrangedSubview(UIView())
+            mainVerticalStack.addArrangedSubview(horizontalTagStack!)
+            horizontalTagStack!.addArrangedSubview(UIView())
         }
         mainVerticalStack.addArrangedSubview(itemDescriptionLabel!)
-        if !hasUpperTags { mainVerticalStack.addArrangedSubview(itemTagLabel!) }
+        if !hasUpperTags {
+            mainVerticalStack.addArrangedSubview(horizontalTagStack!)
+            horizontalTagStack!.addArrangedSubview(UIView())
+        }
     }
 }

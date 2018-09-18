@@ -18,10 +18,16 @@ class LiveUpdatesViewController: ParentTableView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.estimatedRowHeight
+        if indexPath.row == 0 {
+            return LIVE_UPDATE_VIEW_HEIGHT
+        } else {
+            return tableView.estimatedRowHeight
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,10 +35,17 @@ class LiveUpdatesViewController: ParentTableView {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-        cell.cellType = .leftImageCell
-        cell.contentImageView?.image = #imageLiteral(resourceName: "knight hacks image")
-        cell.selectionStyle = .none
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: LiveUpdatesTableViewCell.identifier, for: indexPath) as! LiveUpdatesTableViewCell
+            // set liveupdatesview here (setting view will update the cell)
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
+            cell.cellType = .leftImageCell
+            cell.contentImageView?.image = #imageLiteral(resourceName: "knight hacks image")
+            cell.selectionStyle = .none
+            return cell
+        }
     }
 }

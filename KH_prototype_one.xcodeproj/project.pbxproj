@@ -33,6 +33,7 @@
 		4CDEE670215154470068E729 /* DefaultDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE66F215154470068E729 /* DefaultDynamicTableViewCell.swift */; };
 		4CDEE672215154AB0068E729 /* DetailedDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE671215154AB0068E729 /* DetailedDynamicTableViewCell.swift */; };
 		4CDEE6742151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */; };
+		4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		4CDEE66F215154470068E729 /* DefaultDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE671215154AB0068E729 /* DetailedDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenDetailDynamicTableViewCell.swift; sourceTree = "<group>"; };
+		4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDEE66C21514FBC0068E729 /* DynamicTableViewCells */,
+				4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */,
 				4C4197DF21333ED40002CBEB /* MenuItemCell.swift */,
 				4CD9DD1A2135A59300E200CB /* FilterMenuTableViewCell.swift */,
 				4C5069D42137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift */,
@@ -377,6 +380,7 @@
 				4C5069D7213786F900095F64 /* FilterMenuController.swift in Sources */,
 				4C5069D3213742A000095F64 /* Buttons.swift in Sources */,
 				4C919BBB214E8F7900C1B127 /* DynamicTableViewCell.swift in Sources */,
+				4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */,
 				4C5069D52137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
