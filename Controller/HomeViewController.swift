@@ -73,7 +73,11 @@ class HomeViewController: UITableViewController {
                 ]
             let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
             
-            let nextView = ScheduleViewController(style: .plain, filterOptions: filterButtons, rowHeight: 107, content: sampleRetrievedData)
+            let nextView = ScheduleViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
+            self.navigationController?.pushViewController(nextView, animated: true)
+            break
+        case "Live Updates":
+            let nextView = LiveUpdatesViewController(style: .plain)
             self.navigationController?.pushViewController(nextView, animated: true)
             break
         case "Workshops":
@@ -86,7 +90,7 @@ class HomeViewController: UITableViewController {
             ]
             let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
             
-            let nextView = WorkshopsViewController(style: .plain, filterOptions: filterButtons, rowHeight: 107, content: sampleRetrievedData)
+            let nextView = WorkshopsViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
             self.navigationController?.pushViewController(nextView, animated: true)
             break
         case "Sponsors":
@@ -99,7 +103,7 @@ class HomeViewController: UITableViewController {
             ]
             let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
             
-            let nextView = SponsorsViewController(style: .plain, filterOptions: filterButtons, rowHeight: 107, content: sampleRetrievedData)
+            let nextView = SponsorsViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
             self.navigationController?.pushViewController(nextView, animated: true)
             break
         default:

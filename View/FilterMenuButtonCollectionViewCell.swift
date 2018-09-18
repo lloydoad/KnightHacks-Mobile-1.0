@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterButtonCollectionViewCell: UICollectionViewCell {
+class FilterMenuButtonCollectionViewCell: UICollectionViewCell {
     static var identifier = "FilterButtonCollectionViewCell"
     var customBackgroundShadow: UIView!
     var customText: UILabel!
