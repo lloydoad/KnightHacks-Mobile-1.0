@@ -8,13 +8,13 @@
 
 import UIKit
 
-extension CustomTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FilteredParentTableView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterOptions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = filterMenuCollectionViewReference.dequeueReusableCell(withReuseIdentifier: FilterButtonCollectionViewCell.identifier, for: indexPath) as! FilterButtonCollectionViewCell
+        let cell = filterMenuCollectionViewReference.dequeueReusableCell(withReuseIdentifier: FilterMenuButtonCollectionViewCell.identifier, for: indexPath) as! FilterMenuButtonCollectionViewCell
         cell.isSelected = false
         
         cell.insetImageContainer.image = filterOptions[indexPath.row].image

@@ -23,3 +23,17 @@ class ScheduleObject {
         self.type = type
     }
 }
+
+class LiveUpdateObject {
+    var description: String
+    var time: String
+    var timeSince: Int
+    var image: UIImage
+    
+    init(description: String, time: String, timeSince: Int, image: UIImage) {
+        self.description = description
+        self.time = time
+        self.timeSince = timeSince
+        self.image = image
+    }
+}

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CustomTableViewController {
+extension FilteredParentTableView {
     // MARK: - TABLE DATASOURCE FUNCTIONS
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 && indexPath.section == 0{
@@ -16,6 +16,8 @@ extension CustomTableViewController {
             filterMenuCollectionViewReference = dequeuedCell.filterMenuCollectionView
             filterMenuCollectionViewReference.delegate = self
             filterMenuCollectionViewReference.dataSource = self
+            
+            // total length is the content length of the collection view controller
             let totalLength: CGFloat = (COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT - 30) * 5
             filterMenuCollectionViewReference.contentSize = CGSize(width: totalLength, height: totalLength)
             return dequeuedCell
@@ -31,7 +33,7 @@ extension CustomTableViewController {
         if indexPath.section == 0 {
             return COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT
         } else {
-            return otherRowHeight
+            return tableView.estimatedRowHeight
         }
     }
     

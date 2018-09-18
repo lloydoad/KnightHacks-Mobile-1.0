@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScheduleViewController: CustomTableViewController {
+class ScheduleViewController: FilteredParentTableView {
     // Model has to be in the form [(String, [Int])]
     
     // Make changes to default view settings
@@ -17,13 +17,13 @@ class ScheduleViewController: CustomTableViewController {
         
 //        update model with api
 //        tableDataContent = sampleRetrievedData
-//        otherRowHeight = 107
     }
     
     // Override cells excluding filter menu cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: EventItemCell.identifier, for: indexPath) as! EventItemCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
+            cell.cellType = .defaultCell
             cell.selectionStyle = .none
             return cell
         } else {

@@ -33,7 +33,7 @@ class FilterMenuTableViewCell: UITableViewCell {
         
         // Make, register and customize collection view for filter buttons
         filterMenuCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: contentView.bounds.width, height: filterMenuHeight), collectionViewLayout: flowlayout)
-        filterMenuCollectionView.register(FilterButtonCollectionViewCell.self, forCellWithReuseIdentifier: FilterButtonCollectionViewCell.identifier)
+        filterMenuCollectionView.register(FilterMenuButtonCollectionViewCell.self, forCellWithReuseIdentifier: FilterMenuButtonCollectionViewCell.identifier)
         filterMenuCollectionView.isScrollEnabled = true
         filterMenuCollectionView.alpha = 1
         filterMenuCollectionView.backgroundColor = BACKGROUND_COLOR
