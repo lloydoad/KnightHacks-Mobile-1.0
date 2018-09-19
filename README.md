@@ -7,7 +7,7 @@
 
 ## Setup
 
-## Class and File Conventions
+## Class Conventions and Usage
 
 Most of the tableview classes inherit common features from `ParentTableView` or `FilteredParentTableView`. Both of these classes can be directly inherited from and edited (or not). All cell classes are `DynamicTableViewCell`. Cells can be customized to different major types of cells by setting `cellType` variable.
 
@@ -21,6 +21,12 @@ Most of the tableview classes inherit common features from `ParentTableView` or 
   - `FilteredParentTableView`
   - `FrequentlyAskedViewController`
   - `LiveUpdateViewController`
+  
+###### Usage
+- Initialization
+```swift 
+let view = ParentTableView()
+```
 
 ##### FilteredParentTableView
 - Inherits from `ParentTableView`
@@ -31,5 +37,20 @@ Most of the tableview classes inherit common features from `ParentTableView` or 
   - `WorkshopsViewController`
   - `ScheduleViewController`
   - `SponsorsViewController`
+
+###### Usage
+- Initialization
+```swift 
+let viewController = FilteredParentTableView(style: UITableViewStyle, filterOptions: [FilterButton], content: [(String,[Int])])
+```
+- Changing View Features
+```swift 
+var isBarAnimationComplete: Bool { get, set }
+var hasHeaders: Bool { get, set }
+
+var headerRowHeight: CGFloat { get, set }
+var filterOptions: [FilterButton] { get, set }
+var tableDataContent: [(String,[Int])] { get, set }
+```
 
 #### Table Cell Views
