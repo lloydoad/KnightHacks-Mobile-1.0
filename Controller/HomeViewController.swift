@@ -106,6 +106,10 @@ class HomeViewController: UITableViewController {
             let nextView = SponsorsViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
             self.navigationController?.pushViewController(nextView, animated: true)
             break
+        case "FAQs":
+            let nextView = FrequentlyAskedViewController(style: .plain)
+            self.navigationController?.pushViewController(nextView, animated: true)
+            break
         default:
             break
         }

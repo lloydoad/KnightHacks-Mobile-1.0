@@ -12,13 +12,13 @@ class DynamicTableViewCell: UITableViewCell {
     static let identifier: String = "DynamicTableViewCell"
     
     // margins, borders and sizes
-    let xMargin: CGFloat = 23
-    let yMargin: CGFloat = 8
-    let backgroundInnerMargin: CGFloat = 15
+    var xMargin: CGFloat = 23
+    var yMargin: CGFloat = 8
+    var backgroundInnerMargin: CGFloat = 15
     
     // cell details
-    let imageSideLength: CGFloat = 51
-    let largeImageSideLength: CGFloat = 150
+    var imageSideLength: CGFloat = 51
+    var largeImageSideLength: CGFloat = 150
     
     // components in cell view
     var backgroundViewWithShadow: UIView?
@@ -29,6 +29,7 @@ class DynamicTableViewCell: UITableViewCell {
     var itemDescriptionLabel: UILabel?
     var itemTagLabel: UILabel?
     var horizontalTagStack: UIStackView?
+    var showMoreButton: UIButton?
     
     // change cell structure everytime celltype is changed
     var cellType: FormattedTableViewCellType = .defaultCell {
@@ -42,12 +43,20 @@ class DynamicTableViewCell: UITableViewCell {
             reloadView()
         }
     }
+    // uhh...
     var hasRegularRightDetail: Bool = false {
         didSet {
             reloadView()
         }
     }
+    // has a tag with view background
     var hasStyledTags: Bool = false {
+        didSet {
+            reloadView()
+        }
+    }
+    // showing hidden details of hidden detail cell
+    var isShowingDetails: Bool = false {
         didSet {
             reloadView()
         }

@@ -21,6 +21,8 @@ let COMBINED_FILTER_HEIGHT: CGFloat = 200
 // controls the height of the live count in live update view
 let LIVE_UPDATE_VIEW_HEIGHT: CGFloat = 146
 
+// faq row height controls
+let REDUCED_ROW_HEIGHT: CGFloat = 110
 
 // Filter enumerations
 // Determines type of filter returned
@@ -56,3 +58,4 @@ let PARAGRAPH_FONT = UIFont.systemFont(ofSize: 14, weight: .regular)
 let MINOR_PARAGRAPH_FONT = UIFont.systemFont(ofSize: 11.5, weight: .light)
 let TITLE_FONT = UIFont.systemFont(ofSize: 20, weight: .bold)
 let MAJOR_PARAGRAPH_FONT = UIFont.systemFont(ofSize: 24, weight: .regular)
+let MAJOR_REGULAR_FONT = UIFont.systemFont(ofSize: 20, weight: .regular)

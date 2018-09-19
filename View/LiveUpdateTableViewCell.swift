@@ -19,6 +19,7 @@ class LiveUpdatesTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = BACKGROUND_COLOR
+        selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {

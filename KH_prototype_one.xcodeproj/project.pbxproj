@@ -34,6 +34,7 @@
 		4CDEE672215154AB0068E729 /* DetailedDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE671215154AB0068E729 /* DetailedDynamicTableViewCell.swift */; };
 		4CDEE6742151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */; };
 		4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */; };
+		4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		4CDEE671215154AB0068E729 /* DetailedDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenDetailDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewCell.swift; sourceTree = "<group>"; };
+		4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +225,7 @@
 				4C229627213A6FDB001EE130 /* ScheduleViewController.swift */,
 				4C9829012140F20D00104208 /* SponsorsViewController.swift */,
 				4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */,
+				4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */,
 				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
 			);
 			path = Controller;
@@ -371,6 +374,7 @@
 				4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */,
 				4C9829042140F22100104208 /* WorkshopsViewController.swift in Sources */,
 				4C919BBE214FF5A900C1B127 /* ParentTableView.swift in Sources */,
+				4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */,
 				4CD9DD1B2135A59300E200CB /* FilterMenuTableViewCell.swift in Sources */,
 				4CDEE670215154470068E729 /* DefaultDynamicTableViewCell.swift in Sources */,
 				4C5069D9213787B700095F64 /* FilteredParentTableViewExtension.swift in Sources */,
