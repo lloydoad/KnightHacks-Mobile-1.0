@@ -34,7 +34,7 @@ class LiveUpdateCountdownTimerViewController: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        isCountdownLive = true
+        isCountdownLive = false
         
         setupTitle(frame: frame)
         setupCountdownUI()
@@ -46,48 +46,44 @@ class LiveUpdateCountdownTimerViewController: UIView {
         super.init(coder: aDecoder)
     }
     
-    
     func setupTitle(frame: CGRect) {
         stackView = UIStackView(frame: frame)
-        stackView.axis = .vertical
-        stackView.alignment  = .center
-        
-        titleStackView = UIStackView(frame: frame)
-        titleStackView.axis = .horizontal
-        titleStackView.alignment = .center
-        titleStackView.spacing = 15
-        
-        title = UILabel()
-        title.font = BIG_HEADER_FONT
-        title.text = APP_EVENT_NAME
-        title.textColor = .white
-        
-        liveIndicatorLabelBackground = UIView()
-        liveIndicatorLabelBackground.backgroundColor = UIColor.red
-        liveIndicatorLabelBackground.layer.cornerRadius = LIVE_INDICATOR_CORNER_RADIUS
-        liveIndicatorLabelBackground.translatesAutoresizingMaskIntoConstraints = false
-        liveIndicatorLabelBackground.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        liveIndicatorLabelBackground.heightAnchor.constraint(equalToConstant: 40).isActive = true
-
-        liveIndicatorLabel = UILabel(frame: CGRect(x: 5, y: 0, width: 75, height: 40))
-        liveIndicatorLabelBackground.addSubview(liveIndicatorLabel)
-        liveIndicatorLabel.text = LIVE_INDICATOR_TEXT
-        liveIndicatorLabel.font = BIG_HEADER_FONT
-        liveIndicatorLabel.textColor = .white
-        
-        titleStackView.addArrangedSubview(title)
-        
-        if isCountdownLive {
-            titleStackView.addArrangedSubview(liveIndicatorLabelBackground)
-        }
-        
-        stackView.addArrangedSubview(titleStackView)
         self.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        stackView.axis = .vertical
+        stackView.alignment  = .center
+        
+        titleStackView = UIStackView(frame: frame)
+        stackView.addArrangedSubview(titleStackView)
+        titleStackView.axis = .horizontal
+        titleStackView.alignment = .center
+        titleStackView.spacing = 15
+        
+        title = UILabel()
+        titleStackView.addArrangedSubview(title)
+        title.font = BIG_HEADER_FONT
+        title.text = APP_EVENT_NAME
+        title.textColor = .white
+        
+        if isCountdownLive {
+            liveIndicatorLabelBackground = UIView()
+            titleStackView.addArrangedSubview(liveIndicatorLabelBackground)
+            liveIndicatorLabelBackground.backgroundColor = UIColor.red
+            liveIndicatorLabelBackground.layer.cornerRadius = LIVE_INDICATOR_CORNER_RADIUS
+            liveIndicatorLabelBackground.translatesAutoresizingMaskIntoConstraints = false
+            liveIndicatorLabelBackground.widthAnchor.constraint(equalToConstant: 75).isActive = true
+            liveIndicatorLabelBackground.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            
+            liveIndicatorLabel = UILabel(frame: CGRect(x: 5, y: 0, width: 75, height: 40))
+            liveIndicatorLabelBackground.addSubview(liveIndicatorLabel)
+            liveIndicatorLabel.text = LIVE_INDICATOR_TEXT
+            liveIndicatorLabel.font = BIG_HEADER_FONT
+            liveIndicatorLabel.textColor = .white
+        }
     }
     
     func setupCountdownUI() {
