@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import KH_prototype_one
+@testable import KnightHacks
 
 class KH_prototype_oneTests: XCTestCase {
     

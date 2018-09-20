@@ -147,7 +147,9 @@ class DynamicTableViewCell: UITableViewCell {
         if hasStyledTags {
             view = createTagInView(defaultText: tag)
         } else {
-            view = createFormattedLabel(type: .minorParagraph, defaultText: tag, alignment: .center)
+            let label = createFormattedLabel(type: .minorParagraph, defaultText: tag, alignment: .center) as UILabel
+            label.textColor = GREEN_COLOR
+            view = label
         }
         guard let hts = horizontalTagStack else {return}
         hts.insertArrangedSubview(view, at: 0)

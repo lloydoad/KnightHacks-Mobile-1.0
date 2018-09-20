@@ -9,7 +9,7 @@
 import UIKit
 
 class WorkshopsViewController: FilteredParentTableView {
-    // Model has to be in the form [(String, [Int])]
+    let tags: [String] = ["default 1", "default 2"]
     
     // Make changes to default view settings
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +26,9 @@ class WorkshopsViewController: FilteredParentTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             cell.cellType = .detailedCell
             cell.contentImageView?.image = UIImage(named: "knight hacks image")
+            for tag in tags {
+                cell.addNewTag(tag: tag)
+            }
             cell.selectionStyle = .none
             return cell
         } else {
