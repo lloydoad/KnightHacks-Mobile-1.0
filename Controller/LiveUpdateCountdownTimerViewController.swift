@@ -34,7 +34,7 @@ class LiveUpdateCountdownTimerViewController: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        isCountdownLive = false
+        isCountdownLive = true
         
         setupTitle(frame: frame)
         setupCountdownUI()
@@ -116,8 +116,12 @@ class LiveUpdateCountdownTimerViewController: UIView {
         let dummyStartDate = dateFormatter.string(from: currentTime.addingTimeInterval(TimeInterval(48.0 * 60.0 * 60.0)))
         
         targetTime = dateFormatter.date(from: dummyStartDate)
-        timeIntervalInSeconds = Int(DateInterval(start: currentTime, end: targetTime).duration)
+
+        if targetTime.timeIntervalSince(currentTime).isLess(than: 0) {
+            return
+        }
         
+        timeIntervalInSeconds = Int(DateInterval(start: currentTime, end: targetTime).duration)
         (countdownHours, countdownMinutes, countdownSeconds) = secondsToHoursMinutesSeconds(seconds: timeIntervalInSeconds)
     }
     
