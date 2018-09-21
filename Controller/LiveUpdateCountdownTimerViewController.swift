@@ -30,6 +30,8 @@ class LiveUpdateCountdownTimerViewController: UIView {
     let LIVE_INDICATOR_SUBTITLE = "until hacking ends"
     let DEFAULT_COUNTDOWN_TIME = "00:00:00"
     let LIVE_INDICATOR_CORNER_RADIUS = CGFloat(integerLiteral: 7)
+    let LIVE_INDICATOR_WIDTH = CGFloat(integerLiteral: 75)
+    let LIVE_INDICATOR_HEIGHT = CGFloat(integerLiteral: 40)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,10 +77,10 @@ class LiveUpdateCountdownTimerViewController: UIView {
             liveIndicatorLabelBackground.backgroundColor = UIColor.red
             liveIndicatorLabelBackground.layer.cornerRadius = LIVE_INDICATOR_CORNER_RADIUS
             liveIndicatorLabelBackground.translatesAutoresizingMaskIntoConstraints = false
-            liveIndicatorLabelBackground.widthAnchor.constraint(equalToConstant: 75).isActive = true
-            liveIndicatorLabelBackground.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            liveIndicatorLabelBackground.widthAnchor.constraint(equalToConstant: LIVE_INDICATOR_WIDTH).isActive = true
+            liveIndicatorLabelBackground.heightAnchor.constraint(equalToConstant: LIVE_INDICATOR_HEIGHT).isActive = true
             
-            liveIndicatorLabel = UILabel(frame: CGRect(x: 5, y: 0, width: 75, height: 40))
+            liveIndicatorLabel = UILabel(frame: CGRect(x: 5, y: 0, width: LIVE_INDICATOR_WIDTH, height: LIVE_INDICATOR_HEIGHT))
             liveIndicatorLabelBackground.addSubview(liveIndicatorLabel)
             liveIndicatorLabel.text = LIVE_INDICATOR_TEXT
             liveIndicatorLabel.font = BIG_HEADER_FONT
