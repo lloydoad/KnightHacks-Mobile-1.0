@@ -38,16 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        // Sets rootController to HomeViewController().
-        let rootController = HomeViewController()
-        window?.rootViewController = UINavigationController(rootViewController: rootController)
-        
-        // Hide navigationBar while animation.
-        rootController.navigationController?.navigationBar.alpha = 0.0
+        // Sets rootController to be a UIViewController(). Which will work as a base for the initial animation.
+        let rootController = UIViewController()
+        window?.rootViewController = rootController
         
         // Rocket subView.
-        let rocketImage = UIImageView(frame: CGRect(x: (rootController.view.bounds.maxX)/3
-            , y: ((rootController.view.bounds.maxY)/3) - 10, width: 120, height: 280))
+        let rocketImage = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.maxX)/3
+            , y: ((UIScreen.main.bounds.maxY)/3), width: 120, height: 280))
+        // Setting rocket image to center of screen.
+        rocketImage.center.y = rootController.view.frame.size.height/2
         rocketImage.center.x = rootController.view.frame.size.width/2
         rocketImage.animationImages = rocketImages
         
@@ -65,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let backgroundRedStar2 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 280), y: -460, width: 20, height: 20))
         backgroundRedStar2.image = UIImage(named: "red-star.png")
         
-        let backgroundBlueStar2 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width)/2, y: -1000, width: 20, height: 20))
+        let backgroundBlueStar2 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 350), y: -900, width: 20, height: 20))
         backgroundBlueStar2.image = UIImage(named: "blue-star.png")
         
         // Background Clouds.
@@ -97,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         clouds9.image = UIImage(named: "Group 5.png")
         
         
-        // Adding subLayers to HomeViewController().
+        // Adding subLayers to base UIViewController().
         rootController.view.addSubview(rocketImage)
         rootController.view.addSubview(background)
         rootController.view.addSubview(backgroundRedStar)
@@ -114,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rootController.view.addSubview(clouds8)
         rootController.view.addSubview(clouds9)
         
-        
+        // Bringin subLayers to top.
         rootController.view.bringSubview(toFront: background)
         rootController.view.bringSubview(toFront: clouds)
         rootController.view.bringSubview(toFront: clouds2)
@@ -148,66 +147,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                        completion: nil
         )
         
-        // Background fade animation.
-        UIView.animate(withDuration: 2,
-                       delay: 5,
-                       options: UIViewAnimationOptions.curveEaseOut,
-                       
-                       animations: {
-                        rocketImage.alpha = 0.0
-                        background.alpha = 0.0
-                        backgroundRedStar.alpha = 0.0
-                        backgroundBlueStar.alpha = 0.0
-                        backgroundRedStar2.alpha = 0.0
-                        backgroundBlueStar2.alpha = 0.0
-                        clouds.alpha = 0.0
-                        clouds2.alpha = 0.0
-                        clouds3.alpha = 0.0
-                        clouds4.alpha = 0.0
-                        clouds5.alpha = 0.0
-                        clouds6.alpha = 0.0
-                        clouds7.alpha = 0.0
-                        clouds8.alpha = 0.0
-                        clouds9.alpha = 0.0
-                        
-        }, completion: { finished in
-            background.removeFromSuperview()
-            rootController.view.layer.mask?.removeFromSuperlayer()
-            rootController.navigationController?.isNavigationBarHidden = false
-        })
-        
         // Moving Background animation.
         UIView.animate(withDuration: 6,
                        
                        animations: {
-                        backgroundRedStar.layer.frame.origin.y += 1300
-                        backgroundBlueStar.layer.frame.origin.y += 1300
-                        backgroundRedStar2.layer.frame.origin.y += 1300
-                        backgroundBlueStar2.layer.frame.origin.y += 1300
-                        clouds.layer.frame.origin.y += 1300
-                        clouds2.layer.frame.origin.y += 1300
-                        clouds3.layer.frame.origin.y += 1300
-                        clouds4.layer.frame.origin.y += 1300
-                        clouds5.layer.frame.origin.y += 1300
-                        clouds6.layer.frame.origin.y += 1300
-                        clouds7.layer.frame.origin.y += 1300
-                        clouds8.layer.frame.origin.y += 1300
-                        clouds9.layer.frame.origin.y += 1300
+                        backgroundRedStar.layer.frame.origin.y += 1000
+                        backgroundBlueStar.layer.frame.origin.y += 1000
+                        backgroundRedStar2.layer.frame.origin.y += 1000
+                        backgroundBlueStar2.layer.frame.origin.y += 1000
+                        clouds.layer.frame.origin.y += 1000
+                        clouds2.layer.frame.origin.y += 1000
+                        clouds3.layer.frame.origin.y += 1000
+                        clouds4.layer.frame.origin.y += 1000
+                        clouds5.layer.frame.origin.y += 1000
+                        clouds6.layer.frame.origin.y += 1000
+                        clouds7.layer.frame.origin.y += 1000
+                        clouds8.layer.frame.origin.y += 1000
+                        clouds9.layer.frame.origin.y += 1000
         },
                        completion: { finished in
-                        backgroundRedStar.removeFromSuperview()
-                        backgroundBlueStar.removeFromSuperview()
-                        backgroundRedStar2.removeFromSuperview()
-                        backgroundBlueStar2.removeFromSuperview()
-                        clouds.removeFromSuperview()
-                        clouds2.removeFromSuperview()
-                        clouds3.removeFromSuperview()
-                        clouds4.removeFromSuperview()
-                        clouds5.removeFromSuperview()
-                        clouds6.removeFromSuperview()
-                        clouds7.removeFromSuperview()
-                        clouds8.removeFromSuperview()
-                        clouds9.removeFromSuperview()
+                        rootController.present(UINavigationController(rootViewController: HomeViewController()), animated: true, completion: nil)
                         
         })
         

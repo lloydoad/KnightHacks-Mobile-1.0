@@ -41,13 +41,13 @@ class HomeViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         
-        UIView.animate(withDuration: 2,
-                       delay: 6,
-                       
-                       animations: {
-                        self.navigationController?.navigationBar.alpha = 1
+//        UIView.animate(withDuration: 2,
+//                       delay: 6,
+//                       
+//                       animations: {
+//                        self.navigationController?.navigationBar.alpha = 1
                         self.navigationController?.navigationBar.isHidden = false
-        })
+//        })
     }
     
     // MARK: - TABLE DATASOURCE FUNCTIONS

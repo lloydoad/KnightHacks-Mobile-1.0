@@ -19,23 +19,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dz1-Cs-J4Y">
-                                <rect key="frame" x="127" y="266" width="120" height="280.66666666666663"/>
+                                <rect key="frame" x="127" y="266" width="121" height="280"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rocket-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-wt-NGP">
-                                        <rect key="frame" x="0.0" y="25" width="120" height="280"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-wt-NGP">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="280" id="9n5-6E-Qjc"/>
+                                            <constraint firstAttribute="width" constant="120" id="pzv-B6-JKT"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="J6o-LC-eSD"/>
-                                    <constraint firstAttribute="width" constant="120" id="rz4-Gy-Kps"/>
+                                    <constraint firstItem="bqm-wt-NGP" firstAttribute="leading" secondItem="dz1-Cs-J4Y" secondAttribute="leading" id="gck-zF-NPD"/>
+                                    <constraint firstItem="bqm-wt-NGP" firstAttribute="centerX" secondItem="dz1-Cs-J4Y" secondAttribute="centerX" id="k5s-pW-Ida"/>
+                                    <constraint firstItem="bqm-wt-NGP" firstAttribute="top" secondItem="dz1-Cs-J4Y" secondAttribute="top" id="rn4-hF-a49"/>
+                                    <constraint firstAttribute="bottom" secondItem="bqm-wt-NGP" secondAttribute="bottom" id="yJ6-jC-8Qs"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.035294117647058823" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dz1-Cs-J4Y" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="0.33333333333331439" id="6eN-Su-uiV"/>
-                            <constraint firstItem="dz1-Cs-J4Y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ihC-dy-o33"/>
+                            <constraint firstItem="dz1-Cs-J4Y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Her-4v-EOo"/>
+                            <constraint firstItem="dz1-Cs-J4Y" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="UrO-SX-wWY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
