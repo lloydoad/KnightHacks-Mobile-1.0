@@ -12,7 +12,6 @@
 		4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B3213338680002CBEB /* HomeViewController.swift */; };
 		4C4197B7213338690002CBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B5213338690002CBEB /* Main.storyboard */; };
 		4C4197B92133386D0002CBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B82133386D0002CBEB /* Assets.xcassets */; };
-		4C4197BC2133386D0002CBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */; };
 		4C4197C72133386E0002CBEB /* KH_prototype_oneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197C62133386E0002CBEB /* KH_prototype_oneTests.swift */; };
 		4C4197D22133386E0002CBEB /* KH_prototype_oneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197D12133386E0002CBEB /* KH_prototype_oneUITests.swift */; };
 		4C4197E021333ED40002CBEB /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197DF21333ED40002CBEB /* MenuItemCell.swift */; };
@@ -35,6 +34,17 @@
 		4CDEE6742151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */; };
 		4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
+		5EBBA0F42155D87E0022E2D8 /* rocket-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0EF2155D87D0022E2D8 /* rocket-1.png */; };
+		5EBBA0F52155D87E0022E2D8 /* rocket-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F02155D87D0022E2D8 /* rocket-4.png */; };
+		5EBBA0F62155D87E0022E2D8 /* rocket-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F12155D87D0022E2D8 /* rocket-5.png */; };
+		5EBBA0F72155D87E0022E2D8 /* rocket-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F22155D87E0022E2D8 /* rocket-3.png */; };
+		5EBBA0F82155D87E0022E2D8 /* rocket-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F32155D87E0022E2D8 /* rocket-2.png */; };
+		5EBBA0FA2155D88D0022E2D8 /* Group 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F92155D88D0022E2D8 /* Group 4.png */; };
+		5EBBA0FC2155D8930022E2D8 /* Group 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FB2155D8930022E2D8 /* Group 5.png */; };
+		5EBBA0FE2155D8C80022E2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FD2155D8C80022E2D8 /* LaunchScreen.storyboard */; };
+		5EBBA1012155D9110022E2D8 /* blue-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FF2155D9110022E2D8 /* blue-star.png */; };
+		5EBBA1022155D9110022E2D8 /* red-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA1002155D9110022E2D8 /* red-star.png */; };
+		5EBBA1042155D91B0022E2D8 /* cloud-combo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA1032155D91B0022E2D8 /* cloud-combo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +71,6 @@
 		4C4197B3213338680002CBEB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4C4197B6213338690002CBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C4197B82133386D0002CBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4C4197BB2133386D0002CBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C4197BD2133386D0002CBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4197C22133386E0002CBEB /* KH_prototype_oneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KH_prototype_oneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4197C62133386E0002CBEB /* KH_prototype_oneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KH_prototype_oneTests.swift; sourceTree = "<group>"; };
@@ -89,6 +98,17 @@
 		4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenDetailDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		5EBBA0EF2155D87D0022E2D8 /* rocket-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-1.png"; sourceTree = "<group>"; };
+		5EBBA0F02155D87D0022E2D8 /* rocket-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-4.png"; sourceTree = "<group>"; };
+		5EBBA0F12155D87D0022E2D8 /* rocket-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-5.png"; sourceTree = "<group>"; };
+		5EBBA0F22155D87E0022E2D8 /* rocket-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-3.png"; sourceTree = "<group>"; };
+		5EBBA0F32155D87E0022E2D8 /* rocket-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-2.png"; sourceTree = "<group>"; };
+		5EBBA0F92155D88D0022E2D8 /* Group 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 4.png"; sourceTree = "<group>"; };
+		5EBBA0FB2155D8930022E2D8 /* Group 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 5.png"; sourceTree = "<group>"; };
+		5EBBA0FD2155D8C80022E2D8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5EBBA0FF2155D9110022E2D8 /* blue-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-star.png"; sourceTree = "<group>"; };
+		5EBBA1002155D9110022E2D8 /* red-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-star.png"; sourceTree = "<group>"; };
+		5EBBA1032155D91B0022E2D8 /* cloud-combo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud-combo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +162,13 @@
 		4C4197B0213338680002CBEB /* KH_prototype_one */ = {
 			isa = PBXGroup;
 			children = (
+				5EBBA0EE2155D84C0022E2D8 /* Background Images */,
+				5EBBA0ED2155D8400022E2D8 /* Rocket Images */,
 				4CF3F96B21336CA9007DE8EC /* Helpers.swift */,
 				4CD9DD1821359D3500E200CB /* Constants.swift */,
 				4C4197B5213338690002CBEB /* Main.storyboard */,
 				4C4197B82133386D0002CBEB /* Assets.xcassets */,
-				4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */,
+				5EBBA0FD2155D8C80022E2D8 /* LaunchScreen.storyboard */,
 				4C4197BD2133386D0002CBEB /* Info.plist */,
 			);
 			path = KH_prototype_one;
@@ -226,6 +248,32 @@
 				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5EBBA0ED2155D8400022E2D8 /* Rocket Images */ = {
+			isa = PBXGroup;
+			children = (
+				5EBBA0EF2155D87D0022E2D8 /* rocket-1.png */,
+				5EBBA0F32155D87E0022E2D8 /* rocket-2.png */,
+				5EBBA0F22155D87E0022E2D8 /* rocket-3.png */,
+				5EBBA0F02155D87D0022E2D8 /* rocket-4.png */,
+				5EBBA0F12155D87D0022E2D8 /* rocket-5.png */,
+			);
+			name = "Rocket Images";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		5EBBA0EE2155D84C0022E2D8 /* Background Images */ = {
+			isa = PBXGroup;
+			children = (
+				5EBBA0FF2155D9110022E2D8 /* blue-star.png */,
+				5EBBA1002155D9110022E2D8 /* red-star.png */,
+				5EBBA1032155D91B0022E2D8 /* cloud-combo.png */,
+				5EBBA0F92155D88D0022E2D8 /* Group 4.png */,
+				5EBBA0FB2155D8930022E2D8 /* Group 5.png */,
+			);
+			name = "Background Images";
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,9 +380,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C4197BC2133386D0002CBEB /* LaunchScreen.storyboard in Resources */,
+				5EBBA0F72155D87E0022E2D8 /* rocket-3.png in Resources */,
+				5EBBA0F42155D87E0022E2D8 /* rocket-1.png in Resources */,
 				4C4197B92133386D0002CBEB /* Assets.xcassets in Resources */,
+				5EBBA0FE2155D8C80022E2D8 /* LaunchScreen.storyboard in Resources */,
+				5EBBA1012155D9110022E2D8 /* blue-star.png in Resources */,
+				5EBBA1022155D9110022E2D8 /* red-star.png in Resources */,
+				5EBBA0F52155D87E0022E2D8 /* rocket-4.png in Resources */,
 				4C4197B7213338690002CBEB /* Main.storyboard in Resources */,
+				5EBBA1042155D91B0022E2D8 /* cloud-combo.png in Resources */,
+				5EBBA0FC2155D8930022E2D8 /* Group 5.png in Resources */,
+				5EBBA0FA2155D88D0022E2D8 /* Group 4.png in Resources */,
+				5EBBA0F82155D87E0022E2D8 /* rocket-2.png in Resources */,
+				5EBBA0F62155D87E0022E2D8 /* rocket-5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,14 +481,6 @@
 				4C4197B6213338690002CBEB /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C4197BB2133386D0002CBEB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -555,13 +605,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZG8L9MP57M;
+				DEVELOPMENT_TEAM = UMPLM5DFZC;
 				INFOPLIST_FILE = KH_prototype_one/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaah.KH-prototype-one";
+				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaahj.KH-prototype-one";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -573,13 +623,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZG8L9MP57M;
+				DEVELOPMENT_TEAM = UMPLM5DFZC;
 				INFOPLIST_FILE = KH_prototype_one/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaah.KH-prototype-one";
+				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaahj.KH-prototype-one";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
