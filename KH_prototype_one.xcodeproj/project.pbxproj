@@ -35,6 +35,7 @@
 		4CDEE6742151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */; };
 		4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
+		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenDetailDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				4C9829012140F20D00104208 /* SponsorsViewController.swift */,
 				4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */,
 				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
+				4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */,
 				4CD9DD1921359D3500E200CB /* Constants.swift in Sources */,
 				4C5069D7213786F900095F64 /* FilterMenuController.swift in Sources */,
+				4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */,
 				4C5069D3213742A000095F64 /* Buttons.swift in Sources */,
 				4C919BBB214E8F7900C1B127 /* DynamicTableViewCell.swift in Sources */,
 				4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */,
