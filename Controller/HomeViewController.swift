@@ -36,8 +36,20 @@ class HomeViewController: UITableViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = .white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        
+        UIView.animate(withDuration: 2,
+                       delay: 6,
+                       
+                       animations: {
+                        self.navigationController?.navigationBar.alpha = 1
+                        self.navigationController?.navigationBar.isHidden = false
+        })
+    }
+    
     // MARK: - TABLE DATASOURCE FUNCTIONS
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemTableViewCell.identifier, for: indexPath) as! MenuItemTableViewCell
