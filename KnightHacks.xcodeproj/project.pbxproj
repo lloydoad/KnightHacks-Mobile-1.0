@@ -172,6 +172,16 @@
 			path = KnightHacksUITests;
 			sourceTree = "<group>";
 		};
+		4C4D8565215803EC00733900 /* SpecializedCells */ = {
+			isa = PBXGroup;
+			children = (
+				4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */,
+				4CD9DD1A2135A59300E200CB /* FilterMenuTableViewCell.swift */,
+				4C5069D42137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift */,
+			);
+			path = SpecializedCells;
+			sourceTree = "<group>";
+		};
 		4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,11 +215,9 @@
 		4CF3F96E2133753A007DE8EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4C4D8565215803EC00733900 /* SpecializedCells */,
 				4CDEE66C21514FBC0068E729 /* DynamicTableViewCells */,
-				4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */,
 				4C4197DF21333ED40002CBEB /* MenuItemCell.swift */,
-				4CD9DD1A2135A59300E200CB /* FilterMenuTableViewCell.swift */,
-				4C5069D42137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift */,
 				4CD9DD162135970200E200CB /* FilteredParentTableView.swift */,
 				4C919BBD214FF5A900C1B127 /* ParentTableView.swift */,
 			);

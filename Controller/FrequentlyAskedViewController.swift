@@ -11,23 +11,17 @@ import UIKit
 class FrequentlyAskedViewController: ParentTableView {
     var isCellReduced: [Bool] = [true, true, true, true, true, true, true, true]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.separatorStyle = .none
-        self.navigationItem.title = "Frequently Asked"
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.tintColor = .white
+        setupNavigationBarUIElements()
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.estimatedRowHeight
+    func setupNavigationBarUIElements() {
+        self.navigationItem.title = "Frequently Asked"
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

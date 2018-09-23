@@ -10,15 +10,9 @@ import UIKit
 
 class LiveUpdatesViewController: ParentTableView {
     var liveUpdateContent: [LiveUpdateObject] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.separatorStyle = .none
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
     }
     
@@ -26,7 +20,7 @@ class LiveUpdatesViewController: ParentTableView {
         if indexPath.row == 0 {
             return LIVE_UPDATE_VIEW_HEIGHT
         } else {
-            return tableView.estimatedRowHeight
+            return super.tableView(tableView, heightForRowAt: indexPath)
         }
     }
     

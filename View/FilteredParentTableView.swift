@@ -46,7 +46,6 @@ class FilteredParentTableView: ParentTableView {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         
         // Register separate cells
         tableView.register(FilterMenuTableViewCell.self, forCellReuseIdentifier: FilterMenuTableViewCell.identifier)

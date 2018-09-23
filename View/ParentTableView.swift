@@ -14,6 +14,7 @@ class ParentTableView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = .none
         tableView.register(DynamicTableViewCell.self, forCellReuseIdentifier: DynamicTableViewCell.identifier)
         colorUpperTableViewSpace(with: BACKGROUND_COLOR)
     }
@@ -43,6 +44,10 @@ class ParentTableView: UITableViewController {
         view.backgroundColor = color
         
         self.view.addSubview(view)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.estimatedRowHeight
     }
     
     // Change navigation bar of parent view to white
