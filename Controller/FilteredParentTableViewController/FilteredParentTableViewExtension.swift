@@ -78,7 +78,7 @@ extension FilteredParentTableView {
         customHeaderView.alpha = 0.9
         
         let headerLabel = UILabel()
-        headerLabel.font = HEADER_FONT
+        headerLabel.font = CELL_HEADER_FONT
         headerLabel.text = tableViewHeaderTitles[section - 1].capitalized
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
