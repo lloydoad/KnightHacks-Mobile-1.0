@@ -1,6 +1,6 @@
 //
 //  menuItemTableViewCell.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/26/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -15,7 +15,6 @@ class MenuItemTableViewCell: UITableViewCell {
     var customIconView: UIImageView!
     var customBackground: UIView!
     
-    // inits
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()

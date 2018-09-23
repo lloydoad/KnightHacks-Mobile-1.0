@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/28/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -35,6 +35,15 @@ enum Filter: String {
     case development = "development"
     case design = "design"
     case NOT_SET = "nil"
+}
+
+// Main buttons and views
+enum HomeViewSection: String {
+    case schedule = "Schedule"
+    case liveUpdates = "Live Updates"
+    case faqs = "FAQs"
+    case workshops = "Workshops"
+    case sponsors = "Sponsors"
 }
 
 // Cell type enumerations

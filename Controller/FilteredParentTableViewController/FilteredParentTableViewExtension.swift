@@ -1,6 +1,6 @@
 //
 //  CustomTableViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/29/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -9,23 +9,26 @@
 import UIKit
 
 extension FilteredParentTableView {
-    // MARK: - TABLE DATASOURCE FUNCTIONS
+    // setup filter menu button in top cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 && indexPath.section == 0{
-            let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: FilterMenuTableViewCell.identifier, for: indexPath) as! FilterMenuTableViewCell
-            filterMenuCollectionViewReference = dequeuedCell.filterMenuCollectionView
-            filterMenuCollectionViewReference.delegate = self
-            filterMenuCollectionViewReference.dataSource = self
-            
-            // total length is the content length of the collection view controller
-            let totalLength: CGFloat = (COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT - 30) * 5
-            filterMenuCollectionViewReference.contentSize = CGSize(width: totalLength, height: totalLength)
-            return dequeuedCell
+            return addFilterMenu(inCellForRowAt: indexPath)
         } else {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             cell.textLabel?.text = "NOT FORMATTED"
             return cell
         }
+    }
+    
+    func addFilterMenu(inCellForRowAt indexpath: IndexPath) -> UITableViewCell {
+        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: FilterMenuTableViewCell.identifier, for: indexpath) as! FilterMenuTableViewCell
+        filterMenuCollectionViewReference = dequeuedCell.filterMenuCollectionView
+        filterMenuCollectionViewReference.delegate = self
+        filterMenuCollectionViewReference.dataSource = self
+        
+        let estimatedContentViewLength: CGFloat = (COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT - 30) * estimatedNumberOfFilterButtons
+        filterMenuCollectionViewReference.contentSize = CGSize(width: estimatedContentViewLength, height: estimatedContentViewLength)
+        return dequeuedCell
     }
     
     // return a customized height for filter menu cell
@@ -38,7 +41,7 @@ extension FilteredParentTableView {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableDataContent.count + 1
+        return tableViewCellContents.count + 1
     }
     
     // return number of events + filter menu
@@ -46,11 +49,11 @@ extension FilteredParentTableView {
         if section == 0 {
             return 1
         } else {
-            return tableDataContent[section - 1].1.count
+            return self.tableViewCellContents[section - 1]!.count
         }
     }
     
-    // set height for header
+    // set height for headers
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 || hasHeaders == false {
             return 0
@@ -59,26 +62,30 @@ extension FilteredParentTableView {
         }
     }
     
-    // title for headers
+    // set title for headers
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if hasHeaders {
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-            let customHeaderView = UIVisualEffectView(effect: blurEffect)
-            customHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: headerRowHeight)
-            customHeaderView.alpha = 0.9
-            let headerLabel = UILabel()
-            headerLabel.font = UIFont.systemFont(ofSize: 36)
-            headerLabel.text = tableDataContent[section - 1].0.capitalized
-            headerLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            customHeaderView.contentView.addSubview(headerLabel)
-            headerLabel.centerYAnchor.constraint(equalTo: customHeaderView.contentView.centerYAnchor).isActive = true
-            headerLabel.leadingAnchor.constraint(equalTo: customHeaderView.contentView.leadingAnchor, constant: 38).isActive = true
-            return customHeaderView
+        if hasHeaders || section > 0 {
+            return getCustomView(forHeaderInSection: section)
         } else {
             return nil
         }
     }
     
-    // MARK: - TABLE DELEGATE FUNCTIONS
+    func getCustomView(forHeaderInSection section: Int) -> UIView {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let customHeaderView = UIVisualEffectView(effect: blurEffect)
+        customHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: headerRowHeight)
+        customHeaderView.alpha = 0.9
+        
+        let headerLabel = UILabel()
+        headerLabel.font = UIFont.systemFont(ofSize: 36)
+        headerLabel.text = tableViewHeaderTitles[section - 1].capitalized
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        customHeaderView.contentView.addSubview(headerLabel)
+        headerLabel.centerYAnchor.constraint(equalTo: customHeaderView.contentView.centerYAnchor).isActive = true
+        headerLabel.leadingAnchor.constraint(equalTo: customHeaderView.contentView.leadingAnchor, constant: 38).isActive = true
+        
+        return customHeaderView
+    }
 }

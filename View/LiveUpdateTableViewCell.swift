@@ -1,6 +1,6 @@
 //
 //  LiveUpdateTableViewCell.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 9/18/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -10,6 +10,7 @@ import UIKit
 
 class LiveUpdatesTableViewCell: UITableViewCell {
     static let identifier = "LiveUpdatesTableViewCell"
+    
     var liveUpdatesView: UIView? {
         didSet {
             setupView()

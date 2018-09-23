@@ -1,6 +1,6 @@
 //
 //  WorkshopsViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 9/6/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -8,16 +8,37 @@
 
 import UIKit
 
-class WorkshopsViewController: FilteredParentTableView {
+class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     let tags: [String] = ["default 1", "default 2"]
     
-    // Make changes to default view settings
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //        update model with api
-        //        tableDataContent = sampleRetrievedData
-        //        otherRowHeight = 107
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        super.childDelegate = self
+    }
+    
+    // protocol functions
+    func setFilterMenuCellContents() -> [FilterButton] {
+        return [
+            FilterButton(input: Filter.NOT_SET),
+            FilterButton(input: Filter.internships),
+            FilterButton(input: Filter.full_time),
+            FilterButton(input: Filter.all)
+        ]
+    }
+    
+    func setTableViewCellContents() -> [Int : [Any]] {
+        return [
+            0:[1,1,1],
+            1:[1,1],
+            2:[1,1,1,1]
+        ]
+    }
+    func setTableViewHeaderTitles() -> [String] {
+        return [
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ]
     }
     
     // Override cells excluding filter menu cell

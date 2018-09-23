@@ -1,6 +1,6 @@
 //
 //  LiveUpdateTableViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 9/17/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.

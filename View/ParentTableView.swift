@@ -1,6 +1,6 @@
 //
 //  BaseTableView.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 9/17/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -9,6 +9,8 @@
 import UIKit
 
 class ParentTableView: UITableViewController {
+    
+    // register cell and match space on top of table with navigation bar
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,9 +19,13 @@ class ParentTableView: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         // Setup navigation bar
         super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
+    // setup navigation bar ui
+    func setupNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = BACKGROUND_COLOR
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.backgroundColor = .clear

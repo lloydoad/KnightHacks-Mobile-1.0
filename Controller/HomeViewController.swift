@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/26/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -9,28 +9,37 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
-    // title and colors for each cell
+    let cellHeights: CGFloat = 130
+    
+    // MARK: - SETUP UI AND UI CONTENT
+    
+    // Content color and title for each cell
     var menuItems: [MenuButton] =
         [
-            MenuButton(name: "Schedule", color: ORANGE_COLOR),
-            MenuButton(name: "Live Updates", color: BLUE_COLOR),
-            MenuButton(name: "FAQs", color: GREEN_COLOR),
-            MenuButton(name: "Workshops", color: RED_COLOR),
-            MenuButton(name: "Sponsors", color: BACKGROUND_COLOR)
+            MenuButton(name: HomeViewSection.schedule.rawValue, color: ORANGE_COLOR),
+            MenuButton(name: HomeViewSection.liveUpdates.rawValue, color: BLUE_COLOR),
+            MenuButton(name: HomeViewSection.faqs.rawValue, color: GREEN_COLOR),
+            MenuButton(name: HomeViewSection.workshops.rawValue, color: RED_COLOR),
+            MenuButton(name: HomeViewSection.sponsors.rawValue, color: BACKGROUND_COLOR)
         ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // set constant height of cells and remove default separators
-        self.tableView.rowHeight = 130
+        self.tableView.rowHeight = cellHeights
         self.tableView.separatorStyle = .none
+        
+        // register cell
         self.tableView.register(MenuItemTableViewCell.self, forCellReuseIdentifier: MenuItemTableViewCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // setup navigation
+        setupNavigationbar()
+    }
+    
+    func setupNavigationbar() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Where to?"
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -39,6 +48,8 @@ class HomeViewController: UITableViewController {
     }
 
     // MARK: - TABLE DATASOURCE FUNCTIONS
+    
+    // setup content of a cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuItemTableViewCell.identifier, for: indexPath) as! MenuItemTableViewCell
         
@@ -49,71 +60,36 @@ class HomeViewController: UITableViewController {
         return cell
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    // return number of menu options
+    // get number of cells
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
     // MARK: - TABLE DELEGATE FUNCTIONS
+    
+    // determine next view from cell selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        switch menuItems[indexPath.row].name {
-        case "Schedule":
-            let filterButtons: [FilterButton] =
-                [
-                    FilterButton(input: Filter.NOT_SET),
-                    FilterButton(input: Filter.talks),
-                    FilterButton(input: Filter.workshops),
-                    FilterButton(input: Filter.all)
-                ]
-            let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
-            
-            let nextView = ScheduleViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
-            self.navigationController?.pushViewController(nextView, animated: true)
-            break
-        case "Live Updates":
-            let nextView = LiveUpdatesViewController(style: .plain)
-            self.navigationController?.pushViewController(nextView, animated: true)
-            break
-        case "Workshops":
-            let filterButtons: [FilterButton] =
-                [
-                    FilterButton(input: Filter.NOT_SET),
-                    FilterButton(input: Filter.design),
-                    FilterButton(input: Filter.development),
-                    FilterButton(input: Filter.all)
-            ]
-            let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
-            
-            let nextView = WorkshopsViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
-            self.navigationController?.pushViewController(nextView, animated: true)
-            break
-        case "Sponsors":
-            let filterButtons: [FilterButton] =
-                [
-                    FilterButton(input: Filter.NOT_SET),
-                    FilterButton(input: Filter.internships),
-                    FilterButton(input: Filter.full_time),
-                    FilterButton(input: Filter.all)
-            ]
-            let sampleRetrievedData = [("Friday",[1,1,1]), ("Saturday",[1, 1]), ("Monday", [1,1,1,1,1])]
-            
-            let nextView = SponsorsViewController(style: .plain, filterOptions: filterButtons, content: sampleRetrievedData)
-            self.navigationController?.pushViewController(nextView, animated: true)
-            break
-        case "FAQs":
-            let nextView = FrequentlyAskedViewController(style: .plain)
-            self.navigationController?.pushViewController(nextView, animated: true)
-            break
+        self.navigationController?.pushViewController(determineNextViewController(indexpath: indexPath), animated: true)
+    }
+    
+    func determineNextViewController(indexpath: IndexPath) -> UIViewController {
+        
+        switch menuItems[indexpath.row].name {
+        case HomeViewSection.schedule.rawValue:
+            return ScheduleViewController(style: .plain)
+        case HomeViewSection.liveUpdates.rawValue:
+            return LiveUpdatesViewController(style: .plain)
+        case HomeViewSection.workshops.rawValue:
+            return WorkshopsViewController(style: .plain)
+        case HomeViewSection.sponsors.rawValue:
+            return SponsorsViewController(style: .plain)
+        case HomeViewSection.faqs.rawValue:
+            return FrequentlyAskedViewController(style: .plain)
         default:
-            break
+            return ScheduleViewController(style: .plain)
         }
     }
-
 }
 

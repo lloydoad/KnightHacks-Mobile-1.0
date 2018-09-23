@@ -1,6 +1,6 @@
 //
 //  Helpers.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/26/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -8,6 +8,7 @@
 
 import UIKit
 
+// convenient inits for getting colors
 extension UIColor {
     // minimize init for uicolor
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat) {
@@ -37,4 +38,53 @@ extension UIColor {
         
         return (red, green, blue, alpha)
     }
+}
+
+// create a stackview with defined properties
+func getPresetUIStackView(axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) -> UIStackView {
+    let stack = UIStackView()
+    stack.axis = axis
+    stack.alignment = alignment
+    stack.distribution = distribution
+    stack.spacing = spacing
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    return stack
+}
+
+func boundEdges(of child: UIView, to parent: UIView, with borders: UIEdgeInsets) {
+    child.translatesAutoresizingMaskIntoConstraints = false
+    parent.addSubview(child)
+    child.topAnchor.constraint(equalTo: parent.topAnchor, constant: borders.top).isActive = true
+    child.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: borders.bottom).isActive = true
+    child.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: borders.left).isActive = true
+    child.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: borders.right).isActive = true
+}
+
+func createFormattedLabel(type: FormattedLabelType, defaultText: String, alignment: NSTextAlignment) -> UILabel {
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 30))
+    label.text = defaultText
+    label.textAlignment = alignment
+    
+    if type == .title {
+        label.textColor = BACKGROUND_COLOR
+    } else if type == .paragraph {
+        label.numberOfLines = 0
+    }
+    
+    switch type {
+    case .majorParagraph:
+        label.font = MAJOR_PARAGRAPH_FONT
+        break
+    case .minorParagraph:
+        label.font = MINOR_PARAGRAPH_FONT
+        break
+    case .paragraph:
+        label.font = PARAGRAPH_FONT
+        break
+    default:
+        label.font = TITLE_FONT
+        break
+    }
+    
+    return label
 }

@@ -1,6 +1,6 @@
 //
 //  FilterButtonCollectionViewCell.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/29/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
@@ -10,25 +10,57 @@ import UIKit
 
 class FilterMenuButtonCollectionViewCell: UICollectionViewCell {
     static var identifier = "FilterButtonCollectionViewCell"
-    var customBackgroundShadow: UIView!
-    var customText: UILabel!
-    var customImage: UIView!
-    var customLabel: UILabel!
-    var insetImageContainer: UIImageView!
+    
     let backgroundDiameter: CGFloat = 85
     let borderThickness: CGFloat = 3
+    let labelWidth: CGFloat = 70
+    let labelHeight: CGFloat = 14
+    let imagePadding: CGFloat = 20
+    let defaultText: String = "NO LABEL"
     
-    // inits
+    var filterMenuButtonBackgroundShadow: UIView!
+    var filterMenuButtonExteriorBorderView: UIView!
+    var filterMenuButtonLabel: UILabel!
+    var filterMenuButtonImageView: UIImageView!
+    var innerCircleDiameter: CGFloat!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .clear
-        setupView()
+        
+        innerCircleDiameter = backgroundDiameter - borderThickness
+        createViewElements()
+        setConstraintsForViewElements()
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func setupView() {
+    func createViewElements() {
+        filterMenuButtonLabel = UILabel(frame: CGRect(x: 0, y: 0, width: labelWidth, height: labelHeight))
+        filterMenuButtonLabel.backgroundColor = .clear
+        filterMenuButtonLabel.text = defaultText
+        filterMenuButtonLabel.textColor = .white
+        filterMenuButtonLabel.textAlignment = .center
+        filterMenuButtonLabel.font = PARAGRAPH_FONT
+        filterMenuButtonLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        filterMenuButtonExteriorBorderView = UIView()
+        filterMenuButtonExteriorBorderView.translatesAutoresizingMaskIntoConstraints = false
+        filterMenuButtonExteriorBorderView.backgroundColor = .white
+        filterMenuButtonExteriorBorderView.layer.cornerRadius = innerCircleDiameter / 2
+        filterMenuButtonExteriorBorderView.layer.borderColor = BACKGROUND_COLOR.cgColor
+        filterMenuButtonExteriorBorderView.layer.borderWidth = borderThickness
+        filterMenuButtonExteriorBorderView.layoutMargins = UIEdgeInsetsMake(imagePadding, imagePadding, imagePadding, imagePadding)
+        filterMenuButtonExteriorBorderView.clipsToBounds = true
+        
+        filterMenuButtonImageView = UIImageView()
+        filterMenuButtonImageView.translatesAutoresizingMaskIntoConstraints = false
+        filterMenuButtonImageView.backgroundColor = .white
+        filterMenuButtonImageView.contentMode = .scaleAspectFit
+    }
+    
+    func setConstraintsForViewElements() {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.distribution = .fillProportionally
@@ -42,58 +74,35 @@ class FilterMenuButtonCollectionViewCell: UICollectionViewCell {
         stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2).isActive = true
         stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2).isActive = true
         
-        // NOTE cutoff point for label
-        customLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 70, height: 14))
-        customLabel.backgroundColor = .clear
-        customLabel.text = "NO LABEL"
-        customLabel.textColor = .white
-        customLabel.textAlignment = .center
-        customLabel.font = UIFont.systemFont(ofSize: 14)
-        customLabel.translatesAutoresizingMaskIntoConstraints = false
+        filterMenuButtonBackgroundShadow = makeCustomView(width: backgroundDiameter, height: backgroundDiameter)
+        filterMenuButtonBackgroundShadow.widthAnchor.constraint(equalToConstant: backgroundDiameter).isActive = true
+        filterMenuButtonBackgroundShadow.heightAnchor.constraint(equalToConstant: backgroundDiameter).isActive = true
         
-        customBackgroundShadow = makeCustomView(width: backgroundDiameter, height: backgroundDiameter)
-        customBackgroundShadow.widthAnchor.constraint(equalToConstant: backgroundDiameter).isActive = true
-        customBackgroundShadow.heightAnchor.constraint(equalToConstant: backgroundDiameter).isActive = true
+        stackView.addArrangedSubview(filterMenuButtonBackgroundShadow)
+        stackView.addArrangedSubview(filterMenuButtonLabel)
         
-        stackView.addArrangedSubview(customBackgroundShadow)
-        stackView.addArrangedSubview(customLabel)
+        filterMenuButtonBackgroundShadow.addSubview(filterMenuButtonExteriorBorderView)
+        filterMenuButtonExteriorBorderView.heightAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
+        filterMenuButtonExteriorBorderView.widthAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
+        filterMenuButtonExteriorBorderView.centerYAnchor.constraint(equalTo: filterMenuButtonBackgroundShadow.centerYAnchor).isActive = true
+        filterMenuButtonExteriorBorderView.centerXAnchor.constraint(equalTo: filterMenuButtonBackgroundShadow.centerXAnchor).isActive = true
         
-        let innerCircleDiameter = backgroundDiameter - borderThickness
-        customImage = UIView()
-        customImage.translatesAutoresizingMaskIntoConstraints = false
-        customImage.backgroundColor = .white
-        customImage.layer.cornerRadius = innerCircleDiameter / 2
-        customImage.layer.borderColor = BACKGROUND_COLOR.cgColor
-        customImage.layer.borderWidth = borderThickness
-        customImage.layoutMargins = UIEdgeInsetsMake(20, 20, 20, 20)
-        customImage.clipsToBounds = true
-        
-        customBackgroundShadow.addSubview(customImage)
-        customImage.heightAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
-        customImage.widthAnchor.constraint(equalToConstant: innerCircleDiameter).isActive = true
-        customImage.centerYAnchor.constraint(equalTo: customBackgroundShadow.centerYAnchor).isActive = true
-        customImage.centerXAnchor.constraint(equalTo: customBackgroundShadow.centerXAnchor).isActive = true
-        
-        insetImageContainer = UIImageView()
-        insetImageContainer.translatesAutoresizingMaskIntoConstraints = false
-        insetImageContainer.backgroundColor = .white
-        insetImageContainer.contentMode = .scaleAspectFit
-        customImage.addSubview(insetImageContainer)
-        insetImageContainer.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        insetImageContainer.widthAnchor.constraint(equalToConstant: 45).isActive = true
-        insetImageContainer.centerYAnchor.constraint(equalTo: customImage.centerYAnchor).isActive = true
-        insetImageContainer.centerXAnchor.constraint(equalTo: customImage.centerXAnchor).isActive = true
+        filterMenuButtonExteriorBorderView.addSubview(filterMenuButtonImageView)
+        filterMenuButtonImageView.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        filterMenuButtonImageView.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        filterMenuButtonImageView.centerYAnchor.constraint(equalTo: filterMenuButtonExteriorBorderView.centerYAnchor).isActive = true
+        filterMenuButtonImageView.centerXAnchor.constraint(equalTo: filterMenuButtonExteriorBorderView.centerXAnchor).isActive = true
     }
     
     // Change borders and circumference when selected
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                customImage.layer.borderWidth = borderThickness
-                customBackgroundShadow.backgroundColor = .white
+                filterMenuButtonExteriorBorderView.layer.borderWidth = borderThickness
+                filterMenuButtonBackgroundShadow.backgroundColor = .white
             } else {
-                customImage.layer.borderWidth = 0
-                customBackgroundShadow.backgroundColor = .clear
+                filterMenuButtonExteriorBorderView.layer.borderWidth = 0
+                filterMenuButtonBackgroundShadow.backgroundColor = .clear
             }
         }
     }
