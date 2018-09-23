@@ -117,7 +117,7 @@ class DynamicTableViewCell: UITableViewCell {
             view = createTagInView(defaultText: tag)
         } else {
             let label = createFormattedLabel(type: .minorParagraph, defaultText: tag, alignment: .center) as UILabel
-            label.textColor = GREEN_COLOR
+            label.textColor = DARK_GREEN_COLOR
             view = label
         }
         hts.insertArrangedSubview(view, at: 0)
@@ -130,7 +130,7 @@ class DynamicTableViewCell: UITableViewCell {
         let gradient = CAGradientLayer()
         gradient.startPoint = CGPoint.zero;
         gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.colors = [UIColor(hex: 0x0CB2FF, alpha: 1).cgColor, UIColor(hex: 0x057AFF, alpha: 1).cgColor]
+        gradient.colors = [LIGHT_BLUE_SHADE_COLOR.cgColor, DARK_BLUE_SHADE_COLOR.cgColor]
         
         itemTagLabel = createFormattedLabel(type: .minorParagraph, defaultText: defaultText, alignment: .center)
         itemTagLabel?.textColor = .white

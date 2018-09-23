@@ -13,6 +13,10 @@ let BLUE_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
 let GREEN_COLOR = UIColor(hex: 0x26AE60, alpha: 1)
 let RED_COLOR = UIColor(hex: 0xFF3B31, alpha: 1)
 let BACKGROUND_COLOR = UIColor(hex: 0x5755D6, alpha: 1)
+let DARK_GREEN_COLOR = UIColor(hex: 0x229A55, alpha: 1)
+
+let LIGHT_BLUE_SHADE_COLOR = UIColor(hex: 0x0CB2FF, alpha: 1)
+let DARK_BLUE_SHADE_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
 
 // assuming navbar has a default height of 44, 64 including status bar
 let NAVBAR_HEIGHT: CGFloat = 64
@@ -68,3 +72,4 @@ let MINOR_PARAGRAPH_FONT = UIFont.systemFont(ofSize: 11.5, weight: .light)
 let TITLE_FONT = UIFont.systemFont(ofSize: 20, weight: .bold)
 let MAJOR_PARAGRAPH_FONT = UIFont.systemFont(ofSize: 24, weight: .regular)
 let MAJOR_REGULAR_FONT = UIFont.systemFont(ofSize: 20, weight: .regular)
+let HEADER_FONT = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.medium)
