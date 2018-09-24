@@ -39,9 +39,8 @@ class LiveUpdateCountdownTimerViewController: UIView {
         isCountdownLive = true
         
         setupTitle(frame: frame)
-        setupCountdownUI()
         setupCountdown()
-        runTimer()
+        setupCountdownUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,7 +92,10 @@ class LiveUpdateCountdownTimerViewController: UIView {
         stackView.addArrangedSubview(countdownTimer)
         countdownTimer.translatesAutoresizingMaskIntoConstraints = false
         countdownTimer.topAnchor.constraint(equalTo: titleStackView.bottomAnchor).isActive = true
-        countdownTimer.text = DEFAULT_COUNTDOWN_TIME
+        
+        (countdownHours, countdownMinutes, countdownSeconds) = secondsToHoursMinutesSeconds(seconds: timeIntervalInSeconds)
+        countdownTimer.text = String(format: "%02d:%02d:%02d", countdownHours, countdownMinutes, countdownSeconds)
+        
         countdownTimer.textColor = .white
         countdownTimer.font = BIG_ULTRA_LIGHT_HEADER_FONT
         
@@ -109,7 +111,11 @@ class LiveUpdateCountdownTimerViewController: UIView {
     }
 
     func setupCountdown() {
-        timer = Timer()
+        if !isCountdownLive {
+           return
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
         currentTime = Date()
         
         // Temporarily use a target time always some hours ahead of current time
@@ -125,14 +131,6 @@ class LiveUpdateCountdownTimerViewController: UIView {
         
         timeIntervalInSeconds = Int(DateInterval(start: currentTime, end: targetTime).duration)
         (countdownHours, countdownMinutes, countdownSeconds) = secondsToHoursMinutesSeconds(seconds: timeIntervalInSeconds)
-    }
-    
-    func runTimer() {
-        if !isCountdownLive {
-            return
-        }
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
