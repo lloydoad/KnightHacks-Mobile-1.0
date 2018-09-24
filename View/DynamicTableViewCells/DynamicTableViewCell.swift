@@ -1,9 +1,9 @@
 //
-//  FormattedUITableViewCell.swift
-//  KH_prototype_one
+//  DynamicTableViewCell.swift
+//  KnightHacks
 //
-//  Created by Lloyd Dapaah on 9/16/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/16/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
@@ -12,13 +12,13 @@ class DynamicTableViewCell: UITableViewCell {
     static let identifier: String = "DynamicTableViewCell"
     
     // margins, borders and sizes
-    let xMargin: CGFloat = 23
-    let yMargin: CGFloat = 8
-    let backgroundInnerMargin: CGFloat = 15
-    
-    // cell details
-    let imageSideLength: CGFloat = 51
-    let largeImageSideLength: CGFloat = 150
+    var xMargin: CGFloat = 23
+    var yMargin: CGFloat = 8
+    var backgroundInnerMargin: CGFloat = 15
+    var hiddenDetailMaximizeButtonLength: CGFloat = 27
+    // cell image sizes
+    var imageSideLength: CGFloat = 51
+    var largeImageSideLength: CGFloat = 150
     
     // components in cell view
     var backgroundViewWithShadow: UIView?
@@ -29,6 +29,7 @@ class DynamicTableViewCell: UITableViewCell {
     var itemDescriptionLabel: UILabel?
     var itemTagLabel: UILabel?
     var horizontalTagStack: UIStackView?
+    var showMoreButton: UIButton?
     
     // change cell structure everytime celltype is changed
     var cellType: FormattedTableViewCellType = .defaultCell {
@@ -42,12 +43,20 @@ class DynamicTableViewCell: UITableViewCell {
             reloadView()
         }
     }
-    var hasRegularRightDetail: Bool = false {
+    // changes time/side subtitle to a bold or regular font
+    var isTimeStampMinimized: Bool = false {
         didSet {
             reloadView()
         }
     }
+    // has a tag with view background
     var hasStyledTags: Bool = false {
+        didSet {
+            reloadView()
+        }
+    }
+    // showing hidden details of hidden detail cell
+    var isShowingDetails: Bool = false {
         didSet {
             reloadView()
         }
@@ -88,83 +97,52 @@ class DynamicTableViewCell: UITableViewCell {
     
     func createBackgroundView() {
         backgroundViewWithShadow = UIView()
-        
         backgroundViewWithShadow?.backgroundColor = .white
-        backgroundViewWithShadow?.layer.shadowColor = UIColor.black.cgColor
-        backgroundViewWithShadow?.layer.shadowOffset = CGSize(width: 0, height: 0.5)
-        backgroundViewWithShadow?.layer.shadowRadius = 4
+        backgroundViewWithShadow?.layer.shadowColor = UIColor.gray.cgColor
+        backgroundViewWithShadow?.layer.shadowOffset = CGSize(width: 0.2, height: 0.3)
+        backgroundViewWithShadow?.layer.shadowRadius = 0.8
         backgroundViewWithShadow?.layer.cornerRadius = 14
         backgroundViewWithShadow?.layer.shadowOpacity = 1
         backgroundViewWithShadow?.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview((backgroundViewWithShadow)!)
-        backgroundViewWithShadow?.topAnchor.constraint(equalTo: contentView.topAnchor, constant: yMargin).isActive = true
-        backgroundViewWithShadow?.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -yMargin).isActive = true
-        backgroundViewWithShadow?.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: xMargin).isActive = true
-        backgroundViewWithShadow?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -xMargin).isActive = true
-    }
-    
-    func createFormattedLabel(type: FormattedLabelType, defaultText: String, alignment: NSTextAlignment) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 110, height: 30))
-        label.text = defaultText
-        label.textAlignment = alignment
-        
-        if type == .title {
-            label.textColor = BACKGROUND_COLOR
-        } else if type == .paragraph {
-            label.numberOfLines = 0
-        }
-        
-        switch type {
-        case .majorParagraph:
-            label.font = MAJOR_PARAGRAPH_FONT
-            break
-        case .minorParagraph:
-            label.font = MINOR_PARAGRAPH_FONT
-            break
-        case .paragraph:
-            label.font = PARAGRAPH_FONT
-            break
-        default:
-            label.font = TITLE_FONT
-            break
-        }
-        
-        return label
+        let insets = UIEdgeInsets(top: yMargin, left: yMargin, bottom: -yMargin, right: -yMargin)
+        boundEdges(of: backgroundViewWithShadow!, to: self.contentView, with: insets)
     }
     
     func addNewTag(tag: String = "default tag") {
         var view: UIView
+        
+        guard let hts = horizontalTagStack else {return}
         if hasStyledTags {
             view = createTagInView(defaultText: tag)
         } else {
-            view = createFormattedLabel(type: .minorParagraph, defaultText: tag, alignment: .center)
+            let label = createFormattedLabel(type: .minorParagraph, defaultText: tag, alignment: .center) as UILabel
+            label.textColor = DARK_GREEN_COLOR
+            view = label
         }
-        guard let hts = horizontalTagStack else {return}
         hts.insertArrangedSubview(view, at: 0)
     }
     
     func createTagInView(defaultText: String = "default tag") -> UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 81, height: 22))
-        view.backgroundColor = .blue
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 22).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 81).isActive = true
         view.layer.cornerRadius = 7.2
         view.clipsToBounds = true
-        
         let gradient = CAGradientLayer()
-        gradient.frame = view.frame
         gradient.startPoint = CGPoint.zero;
         gradient.endPoint = CGPoint(x: 1, y: 1)
-        gradient.colors = [UIColor(hex: 0x0CB2FF, alpha: 1).cgColor, UIColor(hex: 0x057AFF, alpha: 1).cgColor]
-        view.layer.insertSublayer(gradient, at: 0)
+        gradient.colors = [LIGHT_BLUE_SHADE_COLOR.cgColor, DARK_BLUE_SHADE_COLOR.cgColor]
         
         itemTagLabel = createFormattedLabel(type: .minorParagraph, defaultText: defaultText, alignment: .center)
         itemTagLabel?.textColor = .white
-        itemTagLabel?.translatesAutoresizingMaskIntoConstraints = false
         
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 81).isActive = true
+        gradient.frame = view.frame
+        view.layer.insertSublayer(gradient, at: 0)
+
         view.addSubview(itemTagLabel!)
+        itemTagLabel?.translatesAutoresizingMaskIntoConstraints = false
         itemTagLabel?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         itemTagLabel?.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         

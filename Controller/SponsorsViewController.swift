@@ -1,35 +1,51 @@
 //
 //  SponsorsViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
-//  Created by Lloyd Dapaah on 9/6/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/6/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
 
-class SponsorsViewController: FilteredParentTableView {
+class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     // temp array to represent loaded tags
     let tags: [String] = ["default 1", "default 2"]
     
-    // Make changes to default view settings
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        super.childDelegate = self
         
-        // remove headers
         hasHeaders = false
-        
-        //        update model with api
-        //        tableDataContent = sampleRetrievedData
     }
     
-    // Override cells excluding filter menu cell
+    // protocol functions
+    func setFilterMenuCellContents() -> [FilterButton] {
+        return [
+            FilterButton(input: Filter.NOT_SET),
+            FilterButton(input: Filter.internships),
+            FilterButton(input: Filter.full_time),
+            FilterButton(input: Filter.all)
+        ]
+    }
+    func setTableViewCellContents() -> [Int : [Any]] {
+        return [
+            0:[1,1,1],
+            1:[1,1],
+            2:[1,1,1,1]
+        ]
+    }
+    func setTableViewHeaderTitles() -> [String] {
+        return []
+    }
+    
+    // override cells excluding filter menu cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             // setup view
             cell.cellType = .detailedCell
-            cell.hasRegularRightDetail = true
+            cell.isTimeStampMinimized = true
             cell.hasUpperTags = true
             cell.hasStyledTags = true
             cell.selectionStyle = .none

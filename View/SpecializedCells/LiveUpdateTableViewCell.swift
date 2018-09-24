@@ -1,15 +1,16 @@
 //
 //  LiveUpdateTableViewCell.swift
-//  KH_prototype_one
+//  KnightHacks
 //
-//  Created by Lloyd Dapaah on 9/18/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/18/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
 
 class LiveUpdatesTableViewCell: UITableViewCell {
     static let identifier = "LiveUpdatesTableViewCell"
+    
     var liveUpdatesView: UIView? {
         didSet {
             setupView()
@@ -19,6 +20,7 @@ class LiveUpdatesTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = BACKGROUND_COLOR
+        selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {

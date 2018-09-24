@@ -1,21 +1,25 @@
 //
 //  Constants.swift
-//  KH_prototype_one
+//  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/28/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/28/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 
 import UIKit
 
 let APP_EVENT_NAME = "Knight Hacks"
 let DATE_STRING_FORMAT = "yyyy-MM-dd"
 
-// Colors
+// colors
 let ORANGE_COLOR = UIColor(hex: 0xFF9500, alpha: 1)
 let BLUE_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
 let GREEN_COLOR = UIColor(hex: 0x26AE60, alpha: 1)
 let RED_COLOR = UIColor(hex: 0xFF3B31, alpha: 1)
 let BACKGROUND_COLOR = UIColor(hex: 0x5755D6, alpha: 1)
+let DARK_GREEN_COLOR = UIColor(hex: 0x229A55, alpha: 1)
+
+let LIGHT_BLUE_SHADE_COLOR = UIColor(hex: 0x0CB2FF, alpha: 1)
+let DARK_BLUE_SHADE_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
 
 // assuming navbar has a default height of 44, 64 including status bar
 let NAVBAR_HEIGHT: CGFloat = 64
@@ -24,9 +28,11 @@ let COMBINED_FILTER_HEIGHT: CGFloat = 200
 // controls the height of the live count in live update view
 let LIVE_UPDATE_VIEW_HEIGHT: CGFloat = 146
 
+// faq row height controls
+let REDUCED_ROW_HEIGHT: CGFloat = 110
 
-// Filter enumerations
-// Determines type of filter returned
+// filter enumerations
+// determines type of filter returned
 enum Filter: String {
     case workshops = "workshops"
     case all = "all"
@@ -38,7 +44,16 @@ enum Filter: String {
     case NOT_SET = "nil"
 }
 
-// Cell type enumerations
+// main buttons and views
+enum HomeViewSection: String {
+    case schedule = "Schedule"
+    case liveUpdates = "Live Updates"
+    case faqs = "FAQs"
+    case workshops = "Workshops"
+    case sponsors = "Sponsors"
+}
+
+// cell type enumerations
 enum FormattedTableViewCellType {
     case defaultCell
     case leftImageCell
@@ -46,7 +61,7 @@ enum FormattedTableViewCellType {
     case detailedCell
 }
 
-// Label formatting enumerations
+// label formatting enumerations
 enum FormattedLabelType {
     case title
     case majorParagraph
@@ -54,12 +69,14 @@ enum FormattedLabelType {
     case paragraph
 }
 
-// Fonts in app
+// fonts in app
 let PARAGRAPH_FONT = UIFont.systemFont(ofSize: 14, weight: .regular)
 let MINOR_PARAGRAPH_FONT = UIFont.systemFont(ofSize: 11.5, weight: .light)
 let TITLE_FONT = UIFont.systemFont(ofSize: 20, weight: .bold)
 let LIGHT_TITLE_FONT = UIFont.systemFont(ofSize: 20, weight: .light)
 let MAJOR_PARAGRAPH_FONT = UIFont.systemFont(ofSize: 24, weight: .regular)
+let MAJOR_REGULAR_FONT = UIFont.systemFont(ofSize: 20, weight: .regular)
+let CELL_HEADER_FONT = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.medium)
 let HEADER_FONT = UIFont.systemFont(ofSize: 30)
 let BIG_HEADER_FONT = UIFont.systemFont(ofSize: 35, weight: .bold)
 let BIG_ULTRA_LIGHT_HEADER_FONT = UIFont.systemFont(ofSize: 55, weight: .ultraLight)

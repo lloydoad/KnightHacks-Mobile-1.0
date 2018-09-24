@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:KH_prototype_one.xcodeproj">
+      location = "self:/Users/nass/Google Drive/GitHub/KnightHacks_iosdev/KnightHacks.xcodeproj">
    </FileRef>
 </Workspace>

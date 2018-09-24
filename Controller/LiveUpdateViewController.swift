@@ -1,24 +1,18 @@
 //
 //  LiveUpdateTableViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
-//  Created by Lloyd Dapaah on 9/17/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/17/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
 
 class LiveUpdatesViewController: ParentTableView {
     var liveUpdateContent: [LiveUpdateObject] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.separatorStyle = .none
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
     }
     
@@ -26,7 +20,7 @@ class LiveUpdatesViewController: ParentTableView {
         if indexPath.row == 0 {
             return LIVE_UPDATE_VIEW_HEIGHT
         } else {
-            return tableView.estimatedRowHeight
+            return super.tableView(tableView, heightForRowAt: indexPath)
         }
     }
     

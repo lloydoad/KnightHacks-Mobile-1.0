@@ -1,24 +1,24 @@
 //
-//  FilterMenuCollectionViewController.swift
-//  KH_prototype_one
+//  FilterMenuController.swift
+//  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/29/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/29/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
 
 extension FilteredParentTableView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filterOptions.count
+        return filterButtons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = filterMenuCollectionViewReference.dequeueReusableCell(withReuseIdentifier: FilterMenuButtonCollectionViewCell.identifier, for: indexPath) as! FilterMenuButtonCollectionViewCell
         cell.isSelected = false
         
-        cell.insetImageContainer.image = filterOptions[indexPath.row].image
-        cell.customLabel.text = filterOptions[indexPath.row].name.capitalized
+        cell.filterMenuButtonImageView.image = filterButtons[indexPath.row].image
+        cell.filterMenuButtonLabel.text = filterButtons[indexPath.row].name.capitalized
                 
         return cell
     }
