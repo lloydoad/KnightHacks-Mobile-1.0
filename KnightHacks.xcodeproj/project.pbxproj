@@ -236,8 +236,8 @@
 				4C9829032140F22100104208 /* WorkshopsViewController.swift */,
 				4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */,
 				4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */,
-				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
 				4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */,
+				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

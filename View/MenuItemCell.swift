@@ -1,9 +1,9 @@
 //
-//  menuItemTableViewCell.swift
+//  MenuItemCell.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/26/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/26/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ class MenuItemTableViewCell: UITableViewCell {
         let margins: CGFloat = 15
         let spacing: CGFloat = 5
         
-        // Control the spacing between cells and screen edges
+        // control the spacing between cells and screen edges
         customBackground = UIView()
         customBackground.layer.cornerRadius = 14
         customBackground.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ class MenuItemTableViewCell: UITableViewCell {
         setupViewDetails(customBackground)
     }
     
-    // Setup the label and icon in each cell
+    // setup the label and icon in each cell
     func setupViewDetails(_ wall: UIView) {
         // Assuming 24 lato font will fit inside a 190x40
         customTitleLabel = UILabel()
@@ -60,7 +60,7 @@ class MenuItemTableViewCell: UITableViewCell {
         customTitleLabel.leadingAnchor.constraint(equalTo: wall.leadingAnchor, constant: 17).isActive = true
         customTitleLabel.topAnchor.constraint(equalTo: wall.topAnchor, constant: 10).isActive = true
         
-        // Assuming 96 height amd 96 width would fit all icons
+        // assuming 96 height amd 96 width would fit all icons
         let length: CGFloat = 96
         customIconView = UIImageView()
         customIconView.contentMode = .scaleAspectFit
@@ -73,7 +73,7 @@ class MenuItemTableViewCell: UITableViewCell {
         customIconView.trailingAnchor.constraint(equalTo: wall.trailingAnchor, constant: -14).isActive = true
     }
     
-    // Fade out cell when highlighted
+    // fade out cell when highlighted
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         

@@ -1,9 +1,9 @@
 //
-//  FormattedUITableViewCell.swift
+//  DynamicTableViewCell.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 9/16/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/16/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit

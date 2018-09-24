@@ -2,8 +2,8 @@
 //  FilterMenuTableViewCell.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/28/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/28/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit

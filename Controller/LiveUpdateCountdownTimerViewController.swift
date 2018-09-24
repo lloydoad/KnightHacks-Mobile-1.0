@@ -1,9 +1,9 @@
 //
 //  LiveUpdateCountdownTimerViewController.swift
-//  KH_prototype_one
+//  KnightHacks
 //
-//  Created by Haerunnisa Dewindita on 9/18/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/18/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit

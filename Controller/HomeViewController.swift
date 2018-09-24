@@ -1,9 +1,9 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/26/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/26/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ class HomeViewController: UITableViewController {
     
     // MARK: - SETUP UI AND UI CONTENT
     
-    // Content color and title for each cell
+    // content color and title for each cell
     var menuItems: [MenuButton] =
         [
             MenuButton(name: HomeViewSection.schedule.rawValue, color: ORANGE_COLOR),

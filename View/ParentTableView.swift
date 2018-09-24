@@ -1,9 +1,9 @@
 //
-//  BaseTableView.swift
+//  ParentTableView.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 9/17/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 9/17/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class ParentTableView: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Setup navigation bar
+        // setup navigation bar
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
@@ -35,7 +35,7 @@ class ParentTableView: UITableViewController {
         self.navigationItem.largeTitleDisplayMode = .never
     }
     
-    // Change the color of space between tableview and navbar
+    // change the color of space between tableview and navbar
     func colorUpperTableViewSpace(with color: UIColor) {
         var frame = self.view.bounds
         frame.origin.y = -frame.size.height
@@ -50,7 +50,7 @@ class ParentTableView: UITableViewController {
         return tableView.estimatedRowHeight
     }
     
-    // Change navigation bar of parent view to white
+    // change navigation bar of parent view to white
     override func willMove(toParentViewController parent: UIViewController?) {
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]

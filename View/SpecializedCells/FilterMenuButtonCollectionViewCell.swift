@@ -2,8 +2,8 @@
 //  FilterButtonCollectionViewCell.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/29/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/29/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
@@ -94,7 +94,7 @@ class FilterMenuButtonCollectionViewCell: UICollectionViewCell {
         filterMenuButtonImageView.centerXAnchor.constraint(equalTo: filterMenuButtonExteriorBorderView.centerXAnchor).isActive = true
     }
     
-    // Change borders and circumference when selected
+    // change borders and circumference when selected
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -107,7 +107,7 @@ class FilterMenuButtonCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    // Convenient function for making circular views
+    // convenient function for making circular views
     func makeCustomView(width: CGFloat, height: CGFloat) -> UIView {
         let myView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         myView.backgroundColor = .white

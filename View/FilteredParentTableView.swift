@@ -1,9 +1,9 @@
 //
-//  ScheduleTableViewController.swift
+//  FilteredParentTableView.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 8/28/18.
-//  Copyright © 2018 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 8/28/18.
+//  Copyright © 2018 KnightHacks. All rights reserved.
 //
 
 import UIKit
@@ -51,7 +51,7 @@ class FilteredParentTableView: ParentTableView {
         tableView.register(FilterMenuTableViewCell.self, forCellReuseIdentifier: FilterMenuTableViewCell.identifier)
     }
     
-    // Push filter menu behind navigation bar
+    // push filter menu behind navigation bar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -61,7 +61,7 @@ class FilteredParentTableView: ParentTableView {
         tableViewHeaderTitles = childDelegate == nil ? [] : childDelegate!.setTableViewHeaderTitles()
     }
     
-    // Bring filter button menu cell back down
+    // bring filter button menu cell back down
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
