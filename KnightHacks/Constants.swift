@@ -104,7 +104,7 @@ let BOLD_TITLE_FONT = UIFont(name: LatoFont.bold.rawValue, size: 24)!
 let MAJOR_REGULAR_FONT = UIFont(name: LatoFont.regular.rawValue, size: 20)!
 
 // UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.medium)
-let CELL_HEADER_FONT = UIFont(name: LatoFont.black.rawValue, size: 36)!
+let CELL_HEADER_FONT = UIFont(name: LatoFont.bold.rawValue, size: 36)!
 
 // UIFont.systemFont(ofSize: 30)
 let HEADER_FONT = UIFont(name: LatoFont.regular.rawValue, size: 30)!
