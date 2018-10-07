@@ -15,7 +15,7 @@ class FilterMenuTableViewCell: UITableViewCell {
     
     var filterMenuCollectionView: UICollectionView!
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         // Flowlayout to handle scroll and contentSize

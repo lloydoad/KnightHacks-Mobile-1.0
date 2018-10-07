@@ -41,7 +41,7 @@ extension UIColor {
 }
 
 // create a stackview with defined properties
-func getPresetUIStackView(axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) -> UIStackView {
+func getPresetUIStackView(axis: NSLayoutConstraint.Axis, alignment: UIStackView.Alignment, distribution: UIStackView.Distribution, spacing: CGFloat) -> UIStackView {
     let stack = UIStackView()
     stack.axis = axis
     stack.alignment = alignment

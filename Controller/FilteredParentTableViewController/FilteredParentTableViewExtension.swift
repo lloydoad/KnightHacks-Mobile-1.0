@@ -72,7 +72,7 @@ extension FilteredParentTableView {
     }
     
     func getCustomView(forHeaderInSection section: Int) -> UIView {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let customHeaderView = UIVisualEffectView(effect: blurEffect)
         customHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: headerRowHeight)
         customHeaderView.alpha = 0.9

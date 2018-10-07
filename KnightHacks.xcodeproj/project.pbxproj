@@ -13,8 +13,8 @@
 		4C4197B7213338690002CBEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B5213338690002CBEB /* Main.storyboard */; };
 		4C4197B92133386D0002CBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197B82133386D0002CBEB /* Assets.xcassets */; };
 		4C4197BC2133386D0002CBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */; };
-		4C4197C72133386E0002CBEB /* KH_prototype_oneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197C62133386E0002CBEB /* KH_prototype_oneTests.swift */; };
-		4C4197D22133386E0002CBEB /* KH_prototype_oneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197D12133386E0002CBEB /* KH_prototype_oneUITests.swift */; };
+		4C4197C72133386E0002CBEB /* KnightHacksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197C62133386E0002CBEB /* KnightHacksTests.swift */; };
+		4C4197D22133386E0002CBEB /* KnightHacksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197D12133386E0002CBEB /* KnightHacksUITests.swift */; };
 		4C4197E021333ED40002CBEB /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197DF21333ED40002CBEB /* MenuItemCell.swift */; };
 		4C5069D3213742A000095F64 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5069D2213742A000095F64 /* Buttons.swift */; };
 		4C5069D52137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5069D42137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift */; };
@@ -66,10 +66,10 @@
 		4C4197BB2133386D0002CBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C4197BD2133386D0002CBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4197C22133386E0002CBEB /* KnightHacksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnightHacksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C4197C62133386E0002CBEB /* KH_prototype_oneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KH_prototype_oneTests.swift; sourceTree = "<group>"; };
+		4C4197C62133386E0002CBEB /* KnightHacksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnightHacksTests.swift; sourceTree = "<group>"; };
 		4C4197C82133386E0002CBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4197CD2133386E0002CBEB /* KnightHacksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnightHacksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C4197D12133386E0002CBEB /* KH_prototype_oneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KH_prototype_oneUITests.swift; sourceTree = "<group>"; };
+		4C4197D12133386E0002CBEB /* KnightHacksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnightHacksUITests.swift; sourceTree = "<group>"; };
 		4C4197D32133386E0002CBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4197DF21333ED40002CBEB /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 		4C5069D2213742A000095F64 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		4C4197C52133386E0002CBEB /* KnightHacksTests */ = {
 			isa = PBXGroup;
 			children = (
-				4C4197C62133386E0002CBEB /* KH_prototype_oneTests.swift */,
+				4C4197C62133386E0002CBEB /* KnightHacksTests.swift */,
 				4C4197C82133386E0002CBEB /* Info.plist */,
 			);
 			path = KnightHacksTests;
@@ -168,7 +168,7 @@
 		4C4197D02133386E0002CBEB /* KnightHacksUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4C4197D12133386E0002CBEB /* KH_prototype_oneUITests.swift */,
+				4C4197D12133386E0002CBEB /* KnightHacksUITests.swift */,
 				4C4197D32133386E0002CBEB /* Info.plist */,
 			);
 			path = KnightHacksUITests;
@@ -310,13 +310,16 @@
 				TargetAttributes = {
 					4C4197AD213338680002CBEB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					4C4197C12133386E0002CBEB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 4C4197AD213338680002CBEB;
 					};
 					4C4197CC2133386E0002CBEB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 4C4197AD213338680002CBEB;
 					};
 				};
@@ -405,7 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C4197C72133386E0002CBEB /* KH_prototype_oneTests.swift in Sources */,
+				4C4197C72133386E0002CBEB /* KnightHacksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C4197D22133386E0002CBEB /* KH_prototype_oneUITests.swift in Sources */,
+				4C4197D22133386E0002CBEB /* KnightHacksUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -597,7 +600,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -609,15 +612,15 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG8L9MP57M;
-				INFOPLIST_FILE = KH_prototype_oneTests/Info.plist;
+				INFOPLIST_FILE = KnightHacksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaah.KH-prototype-oneTests";
+				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacksTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnightHacks.app/KnightHacks";
 			};
@@ -630,15 +633,15 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG8L9MP57M;
-				INFOPLIST_FILE = KH_prototype_oneTests/Info.plist;
+				INFOPLIST_FILE = KnightHacksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaah.KH-prototype-oneTests";
+				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacksTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnightHacks.app/KnightHacks";
 			};
@@ -650,17 +653,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG8L9MP57M;
-				INFOPLIST_FILE = KH_prototype_oneUITests/Info.plist;
+				INFOPLIST_FILE = KnightHacksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaah.KH-prototype-oneUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacksUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KH_prototype_one;
+				TEST_TARGET_NAME = KnightHacks;
 			};
 			name = Debug;
 		};
@@ -670,17 +673,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG8L9MP57M;
-				INFOPLIST_FILE = KH_prototype_oneUITests/Info.plist;
+				INFOPLIST_FILE = KnightHacksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "lloyddapaah.KH-prototype-oneUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacksUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KH_prototype_one;
+				TEST_TARGET_NAME = KnightHacks;
 			};
 			name = Release;
 		};
