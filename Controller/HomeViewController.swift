@@ -40,7 +40,7 @@ class HomeViewController: UITableViewController {
     }
     
     func setupNavigationbar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        if #available(iOS 11, *) { self.navigationController?.navigationBar.prefersLargeTitles = true }
         self.navigationItem.title = "Where to?"
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = .white

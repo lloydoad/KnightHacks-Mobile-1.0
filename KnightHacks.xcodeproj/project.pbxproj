@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1535FAE0A152AEF51961EA23 /* Pods_KnightHacksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266A3F51E8B361C560F97BC /* Pods_KnightHacksUITests.framework */; };
+		17CE91C3BB8D7D20B4230AC8 /* Pods_KnightHacksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877DAC18745F03DEA8E7B89C /* Pods_KnightHacksTests.framework */; };
 		4C229628213A6FDB001EE130 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C229627213A6FDB001EE130 /* ScheduleViewController.swift */; };
 		4C4197B2213338680002CBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B1213338680002CBEB /* AppDelegate.swift */; };
 		4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4197B3213338680002CBEB /* HomeViewController.swift */; };
@@ -37,6 +39,7 @@
 		4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
+		F51C03988573223BF1C5C630 /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952E4AED70177203B0342439 /* Pods_KnightHacks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2266A3F51E8B361C560F97BC /* Pods_KnightHacksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3968920E916E7C958BF038DB /* Pods-KnightHacksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacksUITests/Pods-KnightHacksUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C229627213A6FDB001EE130 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		4C4197AE213338680002CBEB /* KnightHacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnightHacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4197B1213338680002CBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +98,13 @@
 		4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
+		83DA909E03E8E1E2F1B10D68 /* Pods-KnightHacks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.debug.xcconfig"; sourceTree = "<group>"; };
+		877DAC18745F03DEA8E7B89C /* Pods_KnightHacksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BA546B7E5E145945D4D627 /* Pods-KnightHacksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacksTests/Pods-KnightHacksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		952E4AED70177203B0342439 /* Pods_KnightHacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9629C60A0782DA0785D2764C /* Pods-KnightHacksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacksUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacksUITests/Pods-KnightHacksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B2A787F0F4191D7FFF35C095 /* Pods-KnightHacksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacksTests/Pods-KnightHacksTests.release.xcconfig"; sourceTree = "<group>"; };
+		ED8C6B74B2B058252770D4EE /* Pods-KnightHacks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51C03988573223BF1C5C630 /* Pods_KnightHacks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CE91C3BB8D7D20B4230AC8 /* Pods_KnightHacksTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1535FAE0A152AEF51961EA23 /* Pods_KnightHacksUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +145,8 @@
 				4C4197C52133386E0002CBEB /* KnightHacksTests */,
 				4C4197D02133386E0002CBEB /* KnightHacksUITests */,
 				4C4197AF213338680002CBEB /* Products */,
+				C004439AA159BC5C18782487 /* Pods */,
+				FDBE86C3ECC2EEF717848C49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +259,29 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C004439AA159BC5C18782487 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83DA909E03E8E1E2F1B10D68 /* Pods-KnightHacks.debug.xcconfig */,
+				ED8C6B74B2B058252770D4EE /* Pods-KnightHacks.release.xcconfig */,
+				88BA546B7E5E145945D4D627 /* Pods-KnightHacksTests.debug.xcconfig */,
+				B2A787F0F4191D7FFF35C095 /* Pods-KnightHacksTests.release.xcconfig */,
+				3968920E916E7C958BF038DB /* Pods-KnightHacksUITests.debug.xcconfig */,
+				9629C60A0782DA0785D2764C /* Pods-KnightHacksUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FDBE86C3ECC2EEF717848C49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				952E4AED70177203B0342439 /* Pods_KnightHacks.framework */,
+				877DAC18745F03DEA8E7B89C /* Pods_KnightHacksTests.framework */,
+				2266A3F51E8B361C560F97BC /* Pods_KnightHacksUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,6 +289,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C4197D62133386E0002CBEB /* Build configuration list for PBXNativeTarget "KnightHacks" */;
 			buildPhases = (
+				46167023942EB4BA7A506BF4 /* [CP] Check Pods Manifest.lock */,
 				4C4197AA213338680002CBEB /* Sources */,
 				4C4197AB213338680002CBEB /* Frameworks */,
 				4C4197AC213338680002CBEB /* Resources */,
@@ -266,9 +307,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C4197D92133386E0002CBEB /* Build configuration list for PBXNativeTarget "KnightHacksTests" */;
 			buildPhases = (
+				A0544DFE4B64FD4CFDAA23EE /* [CP] Check Pods Manifest.lock */,
 				4C4197BE2133386E0002CBEB /* Sources */,
 				4C4197BF2133386E0002CBEB /* Frameworks */,
 				4C4197C02133386E0002CBEB /* Resources */,
+				85E2C9EDFC5DD7E72B6BAAFF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,6 +327,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C4197DC2133386E0002CBEB /* Build configuration list for PBXNativeTarget "KnightHacksUITests" */;
 			buildPhases = (
+				20E914B26A77836CB7342CB5 /* [CP] Check Pods Manifest.lock */,
 				4C4197C92133386E0002CBEB /* Sources */,
 				4C4197CA2133386E0002CBEB /* Frameworks */,
 				4C4197CB2133386E0002CBEB /* Resources */,
@@ -370,6 +414,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20E914B26A77836CB7342CB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KnightHacksUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46167023942EB4BA7A506BF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KnightHacks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85E2C9EDFC5DD7E72B6BAAFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KnightHacksTests/Pods-KnightHacksTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KnightHacksTests/Pods-KnightHacksTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0544DFE4B64FD4CFDAA23EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KnightHacksTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C4197AA213338680002CBEB /* Sources */ = {
@@ -571,11 +692,13 @@
 		};
 		4C4197D72133386E0002CBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83DA909E03E8E1E2F1B10D68 /* Pods-KnightHacks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG8L9MP57M;
 				INFOPLIST_FILE = KnightHacks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,11 +712,13 @@
 		};
 		4C4197D82133386E0002CBEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED8C6B74B2B058252770D4EE /* Pods-KnightHacks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG8L9MP57M;
 				INFOPLIST_FILE = KnightHacks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -607,6 +732,7 @@
 		};
 		4C4197DA2133386E0002CBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88BA546B7E5E145945D4D627 /* Pods-KnightHacksTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -628,6 +754,7 @@
 		};
 		4C4197DB2133386E0002CBEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2A787F0F4191D7FFF35C095 /* Pods-KnightHacksTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -649,6 +776,7 @@
 		};
 		4C4197DD2133386E0002CBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3968920E916E7C958BF038DB /* Pods-KnightHacksUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -669,6 +797,7 @@
 		};
 		4C4197DE2133386E0002CBEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9629C60A0782DA0785D2764C /* Pods-KnightHacksUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

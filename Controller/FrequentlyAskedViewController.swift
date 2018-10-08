@@ -18,9 +18,12 @@ class FrequentlyAskedViewController: ParentTableView {
     
     func setupNavigationBarUIElements() {
         self.navigationItem.title = "Frequently Asked"
-        self.navigationItem.largeTitleDisplayMode = .always
+        if #available(iOS 11, *) {
+            self.navigationItem.largeTitleDisplayMode = .always
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        }
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     

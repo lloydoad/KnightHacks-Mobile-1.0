@@ -32,7 +32,8 @@ class ParentTableView: UITableViewController {
         self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationItem.largeTitleDisplayMode = .never
+        if #available(iOS 11, *) { self.navigationItem.largeTitleDisplayMode = .never }
+        
     }
     
     // change the color of space between tableview and navbar
@@ -53,7 +54,9 @@ class ParentTableView: UITableViewController {
     // change navigation bar of parent view to white
     override func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        if #available(iOS 11, *) {
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 }
