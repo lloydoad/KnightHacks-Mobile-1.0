@@ -13,24 +13,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var rocketImages: [UIImage] = []
+    var backgroundImages: [UIImageView] = []
     
-    // Function to create image array for launcheScreen animation.
-    func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
+    func setupImagesForLaunchAnimation(numImages: Int, imageNamePrefix: String) -> [UIImage] {
         var imageArray: [UIImage] = []
         
-        for imageCount in 1..<total {
-            let imageName = "\(imagePrefix)-\(imageCount).png"
-            let image = UIImage(named: imageName)!
-            imageArray.append(image)
+        for imageCount in 1..<numImages {
+            imageArray.append(UIImage(named: String("\(imageNamePrefix)-\(imageCount).png"))!)
         }
         return imageArray
     }
     
-    // Function to animate array of images.
-    func animate(imageView: UIImageView, images: [UIImage]) {
+    func startImageLaunchAnimation(imageView: UIImageView, images: [UIImage]) {
         imageView.animationImages = images
         imageView.animationDuration = 0.4
         imageView.startAnimating()
+    }
+    
+    func setupBackgroundCloudsForLaunchAnimation (rootController: UIViewController) {
+        var yFixedPosition: CGFloat = -50
+        var cloudGroup: Int = 3
+        var set: Int = 0
+        
+        for imageCount in 0..<10 {
+            yFixedPosition = yFixedPosition - 230
+            
+            if (set == 3) {
+                set = 0
+            }
+            
+            if (set == 0) {
+                backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition - 30, width: UIScreen.main.bounds.width, height: 170)))
+                if (imageCount % 2 == 0) {
+                    cloudGroup = 3
+                } else {
+                    cloudGroup = 4
+                }
+                backgroundImages[imageCount].image = UIImage(named: "\(cloudGroup).png")
+            } else if (set == 1) {
+                backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(Int.random(in: 2...5))), y: yFixedPosition, width: 20, height: 20)))
+                backgroundImages[imageCount].image = UIImage(named: "\(Int.random(in: 1...2)).png")
+            } else if (set == 2) {
+                backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition + 90, width: UIScreen.main.bounds.width, height: 100)))
+                backgroundImages[imageCount].image = UIImage(named: "cloud-combo.png")
+            }
+            set = set + 1
+            rootController.view.addSubview(backgroundImages[imageCount])
+            rootController.view.bringSubview(toFront: backgroundImages[imageCount])
+        }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -43,8 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootController
         
         // Rocket subView.
-        let rocketImage = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.maxX)/3
-            , y: ((UIScreen.main.bounds.maxY)/3), width: 120, height: 280))
+        let rocketImage = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.maxX)/3, y: ((UIScreen.main.bounds.maxY)/3), width: 120, height: 280))
+        
         // Setting rocket image to center of screen.
         rocketImage.center.y = rootController.view.frame.size.height/2
         rocketImage.center.x = rootController.view.frame.size.width/2
@@ -54,122 +84,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let background = UIImageView(frame: CGRect(x: 0, y: -45, width: UIScreen.main.bounds.width, height: 2000))
         background.backgroundColor = UIColor.init(red: 37, green: 9, blue: 81, a: 1)
         
-        // Background stars
-        let backgroundRedStar = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 300), y: -80, width: 20, height: 20))
-        backgroundRedStar.image = UIImage(named: "red-star.png")
-        
-        let backgroundBlueStar = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 100), y: -20, width: 20, height: 20))
-        backgroundBlueStar.image = UIImage(named: "blue-star.png")
-        
-        let backgroundRedStar2 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 280), y: -460, width: 20, height: 20))
-        backgroundRedStar2.image = UIImage(named: "red-star.png")
-        
-        let backgroundBlueStar2 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 350), y: -900, width: 20, height: 20))
-        backgroundBlueStar2.image = UIImage(named: "blue-star.png")
-        
-        // Background Clouds.
-        let clouds = UIImageView(frame: CGRect(x: 0, y: -450, width: UIScreen.main.bounds.width, height: 100))
-        clouds.image = UIImage(named: "cloud-combo.png")
-        
-        let clouds2 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 300), y: -800, width: 150, height: 100))
-        clouds2.image = UIImage(named: "Group 4.png")
-        
-        let clouds3 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 350), y: -200, width: 150, height: 100))
-        clouds3.image = UIImage(named: "Group 4.png")
-        
-        let clouds4 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 150), y: -300, width: 150, height: 100))
-        clouds4.image = UIImage(named: "Group 5.png")
-        
-        let clouds5 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 350), y: -200, width: 150, height: 100))
-        clouds5.image = UIImage(named: "Group 4.png")
-        
-        let clouds6 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 150), y: -600, width: 150, height: 100))
-        clouds6.image = UIImage(named: "Group 5.png")
-        
-        let clouds7 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 350), y: -800, width: 150, height: 100))
-        clouds7.image = UIImage(named: "Group 4.png")
-        
-        let clouds8 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 150), y: -1000, width: 150, height: 100))
-        clouds8.image = UIImage(named: "Group 5.png")
-        
-        let clouds9 = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width - 350), y: -1100, width: 150, height: 100))
-        clouds9.image = UIImage(named: "Group 5.png")
-        
-        
         // Adding subLayers to base UIViewController().
         rootController.view.addSubview(rocketImage)
         rootController.view.addSubview(background)
-        rootController.view.addSubview(backgroundRedStar)
-        rootController.view.addSubview(backgroundBlueStar)
-        rootController.view.addSubview(backgroundRedStar2)
-        rootController.view.addSubview(backgroundBlueStar2)
-        rootController.view.addSubview(clouds)
-        rootController.view.addSubview(clouds2)
-        rootController.view.addSubview(clouds3)
-        rootController.view.addSubview(clouds4)
-        rootController.view.addSubview(clouds5)
-        rootController.view.addSubview(clouds6)
-        rootController.view.addSubview(clouds7)
-        rootController.view.addSubview(clouds8)
-        rootController.view.addSubview(clouds9)
         
         // Bringin subLayers to top.
         rootController.view.bringSubview(toFront: background)
-        rootController.view.bringSubview(toFront: clouds)
-        rootController.view.bringSubview(toFront: clouds2)
-        rootController.view.bringSubview(toFront: clouds3)
-        rootController.view.bringSubview(toFront: clouds4)
-        rootController.view.bringSubview(toFront: clouds5)
-        rootController.view.bringSubview(toFront: clouds6)
-        rootController.view.bringSubview(toFront: clouds7)
-        rootController.view.bringSubview(toFront: clouds8)
-        rootController.view.bringSubview(toFront: clouds9)
         rootController.view.bringSubview(toFront: rocketImage)
-        rootController.view.bringSubview(toFront: backgroundRedStar)
-        rootController.view.bringSubview(toFront: backgroundBlueStar)
-        rootController.view.bringSubview(toFront: backgroundRedStar2)
-        rootController.view.bringSubview(toFront: backgroundBlueStar2)
         
+        // Launch Screen animation.
+        setupBackgroundCloudsForLaunchAnimation(rootController: rootController)
         
         // Creates array of rocket images.
-        rocketImages = createImageArray(total: 4, imagePrefix: "rocket")
+        rocketImages = setupImagesForLaunchAnimation(numImages: 4, imageNamePrefix: "rocket")
         
         // Rocket animation: change flame size.
-        animate(imageView: rocketImage, images: rocketImages)
+        startImageLaunchAnimation(imageView: rocketImage, images: rocketImages)
         
         // Rocket animation: leaves screen.
-        UIView.animate(withDuration: 2,
-                       delay: 4,
-                       
-                       animations: {
-                        rocketImage.layer.frame.origin.y -= 3000
-        },
-                       completion: nil
-        )
+        UIView.animate(withDuration: 2, delay: 4, animations: {
+            rocketImage.layer.frame.origin.y -= 3000
+        }, completion: nil)
         
-        // Moving Background animation.
-        UIView.animate(withDuration: 6,
-                       
-                       animations: {
-                        backgroundRedStar.layer.frame.origin.y += 1000
-                        backgroundBlueStar.layer.frame.origin.y += 1000
-                        backgroundRedStar2.layer.frame.origin.y += 1000
-                        backgroundBlueStar2.layer.frame.origin.y += 1000
-                        clouds.layer.frame.origin.y += 1000
-                        clouds2.layer.frame.origin.y += 1000
-                        clouds3.layer.frame.origin.y += 1000
-                        clouds4.layer.frame.origin.y += 1000
-                        clouds5.layer.frame.origin.y += 1000
-                        clouds6.layer.frame.origin.y += 1000
-                        clouds7.layer.frame.origin.y += 1000
-                        clouds8.layer.frame.origin.y += 1000
-                        clouds9.layer.frame.origin.y += 1000
-        },
-                       completion: { finished in
-                        rootController.present(UINavigationController(rootViewController: HomeViewController()), animated: true, completion: nil)
-                        
+        // Movement of Background animation.
+        UIView.animate(withDuration: 6, animations: {
+            for i in 0..<self.backgroundImages.count {
+                self.backgroundImages[i].layer.frame.origin.y += 1300
+            }
+        }, completion: { finished in
+            rootController.present(UINavigationController(rootViewController: HomeViewController()), animated: true, completion: nil)
         })
-        
         return true
     }
     
@@ -197,4 +141,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
 }
-

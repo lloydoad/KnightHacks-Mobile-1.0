@@ -39,12 +39,12 @@
 		5EBBA0F62155D87E0022E2D8 /* rocket-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F12155D87D0022E2D8 /* rocket-5.png */; };
 		5EBBA0F72155D87E0022E2D8 /* rocket-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F22155D87E0022E2D8 /* rocket-3.png */; };
 		5EBBA0F82155D87E0022E2D8 /* rocket-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F32155D87E0022E2D8 /* rocket-2.png */; };
-		5EBBA0FA2155D88D0022E2D8 /* Group 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0F92155D88D0022E2D8 /* Group 4.png */; };
-		5EBBA0FC2155D8930022E2D8 /* Group 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FB2155D8930022E2D8 /* Group 5.png */; };
 		5EBBA0FE2155D8C80022E2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FD2155D8C80022E2D8 /* LaunchScreen.storyboard */; };
-		5EBBA1012155D9110022E2D8 /* blue-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FF2155D9110022E2D8 /* blue-star.png */; };
-		5EBBA1022155D9110022E2D8 /* red-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA1002155D9110022E2D8 /* red-star.png */; };
+		5EBBA1012155D9110022E2D8 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA0FF2155D9110022E2D8 /* 1.png */; };
+		5EBBA1022155D9110022E2D8 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA1002155D9110022E2D8 /* 2.png */; };
 		5EBBA1042155D91B0022E2D8 /* cloud-combo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBBA1032155D91B0022E2D8 /* cloud-combo.png */; };
+		5EFE72F22170FBFF00694C66 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFE72F12170FBFF00694C66 /* 3.png */; };
+		5EFE72F42170FC0700694C66 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFE72F32170FC0700694C66 /* 4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,12 +103,12 @@
 		5EBBA0F12155D87D0022E2D8 /* rocket-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-5.png"; sourceTree = "<group>"; };
 		5EBBA0F22155D87E0022E2D8 /* rocket-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-3.png"; sourceTree = "<group>"; };
 		5EBBA0F32155D87E0022E2D8 /* rocket-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-2.png"; sourceTree = "<group>"; };
-		5EBBA0F92155D88D0022E2D8 /* Group 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 4.png"; sourceTree = "<group>"; };
-		5EBBA0FB2155D8930022E2D8 /* Group 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 5.png"; sourceTree = "<group>"; };
 		5EBBA0FD2155D8C80022E2D8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5EBBA0FF2155D9110022E2D8 /* blue-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-star.png"; sourceTree = "<group>"; };
-		5EBBA1002155D9110022E2D8 /* red-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-star.png"; sourceTree = "<group>"; };
+		5EBBA0FF2155D9110022E2D8 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		5EBBA1002155D9110022E2D8 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		5EBBA1032155D91B0022E2D8 /* cloud-combo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud-combo.png"; sourceTree = "<group>"; };
+		5EFE72F12170FBFF00694C66 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		5EFE72F32170FC0700694C66 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,11 +266,11 @@
 		5EBBA0EE2155D84C0022E2D8 /* Background Images */ = {
 			isa = PBXGroup;
 			children = (
-				5EBBA0FF2155D9110022E2D8 /* blue-star.png */,
-				5EBBA1002155D9110022E2D8 /* red-star.png */,
+				5EBBA0FF2155D9110022E2D8 /* 1.png */,
+				5EBBA1002155D9110022E2D8 /* 2.png */,
+				5EFE72F12170FBFF00694C66 /* 3.png */,
+				5EFE72F32170FC0700694C66 /* 4.png */,
 				5EBBA1032155D91B0022E2D8 /* cloud-combo.png */,
-				5EBBA0F92155D88D0022E2D8 /* Group 4.png */,
-				5EBBA0FB2155D8930022E2D8 /* Group 5.png */,
 			);
 			name = "Background Images";
 			path = "New Group1";
@@ -383,14 +383,14 @@
 				5EBBA0F72155D87E0022E2D8 /* rocket-3.png in Resources */,
 				5EBBA0F42155D87E0022E2D8 /* rocket-1.png in Resources */,
 				4C4197B92133386D0002CBEB /* Assets.xcassets in Resources */,
+				5EFE72F22170FBFF00694C66 /* 3.png in Resources */,
 				5EBBA0FE2155D8C80022E2D8 /* LaunchScreen.storyboard in Resources */,
-				5EBBA1012155D9110022E2D8 /* blue-star.png in Resources */,
-				5EBBA1022155D9110022E2D8 /* red-star.png in Resources */,
+				5EBBA1012155D9110022E2D8 /* 1.png in Resources */,
+				5EBBA1022155D9110022E2D8 /* 2.png in Resources */,
 				5EBBA0F52155D87E0022E2D8 /* rocket-4.png in Resources */,
 				4C4197B7213338690002CBEB /* Main.storyboard in Resources */,
 				5EBBA1042155D91B0022E2D8 /* cloud-combo.png in Resources */,
-				5EBBA0FC2155D8930022E2D8 /* Group 5.png in Resources */,
-				5EBBA0FA2155D88D0022E2D8 /* Group 4.png in Resources */,
+				5EFE72F42170FC0700694C66 /* 4.png in Resources */,
 				5EBBA0F82155D87E0022E2D8 /* rocket-2.png in Resources */,
 				5EBBA0F62155D87E0022E2D8 /* rocket-5.png in Resources */,
 			);
