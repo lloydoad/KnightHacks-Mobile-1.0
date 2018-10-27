@@ -30,34 +30,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         imageView.startAnimating()
     }
     
-    func setupBackgroundCloudsForLaunchAnimation (rootController: UIViewController) {
+    func setupBackgroundCloudsForLaunchAnimation(rootController: UIViewController) {
         var yFixedPosition: CGFloat = -50
         var cloudGroup: Int = 3
-        var set: Int = 0
+        var imageSet: Int = 0
         
         for imageCount in 0..<10 {
-            yFixedPosition = yFixedPosition - 230
+            yFixedPosition -= 230
             
-            if (set == 3) {
-                set = 0
-            }
-            
-            if (set == 0) {
+            if (imageSet == 0) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition - 30, width: UIScreen.main.bounds.width, height: 170)))
-                if (imageCount % 2 == 0) {
-                    cloudGroup = 3
-                } else {
-                    cloudGroup = 4
-                }
+                cloudGroup = 3 + (imageCount % 2)
                 backgroundImages[imageCount].image = UIImage(named: "\(cloudGroup).png")
-            } else if (set == 1) {
+            } else if (imageSet == 1) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(Int.random(in: 2...5))), y: yFixedPosition, width: 20, height: 20)))
                 backgroundImages[imageCount].image = UIImage(named: "\(Int.random(in: 1...2)).png")
-            } else if (set == 2) {
+            } else if (imageSet == 2) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition + 90, width: UIScreen.main.bounds.width, height: 100)))
                 backgroundImages[imageCount].image = UIImage(named: "cloud-combo.png")
             }
-            set = set + 1
+            
+            imageSet = (imageSet + 1) % 3
             rootController.view.addSubview(backgroundImages[imageCount])
             rootController.view.bringSubview(toFront: backgroundImages[imageCount])
         }
@@ -68,45 +61,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        // Sets rootController to be a UIViewController(). Which will work as a base for the initial animation.
         let rootController = UIViewController()
         window?.rootViewController = rootController
         
-        // Rocket subView.
         let rocketImage = UIImageView(frame: CGRect(x: (UIScreen.main.bounds.maxX)/3, y: ((UIScreen.main.bounds.maxY)/3), width: 120, height: 280))
         
-        // Setting rocket image to center of screen.
         rocketImage.center.y = rootController.view.frame.size.height/2
         rocketImage.center.x = rootController.view.frame.size.width/2
         rocketImage.animationImages = rocketImages
         
-        // Background subView.
         let background = UIImageView(frame: CGRect(x: 0, y: -45, width: UIScreen.main.bounds.width, height: 2000))
         background.backgroundColor = UIColor.init(red: 37, green: 9, blue: 81, a: 1)
         
-        // Adding subLayers to base UIViewController().
         rootController.view.addSubview(rocketImage)
         rootController.view.addSubview(background)
         
-        // Bringin subLayers to top.
         rootController.view.bringSubview(toFront: background)
         rootController.view.bringSubview(toFront: rocketImage)
         
-        // Launch Screen animation.
         setupBackgroundCloudsForLaunchAnimation(rootController: rootController)
         
-        // Creates array of rocket images.
         rocketImages = setupImagesForLaunchAnimation(numImages: 4, imageNamePrefix: "rocket")
         
-        // Rocket animation: change flame size.
         startImageLaunchAnimation(imageView: rocketImage, images: rocketImages)
         
-        // Rocket animation: leaves screen.
         UIView.animate(withDuration: 2, delay: 4, animations: {
             rocketImage.layer.frame.origin.y -= 3000
         }, completion: nil)
         
-        // Movement of Background animation.
         UIView.animate(withDuration: 6, animations: {
             for i in 0..<self.backgroundImages.count {
                 self.backgroundImages[i].layer.frame.origin.y += 1300
@@ -138,6 +120,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
 }
