@@ -49,8 +49,13 @@ class HomeViewController: UITableViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = .white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - TABLE DATASOURCE FUNCTIONS
     
     // setup content of a cell
