@@ -95,5 +95,9 @@ class HomeViewController: UITableViewController {
             return ScheduleViewController(style: .plain)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
 }
 
