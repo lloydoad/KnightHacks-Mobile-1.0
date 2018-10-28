@@ -53,7 +53,10 @@ class ParentTableView: UITableViewController {
     // change navigation bar of parent view to white
     override func willMove(toParentViewController parent: UIViewController?) {
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: CELL_HEADER_FONT
+        ]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
     }
 }
