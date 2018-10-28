@@ -55,5 +55,8 @@ class ParentTableView: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.font: CELL_HEADER_FONT
+        ]
     }
 }
