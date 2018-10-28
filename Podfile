@@ -6,16 +6,7 @@ target 'KnightHacks' do
   use_frameworks!
 
   # Pods for KnightHacks
-
-  target 'KnightHacksTests' do
-    inherit! :search_paths
-    pod 'SwiftyJSON', '~> 4.0'
-    pod 'Alamofire', '~> 4.7'
-  end
-
-  target 'KnightHacksUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Alamofire', '~> 4.7'
 
 end
