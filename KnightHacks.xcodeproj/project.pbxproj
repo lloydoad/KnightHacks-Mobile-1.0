@@ -35,12 +35,9 @@
 		4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
-		C74AD78E97F4406AAA9E407E /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E42E8C6B911AE19BC71DF2 /* Pods_KnightHacks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23818E8A02FB00DF2DEAE56B /* Pods-KnightHacks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.release.xcconfig"; sourceTree = "<group>"; };
-		32E42E8C6B911AE19BC71DF2 /* Pods_KnightHacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C229627213A6FDB001EE130 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		4C4197AE213338680002CBEB /* KnightHacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnightHacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4197B1213338680002CBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +68,6 @@
 		4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
-		FBA49188299DFF8100BF89D2 /* Pods-KnightHacks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74AD78E97F4406AAA9E407E /* Pods_KnightHacks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +89,6 @@
 				4CF3F96D21337533007DE8EC /* Model */,
 				4C4197B0213338680002CBEB /* KnightHacks */,
 				4C4197AF213338680002CBEB /* Products */,
-				59290B75C294E7F64F355383 /* Pods */,
-				7D17947835ADD5068F301A13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,23 +179,6 @@
 				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		59290B75C294E7F64F355383 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FBA49188299DFF8100BF89D2 /* Pods-KnightHacks.debug.xcconfig */,
-				23818E8A02FB00DF2DEAE56B /* Pods-KnightHacks.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7D17947835ADD5068F301A13 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				32E42E8C6B911AE19BC71DF2 /* Pods_KnightHacks.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,7 +462,6 @@
 		};
 		4C4197D72133386E0002CBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBA49188299DFF8100BF89D2 /* Pods-KnightHacks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,7 +481,6 @@
 		};
 		4C4197D82133386E0002CBEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23818E8A02FB00DF2DEAE56B /* Pods-KnightHacks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
