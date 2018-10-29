@@ -41,7 +41,10 @@ playground.xcworkspace
 .build/
 
 # CocoaPods
-# We are keeping the pods on version control
+Pods/
+Podfile.lock
+KnightHacks.xcworkspace
+project.pbxproj
 
 # Carthage
 #
