@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     // temp array to represent loaded tags
