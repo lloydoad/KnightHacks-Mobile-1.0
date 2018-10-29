@@ -40,12 +40,15 @@ class HomeViewController: UITableViewController {
     }
     
     func setupNavigationbar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        if #available(iOS 11, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [
+                NSAttributedStringKey.foregroundColor: UIColor.black,
+                NSAttributedStringKey.font: CELL_HEADER_FONT
+            ]
+        }
         self.navigationItem.title = "Where to?"
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: CELL_HEADER_FONT
-        ]
+        
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = .white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
