@@ -22,7 +22,7 @@ class FrequentlyAskedViewController: ParentTableView {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: CELL_HEADER_FONT
+            NSAttributedStringKey.font: CELL_HEADER_FONT
         ]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }

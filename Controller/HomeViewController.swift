@@ -44,7 +44,7 @@ class HomeViewController: UITableViewController {
         self.navigationItem.title = "Where to?"
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: CELL_HEADER_FONT
+            NSAttributedStringKey.font: CELL_HEADER_FONT
         ]
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = .white
