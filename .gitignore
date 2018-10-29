@@ -41,7 +41,8 @@ playground.xcworkspace
 .build/
 
 # CocoaPods
-# We are keeping the pods on version control
+Podfile.lock
+Pods/
 
 # Carthage
 #

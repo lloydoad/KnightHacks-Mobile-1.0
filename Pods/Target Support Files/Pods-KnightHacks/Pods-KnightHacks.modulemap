@@ -1,6 +1,0 @@
-framework module Pods_KnightHacks {
-  umbrella header "Pods-KnightHacks-umbrella.h"
-
-  export *
-  module * { export * }
-}
