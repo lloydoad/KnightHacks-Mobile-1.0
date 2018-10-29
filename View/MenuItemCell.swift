@@ -52,7 +52,7 @@ class MenuItemTableViewCell: UITableViewCell {
         // Assuming 24 lato font will fit inside a 190x40
         customTitleLabel = UILabel()
         customTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        customTitleLabel.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        customTitleLabel.font = BOLD_TITLE_FONT
         customTitleLabel.textColor = UIColor.white
         wall.addSubview(customTitleLabel)
         customTitleLabel.widthAnchor.constraint(equalToConstant: 190).isActive = true
