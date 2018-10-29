@@ -44,7 +44,6 @@ playground.xcworkspace
 Pods/
 Podfile.lock
 KnightHacks.xcworkspace
-project.pbxproj
 
 # Carthage
 #
