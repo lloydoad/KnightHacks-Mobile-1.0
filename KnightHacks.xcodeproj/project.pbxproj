@@ -43,11 +43,14 @@
 		4CDEE6742151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */; };
 		4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */; };
 		4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */; };
+		4CEED19D21891B2A002EF894 /* RequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEED19C21891B2A002EF894 /* RequestSingleton.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
+		AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A889DB1A52ADF34F2E1192B /* Pods-KnightHacks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.release.xcconfig"; sourceTree = "<group>"; };
 		4C229627213A6FDB001EE130 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		4C4197AE213338680002CBEB /* KnightHacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnightHacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4197B1213338680002CBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +89,11 @@
 		4CDEE6732151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenDetailDynamicTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE67521519D690068E729 /* LiveUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
+		4CEED19C21891B2A002EF894 /* RequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSingleton.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
+		718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E88A40BD14E15F8496777AD3 /* Pods-KnightHacks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,21 +101,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1232690F406B1228ABE904 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E88A40BD14E15F8496777AD3 /* Pods-KnightHacks.debug.xcconfig */,
+				4A889DB1A52ADF34F2E1192B /* Pods-KnightHacks.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3BA2CBC770B204EFEEB31965 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C4197A5213338680002CBEB = {
 			isa = PBXGroup;
 			children = (
+				4CEED19B21891B11002EF894 /* Service */,
 				4CF3F96F21337546007DE8EC /* Controller */,
 				4CF3F96E2133753A007DE8EC /* View */,
 				4CF3F96D21337533007DE8EC /* Model */,
 				4C878A5321616264006C284D /* Fonts */,
 				4C4197B0213338680002CBEB /* KnightHacks */,
 				4C4197AF213338680002CBEB /* Products */,
+				3B1232690F406B1228ABE904 /* Pods */,
+				3BA2CBC770B204EFEEB31965 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +209,14 @@
 			path = DynamicTableViewCells;
 			sourceTree = "<group>";
 		};
+		4CEED19B21891B11002EF894 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4CEED19C21891B2A002EF894 /* RequestSingleton.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4CF3F96D21337533007DE8EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C4197D62133386E0002CBEB /* Build configuration list for PBXNativeTarget "KnightHacks" */;
 			buildPhases = (
+				42D98BEB890E65673C19755C /* [CP] Check Pods Manifest.lock */,
 				4C4197AA213338680002CBEB /* Sources */,
 				4C4197AB213338680002CBEB /* Frameworks */,
 				4C4197AC213338680002CBEB /* Resources */,
+				655E7AF7835A5EA34479FE54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,6 +332,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42D98BEB890E65673C19755C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KnightHacks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		655E7AF7835A5EA34479FE54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C4197AA213338680002CBEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -315,6 +393,7 @@
 				4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */,
 				4CD9DD1B2135A59300E200CB /* FilterMenuTableViewCell.swift in Sources */,
 				4CDEE670215154470068E729 /* DefaultDynamicTableViewCell.swift in Sources */,
+				4CEED19D21891B2A002EF894 /* RequestSingleton.swift in Sources */,
 				4C5069D9213787B700095F64 /* FilteredParentTableViewExtension.swift in Sources */,
 				4C9829002140BE0100104208 /* TableObjects.swift in Sources */,
 				4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */,
@@ -466,6 +545,7 @@
 		};
 		4C4197D72133386E0002CBEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E88A40BD14E15F8496777AD3 /* Pods-KnightHacks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -485,6 +565,7 @@
 		};
 		4C4197D82133386E0002CBEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A889DB1A52ADF34F2E1192B /* Pods-KnightHacks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
