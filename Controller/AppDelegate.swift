@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  KH_prototype_one
+//  KnightHacks
 //
 //  Created by Lloyd Dapaah on 8/26/18.
 //  Copyright © 2018 Lloyd Dapaah. All rights reserved.
