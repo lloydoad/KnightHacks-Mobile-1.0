@@ -43,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 cloudGroup = 3 + (imageCount % 2)
                 backgroundImages[imageCount].image = UIImage(named: "\(cloudGroup)")
             } else if (imageSet == 1) {
-                backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(Int.random(in: 2...5))), y: yFixedPosition, width: 20, height: 20)))
-                backgroundImages[imageCount].image = UIImage(named: "\(Int.random(in: 1...2))")
+                backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(2 + arc4random() % 6)), y: yFixedPosition, width: 20, height: 20)))
+                backgroundImages[imageCount].image = UIImage(named: "\(1 + arc4random() % 3)")
             } else if (imageSet == 2) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition + 90, width: UIScreen.main.bounds.width, height: 100)))
                 backgroundImages[imageCount].image = UIImage(named: "cloud-combo")
