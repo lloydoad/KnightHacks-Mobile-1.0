@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var imageArray: [UIImage] = []
         
         for imageCount in 1..<numImages {
-            imageArray.append(UIImage(named: String("\(imageNamePrefix)-\(imageCount).png"))!)
+            imageArray.append(UIImage(named: String("\(imageNamePrefix)-\(imageCount)"))!)
         }
         return imageArray
     }
@@ -41,13 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (imageSet == 0) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition - 30, width: UIScreen.main.bounds.width, height: 170)))
                 cloudGroup = 3 + (imageCount % 2)
-                backgroundImages[imageCount].image = UIImage(named: "\(cloudGroup).png")
+                backgroundImages[imageCount].image = UIImage(named: "\(cloudGroup)")
             } else if (imageSet == 1) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(Int.random(in: 2...5))), y: yFixedPosition, width: 20, height: 20)))
-                backgroundImages[imageCount].image = UIImage(named: "\(Int.random(in: 1...2)).png")
+                backgroundImages[imageCount].image = UIImage(named: "\(Int.random(in: 1...2))")
             } else if (imageSet == 2) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition + 90, width: UIScreen.main.bounds.width, height: 100)))
-                backgroundImages[imageCount].image = UIImage(named: "cloud-combo.png")
+                backgroundImages[imageCount].image = UIImage(named: "cloud-combo")
             }
             
             imageSet = (imageSet + 1) % 3
