@@ -9,11 +9,29 @@
 import UIKit
 
 class LiveUpdatesViewController: ParentTableView {
-    var liveUpdateContent: [LiveUpdateObject] = []
+    var liveUpdateContent: [LiveUpdateObject] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var objectDatabaseURL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
+        
+        // get objects
+        RequestSingleton.getData(at: objectDatabaseURL, with: nil) { (responseArray) in
+            guard let responseArray = responseArray else {
+                // call to action
+                return
+            }
+            
+            for response in responseArray {
+                let singleContentObject = LiveUpdateObject(json: response)
+                self.liveUpdateContent.insert(singleContentObject, at: 0)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -25,7 +43,7 @@ class LiveUpdatesViewController: ParentTableView {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return liveUpdateContent.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,8 +57,16 @@ class LiveUpdatesViewController: ParentTableView {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
+            let cellContentItem = liveUpdateContent[indexPath.row - 1]
+            
             cell.cellType = .leftImageCell
-            cell.contentImageView?.image = #imageLiteral(resourceName: "knight hacks image")
+            // bind item image container to cell image container
+            cellContentItem.imageContainer = cell.contentImageView!
+            
+            // change details
+            cell.contentImageView?.image = cellContentItem.imageContainer.image
+            cell.itemDescriptionLabel?.text = cellContentItem.description
+            cell.timeLabel?.text = cellContentItem.formattedTime
             cell.selectionStyle = .none
             return cell
         }
