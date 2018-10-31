@@ -13,7 +13,7 @@ import Foundation
 class RequestSingleton {
     static let baseUrl = "https://test-knight-hacks.appspot.com"
     
-    static func getData(at url: String, params: [String:String]? ,completion: @escaping (JSON?)->Void) {
+    static func getData(at url: String, with params: [String:String]?, completion: @escaping (JSON?) -> Void) {
         
         guard let fullUrl = URL(string: url) else {
             completion(nil)
