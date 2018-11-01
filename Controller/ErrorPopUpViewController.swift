@@ -9,8 +9,13 @@
 import UIKit
 
 class ErrorPopUpViewController: UIView {
-    var errorMessage = "Oops! Something went wrong"
     let Y_ANIMATION_OFFSET: CGFloat = -27
+    let ON_LOAD_DELAY = 0.1
+    let ANIMATION_IN_TIME = 0.7
+    let ANIMATION_OUT_TIME = 0.5
+    let TIME_ON_SCREEN = 3.0
+    
+    var errorMessage = "Error"
     var customFrame: CGRect = {
         let X_PADDING: CGFloat = 20
         let Y_PADDING: CGFloat = 10
@@ -53,13 +58,9 @@ class ErrorPopUpViewController: UIView {
     }
     
     func present() {
-        let WINDOW = UIApplication.shared.keyWindow!
         let TRANSLATE_ON_Y_AXIS = CGAffineTransform(translationX: 0, y: Y_ANIMATION_OFFSET)
         let TRANSLATE_OFFSCREEN = CGAffineTransform(translationX: 0, y: -Y_ANIMATION_OFFSET + 30)
-        let ON_LOAD_DELAY = 0.1
-        let ANIMATION_IN_TIME = 0.7
-        let ANIMATION_OUT_TIME = 0.5
-        let TIME_ON_SCREEN = 3.0
+        let WINDOW = UIApplication.shared.keyWindow!
         
         self.alpha = 0.7
         WINDOW.addSubview(self)
@@ -68,7 +69,7 @@ class ErrorPopUpViewController: UIView {
             self.transform = TRANSLATE_ON_Y_AXIS
             self.alpha = 1
         }) { (_) in
-            UIView.animate(withDuration: ANIMATION_OUT_TIME, delay: TIME_ON_SCREEN, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: self.ANIMATION_OUT_TIME, delay: self.TIME_ON_SCREEN, options: .curveEaseIn, animations: {
                 self.transform = TRANSLATE_OFFSCREEN
                 self.alpha = 0
             }, completion: { (_) in

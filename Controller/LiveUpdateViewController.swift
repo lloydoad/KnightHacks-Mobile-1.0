@@ -10,6 +10,11 @@ import UIKit
 
 class LiveUpdatesViewController: ParentTableView {
     let GET_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
+    let GET_RECENT_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
+    let DATE_PARAMETER_KEY: String = "date"
+    
+    var refreshControlView: UIRefreshControl?
+    var lastFetchDate: Date?
     var liveUpdateContent: [LiveUpdateObject] = [] {
         didSet {
             tableView.reloadData()
@@ -19,21 +24,48 @@ class LiveUpdatesViewController: ParentTableView {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
+        getNewContent()
+        attachRefreshControl()
+    }
+    
+    func attachRefreshControl() {
+        refreshControlView = UIRefreshControl()
+        self.tableView.addSubview(refreshControlView!)
+        refreshControlView?.addTarget(self, action: #selector(getNewContent), for: .valueChanged)
+    }
+    
+    @objc func getNewContent() {
+        var fetchUrl: String = ""
+        var parameter: [String:String]?
         
-        // get objects
-        RequestSingleton.getData(at: GET_FAQS_URL, with: nil) { (responseArray) in
+        let formatter = StringDateFormatter()
+        if let lastFetchDate = lastFetchDate {
+            let DATE_PARAMETER_VALUE = formatter.convertZuluDateToString(dateObject: lastFetchDate)
+            parameter = [DATE_PARAMETER_KEY:DATE_PARAMETER_VALUE]
+        }
+        if parameter == nil {
+            fetchUrl = GET_FAQS_URL
+        } else {
+            fetchUrl = GET_RECENT_FAQS_URL
+        }
+        
+        RequestSingleton.getData(at: fetchUrl, with: parameter) { (responseArray) in
             guard let responseArray = responseArray else {
-                if self.isViewLoaded && self.view.window != nil {
+                if parameter == nil && self.isViewLoaded && self.view.window != nil {
                     let errorCallBack = ErrorPopUpViewController(message: "Oops! Something went wrong")
                     errorCallBack.present()
+                    self.lastFetchDate = nil
                 }
+                self.refreshControlView?.endRefreshing()
                 return
             }
             
             for response in responseArray {
                 let singleContentObject = LiveUpdateObject(json: response)
+                self.lastFetchDate = singleContentObject.dateObject?.addingTimeInterval(1)
                 self.liveUpdateContent.insert(singleContentObject, at: 0)
             }
+            self.refreshControlView?.endRefreshing()
         }
     }
     
@@ -63,14 +95,12 @@ class LiveUpdatesViewController: ParentTableView {
             let cellContentItem = liveUpdateContent[indexPath.row - 1]
             
             cell.cellType = .leftImageCell
-            // bind item image container to cell image container
             cellContentItem.imageContainer = cell.contentImageView!
-            
-            // change details
             cell.contentImageView?.image = cellContentItem.imageContainer.image
             cell.itemDescriptionLabel?.text = cellContentItem.description
             cell.timeLabel?.text = cellContentItem.formattedTime
             cell.selectionStyle = .none
+            
             return cell
         }
     }
