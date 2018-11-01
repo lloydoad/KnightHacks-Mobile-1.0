@@ -18,10 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        RequestSingleton.getImage(at: "www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png") { (_) in
-            //
-        }
-        
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         
         return true
