@@ -43,18 +43,18 @@ class ErrorPopUpViewController: UIView {
     }
     
     private func addErrorLabel(with text: String) {
-        let MESSAGE_LABEL = UILabel(frame: customFrame)
-        MESSAGE_LABEL.numberOfLines = 0
-        MESSAGE_LABEL.text = errorMessage
-        MESSAGE_LABEL.textAlignment = .center
-        MESSAGE_LABEL.font = MAJOR_REGULAR_FONT
+        let messageLabel = UILabel(frame: customFrame)
+        messageLabel.numberOfLines = 0
+        messageLabel.text = errorMessage
+        messageLabel.textAlignment = .center
+        messageLabel.font = MAJOR_REGULAR_FONT
         
-        self.addSubview(MESSAGE_LABEL)
-        MESSAGE_LABEL.translatesAutoresizingMaskIntoConstraints = false
-        MESSAGE_LABEL.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        MESSAGE_LABEL.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        MESSAGE_LABEL.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        MESSAGE_LABEL.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        self.addSubview(messageLabel)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
     }
     
     func present() {

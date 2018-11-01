@@ -47,10 +47,10 @@ class RequestSingleton {
         
         // if prefix has no http:// append http://
         // if it is http, change to https
-        if String(url.prefix(httpsText.count)) != httpsText {
-            validatedUrlString = httpsText + url
-        } else {
+        if String(url.prefix(httpText.count)) == httpText {
             validatedUrlString = httpsText + String(url.suffix(url.count - httpText.count))
+        } else {
+            validatedUrlString = httpsText + url
         }
         
         guard let validatedUrl = URL(string: validatedUrlString) else {
