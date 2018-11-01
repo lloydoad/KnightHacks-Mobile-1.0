@@ -47,6 +47,7 @@
 		4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
+		5E1E9AD2218A23820094E263 /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E9AD1218A23820094E263 /* ImageCacheController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
+		5E1E9AD1218A23820094E263 /* ImageCacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				4CF3F96B21336CA9007DE8EC /* Helpers.swift */,
 				4CD9DD1821359D3500E200CB /* Constants.swift */,
+				5E1E9AD1218A23820094E263 /* ImageCacheController.swift */,
 				4C4197B5213338690002CBEB /* Main.storyboard */,
 				4C4197B82133386D0002CBEB /* Assets.xcassets */,
 				4C4197BA2133386D0002CBEB /* LaunchScreen.storyboard */,
@@ -421,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E1E9AD2218A23820094E263 /* ImageCacheController.swift in Sources */,
 				4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */,
 				4CD9DD172135970200E200CB /* FilteredParentTableView.swift in Sources */,
 				4C919BC0214FF92100C1B127 /* LiveUpdateViewController.swift in Sources */,
@@ -619,13 +623,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZG8L9MP57M;
+				DEVELOPMENT_TEAM = UMPLM5DFZC;
 				INFOPLIST_FILE = KnightHacks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacks;
+				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacksj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -637,13 +641,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZG8L9MP57M;
+				DEVELOPMENT_TEAM = UMPLM5DFZC;
 				INFOPLIST_FILE = KnightHacks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacks;
+				PRODUCT_BUNDLE_IDENTIFIER = lloyddapaah.KnightHacksj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
