@@ -42,33 +42,32 @@ class LiveUpdateObject {
     }
     
     func getFormattedTime() {
-        let iso8601: ISO8601DateFormatter = {
+        let ISO8601_FORMATTER: ISO8601DateFormatter = {
             let formatter = ISO8601DateFormatter()
             formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
             return formatter
         }()
-        guard let retrievedDateObject = iso8601.date(from: time) else {
+        guard let RETRIEVED_DATE = ISO8601_FORMATTER.date(from: time) else {
             print("Respond date parsing failed")
             return
         }
-        let localToZuluTime = iso8601.string(from: Date())
-        guard let localToZuluDateObject = iso8601.date(from: localToZuluTime) else {
+        let LOCAL_ZULU_TIME_STRING = ISO8601_FORMATTER.string(from: Date())
+        guard let LOCAL_ZULU_DATE = ISO8601_FORMATTER.date(from: LOCAL_ZULU_TIME_STRING) else {
             print("Could not convert local time to Zulu")
             return
         }
-        
-        let formatter: DateFormatter = {
+        let LOCAL_DATE_FORMATTER: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
             formatter.calendar = Calendar(identifier: .iso8601)
             formatter.locale = Locale(identifier: "en_US_POSIX")
             return formatter
         }()
-        let hourMinuteFormatString = formatter.string(from: retrievedDateObject)
         
         var unit: String
         var timeSince: String
-        let elapsedTime = localToZuluDateObject.timeIntervalSince(retrievedDateObject)
+        let hourMinuteFormatString = LOCAL_DATE_FORMATTER.string(from: RETRIEVED_DATE)
+        let elapsedTime = LOCAL_ZULU_DATE.timeIntervalSince(RETRIEVED_DATE)
         let seconds = elapsedTime
         let minutes = elapsedTime / 60
         let hours = elapsedTime / (60 * 60)

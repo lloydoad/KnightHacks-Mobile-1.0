@@ -17,6 +17,7 @@ class RequestSingleton {
         
         guard let fullUrl = URL(string: url) else {
             completion(nil)
+            print("Error: Invalid URL string")
             return
         }
         
@@ -24,6 +25,7 @@ class RequestSingleton {
             DispatchQueue.main.async {
                 guard let value = response.result.value else {
                     completion(nil)
+                    print(response.error ?? "Error: Invalid request")
                     return
                 }
                 

@@ -45,6 +45,7 @@
 		4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */; };
 		4CEED19D21891B2A002EF894 /* RequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEED19C21891B2A002EF894 /* RequestSingleton.swift */; };
 		4CEED19F2189F123002EF894 /* LiveUpdateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEED19E2189F123002EF894 /* LiveUpdateObject.swift */; };
+		4CEED1A1218A69BC002EF894 /* ErrorPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEED1A0218A69BC002EF894 /* ErrorPopUpViewController.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
 		AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */; };
@@ -92,6 +93,7 @@
 		4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
 		4CEED19C21891B2A002EF894 /* RequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSingleton.swift; sourceTree = "<group>"; };
 		4CEED19E2189F123002EF894 /* LiveUpdateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateObject.swift; sourceTree = "<group>"; };
+		4CEED1A0218A69BC002EF894 /* ErrorPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPopUpViewController.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
 		718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 				4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */,
 				4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */,
 				4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */,
+				4CEED1A0218A69BC002EF894 /* ErrorPopUpViewController.swift */,
 				4C919BBC214FF49000C1B127 /* FilteredParentTableViewController */,
 			);
 			path = Controller;
@@ -407,6 +410,7 @@
 				4C5069D3213742A000095F64 /* Buttons.swift in Sources */,
 				4C919BBB214E8F7900C1B127 /* DynamicTableViewCell.swift in Sources */,
 				4CDEE67621519D690068E729 /* LiveUpdateTableViewCell.swift in Sources */,
+				4CEED1A1218A69BC002EF894 /* ErrorPopUpViewController.swift in Sources */,
 				4C5069D52137869F00095F64 /* FilterMenuButtonCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

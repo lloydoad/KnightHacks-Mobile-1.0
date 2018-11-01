@@ -9,21 +9,24 @@
 import UIKit
 
 class LiveUpdatesViewController: ParentTableView {
+    let GET_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
     var liveUpdateContent: [LiveUpdateObject] = [] {
         didSet {
             tableView.reloadData()
         }
     }
-    var objectDatabaseURL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
         
         // get objects
-        RequestSingleton.getData(at: objectDatabaseURL, with: nil) { (responseArray) in
+        RequestSingleton.getData(at: GET_FAQS_URL, with: nil) { (responseArray) in
             guard let responseArray = responseArray else {
-                // call to action
+                if self.isViewLoaded && self.view.window != nil {
+                    let errorCallBack = ErrorPopUpViewController(message: "Oops! Something went wrong")
+                    errorCallBack.present()
+                }
                 return
             }
             
