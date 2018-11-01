@@ -8,6 +8,55 @@
 
 import UIKit
 
+func getImage(at url: String, completion: @escaping (UIImage?) -> Void) {
+    var validatedUrl = url
+    let httpsText = "https://"
+    let httpText = "http://"
+    print("this is the validate url before conditional = " + validatedUrl)
+    // if prefix has no http:// append http://
+    // if it is http, change to https
+    if String(url.prefix(httpText.count)) == httpText {
+        validatedUrl = httpsText + String(url.suffix(url.count - httpText.count))
+    } else if String(url.prefix(httpsText.count)) == httpsText {
+        
+    } else {
+        validatedUrl = httpsText + url
+    }
+    
+    print("this is the validate url after conditional = " + validatedUrl)
+    guard let fullUrl = URL(string: validatedUrl) else {
+        print("Error: Invalid URL request")
+        completion(nil)
+        return
+    }
+    
+    let task = URLSession.shared.dataTask(with: fullUrl) { (data, res, err) in
+        DispatchQueue.main.async {
+            if(err != nil) {
+                completion(nil)
+                print(err!)
+                return
+            }
+            
+            guard let imageData = data else {
+                completion(nil)
+                print("Error: Could not convert response to Data")
+                return
+            }
+            
+            guard let decodedImage = UIImage(data: imageData) else {
+                completion(nil)
+                print("Error: Could not convert Data to UIImage")
+                return
+            }
+            
+            completion(decodedImage)
+        }
+    }
+    task.resume()
+}
+
+
 class LiveUpdatesViewController: ParentTableView {
     var liveUpdateContent: [LiveUpdateObject] = []
 
@@ -40,7 +89,13 @@ class LiveUpdatesViewController: ParentTableView {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             cell.cellType = .leftImageCell
-            cell.contentImageView?.image = #imageLiteral(resourceName: "knight hacks image")
+            
+            getImage(at: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg/1920px-%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg") { (imageOfWeb) in
+                
+                if imageOfWeb == nil { print("error?")}
+                
+                cell.contentImageView?.image = imageOfWeb
+            }
             cell.selectionStyle = .none
             return cell
         }
