@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for imageCount in 0..<animationBackgroundImages {
             imageHeightStartingPoint -= 230
-             
+
             if (imageSet == 0) {
                 backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: imageHeightStartingPoint - 30, width: UIScreen.main.bounds.width, height: 170)))
                 if (imageCount % 2 == 0) {
