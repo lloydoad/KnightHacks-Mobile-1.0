@@ -40,7 +40,7 @@ class LiveUpdatesViewController: ParentTableView {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             cell.cellType = .leftImageCell
-            cell.contentImageView?.image = #imageLiteral(resourceName: "knight hacks image")
+            cell.contentImageView?.image = UIImage(named: "knight hacks image")
             cell.selectionStyle = .none
             return cell
         }
