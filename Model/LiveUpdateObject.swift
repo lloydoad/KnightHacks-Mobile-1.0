@@ -17,7 +17,6 @@ class LiveUpdateObject {
     var imageUrl: String = ""
     var imageContainer: UIImageView = UIImageView()
     var defaultImage = UIImage(named: "knight hacks image")
-    
     var unit: String?
     var timeSince: String?
     

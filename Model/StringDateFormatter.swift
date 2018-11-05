@@ -10,6 +10,8 @@ import Foundation
 
 class StringDateFormatter {
     var dateFormat: String = "HH:mm"
+    var timeSince: String = ""
+    var unit: String = "s"
     
     let ISO8601_FORMATTER: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
@@ -50,9 +52,6 @@ class StringDateFormatter {
         
         switch format {
         case .timeSinceThen:
-            var timeSince: String = ""
-            var unit: String = "s"
-            
             let elapsedTime = local_zulu_date.timeIntervalSince(zulu_date)
             let seconds = elapsedTime
             let minutes = elapsedTime / 60
