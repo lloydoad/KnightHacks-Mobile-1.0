@@ -9,16 +9,23 @@
 import UIKit
 import SwiftyJSON
 
+protocol LiveUpdateObjectImageDelegate {
+    func reloadImageContainers()
+}
+
 class LiveUpdateObject {
     var description: String
     var time: String
-    var dateObject: Date?
+    
     var formattedTime: String = "9:15pm - 29m ago"
     var imageUrl: String = ""
     var imageContainer: UIImageView = UIImageView()
     var defaultImage = UIImage(named: "knight hacks image")
+    
+    var dateObject: Date?
     var unit: String?
     var timeSince: String?
+    var delegate: LiveUpdateObjectImageDelegate?
     
     init(description: String, time: String, image: UIImage) {
         self.description = description
@@ -38,8 +45,14 @@ class LiveUpdateObject {
     func parseImage() {
         RequestSingleton.getImage(at: imageUrl) { (response) in
             DispatchQueue.main.async {
-                if(response != nil) {
-                    self.imageContainer.image = response ?? self.defaultImage!
+                guard response != nil else {
+                    return
+                }
+                
+                self.imageContainer.image = response ?? self.defaultImage!
+                
+                if self.delegate != nil {
+                    self.delegate!.reloadImageContainers();
                 }
             }
         }

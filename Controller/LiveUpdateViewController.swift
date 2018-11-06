@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LiveUpdatesViewController: ParentTableView {
+class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate {
     let GET_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
     let GET_RECENT_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
     let DATE_PARAMETER_KEY: String = "date"
@@ -52,7 +52,7 @@ class LiveUpdatesViewController: ParentTableView {
         RequestSingleton.getData(at: fetchUrl, with: parameter) { (responseArray) in
             guard let responseArray = responseArray else {
                 if parameter == nil && self.isViewLoaded && self.view.window != nil {
-                    let errorCallBack = ErrorPopUpViewController(message: "Oops! Something went wrong")
+                    let errorCallBack = ErrorPopUpViewController(message: nil)
                     errorCallBack.present()
                     self.lastFetchDate = nil
                 }
@@ -66,6 +66,14 @@ class LiveUpdatesViewController: ParentTableView {
                 self.liveUpdateContent.insert(singleContentObject, at: 0)
             }
             self.refreshControlView?.endRefreshing()
+        }
+    }
+    
+    func reloadImageContainers() {
+        for (index, content) in liveUpdateContent.enumerated() {
+            if content.imageContainer.image != nil {
+                self.tableView.reloadRows(at: [IndexPath(row: index + 1, section: 0)], with: .none)
+            }
         }
     }
     
@@ -92,10 +100,10 @@ class LiveUpdatesViewController: ParentTableView {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-            let cellContentItem = liveUpdateContent[indexPath.row - 1]
+            let cellContentItem = liveUpdateContent[indexPath.row - 1] as LiveUpdateObject
+            cellContentItem.delegate = self
             
             cell.cellType = .leftImageCell
-            cellContentItem.imageContainer = cell.contentImageView!
             cell.contentImageView?.image = cellContentItem.imageContainer.image
             cell.itemDescriptionLabel?.text = cellContentItem.description
             cell.timeLabel?.text = cellContentItem.formattedTime

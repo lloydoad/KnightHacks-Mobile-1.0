@@ -15,7 +15,7 @@ class ErrorPopUpViewController: UIView {
     let ANIMATION_OUT_TIME = 0.5
     let TIME_ON_SCREEN = 3.0
     
-    var errorMessage = "Error"
+    var errorMessage: String?
     var customFrame: CGRect = {
         let X_PADDING: CGFloat = 20
         let Y_PADDING: CGFloat = 10
@@ -24,8 +24,19 @@ class ErrorPopUpViewController: UIView {
         let FRAME = CGRect(x: X_PADDING, y: UIScreen.main.bounds.height - HEIGHT + 10, width: WIDTH, height: HEIGHT)
         return FRAME
     }()
+    var isComedic: Bool = true
+    private var defaultErrorMessage: String = "Error"
+    var comedicErrorMessages: [String] = [
+         "The problem with troubleshooting is that trouble shoots back.",
+         "It's not me, it's you.",
+         "Didn't work out. Such is life.",
+         "Well, that didn't work out huh.",
+         "It's a bird! it's a plane! No, it's an HTTP request error!",
+         "That was rough",
+         "It really be like that sometimes"
+    ]
     
-    init(message: String) {
+    init(message: String?) {
         super.init(frame: customFrame)
         self.backgroundColor = .white
         self.layer.shadowColor = UIColor.gray.cgColor
@@ -35,7 +46,7 @@ class ErrorPopUpViewController: UIView {
         self.layer.shadowOpacity = 1
         
         errorMessage = message
-        addErrorLabel(with: errorMessage)
+        addErrorLabel(with: errorMessage ?? "default")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,9 +54,14 @@ class ErrorPopUpViewController: UIView {
     }
     
     private func addErrorLabel(with text: String) {
+        let randomError = comedicErrorMessages[Int(arc4random_uniform(UInt32(comedicErrorMessages.count)))]
         let messageLabel = UILabel(frame: customFrame)
         messageLabel.numberOfLines = 0
-        messageLabel.text = errorMessage
+        if(isComedic) {
+            messageLabel.text = errorMessage ?? randomError
+        } else {
+            messageLabel.text = errorMessage ?? defaultErrorMessage
+        }
         messageLabel.textAlignment = .center
         messageLabel.font = MAJOR_REGULAR_FONT
         
