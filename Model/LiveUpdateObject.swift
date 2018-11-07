@@ -14,6 +14,8 @@ protocol LiveUpdateObjectImageDelegate {
 }
 
 class LiveUpdateObject {
+    static let API_DATE_PARAMETER_KEY: String = "date"
+    
     var description: String
     var time: String
     

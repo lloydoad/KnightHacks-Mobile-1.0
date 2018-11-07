@@ -9,9 +9,8 @@
 import UIKit
 
 class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate {
-    let GET_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
-    let GET_RECENT_FAQS_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
-    let DATE_PARAMETER_KEY: String = "date"
+    let GET_LIVE_UPDATE_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
+    let GET_RECENT_LIVE_UPDATES_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
     
     var refreshControlView: UIRefreshControl?
     var lastFetchDate: Date?
@@ -41,12 +40,12 @@ class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate 
         let formatter = StringDateFormatter()
         if let lastFetchDate = lastFetchDate {
             let DATE_PARAMETER_VALUE = formatter.convertZuluDateToString(dateObject: lastFetchDate)
-            parameter = [DATE_PARAMETER_KEY:DATE_PARAMETER_VALUE]
+            parameter = [LiveUpdateObject.API_DATE_PARAMETER_KEY:DATE_PARAMETER_VALUE]
         }
         if parameter == nil {
-            fetchUrl = GET_FAQS_URL
+            fetchUrl = GET_LIVE_UPDATE_URL
         } else {
-            fetchUrl = GET_RECENT_FAQS_URL
+            fetchUrl = GET_RECENT_LIVE_UPDATES_URL
         }
         
         RequestSingleton.getData(at: fetchUrl, with: parameter) { (responseArray) in
