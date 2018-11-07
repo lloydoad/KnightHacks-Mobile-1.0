@@ -16,6 +16,7 @@ class ErrorPopUpViewController: UIView {
     let TIME_ON_SCREEN = 3.0
     
     var errorMessage: String?
+    private var defaultErrorMessage: String = "Error"
     var customFrame: CGRect = {
         let X_PADDING: CGFloat = 20
         let Y_PADDING: CGFloat = 10
@@ -24,17 +25,6 @@ class ErrorPopUpViewController: UIView {
         let FRAME = CGRect(x: X_PADDING, y: UIScreen.main.bounds.height - HEIGHT + 10, width: WIDTH, height: HEIGHT)
         return FRAME
     }()
-    var isComedic: Bool = true
-    private var defaultErrorMessage: String = "Error"
-    var comedicErrorMessages: [String] = [
-         "The problem with troubleshooting is that trouble shoots back.",
-         "It's not me, it's you.",
-         "Didn't work out. Such is life.",
-         "Well, that didn't work out huh.",
-         "It's a bird! it's a plane! No, it's an HTTP request error!",
-         "That was rough",
-         "It really be like that sometimes"
-    ]
     
     init(message: String?) {
         super.init(frame: customFrame)
@@ -54,14 +44,9 @@ class ErrorPopUpViewController: UIView {
     }
     
     private func addErrorLabel(with text: String) {
-        let randomError = comedicErrorMessages[Int(arc4random_uniform(UInt32(comedicErrorMessages.count)))]
         let messageLabel = UILabel(frame: customFrame)
         messageLabel.numberOfLines = 0
-        if(isComedic) {
-            messageLabel.text = errorMessage ?? randomError
-        } else {
-            messageLabel.text = errorMessage ?? defaultErrorMessage
-        }
+        messageLabel.text = errorMessage ?? defaultErrorMessage
         messageLabel.textAlignment = .center
         messageLabel.font = MAJOR_REGULAR_FONT
         
