@@ -15,11 +15,14 @@ protocol LiveUpdateObjectImageDelegate {
 
 class LiveUpdateObject {
     static let API_DATE_PARAMETER_KEY: String = "date"
+    static let API_DESCRIPTION_PARAMETER_KEY: String = "message"
+    static let API_TIME_PARAMETER_KEY: String = "timeSent"
+    static let API_IMAGE_URL_PARAMETER_KEY: String = "picture"
     
     var description: String
     var time: String
     
-    var formattedTime: String = "9:15pm - 29m ago"
+    var formattedTime: String = "00:00xx - 0m ago"
     var imageUrl: String = ""
     var imageContainer: UIImageView = UIImageView()
     var defaultImage = UIImage(named: "knight hacks image")
@@ -37,41 +40,24 @@ class LiveUpdateObject {
     }
     
     init(json: JSON) {
-        description = json["message"].stringValue
-        time = json["timeSent"].stringValue
-        imageUrl = json["picture"].stringValue
+        description = json[LiveUpdateObject.API_DESCRIPTION_PARAMETER_KEY].stringValue
+        time = json[LiveUpdateObject.API_TIME_PARAMETER_KEY].stringValue
+        imageUrl = json[LiveUpdateObject.API_IMAGE_URL_PARAMETER_KEY].stringValue
         getFormattedTime()
-        parseImage()
-    }
-    
-    func parseImage() {
-        RequestSingleton.getImage(at: imageUrl) { (response) in
-            DispatchQueue.main.async {
-                guard response != nil else {
-                    return
-                }
-                
-                self.imageContainer.image = response ?? self.defaultImage!
-                
-                if self.delegate != nil {
-                    self.delegate!.reloadImageContainers();
-                }
+        parseImage(at: imageUrl, into: imageContainer) {
+            if self.delegate != nil {
+                self.delegate!.reloadImageContainers()
             }
         }
     }
     
-    func getFormattedTime() {
-        let dateFormatter = StringDateFormatter()
-        
-        guard let retrievedDate = dateFormatter.convertStringToZuluDate(dateString: time),
-            let hourMinuteFormatString = dateFormatter.getFormattedTime(from: retrievedDate, with: .hourMinuteMeridiem) else {
+    func getFormattedTime() {        
+        guard let retrievedDate = StringDateFormatter.convertStringToZuluDate(dateString: time),
+            let hourMinuteFormatString = StringDateFormatter.getFormattedTime(from: retrievedDate, with: .hourMinuteMeridiem),
+            let timeSince = StringDateFormatter.getFormattedTime(from: retrievedDate, with: .timeSinceThen) else {
                return
         }
-        
         dateObject = retrievedDate
-        guard let timeSince = dateFormatter.getFormattedTime(from: retrievedDate, with: .timeSinceThen) else {
-            return
-        }
         
         formattedTime = hourMinuteFormatString + " - " + timeSince + " ago"
     }

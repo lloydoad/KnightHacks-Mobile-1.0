@@ -23,37 +23,51 @@ class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
-        getNewContent()
+        getLiveUpdates()
         attachRefreshControl()
     }
     
     func attachRefreshControl() {
         refreshControlView = UIRefreshControl()
         self.tableView.addSubview(refreshControlView!)
-        refreshControlView?.addTarget(self, action: #selector(getNewContent), for: .valueChanged)
+        refreshControlView?.addTarget(self, action: #selector(getNewLiveUpdates), for: .valueChanged)
     }
     
-    @objc func getNewContent() {
+    func getLiveUpdates() {
+        RequestSingleton.getData(at: GET_LIVE_UPDATE_URL, with: nil) { (responseArray) in
+            guard let responseArray = responseArray else {
+                if self.isViewLoaded && self.view.window != nil {
+                    let errorCallBack = ErrorPopUpViewController(message: nil)
+                    errorCallBack.present()
+                }
+                return
+            }
+            
+            for response in responseArray {
+                let singleContentObject = LiveUpdateObject(json: response)
+                self.lastFetchDate = singleContentObject.dateObject?.addingTimeInterval(1)
+                self.liveUpdateContent.insert(singleContentObject, at: 0)
+            }
+        }
+    }
+    
+    @objc func getNewLiveUpdates() {
         var fetchUrl: String = ""
         var parameter: [String:String]?
         
-        let formatter = StringDateFormatter()
         if let lastFetchDate = lastFetchDate {
-            let DATE_PARAMETER_VALUE = formatter.convertZuluDateToString(dateObject: lastFetchDate)
+            let DATE_PARAMETER_VALUE = StringDateFormatter.convertZuluDateToString(dateObject: lastFetchDate)
             parameter = [LiveUpdateObject.API_DATE_PARAMETER_KEY:DATE_PARAMETER_VALUE]
-        }
-        if parameter == nil {
-            fetchUrl = GET_LIVE_UPDATE_URL
-        } else {
             fetchUrl = GET_RECENT_LIVE_UPDATES_URL
+        } else {
+            fetchUrl = GET_LIVE_UPDATE_URL
         }
         
         RequestSingleton.getData(at: fetchUrl, with: parameter) { (responseArray) in
             guard let responseArray = responseArray else {
-                if parameter == nil && self.isViewLoaded && self.view.window != nil {
+                if self.isViewLoaded && self.view.window != nil {
                     let errorCallBack = ErrorPopUpViewController(message: nil)
                     errorCallBack.present()
-                    self.lastFetchDate = nil
                 }
                 self.refreshControlView?.endRefreshing()
                 return

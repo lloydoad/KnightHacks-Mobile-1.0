@@ -9,16 +9,16 @@
 import Foundation
 
 class StringDateFormatter {
-    var dateFormat: String = "HH:mm"
-    var timeSince: String = ""
-    var unit: String = "s"
+    static var dateFormat: String = "HH:mm"
+    static var timeSince: String = ""
+    static var unit: String = "s"
     
-    let ISO8601_FORMATTER: ISO8601DateFormatter = {
+    static let ISO8601_FORMATTER: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         return formatter
     }()
-    let LOCAL_DATE_FORMATTER: DateFormatter = {
+    static let LOCAL_DATE_FORMATTER: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         formatter.calendar = Calendar(identifier: .iso8601)
@@ -26,28 +26,32 @@ class StringDateFormatter {
         return formatter
     }()
     
-    func convertStringToZuluDate(dateString: String) -> Date? {
+    static func convertStringToZuluDate(dateString: String) -> Date? {
         let date = ISO8601_FORMATTER.date(from: dateString)
         return date
     }
     
-    func convertZuluDateToString(dateObject: Date) -> String {
+    static func convertZuluDateToString(dateObject: Date) -> String {
         return ISO8601_FORMATTER.string(from: dateObject)
     }
     
-    func get(date: Date, after seconds: TimeInterval) -> Date {
+    static func get(date: Date, after seconds: TimeInterval) -> Date {
         return date.addingTimeInterval(seconds)
     }
     
-    func getFormattedTime(from date: Date, with format: DateStringFormat) -> String? {
+    static func convertDateToZuluDate(date: Date) -> Date? {
         let zulu_string = convertZuluDateToString(dateObject: date)
         guard let zulu_date = convertStringToZuluDate(dateString: zulu_string) else {
             return nil
         }
         
-        let local_zulu_string = convertZuluDateToString(dateObject: Date())
-        guard let local_zulu_date = convertStringToZuluDate(dateString: local_zulu_string) else {
-            return nil
+        return zulu_date
+    }
+    
+    static func getFormattedTime(from date: Date, with format: DateStringFormat) -> String? {
+        guard let zulu_date = convertDateToZuluDate(date: date),
+            let local_zulu_date = convertDateToZuluDate(date: Date()) else {
+                return nil
         }
         
         switch format {
@@ -58,17 +62,14 @@ class StringDateFormatter {
             let hours = elapsedTime / (60 * 60)
             let days = elapsedTime / (60 * 60 * 24)
             
-            unit = "s"
             timeSince = String(format: "%0.0f", seconds)
-            if seconds > 60 {
+            if seconds <= 60 {
                 unit = "m"
                 timeSince = String(format: "%0.0f", minutes)
-            }
-            if minutes > 60 {
+            } else if seconds <= 60 * 60 {
                 unit = Int64(hours) == 1 ? "hr" : "hrs"
                 timeSince = String(format: "%0.0f", hours)
-            }
-            if hours > 24 {
+            } else {
                 unit = Int64(days) == 1 ? " day" : " days"
                 timeSince = String(format: "%0.0f", days)
             }

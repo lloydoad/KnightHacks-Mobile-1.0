@@ -40,6 +40,21 @@ extension UIColor {
     }
 }
 
+// image parser for getting uiimage from url string
+func parseImage(at url: String, into imageContainer: UIImageView, completion: (()->Void)?) {
+    RequestSingleton.getImage(at: url) { (response) in
+        DispatchQueue.main.async {
+            guard response != nil else {
+                return
+            }
+            
+            imageContainer.image = response ?? UIImage()
+            
+            completion!()
+        }
+    }
+}
+
 // create a stackview with defined properties
 func getPresetUIStackView(axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment, distribution: UIStackViewDistribution, spacing: CGFloat) -> UIStackView {
     let stack = UIStackView()
