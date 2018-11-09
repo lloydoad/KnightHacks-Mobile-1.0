@@ -50,7 +50,7 @@ func parseImage(at url: String, into imageContainer: UIImageView, completion: ((
             
             imageContainer.image = response ?? UIImage()
             
-            completion!()
+            completion?()
         }
     }
 }

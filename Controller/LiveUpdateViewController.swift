@@ -29,6 +29,7 @@ class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate 
     
     func attachRefreshControl() {
         refreshControlView = UIRefreshControl()
+        refreshControlView!.tintColor = .white
         self.tableView.addSubview(refreshControlView!)
         refreshControlView?.addTarget(self, action: #selector(getNewLiveUpdates), for: .valueChanged)
     }

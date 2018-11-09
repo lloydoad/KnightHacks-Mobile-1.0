@@ -16,7 +16,7 @@ class ErrorPopUpViewController: UIView {
     let TIME_ON_SCREEN = 3.0
     
     var errorMessage: String?
-    private var defaultErrorMessage: String = "Error"
+    private var defaultErrorMessage: String = "Opps! Something went wrong on our end - please try again"
     var customFrame: CGRect = {
         let X_PADDING: CGFloat = 20
         let Y_PADDING: CGFloat = 10
