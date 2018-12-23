@@ -46,7 +46,7 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
         if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             cell.cellType = .detailedCell
-            parseImage(at: "https://i.pinimg.com/originals/b2/8f/f7/b28ff73520755530c07cb98cd4c20e0c.jpg", into: cell.contentImageView!, completion: nil)
+            parseImage(at: "https://www.desktopbackground.org/p/2010/08/31/72451_fall-computer-wallpapers-desktop-backgrounds_1920x1200_h.jpg", into: cell.contentImageView!, completion: nil)
             for tag in tags {
                 cell.addNewTag(tag: tag)
             }

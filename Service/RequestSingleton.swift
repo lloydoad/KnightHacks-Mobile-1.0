@@ -52,48 +52,12 @@ class RequestSingleton {
         } else if String(url.prefix(httpsText.count)) != httpsText {
             validatedUrlString = httpsText + url
         }
-        
-        guard let validatedUrl = URL(string: validatedUrlString) else {
-            print("Error: Invalid URL request")
-            completion(nil)
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: validatedUrl) { (data, res, err) in
-            DispatchQueue.main.async {
-                if(err != nil) {
-                    completion(nil)
-                    print(err!)
-                    return
-                }
-                
-                guard let imageData = data else {
-                    completion(nil)
-                    print("Error: Could not convert response to Data")
-                    return
-                }
-                
-                var decodedImage: UIImage!
-                
-                UIImage.cacheStorageCheck(at: imageData, completion: { (imageCached) -> Void? in
-                    
-                    if (imageCached == nil) {
-                        decodedImage = UIImage(data: imageData)
 
-                    } else {
-                        decodedImage = imageCached
-                        
-                    }
-                    
-                    print(decodedImage)
-                    return nil
-                })
-                
-                completion(decodedImage)
-                
-            }
-        }
-        
-        task.resume()
+        var decodedImage: UIImage?
+       
+        UIImage.cacheStorageCheck(at: validatedUrlString, completion: { (imageCached) in
+            decodedImage = imageCached
+            completion(decodedImage)
+        })
     }
 }
