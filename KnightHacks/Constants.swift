@@ -82,6 +82,12 @@ enum LatoFont: String {
     case light = "Lato-Light"
 }
 
+// Formats used to define StringDateFormatter return string
+enum DateStringFormat {
+    case hourMinuteMeridiem
+    case timeSinceThen
+}
+
 // fonts in app
 // UIFont.systemFont(ofSize: 14, weight: .regular)
 let PARAGRAPH_FONT = UIFont(name: LatoFont.regular.rawValue, size: 14)!

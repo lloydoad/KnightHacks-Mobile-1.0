@@ -31,22 +31,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupBackgroundCloudsForLaunchAnimation(rootController: UIViewController) {
-        var yFixedPosition: CGFloat = -50
-        var cloudGroup: Int = 3
+        var imageHeightStartingPoint: CGFloat = -50
+        var cloudGroup: Int = 0
         var imageSet: Int = 0
+        // animationBackgroundImages value depends on the animation time.
+        let animationBackgroundImages: Int = 8
         
-        for imageCount in 0..<10 {
-            yFixedPosition -= 230
+        for imageCount in 0..<animationBackgroundImages {
+            imageHeightStartingPoint -= 230
             
             if (imageSet == 0) {
-                backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition - 30, width: UIScreen.main.bounds.width, height: 170)))
-                cloudGroup = 3 + (imageCount % 2)
+                backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: imageHeightStartingPoint - 30, width: UIScreen.main.bounds.width, height: 170)))
+                if (imageCount % 2 == 0) {
+                    cloudGroup = 3
+                } else {
+                    cloudGroup = 4
+                }
                 backgroundImages[imageCount].image = UIImage(named: "\(cloudGroup)")
             } else if (imageSet == 1) {
-                backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(2 + arc4random() % 6)), y: yFixedPosition, width: 20, height: 20)))
-                backgroundImages[imageCount].image = UIImage(named: "\(1 + arc4random() % 3)")
+                backgroundImages.append(UIImageView(frame: CGRect(x: (UIScreen.main.bounds.width) - CGFloat(75*(2 + arc4random() % 6)), y: imageHeightStartingPoint, width: 20, height: 20)))
+                backgroundImages[imageCount].image = UIImage(named: "\(1 + arc4random() % 2)")
             } else if (imageSet == 2) {
-                backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: yFixedPosition + 90, width: UIScreen.main.bounds.width, height: 100)))
+                backgroundImages.append(UIImageView(frame: CGRect(x: 0, y: imageHeightStartingPoint + 90, width: UIScreen.main.bounds.width, height: 100)))
                 backgroundImages[imageCount].image = UIImage(named: "cloud-combo")
             }
             
@@ -55,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rootController.view.bringSubview(toFront: backgroundImages[imageCount])
         }
     }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)

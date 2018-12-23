@@ -46,7 +46,7 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
         if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             cell.cellType = .detailedCell
-            cell.contentImageView?.image = UIImage(named: "knight hacks image")
+            parseImage(at: "https://i.pinimg.com/originals/b2/8f/f7/b28ff73520755530c07cb98cd4c20e0c.jpg", into: cell.contentImageView!, completion: nil)
             for tag in tags {
                 cell.addNewTag(tag: tag)
             }
