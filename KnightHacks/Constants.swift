@@ -35,9 +35,9 @@ let REDUCED_ROW_HEIGHT: CGFloat = 110
 // filter enumerations
 // determines type of filter returned
 enum Filter: String {
-    case workshops = "workshops"
+    case workshops = "workshop"
     case all = "all"
-    case talks = "talks"
+    case talks = "talk"
     case internships = "internships"
     case full_time = "full-time"
     case development = "development"
@@ -86,6 +86,8 @@ enum LatoFont: String {
 enum DateStringFormat {
     case hourMinuteMeridiem
     case timeSinceThen
+    case dayOfWeek
+    case monthAndDay
 }
 
 // fonts in app

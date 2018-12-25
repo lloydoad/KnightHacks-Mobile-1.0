@@ -22,4 +22,8 @@ extension FilteredParentTableView: UICollectionViewDelegate, UICollectionViewDat
                 
         return cell
     }
+    
+    // Should be overwritten in child to implement function body
+    // Respond to filter button selection
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
 }

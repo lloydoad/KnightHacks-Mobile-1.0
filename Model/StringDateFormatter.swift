@@ -78,6 +78,12 @@ class StringDateFormatter {
         case .hourMinuteMeridiem:
             LOCAL_DATE_FORMATTER.dateFormat = "HH:mm"
             return LOCAL_DATE_FORMATTER.string(from: date)
+        case .dayOfWeek:
+            LOCAL_DATE_FORMATTER.dateFormat = "EEEE"
+            return LOCAL_DATE_FORMATTER.string(from: date)
+        case .monthAndDay:
+            LOCAL_DATE_FORMATTER.dateFormat = "MMM d"
+            return LOCAL_DATE_FORMATTER.string(from: date)
         }
     }
 }

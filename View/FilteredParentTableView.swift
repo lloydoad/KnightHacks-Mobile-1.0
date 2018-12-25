@@ -56,9 +56,17 @@ class FilteredParentTableView: ParentTableView {
         super.viewWillAppear(animated)
         
         // set content provided by child class
-        filterButtons = childDelegate == nil ? [] : childDelegate!.setFilterMenuCellContents()
+        reloadTableContent(withFilter: true)
+    }
+
+    func reloadTableContent(withFilter flag: Bool = false) {
+        if flag == true {
+            filterButtons = childDelegate == nil ? [] : childDelegate!.setFilterMenuCellContents()
+        }
+        
         tableViewCellContents = childDelegate == nil ? [:] : childDelegate!.setTableViewCellContents()
         tableViewHeaderTitles = childDelegate == nil ? [] : childDelegate!.setTableViewHeaderTitles()
+        super.tableView.reloadData()
     }
     
     // bring filter button menu cell back down
