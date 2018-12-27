@@ -12,7 +12,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     let GET_SCHEDULE_URL: String = RequestSingleton.BASE_URL + "/api/get_schedule"
     
     var allScheduleObjects: [ScheduleObject] = []
-    var sortedScheduleObjects: [String: [ScheduleObject]] = [:]
+    var sortedScheduleObjects: [String:[ScheduleObject]] = [:]
     var sortedScheduleHeaders: [String] = []
     
     override func viewDidLoad() {
@@ -22,6 +22,11 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        allScheduleObjects = []
+        sortedScheduleHeaders = []
+        sortedScheduleObjects = [:]
+        
         super.reloadTableContent()
     }
     
@@ -30,6 +35,10 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
         
         RequestSingleton.getData(at: GET_SCHEDULE_URL, with: nil) { (responseArray) in
             guard let responseArray = responseArray else {
+                if self.isViewLoaded && self.view.window != nil {
+                    let errorCallBack = ErrorPopUpViewController(message: "request error")
+                    errorCallBack.present()
+                }
                 return
             }
             
@@ -38,12 +47,12 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
                 self.allScheduleObjects.append(singleScheduleObject)
             }
             
-            self.allScheduleObjects = self.allScheduleObjects.sorted { (objectOne, ObjectTwo) -> Bool in
-                guard let dateOne = objectOne.startDateObject,
-                    let dateTwo = ObjectTwo.startDateObject else {
+            self.allScheduleObjects = self.allScheduleObjects.sorted { (firstScheduleObj, secondScheduleObj) -> Bool in
+                guard let firstDate = firstScheduleObj.startDateObject,
+                    let secondDate = secondScheduleObj.startDateObject else {
                         return false
                 }
-                return dateOne.timeIntervalSince1970 < dateTwo.timeIntervalSince1970
+                return firstDate.timeIntervalSince1970 < secondDate.timeIntervalSince1970
             }
             
             self.filterScheduleObjects()
@@ -56,15 +65,14 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
         sortedScheduleObjects = [:]
         
         for item in allScheduleObjects {
-            let dayOfWeek = StringDateFormatter.getFormattedTime(from: item.startDateObject!, with: .dayOfWeek)
-            let monthDay = StringDateFormatter.getFormattedTime(from: item.startDateObject!, with: .monthAndDay)
-            var formattedHeaderTitle = dayOfWeek ?? ""
-            formattedHeaderTitle += ", \(monthDay ?? "")"
+            var formattedHeaderTitle: String = ""
             
             if filter != .all && item.eventType != filter.rawValue {
                 continue
             }
             
+            formattedHeaderTitle += StringDateFormatter.getFormattedTime(from: item.startDateObject!, with: .dayOfWeek) ?? ""
+            formattedHeaderTitle += ", \(StringDateFormatter.getFormattedTime(from: item.startDateObject!, with: .monthAndDay) ?? "")"
             if !sortedScheduleObjects.keys.contains(formattedHeaderTitle) {
                 sortedScheduleObjects[formattedHeaderTitle] = []
                 sortedScheduleHeaders.append(formattedHeaderTitle)
@@ -84,12 +92,10 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     }
     
     func setTableViewCellContents() -> [Int : [Any]] {
-        var sectionIndex: Int = 0
         var sectionedContent: [Int: [ScheduleObject]] = [:]
         
-        for eachDay in sortedScheduleObjects {
-            sectionedContent[sectionIndex] = eachDay.value
-            sectionIndex += 1
+        for (index,eachDay) in sortedScheduleObjects.enumerated() {
+            sectionedContent[index] = eachDay.value
         }
         
         return sectionedContent

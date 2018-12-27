@@ -58,6 +58,14 @@ class FilteredParentTableView: ParentTableView {
         // set content provided by child class
         reloadTableContent(withFilter: true)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        for (index,_) in filterButtons.enumerated() {
+            filterMenuCollectionViewReference.deselectItem(at: IndexPath(row: index, section: 0), animated: false)
+        }
+    }
 
     func reloadTableContent(withFilter flag: Bool = false) {
         if flag == true {
