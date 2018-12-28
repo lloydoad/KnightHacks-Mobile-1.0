@@ -8,6 +8,13 @@
 
 import UIKit
 
+// get key for value
+extension Dictionary where Value: Equatable {
+    func key(forValue value: Value) -> Key? {
+        return first { $0.1 == value }?.0
+    }
+}
+
 // convenient inits for getting colors
 extension UIColor {
     // minimize init for uicolor

@@ -11,9 +11,10 @@ import UIKit
 class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     let GET_SCHEDULE_URL: String = RequestSingleton.BASE_URL + "/api/get_schedule"
     
-    var allScheduleObjects: [ScheduleObject] = []
-    var sortedScheduleObjects: [String:[ScheduleObject]] = [:]
-    var sortedScheduleHeaders: [String] = []
+    var allFetchedScheduleObjects: [ScheduleObject] = []
+    var orderedScheduleHeaders: [String:Int] = [:]
+    var orderedScheduleObjects: [Int:[ScheduleObject]] = [:]
+    var hasDataLoaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +24,9 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        allScheduleObjects = []
-        sortedScheduleHeaders = []
-        sortedScheduleObjects = [:]
+        allFetchedScheduleObjects = []
+        orderedScheduleHeaders = [:]
+        orderedScheduleObjects = [:]
         
         super.reloadTableContent()
     }
@@ -36,7 +37,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
         RequestSingleton.getData(at: GET_SCHEDULE_URL, with: nil) { (responseArray) in
             guard let responseArray = responseArray else {
                 if self.isViewLoaded && self.view.window != nil {
-                    let errorCallBack = ErrorPopUpViewController(message: "request error")
+                    let errorCallBack = ErrorPopUpViewController(message: "Request Error")
                     errorCallBack.present()
                 }
                 return
@@ -44,10 +45,10 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
             
             for response in responseArray {
                 let singleScheduleObject = ScheduleObject(json: response)
-                self.allScheduleObjects.append(singleScheduleObject)
+                self.allFetchedScheduleObjects.append(singleScheduleObject)
             }
             
-            self.allScheduleObjects = self.allScheduleObjects.sorted { (firstScheduleObj, secondScheduleObj) -> Bool in
+            self.allFetchedScheduleObjects = self.allFetchedScheduleObjects.sorted { (firstScheduleObj, secondScheduleObj) -> Bool in
                 guard let firstDate = firstScheduleObj.startDateObject,
                     let secondDate = secondScheduleObj.startDateObject else {
                         return false
@@ -61,10 +62,11 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     }
     
     func filterScheduleObjects(by filter: Filter = Filter.all) {
-        sortedScheduleHeaders = []
-        sortedScheduleObjects = [:]
+        var index: Int = 0
+        orderedScheduleHeaders = [:]
+        orderedScheduleObjects = [:]
         
-        for item in allScheduleObjects {
+        for item in allFetchedScheduleObjects {
             var formattedHeaderTitle: String = ""
             
             if filter != .all && item.eventType != filter.rawValue {
@@ -73,36 +75,40 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
             
             formattedHeaderTitle += StringDateFormatter.getFormattedTime(from: item.startDateObject!, with: .dayOfWeek) ?? ""
             formattedHeaderTitle += ", \(StringDateFormatter.getFormattedTime(from: item.startDateObject!, with: .monthAndDay) ?? "")"
-            if !sortedScheduleObjects.keys.contains(formattedHeaderTitle) {
-                sortedScheduleObjects[formattedHeaderTitle] = []
-                sortedScheduleHeaders.append(formattedHeaderTitle)
+            
+            if !orderedScheduleHeaders.keys.contains(formattedHeaderTitle) {
+                orderedScheduleHeaders[formattedHeaderTitle] = index
+                orderedScheduleObjects[index] = []
+                index += 1
             }
             
-            sortedScheduleObjects[formattedHeaderTitle]!.append(item)
+            orderedScheduleObjects[orderedScheduleHeaders[formattedHeaderTitle]!]!.append(item)
         }
     }
     
     func setFilterMenuCellContents() -> [FilterButton] {
         return [
-            FilterButton(input: Filter.NOT_SET),
+            FilterButton(input: Filter.activity),
+            FilterButton(input: Filter.food),
             FilterButton(input: Filter.talks),
             FilterButton(input: Filter.workshops),
+            FilterButton(input: Filter.main_event),
             FilterButton(input: Filter.all)
         ]
     }
     
     func setTableViewCellContents() -> [Int : [Any]] {
-        var sectionedContent: [Int: [ScheduleObject]] = [:]
-        
-        for (index,eachDay) in sortedScheduleObjects.enumerated() {
-            sectionedContent[index] = eachDay.value
-        }
-        
-        return sectionedContent
+        return orderedScheduleObjects
     }
     
     func setTableViewHeaderTitles() -> [String] {
-        return sortedScheduleHeaders
+        var headers: [String] = []
+        
+        for index in 0...orderedScheduleHeaders.count {
+            headers.append(orderedScheduleHeaders.key(forValue: index) ?? "Header Error")
+        }
+        
+        return headers
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -114,7 +120,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-            let content = sortedScheduleObjects[sortedScheduleHeaders[indexPath.section - 1]]![indexPath.row]
+            let content = orderedScheduleObjects[indexPath.section - 1]![indexPath.row]
             
             cell.cellType = .defaultCell
             cell.selectionStyle = .none
