@@ -44,6 +44,8 @@ class RequestSingleton {
         var validatedUrlString = url
         let httpsText = "https://"
         let httpText = "http://"
+        var decodedImage: UIImage!
+        let dataTest: Data? = nil
         
         // if prefix has no http:// append https://
         // if it is http:// change to https://
@@ -58,9 +60,6 @@ class RequestSingleton {
             completion(nil)
             return
         }
-        
-        var decodedImage: UIImage!
-        let dataTest: Data? = nil
         
         UIImage.cacheStorageCheck(at: validatedUrlString, imageData: dataTest, completion: { (cachedImage) in
             
