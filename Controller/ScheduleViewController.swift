@@ -11,9 +11,14 @@ import UIKit
 class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     let GET_SCHEDULE_URL: String = RequestSingleton.BASE_URL + "/api/get_schedule"
     
-    var allFetchedScheduleObjects: [ScheduleObject] = []
     var orderedScheduleHeaders: [String:Int] = [:]
     var orderedScheduleObjects: [Int:[ScheduleObject]] = [:]
+    
+    var allFetchedScheduleObjects: [ScheduleObject] = [] {
+        didSet {
+            filterScheduleObjects()
+        }
+    }
     let defaultScheduleObject: ScheduleObject = ScheduleObject(
         title: "Title", eventType: Filter.activity.rawValue, location: "Location",
         startTime: "2018-10-29T22:02:42.000Z", endTime: "2018-10-29T23:02:42.000Z"
@@ -35,6 +40,8 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        var retrievedScheduleObjects: [ScheduleObject] = []
+        
         super.viewWillAppear(animated)
         
         RequestSingleton.getData(at: GET_SCHEDULE_URL, with: nil) { (responseArray) in
@@ -48,10 +55,10 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
             
             for response in responseArray {
                 let singleScheduleObject = ScheduleObject(json: response)
-                self.allFetchedScheduleObjects.append(singleScheduleObject)
+                retrievedScheduleObjects.append(singleScheduleObject)
             }
             
-            self.allFetchedScheduleObjects = self.allFetchedScheduleObjects.sorted { (firstScheduleObj, secondScheduleObj) -> Bool in
+            retrievedScheduleObjects = retrievedScheduleObjects.sorted { (firstScheduleObj, secondScheduleObj) -> Bool in
                 guard let firstDate = firstScheduleObj.startDateObject,
                     let secondDate = secondScheduleObj.startDateObject else {
                         return false
@@ -59,8 +66,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
                 return firstDate.timeIntervalSince1970 < secondDate.timeIntervalSince1970
             }
             
-            self.filterScheduleObjects()
-            super.reloadTableContent()
+            self.allFetchedScheduleObjects = retrievedScheduleObjects
         }
     }
     
@@ -92,6 +98,8 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
             
             orderedScheduleObjects[headerTitleIndex]!.append(item)
         }
+        
+        super.reloadTableContent()
     }
     
     func setFilterMenuCellContents() -> [FilterButton] {
