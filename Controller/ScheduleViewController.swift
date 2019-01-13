@@ -14,7 +14,10 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     var allFetchedScheduleObjects: [ScheduleObject] = []
     var orderedScheduleHeaders: [String:Int] = [:]
     var orderedScheduleObjects: [Int:[ScheduleObject]] = [:]
-    var hasDataLoaded: Bool = false
+    let defaultScheduleObject: ScheduleObject = ScheduleObject(
+        title: "Title", eventType: Filter.activity.rawValue, location: "Location",
+        startTime: "2018-10-29T22:02:42.000Z", endTime: "2018-10-29T23:02:42.000Z"
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +85,12 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
                 index += 1
             }
             
-            orderedScheduleObjects[orderedScheduleHeaders[formattedHeaderTitle]!]!.append(item)
+            guard let headerTitleIndex = orderedScheduleHeaders[formattedHeaderTitle],
+                let _ = orderedScheduleObjects[headerTitleIndex] else {
+                    continue
+            }
+            
+            orderedScheduleObjects[headerTitleIndex]!.append(item)
         }
     }
     
@@ -111,7 +119,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
         return headers
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         filterScheduleObjects(by: filterButtons[indexPath.row].type)
         super.reloadTableContent()
     }
@@ -119,8 +127,14 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     // override cells excluding filter menu cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section > 0 {
+            var content: ScheduleObject
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-            let content = orderedScheduleObjects[indexPath.section - 1]![indexPath.row]
+            
+            if let contentSection = orderedScheduleObjects[indexPath.section - 1] {
+                content = contentSection[indexPath.row]
+            } else {
+                content = defaultScheduleObject
+            }
             
             cell.cellType = .defaultCell
             cell.selectionStyle = .none
