@@ -1,5 +1,5 @@
 //
-//  FilreredParentTableViewExtension.swift
+//  FilteredParentTableViewExtension.swift
 //  KnightHacks
 //
 //  Created by KnightHacks on 8/29/18.

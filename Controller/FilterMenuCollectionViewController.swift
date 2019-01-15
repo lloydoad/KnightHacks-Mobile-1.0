@@ -1,9 +1,9 @@
 //
-//  FilterMenuCollectionView.swift
+//  FilterMenuCollectionViewController.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 1/14/19.
-//  Copyright © 2019 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 1/14/19.
+//  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
 import UIKit
