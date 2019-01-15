@@ -10,6 +10,7 @@ import UIKit
 
 struct FilterButton {
     var name: String
+    var type: Filter
     var image: UIImage {
         if let img = UIImage(named: "\(self.name.lowercased()) filter icon")  {
             return img
@@ -19,6 +20,7 @@ struct FilterButton {
     }
     
     init(input: Filter) {
+        self.type = input
         self.name = input.rawValue
     }
 }
