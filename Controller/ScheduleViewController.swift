@@ -91,12 +91,10 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
                 index += 1
             }
             
-            guard let headerTitleIndex = orderedScheduleHeaders[formattedHeaderTitle],
-                let _ = orderedScheduleObjects[headerTitleIndex] else {
-                    continue
+            if let headerTitleIndex = orderedScheduleHeaders[formattedHeaderTitle],
+                let _ = orderedScheduleObjects[headerTitleIndex] {
+                orderedScheduleObjects[headerTitleIndex]!.append(item)
             }
-            
-            orderedScheduleObjects[headerTitleIndex]!.append(item)
         }
         
         super.reloadTableContent()

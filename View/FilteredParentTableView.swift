@@ -68,12 +68,20 @@ class FilteredParentTableView: ParentTableView {
     }
 
     func reloadTableContent(withFilter flag: Bool = false) {
-        if flag == true {
-            filterButtons = childDelegate == nil ? [] : childDelegate!.setFilterMenuCellContents()
+        guard let delegate = childDelegate else {
+            filterButtons = []
+            tableViewCellContents = [:]
+            tableViewHeaderTitles = []
+            super.tableView.reloadData()
+            return
         }
         
-        tableViewCellContents = childDelegate == nil ? [:] : childDelegate!.setTableViewCellContents()
-        tableViewHeaderTitles = childDelegate == nil ? [] : childDelegate!.setTableViewHeaderTitles()
+        if flag == true {
+            filterButtons = delegate.setFilterMenuCellContents()
+        }
+        
+        tableViewCellContents = delegate.setTableViewCellContents()
+        tableViewHeaderTitles = delegate.setTableViewHeaderTitles()
         super.tableView.reloadData()
     }
     
