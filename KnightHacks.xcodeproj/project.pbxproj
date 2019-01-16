@@ -33,7 +33,6 @@
 		4C919BBE214FF5A900C1B127 /* ParentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C919BBD214FF5A900C1B127 /* ParentTableView.swift */; };
 		4C919BC0214FF92100C1B127 /* LiveUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */; };
 		4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9829012140F20D00104208 /* SponsorsViewController.swift */; };
-		4C9829042140F22100104208 /* WorkshopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9829032140F22100104208 /* WorkshopsViewController.swift */; };
 		4CD9DD172135970200E200CB /* FilteredParentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9DD162135970200E200CB /* FilteredParentTableView.swift */; };
 		4CD9DD1921359D3500E200CB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9DD1821359D3500E200CB /* Constants.swift */; };
 		4CD9DD1B2135A59300E200CB /* FilterMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9DD1A2135A59300E200CB /* FilterMenuTableViewCell.swift */; };
@@ -49,7 +48,10 @@
 		4CEED1A3218B5CD5002EF894 /* StringDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEED1A2218B5CD5002EF894 /* StringDateFormatter.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
-		AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */; };
+		5E0A3A8C21E7A76200A72EAE /* WorkshopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */; };
+		5E0C2E0121CEB8700069AD4F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */; };
+		5E0C2E0321CF51850069AD4F /* WorkshopsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */; };
+		AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +84,6 @@
 		4C919BBD214FF5A900C1B127 /* ParentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTableView.swift; sourceTree = "<group>"; };
 		4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateViewController.swift; sourceTree = "<group>"; };
 		4C9829012140F20D00104208 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
-		4C9829032140F22100104208 /* WorkshopsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopsViewController.swift; sourceTree = "<group>"; };
 		4CD9DD162135970200E200CB /* FilteredParentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredParentTableView.swift; sourceTree = "<group>"; };
 		4CD9DD1821359D3500E200CB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4CD9DD1A2135A59300E200CB /* FilterMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +99,9 @@
 		4CEED1A2218B5CD5002EF894 /* StringDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateFormatter.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
+		5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopsViewController.swift; sourceTree = "<group>"; };
+		5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCacheController.swift; path = Controller/ImageCacheController.swift; sourceTree = SOURCE_ROOT; };
+		5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopsObject.swift; sourceTree = "<group>"; };
 		718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88A40BD14E15F8496777AD3 /* Pods-KnightHacks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +233,7 @@
 				4C5069D2213742A000095F64 /* Buttons.swift */,
 				4CEED1A2218B5CD5002EF894 /* StringDateFormatter.swift */,
 				4CEED19E2189F123002EF894 /* LiveUpdateObject.swift */,
+				5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */,
 				4C0C9DAD21D1652A0077C22F /* ScheduleObject.swift */,
 			);
 			path = Model;
@@ -249,11 +254,12 @@
 		4CF3F96F21337546007DE8EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */,
 				4C4197B1213338680002CBEB /* AppDelegate.swift */,
 				4C4197B3213338680002CBEB /* HomeViewController.swift */,
 				4C229627213A6FDB001EE130 /* ScheduleViewController.swift */,
 				4C9829012140F20D00104208 /* SponsorsViewController.swift */,
-				4C9829032140F22100104208 /* WorkshopsViewController.swift */,
+				5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */,
 				4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */,
 				4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */,
 				4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */,
@@ -387,19 +393,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0C2E0121CEB8700069AD4F /* ImageCacheController.swift in Sources */,
 				4C4197B4213338680002CBEB /* HomeViewController.swift in Sources */,
 				4CD9DD172135970200E200CB /* FilteredParentTableView.swift in Sources */,
 				4C919BC0214FF92100C1B127 /* LiveUpdateViewController.swift in Sources */,
 				4CEED19F2189F123002EF894 /* LiveUpdateObject.swift in Sources */,
 				4C4197B2213338680002CBEB /* AppDelegate.swift in Sources */,
 				4C229628213A6FDB001EE130 /* ScheduleViewController.swift in Sources */,
+				5E0A3A8C21E7A76200A72EAE /* WorkshopsViewController.swift in Sources */,
 				4CDEE672215154AB0068E729 /* DetailedDynamicTableViewCell.swift in Sources */,
 				4CDEE66E215153E60068E729 /* LeftImageDynamicTableViewCell.swift in Sources */,
 				4C4197E021333ED40002CBEB /* MenuItemCell.swift in Sources */,
 				4C0C9DAE21D1652A0077C22F /* ScheduleObject.swift in Sources */,
 				4CDEE6742151550F0068E729 /* HiddenDetailDynamicTableViewCell.swift in Sources */,
 				4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */,
-				4C9829042140F22100104208 /* WorkshopsViewController.swift in Sources */,
+				5E0C2E0321CF51850069AD4F /* WorkshopsObject.swift in Sources */,
 				4C919BBE214FF5A900C1B127 /* ParentTableView.swift in Sources */,
 				4CDEE6782151A5170068E729 /* FrequentlyAskedViewController.swift in Sources */,
 				4CD9DD1B2135A59300E200CB /* FilterMenuTableViewCell.swift in Sources */,

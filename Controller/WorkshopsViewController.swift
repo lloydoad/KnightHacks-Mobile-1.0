@@ -10,6 +10,7 @@ import UIKit
 
 class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     let tags: [String] = ["default 1", "default 2"]
+    let GET_WORKSHOP_UPDATE: String = RequestSingleton.BASE_URL + "/api/get_workshops"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
         if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
             cell.cellType = .detailedCell
-            cell.contentImageView?.image = UIImage(named: "knight hacks image")
+            parseImage(at:"https://backgroundcheckall.com/wp-content/uploads/2017/12/san-francisco-background.jpg", into: cell.contentImageView!, completion: nil)
             for tag in tags {
                 cell.addNewTag(tag: tag)
             }

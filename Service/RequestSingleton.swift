@@ -44,6 +44,8 @@ class RequestSingleton {
         var validatedUrlString = url
         let httpsText = "https://"
         let httpText = "http://"
+        var decodedImage: UIImage!
+        let dataTest: Data? = nil
         
         // if prefix has no http:// append https://
         // if it is http:// change to https://
@@ -59,29 +61,35 @@ class RequestSingleton {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: validatedUrl) { (data, res, err) in
-            DispatchQueue.main.async {
-                if(err != nil) {
-                    completion(nil)
-                    print(err!)
-                    return
-                }
-                
-                guard let imageData = data else {
-                    completion(nil)
-                    print("Error: Could not convert response to Data")
-                    return
-                }
-                
-                guard let decodedImage = UIImage(data: imageData) else {
-                    completion(nil)
-                    print("Error: Could not convert Data to UIImage")
-                    return
-                }
-
+        UIImage.cacheStorageCheck(at: validatedUrlString, imageData: dataTest, completion: { (cachedImage) in
+            
+            if (cachedImage != nil) {
+                decodedImage = cachedImage
                 completion(decodedImage)
+                return
             }
-        }
-        task.resume()
+            
+            let task = URLSession.shared.dataTask(with: validatedUrl) { (data, res, err) in
+
+                DispatchQueue.main.async {
+                    if(err != nil) {
+                        completion(nil)
+                        print(err!)
+                        return
+                    }
+
+                    guard let imageData = data else {
+                        completion(nil)
+                        print("Error: Could not convert response to Data")
+                        return
+                    }
+                    UIImage.cacheStorageCheck(at: validatedUrlString, imageData: imageData, completion: { (cachedImage) in
+                        decodedImage = UIImage(data: imageData)
+                        completion(decodedImage)
+                    })
+                }
+            }
+            task.resume()
+        })
     }
 }
