@@ -27,6 +27,11 @@ class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate 
         attachRefreshControl()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        liveUpdateContent = []
+    }
+    
     func attachRefreshControl() {
         refreshControlView = UIRefreshControl()
         refreshControlView!.tintColor = .white

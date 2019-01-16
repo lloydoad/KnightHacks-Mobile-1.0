@@ -64,7 +64,7 @@ extension FilteredParentTableView {
     
     // set title for headers
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if hasHeaders || section > 0 {
+        if (hasHeaders || section > 0) && (section - 1 < tableViewHeaderTitles.count) {
             return getCustomView(forHeaderInSection: section)
         } else {
             return nil

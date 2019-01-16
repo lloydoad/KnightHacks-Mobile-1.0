@@ -56,9 +56,33 @@ class FilteredParentTableView: ParentTableView {
         super.viewWillAppear(animated)
         
         // set content provided by child class
-        filterButtons = childDelegate == nil ? [] : childDelegate!.setFilterMenuCellContents()
-        tableViewCellContents = childDelegate == nil ? [:] : childDelegate!.setTableViewCellContents()
-        tableViewHeaderTitles = childDelegate == nil ? [] : childDelegate!.setTableViewHeaderTitles()
+        reloadTableContent(withFilter: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        for (index,_) in filterButtons.enumerated() {
+            filterMenuCollectionViewReference.deselectItem(at: IndexPath(row: index, section: 0), animated: false)
+        }
+    }
+
+    func reloadTableContent(withFilter flag: Bool = false) {
+        guard let delegate = childDelegate else {
+            filterButtons = []
+            tableViewCellContents = [:]
+            tableViewHeaderTitles = []
+            super.tableView.reloadData()
+            return
+        }
+        
+        if flag == true {
+            filterButtons = delegate.setFilterMenuCellContents()
+        }
+        
+        tableViewCellContents = delegate.setTableViewCellContents()
+        tableViewHeaderTitles = delegate.setTableViewHeaderTitles()
+        super.tableView.reloadData()
     }
     
     // bring filter button menu cell back down
