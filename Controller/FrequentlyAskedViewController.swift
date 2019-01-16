@@ -10,9 +10,33 @@ import UIKit
 
 class FrequentlyAskedViewController: ParentTableView {
     var isCellReduced: [Bool] = [true, true, true, true, true, true, true, true]
+    var allFetchedObjects: [FrequentlyAskedQuestionsObject] = []
+    let GET_FREQUENTLY_ASKED_QUESTIONS_URL: String = RequestSingleton.BASE_URL + "/api/get_faqs"
+    let DEFAULT_FREQUENTLY_ASKED_QUESTIONS_OBJECT: FrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(
+        question: "Question", answer: "Answer"
+    )
+    
     
     override func viewWillAppear(_ animated: Bool) {
+        var retrievedFrequentlyAskedQuestionsObject: [FrequentlyAskedQuestionsObject] = []
+        
         super.viewWillAppear(animated)
+        
+        RequestSingleton.getData(at: GET_FREQUENTLY_ASKED_QUESTIONS_URL, with: nil) { (responseArray) in
+            guard let responseArray = responseArray else {
+                if self.isViewLoaded && self.view.window != nil {
+                    let errorCallBack = ErrorPopUpViewController(message: "Request Error")
+                    errorCallBack.present()
+                }
+                return
+            }
+            
+            for response in responseArray {
+                let singleFrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(json: response)
+                retrievedFrequentlyAskedQuestionsObject.append(singleFrequentlyAskedQuestionsObject)
+            }
+            self.allFetchedObjects = retrievedFrequentlyAskedQuestionsObject
+        }
         setupNavigationBarUIElements()
     }
     
@@ -26,12 +50,12 @@ class FrequentlyAskedViewController: ParentTableView {
                 NSAttributedStringKey.font: CELL_HEADER_FONT
             ]
         }
-
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return self.allFetchedObjects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
