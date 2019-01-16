@@ -14,7 +14,6 @@ extension UIImage {
     
     static func cacheStorageCheck(at url: String!, imageData: Data?, completion: @escaping (UIImage?) -> ()) {
         if let cachedImage = imageCache.object(forKey: url as AnyObject) as? Data {
-            print("image is in cache")
             completion(UIImage(data: cachedImage))
             return
         }
