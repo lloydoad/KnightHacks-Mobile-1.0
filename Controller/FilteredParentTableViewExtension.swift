@@ -9,62 +9,34 @@
 import UIKit
 
 extension FilteredParentTableView {
-    // setup filter menu button in top cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 && indexPath.section == 0{
-            return addFilterMenu(inCellForRowAt: indexPath)
-        } else {
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-            cell.textLabel?.text = "NOT FORMATTED"
-            return cell
-        }
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = "NOT FORMATTED"
+        return cell
     }
     
-    func addFilterMenu(inCellForRowAt indexpath: IndexPath) -> UITableViewCell {
-        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: FilterMenuTableViewCell.identifier, for: indexpath) as! FilterMenuTableViewCell
-        filterMenuCollectionViewReference = dequeuedCell.filterMenuCollectionView
-        filterMenuCollectionViewReference.delegate = self
-        filterMenuCollectionViewReference.dataSource = self
-        
-        let estimatedContentViewLength: CGFloat = (COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT - 30) * estimatedNumberOfFilterButtons
-        filterMenuCollectionViewReference.contentSize = CGSize(width: estimatedContentViewLength, height: estimatedContentViewLength)
-        return dequeuedCell
-    }
-    
-    // return a customized height for filter menu cell
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT
-        } else {
-            return tableView.estimatedRowHeight
-        }
+        return tableView.estimatedRowHeight
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewCellContents.count + 1
+        return tableViewCellContents.count
     }
     
-    // return number of events + filter menu
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return self.tableViewCellContents[section - 1]!.count
-        }
+        return self.tableViewCellContents[section]?.count ?? 0
     }
     
-    // set height for headers
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 || hasHeaders == false {
+        if hasHeaders == false {
             return 0
         } else {
             return headerRowHeight
         }
     }
     
-    // set title for headers
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (hasHeaders || section > 0) && (section - 1 < tableViewHeaderTitles.count) {
+        if hasHeaders && (section < tableViewHeaderTitles.count) {
             return getCustomView(forHeaderInSection: section)
         } else {
             return nil
@@ -79,7 +51,7 @@ extension FilteredParentTableView {
         
         let headerLabel = UILabel()
         headerLabel.font = CELL_HEADER_FONT
-        headerLabel.text = tableViewHeaderTitles[section - 1].capitalized
+        headerLabel.text = tableViewHeaderTitles[section].capitalized
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         customHeaderView.contentView.addSubview(headerLabel)

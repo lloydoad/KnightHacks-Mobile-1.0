@@ -26,6 +26,8 @@ let DARK_BLUE_SHADE_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
 let NAVBAR_HEIGHT: CGFloat = 64
 // reduced total height of filter menu because menu took up a lot of space on smaller devices
 let COMBINED_FILTER_HEIGHT: CGFloat = 200
+let FILTER_MENU_HEIGHT: CGFloat = COMBINED_FILTER_HEIGHT - NAVBAR_HEIGHT
+
 // controls the height of the live count in live update view
 let LIVE_UPDATE_VIEW_HEIGHT: CGFloat = 146
 
