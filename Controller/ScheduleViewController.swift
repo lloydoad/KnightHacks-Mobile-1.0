@@ -69,7 +69,6 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
         }
     }
     
-    // override cells excluding filter menu cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let contentSection = orderedScheduleObjects[indexPath.section] {
             return makeCellFromModel(content: contentSection[indexPath.row], indexPath: indexPath)
