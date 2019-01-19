@@ -17,18 +17,18 @@ struct WorkshopsGroup {
 
 class WorkshopsObject {
     static let API_NAME_PARAMETER_KEY: String = "name"
-    static let API_SKILL_LEVEL_PARAMETER_KEY: String = "skillLevel"
     static let API_PICTURE_PARAMETER_KEY: String = "picture"
-    static let API_WORKSHOP_TYPE_PARAMETER_KEY: String = "workshopType"
     static let API_START_TIME_PARAMETER_KEY: String = "startTime"
     static let API_END_TIME_PARAMETER_KEY: String = "endTime"
-    static let API_PREQEG_PARAMETER_KEY: String = "prerequisites"
+    static let API_DESCRIPTION_KEY: String = "description"
+    static let API_TAG_PARAMATER_KEYS: [String] = ["skillLevel", "prerequisites", "workshopType"]
     
     var name: String
     var imageUrl: String
     var startTimeString: String
     var endTimeString: String
-    var tags: [String]
+    var description: String
+    var tags: [String] = []
 
     var formattedTime: String = "invalid time"
     var formattedHeader: String = "invalid header"
@@ -42,21 +42,25 @@ class WorkshopsObject {
         imageUrl = json[WorkshopsObject.API_PICTURE_PARAMETER_KEY].stringValue
         startTimeString = json[WorkshopsObject.API_START_TIME_PARAMETER_KEY].stringValue
         endTimeString = json[WorkshopsObject.API_END_TIME_PARAMETER_KEY].stringValue
+        description = json[WorkshopsObject.API_DESCRIPTION_KEY].stringValue
         
-        tags = []
-        tags.append(json[WorkshopsObject.API_PREQEG_PARAMETER_KEY].stringValue)
-        tags.append(json[WorkshopsObject.API_WORKSHOP_TYPE_PARAMETER_KEY].stringValue)
-        tags.append(json[WorkshopsObject.API_SKILL_LEVEL_PARAMETER_KEY].stringValue)
+        WorkshopsObject.API_TAG_PARAMATER_KEYS.forEach {
+            let retrievedTag = json[$0].stringValue.lowercased()
+            if !tags.contains(retrievedTag) {
+                tags.append(retrievedTag)
+            }
+        }
         
         parseDateObjects()
         parseHeaderInfo()
     }
     
-    init(name: String, starttime: String, endtime: String, tags: [String], imgUrl: String?) {
+    init(name: String, starttime: String, endtime: String, description: String, tags: [String], imgUrl: String?) {
         self.name = name
         self.imageUrl = imgUrl ?? "none"
         self.startTimeString = starttime
         self.endTimeString = endtime
+        self.description = description
         self.tags = tags
         
         parseDateObjects()

@@ -37,10 +37,8 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section > 0 {
-            return makeCellModel(
-                content: orderedWorkshopObjects[indexPath.section - 1].objects[indexPath.row],
-                indexPath: indexPath)
+        if indexPath.section < orderedWorkshopObjects.count && indexPath.row < orderedWorkshopObjects[indexPath.section].objects.count {
+            return makeCellModel(content: orderedWorkshopObjects[indexPath.section].objects[indexPath.row], indexPath: indexPath)
         } else {
             return super.tableView(tableView, cellForRowAt: indexPath)
         }
@@ -53,7 +51,7 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
         
         cell.titleLabel?.text = content.name
         cell.timeLabel?.text = content.formattedTime
-        // set description
+        cell.itemDescriptionLabel?.text = content.description
         parseImage(at: content.imageUrl, into: cell.contentImageView!, completion: nil)
         for (index, tag) in content.tags.enumerated() {
             if index < 4 {
