@@ -14,12 +14,13 @@ protocol FilteredParentTableViewDelegate {
     func setTableViewHeaderTitles() -> [String]
 }
 
-class FilteredParentTableView: ParentTableView {
+class FilteredParentTableView: ParentTableView, UICollectionViewDelegate {
     
-    var filterMenuCollectionViewReference: UICollectionView!
     var headerRowHeight: CGFloat = 60
     var isBarAnimationComplete: Bool = false
     var estimatedNumberOfFilterButtons: CGFloat = 5
+    var filterMenu: FilterMenuCollectionViewController!
+    var flowlayout: UICollectionViewFlowLayout!
     
     // protocol variables
     var childDelegate: FilteredParentTableViewDelegate?
@@ -44,18 +45,23 @@ class FilteredParentTableView: ParentTableView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .white
-        
-        // Register separate cells
-        tableView.register(FilterMenuTableViewCell.self, forCellReuseIdentifier: FilterMenuTableViewCell.identifier)
     }
     
-    // push filter menu behind navigation bar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        flowlayout = UICollectionViewFlowLayout()
+        flowlayout.scrollDirection = .horizontal
+        flowlayout.itemSize = CGSize(width: FILTER_MENU_HEIGHT - 40, height: FILTER_MENU_HEIGHT - 20)
         
-        // set content provided by child class
+        filterMenu = FilterMenuCollectionViewController(
+            frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: FILTER_MENU_HEIGHT),
+            collectionViewLayout: flowlayout
+        )
+        filterMenu.delegate = self
+        self.tableView.tableHeaderView = filterMenu
+        
         reloadTableContent(withFilter: true)
     }
     
@@ -63,7 +69,7 @@ class FilteredParentTableView: ParentTableView {
         super.viewWillDisappear(animated)
         
         for (index,_) in filterButtons.enumerated() {
-            filterMenuCollectionViewReference.deselectItem(at: IndexPath(row: index, section: 0), animated: false)
+            filterMenu.deselectItem(at: IndexPath(row: index, section: 0), animated: false)
         }
     }
 
@@ -72,12 +78,14 @@ class FilteredParentTableView: ParentTableView {
             filterButtons = []
             tableViewCellContents = [:]
             tableViewHeaderTitles = []
+            filterMenu.set(filters: filterButtons)
             super.tableView.reloadData()
             return
         }
         
         if flag == true {
             filterButtons = delegate.setFilterMenuCellContents()
+            filterMenu.set(filters: filterButtons)
         }
         
         tableViewCellContents = delegate.setTableViewCellContents()
@@ -85,20 +93,14 @@ class FilteredParentTableView: ParentTableView {
         super.tableView.reloadData()
     }
     
-    // bring filter button menu cell back down
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // if initial screen load, scroll table and filter menu
+        // if initial screen load, filter menu
         if !isBarAnimationComplete {
             let lastIndexInCollectionView = IndexPath(row: filterButtons.count - 1, section: 0)
-            self.filterMenuCollectionViewReference.scrollToItem(at: lastIndexInCollectionView, at: .right, animated: true)
+            self.filterMenu.scrollToItem(at: lastIndexInCollectionView, at: .right, animated: true)
             isBarAnimationComplete = true
         }
     }
 }
-
-
-
-
-

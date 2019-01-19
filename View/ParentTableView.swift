@@ -26,7 +26,7 @@ class ParentTableView: UITableViewController {
     }
     
     // setup navigation bar ui
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         self.navigationController?.navigationBar.barTintColor = BACKGROUND_COLOR
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.backgroundColor = .clear
@@ -39,7 +39,7 @@ class ParentTableView: UITableViewController {
     }
     
     // change the color of space between tableview and navbar
-    func colorUpperTableViewSpace(with color: UIColor) {
+    private func colorUpperTableViewSpace(with color: UIColor) {
         var frame = self.view.bounds
         frame.origin.y = -frame.size.height
         
