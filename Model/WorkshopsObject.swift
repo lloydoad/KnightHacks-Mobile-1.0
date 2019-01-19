@@ -10,7 +10,7 @@
 import Foundation
 import SwiftyJSON
 
-struct WorkshopsGroup {
+struct WorkshopsObjectGroup {
     var day: String
     var objects: [WorkshopsObject]
 }
