@@ -9,52 +9,140 @@
 import UIKit
 
 class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
-    let tags: [String] = ["default 1", "default 2"]
-    let GET_WORKSHOP_UPDATE: String = RequestSingleton.BASE_URL + "/api/get_workshops"
+    let GET_WORKSHOPS_UPDATE: String = RequestSingleton.BASE_URL + "/api/get_workshops"
+    
+    var orderedWorkshopObjects: [WorkshopsGroup] = []
+    var allWorkshopObjects: [WorkshopsObject] = [] {
+        didSet {
+            filterContent()
+            super.reloadTableContent()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.childDelegate = self
     }
     
-    // protocol functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        orderedWorkshopObjects = []
+        super.reloadTableContent()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section > 0 {
+            return makeCellModel(
+                content: orderedWorkshopObjects[indexPath.section - 1].objects[indexPath.row],
+                indexPath: indexPath)
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    }
+    
+    private func makeCellModel(content: WorkshopsObject, indexPath: IndexPath) -> DynamicTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
+        cell.cellType = .detailedCell
+        cell.selectionStyle = .none
+        
+        cell.titleLabel?.text = content.name
+        cell.timeLabel?.text = content.formattedTime
+        // set description
+        parseImage(at: content.imageUrl, into: cell.contentImageView!, completion: nil)
+        for (index, tag) in content.tags.enumerated() {
+            if index < 4 {
+                cell.addNewTag(tag: tag)
+            }
+        }
+        
+        return cell
+    }
+    
+    private func fetchData() {
+        var workshopsObjects: [WorkshopsObject] = []
+
+        RequestSingleton.getData(at: GET_WORKSHOPS_UPDATE, with: nil) { (responseArray) in
+            guard let responseArray = responseArray else {
+                if self.isViewLoaded && self.view.window != nil {
+                    let errorCallBack = ErrorPopUpViewController(message: "Request Error")
+                    errorCallBack.present()
+                }
+                return
+            }
+            
+            workshopsObjects = responseArray.map {
+                return WorkshopsObject(json: $0)
+            }
+            
+            workshopsObjects.sort(by: {
+                return $0.startDateObject?.timeIntervalSince1970 ?? 0 <
+                    $1.startDateObject?.timeIntervalSince1970 ?? 1
+            })
+            
+            self.allWorkshopObjects = workshopsObjects            
+        }
+    }
+    
+    private func filterContent(by filter: Filter = Filter.all) {
+        var headers: [String] = []
+        var headerWorkshopPair: [String:[WorkshopsObject]] = [:]
+        
+        orderedWorkshopObjects = []
+        
+        allWorkshopObjects.forEach {
+            if filter == .all || $0.tags.contains(filter.rawValue) {
+                if headerWorkshopPair[$0.formattedHeader] != nil {
+                    headerWorkshopPair[$0.formattedHeader]?.append($0)
+                } else {
+                    headers.append($0.formattedHeader)
+                    headerWorkshopPair[$0.formattedHeader] = [$0]
+                }
+            }
+        }
+        
+        orderedWorkshopObjects = headers.map {
+            if let group = headerWorkshopPair[$0] {
+                return WorkshopsGroup(day: $0, objects: group)
+            } else {
+                return WorkshopsGroup(day: "Header error", objects: [])
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        filterContent(by: filterButtons[indexPath.row].type)
+        super.reloadTableContent(withFilter: false)
+    }
+    
     func setFilterMenuCellContents() -> [FilterButton] {
         return [
-            FilterButton(input: Filter.NOT_SET),
-            FilterButton(input: Filter.internships),
-            FilterButton(input: Filter.full_time),
+            FilterButton(input: Filter.hardware),
+            FilterButton(input: Filter.beginner),
+            FilterButton(input: Filter.advanced),
+            FilterButton(input: Filter.career),
+            FilterButton(input: Filter.design),
+            FilterButton(input: Filter.development),
             FilterButton(input: Filter.all)
         ]
     }
     
     func setTableViewCellContents() -> [Int : [Any]] {
-        return [
-            0:[1,1,1],
-            1:[1,1],
-            2:[1,1,1,1]
-        ]
-    }
-    func setTableViewHeaderTitles() -> [String] {
-        return [
-            "Friday",
-            "Saturday",
-            "Sunday"
-        ]
+        var content: [Int:[Int]] = [:]
+        
+        orderedWorkshopObjects.enumerated().forEach {
+            content[$0] = [Int].init(repeating: 1, count: $1.objects.count)
+        }
+        
+        return content
     }
     
-    // override cells excluding filter menu cell
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-            cell.cellType = .detailedCell
-            parseImage(at:"https://backgroundcheckall.com/wp-content/uploads/2017/12/san-francisco-background.jpg", into: cell.contentImageView!, completion: nil)
-            for tag in tags {
-                cell.addNewTag(tag: tag)
-            }
-            cell.selectionStyle = .none
-            return cell
-        } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
-        }
+    func setTableViewHeaderTitles() -> [String] {
+        return orderedWorkshopObjects.map { $0.day }
     }
 }
