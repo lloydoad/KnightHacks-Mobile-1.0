@@ -10,7 +10,7 @@ import UIKit
 
 extension FilteredParentTableView {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
         cell.textLabel?.text = "NOT FORMATTED"
         return cell
     }
@@ -28,19 +28,11 @@ extension FilteredParentTableView {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if hasHeaders == false {
-            return 0
-        } else {
-            return headerRowHeight
-        }
+        return hasHeaders ? headerRowHeight : 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if hasHeaders && (section < tableViewHeaderTitles.count) {
-            return getCustomView(forHeaderInSection: section)
-        } else {
-            return nil
-        }
+        return hasHeaders && (section < tableViewHeaderTitles.count) ? getCustomView(forHeaderInSection: section) : nil
     }
     
     func getCustomView(forHeaderInSection section: Int) -> UIView {
