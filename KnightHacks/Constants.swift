@@ -47,6 +47,7 @@ enum Filter: String {
     case full_time = "full-time"
     case development = "development"
     case design = "design"
+    case local = "local"
     case NOT_SET = "nil"
 }
 
