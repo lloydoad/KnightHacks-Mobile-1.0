@@ -52,9 +52,11 @@ class SponsorsObject {
         }
 
         offerings.forEach {
-            if internshipFilter.contains($0) {
+            let offering = $0.lowercased()
+            
+            if internshipFilter.contains(offering) {
                 filters.append(Filter.internships)
-            } else if fulltimeFilter.contains($0) {
+            } else if fulltimeFilter.contains(offering) {
                 filters.append(Filter.full_time)
             }
         }
