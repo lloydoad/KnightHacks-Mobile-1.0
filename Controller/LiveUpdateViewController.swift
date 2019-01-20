@@ -8,56 +8,57 @@
 
 import UIKit
 
-class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate {
+class LiveUpdatesViewController: ParentTableView {
     let GET_LIVE_UPDATE_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
     let GET_RECENT_LIVE_UPDATES_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
     
+    var liveUpdateCountdownTimer: LiveUpdateCountdownTimerViewController?
     var refreshControlView: UIRefreshControl?
+    
     var lastFetchDate: Date?
-    var liveUpdateContent: [LiveUpdateObject] = [] {
+    var liveUpdateObjects: [LiveUpdateObject] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.liveUpdateCountdownTimer = LiveUpdateCountdownTimerViewController(frame:
+            CGRect(x: 0, y: 0, width: self.view.frame.width, height: LIVE_UPDATE_VIEW_HEIGHT)
+        )
+        self.liveUpdateCountdownTimer?.backgroundColor = BACKGROUND_COLOR
+        self.tableView.tableHeaderView = liveUpdateCountdownTimer
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.register(LiveUpdatesTableViewCell.self, forCellReuseIdentifier: LiveUpdatesTableViewCell.identifier)
-        getLiveUpdates()
-        attachRefreshControl()
+        
+        self.getNewLiveUpdates()
+        self.attachRefreshControl()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        liveUpdateContent = []
+        
+        self.liveUpdateObjects = []
+        self.lastFetchDate = nil
     }
     
-    func attachRefreshControl() {
-        refreshControlView = UIRefreshControl()
-        refreshControlView!.tintColor = .white
-        self.tableView.addSubview(refreshControlView!)
-        refreshControlView?.addTarget(self, action: #selector(getNewLiveUpdates), for: .valueChanged)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.tableView.estimatedRowHeight
     }
     
-    func getLiveUpdates() {
-        RequestSingleton.getData(at: GET_LIVE_UPDATE_URL, with: nil) { (responseArray) in
-            guard let responseArray = responseArray else {
-                if self.isViewLoaded && self.view.window != nil {
-                    let errorCallBack = ErrorPopUpViewController(message: nil)
-                    errorCallBack.present()
-                }
-                return
-            }
-            
-            for response in responseArray {
-                let singleContentObject = LiveUpdateObject(json: response)
-                self.lastFetchDate = singleContentObject.dateObject?.addingTimeInterval(1)
-                self.liveUpdateContent.insert(singleContentObject, at: 0)
-            }
-        }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return liveUpdateObjects.count
     }
     
-    @objc func getNewLiveUpdates() {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return makeCellModelFrom(content: liveUpdateObjects[indexPath.row], indexPath: indexPath)
+    }
+    
+    @objc private func getNewLiveUpdates() {
         var fetchUrl: String = ""
         var parameter: [String:String]?
         
@@ -72,63 +73,39 @@ class LiveUpdatesViewController: ParentTableView, LiveUpdateObjectImageDelegate 
         RequestSingleton.getData(at: fetchUrl, with: parameter) { (responseArray) in
             guard let responseArray = responseArray else {
                 if self.isViewLoaded && self.view.window != nil {
-                    let errorCallBack = ErrorPopUpViewController(message: nil)
-                    errorCallBack.present()
+                    ErrorPopUpViewController(message: "Request Error").present()
                 }
+                
                 self.refreshControlView?.endRefreshing()
                 return
             }
             
             for response in responseArray {
-                let singleContentObject = LiveUpdateObject(json: response)
-                self.lastFetchDate = singleContentObject.dateObject?.addingTimeInterval(1)
-                self.liveUpdateContent.insert(singleContentObject, at: 0)
+                let parsedLiveUpdateObject = LiveUpdateObject(json: response)
+                self.lastFetchDate = parsedLiveUpdateObject.dateObject?.addingTimeInterval(1)
+                self.liveUpdateObjects.insert(parsedLiveUpdateObject, at: 0)
             }
+            
             self.refreshControlView?.endRefreshing()
         }
     }
     
-    func reloadImageContainers() {
-        for (index, content) in liveUpdateContent.enumerated() {
-            if content.imageContainer.image != nil {
-                self.tableView.reloadRows(at: [IndexPath(row: index + 1, section: 0)], with: .none)
-            }
-        }
+    private func attachRefreshControl() {
+        self.refreshControlView = UIRefreshControl()
+        self.refreshControlView?.tintColor = .white
+        self.tableView.addSubview(refreshControlView!)
+        self.refreshControlView?.addTarget(self, action: #selector(getNewLiveUpdates), for: .valueChanged)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return LIVE_UPDATE_VIEW_HEIGHT
-        } else {
-            return super.tableView(tableView, heightForRowAt: indexPath)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return liveUpdateContent.count + 1
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: LiveUpdatesTableViewCell.identifier, for: indexPath) as! LiveUpdatesTableViewCell
-            
-            if cell.liveUpdatesView == nil {
-                cell.liveUpdatesView = LiveUpdateCountdownTimerViewController(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: LIVE_UPDATE_VIEW_HEIGHT))
-            }
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-            let cellContentItem = liveUpdateContent[indexPath.row - 1] as LiveUpdateObject
-            cellContentItem.delegate = self
-            
-            cell.cellType = .leftImageCell
-            cell.contentImageView?.image = cellContentItem.imageContainer.image
-            cell.itemDescriptionLabel?.text = cellContentItem.description
-            cell.timeLabel?.text = cellContentItem.formattedTime
-            cell.selectionStyle = .none
-            
-            return cell
-        }
+    private func makeCellModelFrom(content: LiveUpdateObject, indexPath: IndexPath) -> DynamicTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
+        
+        cell.cellType = .leftImageCell
+        parseImage(at: content.imageUrl, into: cell.contentImageView ?? UIImageView(), completion: nil)
+        cell.itemDescriptionLabel?.text = content.description
+        cell.timeLabel?.text = content.formattedTime
+        cell.selectionStyle = .none
+        
+        return cell
     }
 }
