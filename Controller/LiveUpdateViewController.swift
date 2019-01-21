@@ -119,28 +119,29 @@ class LiveUpdatesViewController: ParentTableView {
     // MARK: - REFRESH ANIMATION FUNCTIONS
     
     private func startRocketAnimation() {
-        self.isAnimating = true
+        let timingFunction = CAMediaTimingFunction(controlPoints: 4.6/6.0, 0.25, 4/6.0, 1)
         
-        if self.refreshControlView?.isRefreshing ?? false {
-            self.rocketImageView.alpha = 1
-            
-            let timingFunction = CAMediaTimingFunction(controlPoints: 4.6/6.0, 0.25, 4/6.0, 1)
-            
-            CATransaction.begin()
-            CATransaction.setAnimationTimingFunction(timingFunction)
-            
-            UIView.animate(withDuration: 2.0, animations: {
-                self.rocketImageXAnchor.constant = self.endXOffset
-                self.refreshControlView?.layoutIfNeeded()
-            }) { (_) in
-                self.refreshControlView?.endRefreshing()
-                self.rocketImageXAnchor.constant = self.startXOffset
-                self.rocketImageView.alpha = 0
-                self.isAnimating = false
-            }
-            
-            CATransaction.commit()
+        guard self.refreshControlView?.isRefreshing ?? false else {
+            return
         }
+        
+        self.isAnimating = true
+        self.rocketImageView.alpha = 1
+        
+        CATransaction.begin()
+        CATransaction.setAnimationTimingFunction(timingFunction)
+        
+        UIView.animate(withDuration: 2.0, animations: {
+            self.rocketImageXAnchor.constant = self.endXOffset
+            self.refreshControlView?.layoutIfNeeded()
+        }) { (_) in
+            self.refreshControlView?.endRefreshing()
+            self.rocketImageXAnchor.constant = self.startXOffset
+            self.rocketImageView.alpha = 0
+            self.isAnimating = false
+        }
+        
+        CATransaction.commit()
     }
     
     private func attachRefreshControl() {
