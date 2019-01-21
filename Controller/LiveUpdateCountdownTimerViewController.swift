@@ -29,6 +29,7 @@ class LiveUpdateCountdownTimerViewController: UIView {
     let LIVE_INDICATOR_TEXT = "Live"
     let LIVE_INDICATOR_SUBTITLE = "until hacking ends"
     let DEFAULT_COUNTDOWN_TIME = "00:00:00"
+    let ESTIMATED_END_DATE = "2019-03-03T18:00:00.000Z"
     let LIVE_INDICATOR_CORNER_RADIUS = CGFloat(integerLiteral: 7)
     let LIVE_INDICATOR_WIDTH = CGFloat(integerLiteral: 75)
     let LIVE_INDICATOR_HEIGHT = CGFloat(integerLiteral: 40)
@@ -121,9 +122,14 @@ class LiveUpdateCountdownTimerViewController: UIView {
         // Temporarily use a target time always some hours ahead of current time
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = DATE_STRING_FORMAT
-        let dummyStartDate = dateFormatter.string(from: currentTime.addingTimeInterval(TimeInterval(48.0 * 60.0 * 60.0)))
+        var endDate = dateFormatter.string(from: currentTime.addingTimeInterval(TimeInterval(48.0 * 60.0 * 60.0)))
         
-        targetTime = dateFormatter.date(from: dummyStartDate)
+        // Try to parse estimated end date, fall back on dummy time on failure
+        if let estimatedEndDate = StringDateFormatter.convertStringToZuluDate(dateString: ESTIMATED_END_DATE) {
+            endDate = dateFormatter.string(from: estimatedEndDate)
+        }
+        
+        targetTime = dateFormatter.date(from: endDate)
 
         if targetTime.timeIntervalSince(currentTime).isLess(than: 0) {
             return

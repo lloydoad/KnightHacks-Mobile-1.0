@@ -12,8 +12,8 @@ class LiveUpdatesViewController: ParentTableView {
     let GET_LIVE_UPDATE_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
     let GET_RECENT_LIVE_UPDATES_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
     
-    let imageLength: CGFloat = 50.0
-    let startXOffset: CGFloat = -30
+    let imageLength: CGFloat = 70.0
+    let startXOffset: CGFloat = -90
     let endXOffset: CGFloat = 420
     
     var liveUpdateCountdownTimer: LiveUpdateCountdownTimerViewController?
@@ -104,6 +104,20 @@ class LiveUpdatesViewController: ParentTableView {
         }
     }
     
+    private func makeCellModelFrom(content: LiveUpdateObject, indexPath: IndexPath) -> DynamicTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
+        
+        cell.cellType = .leftImageCell
+        parseImage(at: content.imageUrl, into: cell.contentImageView ?? UIImageView(), completion: nil)
+        cell.itemDescriptionLabel?.text = content.description
+        cell.timeLabel?.text = content.formattedTime
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    // MARK: - REFRESH ANIMATION FUNCTIONS
+    
     private func startRocketAnimation() {
         self.isAnimating = true
         
@@ -128,7 +142,7 @@ class LiveUpdatesViewController: ParentTableView {
             CATransaction.commit()
         }
     }
-
+    
     private func attachRefreshControl() {
         self.refreshControlView = UIRefreshControl()
         self.refreshControlView?.tintColor = .clear
@@ -155,17 +169,5 @@ class LiveUpdatesViewController: ParentTableView {
         
         self.rocketImageXAnchor = rocketImageView.leftAnchor.constraint(equalTo: customRefreshControlView.leftAnchor, constant: startXOffset)
         self.rocketImageXAnchor.isActive = true
-    }
-    
-    private func makeCellModelFrom(content: LiveUpdateObject, indexPath: IndexPath) -> DynamicTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
-        
-        cell.cellType = .leftImageCell
-        parseImage(at: content.imageUrl, into: cell.contentImageView ?? UIImageView(), completion: nil)
-        cell.itemDescriptionLabel?.text = content.description
-        cell.timeLabel?.text = content.formattedTime
-        cell.selectionStyle = .none
-        
-        return cell
     }
 }
