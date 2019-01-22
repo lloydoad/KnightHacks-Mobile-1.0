@@ -10,6 +10,7 @@ import UIKit
 
 class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDelegate {
     let GET_SPONSORS_UPDATE: String = RequestSingleton.BASE_URL + "/api/get_sponsors"
+    let maximumTagCount: Int = 3
     
     var filteredSponsorsObjects: [SponsorsObject] = []
     var allSponsorsObjects: [SponsorsObject] = [] {
@@ -58,7 +59,7 @@ class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDe
         cell.timeLabel?.text = content.location
         parseImage(at: content.imageUrl, into: cell.contentImageView!, completion: nil)
         content.offerings.enumerated().forEach {
-            if $0 < 3 {
+            if $0 < maximumTagCount {
                 cell.addNewTag(tag: $1)
             }
         }
@@ -76,9 +77,7 @@ class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDe
                 return
             }
             
-            self.allSponsorsObjects = responseArray.map {
-                return SponsorsObject(json: $0)
-            }
+            self.allSponsorsObjects = responseArray.map(SponsorsObject.init)
         }
     }
     
