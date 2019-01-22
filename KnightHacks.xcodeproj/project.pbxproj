@@ -409,6 +409,7 @@
 				4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */,
 				4CD9DD1921359D3500E200CB /* Constants.swift in Sources */,
 				5E0006DD21EEBBAE0014DD0A /* FrequentlyAskedQuestionsObject.swift in Sources */,
+				4C5069D7213786F900095F64 /* FilterMenuController.swift in Sources */,
 				4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */,
 				4C5069D3213742A000095F64 /* Buttons.swift in Sources */,
 				4C919BBB214E8F7900C1B127 /* DynamicTableViewCell.swift in Sources */,
