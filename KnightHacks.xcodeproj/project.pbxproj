@@ -48,6 +48,7 @@
 		4CEED1A3218B5CD5002EF894 /* StringDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEED1A2218B5CD5002EF894 /* StringDateFormatter.swift */; };
 		4CF3F96C21336CA9007DE8EC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3F96B21336CA9007DE8EC /* Helpers.swift */; };
 		4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */; };
+		5E0006DD21EEBBAE0014DD0A /* FrequentlyAskedQuestionsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0006DC21EEBBAE0014DD0A /* FrequentlyAskedQuestionsObject.swift */; };
 		5E0A3A8C21E7A76200A72EAE /* WorkshopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */; };
 		5E0C2E0121CEB8700069AD4F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */; };
 		5E0C2E0321CF51850069AD4F /* WorkshopsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */; };
@@ -99,6 +100,7 @@
 		4CEED1A2218B5CD5002EF894 /* StringDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateFormatter.swift; sourceTree = "<group>"; };
 		4CF3F96B21336CA9007DE8EC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateCountdownTimerViewController.swift; sourceTree = "<group>"; };
+		5E0006DC21EEBBAE0014DD0A /* FrequentlyAskedQuestionsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedQuestionsObject.swift; sourceTree = "<group>"; };
 		5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopsViewController.swift; sourceTree = "<group>"; };
 		5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCacheController.swift; path = Controller/ImageCacheController.swift; sourceTree = SOURCE_ROOT; };
 		5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopsObject.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				4CEED19E2189F123002EF894 /* LiveUpdateObject.swift */,
 				5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */,
 				4C0C9DAD21D1652A0077C22F /* ScheduleObject.swift */,
+				5E0006DC21EEBBAE0014DD0A /* FrequentlyAskedQuestionsObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				4C5069D9213787B700095F64 /* FilteredParentTableViewExtension.swift in Sources */,
 				4C9829022140F20D00104208 /* SponsorsViewController.swift in Sources */,
 				4CD9DD1921359D3500E200CB /* Constants.swift in Sources */,
+				5E0006DD21EEBBAE0014DD0A /* FrequentlyAskedQuestionsObject.swift in Sources */,
 				4C5069D7213786F900095F64 /* FilterMenuController.swift in Sources */,
 				4E9C23C82151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift in Sources */,
 				4C5069D3213742A000095F64 /* Buttons.swift in Sources */,

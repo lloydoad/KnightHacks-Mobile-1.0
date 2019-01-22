@@ -9,23 +9,31 @@
 import UIKit
 
 class FrequentlyAskedViewController: ParentTableView {
-    var isCellReduced: [Bool] = [true, true, true, true, true, true, true, true]
-    var allFetchedObjects: [FrequentlyAskedQuestionsObject] = []
+    var isCellReduced: [Bool] = [true, true, true, true, true, true, true, true, true, true]
+    var frequentlyAskedQuestionsContent: [FrequentlyAskedQuestionsObject] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var refreshControlView: UIRefreshControl?
+    
     let GET_FREQUENTLY_ASKED_QUESTIONS_URL: String = RequestSingleton.BASE_URL + "/api/get_faqs"
     let DEFAULT_FREQUENTLY_ASKED_QUESTIONS_OBJECT: FrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(
         question: "Question", answer: "Answer"
     )
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        var retrievedFrequentlyAskedQuestionsObject: [FrequentlyAskedQuestionsObject] = []
-        
         super.viewWillAppear(animated)
-        
+        getFrequentlyAskedQuestions()
+        setupNavigationBarUIElements()
+    }
+    
+    func getFrequentlyAskedQuestions() {
+
         RequestSingleton.getData(at: GET_FREQUENTLY_ASKED_QUESTIONS_URL, with: nil) { (responseArray) in
             guard let responseArray = responseArray else {
                 if self.isViewLoaded && self.view.window != nil {
-                    let errorCallBack = ErrorPopUpViewController(message: "Request Error")
+                    let errorCallBack = ErrorPopUpViewController(message: nil)
                     errorCallBack.present()
                 }
                 return
@@ -33,11 +41,11 @@ class FrequentlyAskedViewController: ParentTableView {
             
             for response in responseArray {
                 let singleFrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(json: response)
-                retrievedFrequentlyAskedQuestionsObject.append(singleFrequentlyAskedQuestionsObject)
+                self.frequentlyAskedQuestionsContent.append(singleFrequentlyAskedQuestionsObject)
             }
-            self.allFetchedObjects = retrievedFrequentlyAskedQuestionsObject
+            
+            self.refreshControlView?.endRefreshing()
         }
-        setupNavigationBarUIElements()
     }
     
     func setupNavigationBarUIElements() {
@@ -55,14 +63,15 @@ class FrequentlyAskedViewController: ParentTableView {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.allFetchedObjects.count
+        return self.frequentlyAskedQuestionsContent.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
         cell.cellType = .hiddenDetailedCell
         cell.isShowingDetails = !isCellReduced[indexPath.row]
-        
+        cell.titleLabel?.text = frequentlyAskedQuestionsContent[indexPath.row].question
+        cell.itemDescriptionLabel?.text = frequentlyAskedQuestionsContent[indexPath.row].answer
         cell.showMoreButton?.tag = indexPath.row
         cell.showMoreButton?.addTarget(self, action: #selector(expandOrShrinkCell(sender:)), for: .touchUpInside)
         cell.selectionStyle = .none
