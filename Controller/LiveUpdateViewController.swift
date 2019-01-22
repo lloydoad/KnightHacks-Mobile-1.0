@@ -12,8 +12,16 @@ class LiveUpdatesViewController: ParentTableView {
     let GET_LIVE_UPDATE_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates"
     let GET_RECENT_LIVE_UPDATES_URL: String = RequestSingleton.BASE_URL + "/api/get_live_updates_recent"
     
+    let imageLength: CGFloat = 70.0
+    let startXOffset: CGFloat = -90
+    let endXOffset: CGFloat = 420
+    
     var liveUpdateCountdownTimer: LiveUpdateCountdownTimerViewController?
     var refreshControlView: UIRefreshControl?
+    var customRefreshControlView: UIView!
+    var rocketImageView: UIImageView!
+    var rocketImageXAnchor: NSLayoutConstraint!
+    var isAnimating: Bool = false
     
     var lastFetchDate: Date?
     var liveUpdateObjects: [LiveUpdateObject] = [] {
@@ -58,6 +66,14 @@ class LiveUpdatesViewController: ParentTableView {
         return makeCellModelFrom(content: liveUpdateObjects[indexPath.row], indexPath: indexPath)
     }
     
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if refreshControlView?.isRefreshing ?? false {
+            if !isAnimating {
+                startRocketAnimation()
+            }
+        }
+    }
+    
     @objc private func getNewLiveUpdates() {
         var fetchUrl: String = ""
         var parameter: [String:String]?
@@ -85,16 +101,7 @@ class LiveUpdatesViewController: ParentTableView {
                 self.lastFetchDate = parsedLiveUpdateObject.dateObject?.addingTimeInterval(1)
                 self.liveUpdateObjects.insert(parsedLiveUpdateObject, at: 0)
             }
-            
-            self.refreshControlView?.endRefreshing()
         }
-    }
-    
-    private func attachRefreshControl() {
-        self.refreshControlView = UIRefreshControl()
-        self.refreshControlView?.tintColor = .white
-        self.tableView.addSubview(refreshControlView!)
-        self.refreshControlView?.addTarget(self, action: #selector(getNewLiveUpdates), for: .valueChanged)
     }
     
     private func makeCellModelFrom(content: LiveUpdateObject, indexPath: IndexPath) -> DynamicTableViewCell {
@@ -107,5 +114,61 @@ class LiveUpdatesViewController: ParentTableView {
         cell.selectionStyle = .none
         
         return cell
+    }
+    
+    // MARK: - REFRESH ANIMATION FUNCTIONS
+    
+    private func startRocketAnimation() {
+        let timingFunction = CAMediaTimingFunction(controlPoints: 4.6/6.0, 0.25, 4/6.0, 1)
+        
+        guard self.refreshControlView?.isRefreshing ?? false else {
+            return
+        }
+        
+        self.isAnimating = true
+        self.rocketImageView.alpha = 1
+        
+        CATransaction.begin()
+        CATransaction.setAnimationTimingFunction(timingFunction)
+        
+        UIView.animate(withDuration: 2.0, animations: {
+            self.rocketImageXAnchor.constant = self.endXOffset
+            self.refreshControlView?.layoutIfNeeded()
+        }) { (_) in
+            self.refreshControlView?.endRefreshing()
+            self.rocketImageXAnchor.constant = self.startXOffset
+            self.rocketImageView.alpha = 0
+            self.isAnimating = false
+        }
+        
+        CATransaction.commit()
+    }
+    
+    private func attachRefreshControl() {
+        self.refreshControlView = UIRefreshControl()
+        self.refreshControlView?.tintColor = .clear
+        self.refreshControlView?.backgroundColor = .clear
+        self.tableView.addSubview(refreshControlView!)
+        self.refreshControlView?.addTarget(self, action: #selector(getNewLiveUpdates), for: .valueChanged)
+        
+        self.customRefreshControlView = UIView();
+        self.customRefreshControlView.translatesAutoresizingMaskIntoConstraints = false
+        boundEdges(of: customRefreshControlView, to: refreshControlView!, with: UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0))
+        
+        self.rocketImageView = UIImageView()
+        self.rocketImageView.image = UIImage(named: "rocket-5")
+        self.rocketImageView.transform = CGAffineTransform(rotationAngle: (.pi/2))
+        self.rocketImageView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        self.rocketImageView.contentMode = .scaleAspectFit
+        self.rocketImageView.alpha = 0
+        
+        self.rocketImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.customRefreshControlView.addSubview(rocketImageView)
+        self.rocketImageView.heightAnchor.constraint(equalToConstant: imageLength).isActive = true
+        self.rocketImageView.widthAnchor.constraint(equalToConstant: imageLength).isActive = true
+        self.rocketImageView.centerYAnchor.constraint(equalTo: customRefreshControlView.centerYAnchor).isActive = true
+        
+        self.rocketImageXAnchor = rocketImageView.leftAnchor.constraint(equalTo: customRefreshControlView.leftAnchor, constant: startXOffset)
+        self.rocketImageXAnchor.isActive = true
     }
 }
