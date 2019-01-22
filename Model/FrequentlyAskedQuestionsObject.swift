@@ -2,8 +2,8 @@
 //  FrequentlyAskedQuestionsObject.swift
 //  KnightHacks
 //
-//  Created by Jamal Yauhari on 1/15/19.
-//  Copyright © 2019 Lloyd Dapaah. All rights reserved.
+//  Created by KnightHacks on 1/15/19.
+//  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
 import Foundation
@@ -17,13 +17,13 @@ class FrequentlyAskedQuestionsObject {
     var question: String
     var answer: String
     
-    init(json: JSON) {
-        question = json[FrequentlyAskedQuestionsObject.API_QUESTION_PARAMETER_KEY].stringValue
-        answer = json[FrequentlyAskedQuestionsObject.API_ANSWER_PARAMETER_KEY].stringValue
-    }
-    
     init(question: String, answer: String) {
         self.question = question
         self.answer = answer
+    }
+    
+    init(json: JSON) {
+        question = json[FrequentlyAskedQuestionsObject.API_QUESTION_PARAMETER_KEY].stringValue
+        answer = json[FrequentlyAskedQuestionsObject.API_ANSWER_PARAMETER_KEY].stringValue
     }
 }
