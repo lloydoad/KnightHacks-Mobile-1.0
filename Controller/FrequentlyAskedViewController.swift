@@ -9,7 +9,7 @@
 import UIKit
 
 class FrequentlyAskedViewController: ParentTableView {
-    var isCellReduced: [Bool] = [true, true, true, true, true, true, true, true, true, true]
+    var isCellReduced: [Bool] = []
     var frequentlyAskedQuestionsContent: [FrequentlyAskedQuestionsObject] = [] {
         didSet {
             tableView.reloadData()
@@ -42,9 +42,8 @@ class FrequentlyAskedViewController: ParentTableView {
             for response in responseArray {
                 let singleFrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(json: response)
                 self.frequentlyAskedQuestionsContent.append(singleFrequentlyAskedQuestionsObject)
+                self.isCellReduced.append(true)
             }
-            
-            self.refreshControlView?.endRefreshing()
         }
     }
     
