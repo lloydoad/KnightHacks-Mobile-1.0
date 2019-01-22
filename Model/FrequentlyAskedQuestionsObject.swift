@@ -2,13 +2,8 @@
 //  FrequentlyAskedQuestionsObject.swift
 //  KnightHacks
 //
-<<<<<<< HEAD
-//  Created by Jamal Yauhari on 1/15/19.
-//  Copyright © 2019 Lloyd Dapaah. All rights reserved.
-=======
 //  Created by KnightHacks on 1/15/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
->>>>>>> 91e7bddfa371482701ed4702f2686f0256f53fac
 //
 
 import Foundation
