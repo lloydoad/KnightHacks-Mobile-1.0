@@ -8,17 +8,11 @@
 ## Setup
 - Download or clone repo
 - Install cocoapods
-"
 ```sudo gem install cocoapods```
-"
 - Setup Pods at root
-"
 ```pod setup verbose```
-"
 - Install Pods included in repo at repo root
-"
 ```pod install```
-"
 
 ## Class Conventions and Usage
 
