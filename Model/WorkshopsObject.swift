@@ -21,7 +21,7 @@ class WorkshopsObject {
     static let API_START_TIME_PARAMETER_KEY: String = "startTime"
     static let API_END_TIME_PARAMETER_KEY: String = "endTime"
     static let API_DESCRIPTION_KEY: String = "description"
-    static let API_TAG_PARAMATER_KEYS: [String] = ["skillLevel", "prerequisites", "workshopType"]
+    static let API_TAG_PARAMATER_KEYS: [String] = ["skillLevel", "workshopType"]
     
     var name: String
     var imageUrl: String
