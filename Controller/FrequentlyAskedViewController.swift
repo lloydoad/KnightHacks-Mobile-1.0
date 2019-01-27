@@ -22,12 +22,12 @@ class FrequentlyAskedViewController: ParentTableView {
         if #available(iOS 11, *) {
             self.navigationItem.largeTitleDisplayMode = .always
             self.navigationController?.navigationBar.largeTitleTextAttributes = [
-                NSAttributedStringKey.foregroundColor: UIColor.white,
-                NSAttributedStringKey.font: CELL_HEADER_FONT
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
 
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -51,7 +51,7 @@ class FilterMenuButtonCollectionViewCell: UICollectionViewCell {
         filterMenuButtonExteriorBorderView.layer.cornerRadius = innerCircleDiameter / 2
         filterMenuButtonExteriorBorderView.layer.borderColor = BACKGROUND_COLOR.cgColor
         filterMenuButtonExteriorBorderView.layer.borderWidth = borderThickness
-        filterMenuButtonExteriorBorderView.layoutMargins = UIEdgeInsetsMake(imagePadding, imagePadding, imagePadding, imagePadding)
+        filterMenuButtonExteriorBorderView.layoutMargins = UIEdgeInsets.init(top: imagePadding, left: imagePadding, bottom: imagePadding, right: imagePadding)
         filterMenuButtonExteriorBorderView.clipsToBounds = true
         
         filterMenuButtonImageView = UIImageView()
