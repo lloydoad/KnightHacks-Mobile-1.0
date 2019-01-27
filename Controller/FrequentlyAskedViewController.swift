@@ -57,7 +57,7 @@ class FrequentlyAskedViewController: ParentTableView {
                 NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
