@@ -245,13 +245,13 @@
 		4CF3F96F21337546007DE8EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */,
 				4C4197B1213338680002CBEB /* AppDelegate.swift */,
 				4C4197B3213338680002CBEB /* HomeViewController.swift */,
 				4C229627213A6FDB001EE130 /* ScheduleViewController.swift */,
 				4C9829012140F20D00104208 /* SponsorsViewController.swift */,
 				5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */,
 				4C919BBF214FF92100C1B127 /* LiveUpdateViewController.swift */,
+				5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */,
 				4CDEE6772151A5170068E729 /* FrequentlyAskedViewController.swift */,
 				4E9C23C72151A155004C42DB /* LiveUpdateCountdownTimerViewController.swift */,
 				4CEED1A0218A69BC002EF894 /* ErrorPopUpViewController.swift */,
