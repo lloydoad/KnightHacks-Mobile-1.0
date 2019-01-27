@@ -9,11 +9,42 @@
 import UIKit
 
 class FrequentlyAskedViewController: ParentTableView {
-    var isCellReduced: [Bool] = [true, true, true, true, true, true, true, true]
+    var isCellReduced: [Bool] = []
+    var frequentlyAskedQuestionsContent: [FrequentlyAskedQuestionsObject] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var refreshControlView: UIRefreshControl?
+    
+    let GET_FREQUENTLY_ASKED_QUESTIONS_URL: String = RequestSingleton.BASE_URL + "/api/get_faqs"
+    let DEFAULT_FREQUENTLY_ASKED_QUESTIONS_OBJECT: FrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(
+        question: "Question", answer: "Answer"
+    )
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getFrequentlyAskedQuestions()
         setupNavigationBarUIElements()
+    }
+    
+    func getFrequentlyAskedQuestions() {
+
+        RequestSingleton.getData(at: GET_FREQUENTLY_ASKED_QUESTIONS_URL, with: nil) { (responseArray) in
+            guard let responseArray = responseArray else {
+                if self.isViewLoaded && self.view.window != nil {
+                    let errorCallBack = ErrorPopUpViewController(message: nil)
+                    errorCallBack.present()
+                }
+                return
+            }
+            
+            for response in responseArray {
+                let singleFrequentlyAskedQuestionsObject = FrequentlyAskedQuestionsObject(json: response)
+                self.frequentlyAskedQuestionsContent.append(singleFrequentlyAskedQuestionsObject)
+                self.isCellReduced.append(true)
+            }
+        }
     }
     
     func setupNavigationBarUIElements() {
@@ -26,19 +57,19 @@ class FrequentlyAskedViewController: ParentTableView {
                 NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
-
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return self.frequentlyAskedQuestionsContent.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DynamicTableViewCell.identifier, for: indexPath) as! DynamicTableViewCell
         cell.cellType = .hiddenDetailedCell
         cell.isShowingDetails = !isCellReduced[indexPath.row]
-        
+        cell.titleLabel?.text = frequentlyAskedQuestionsContent[indexPath.row].question
+        cell.itemDescriptionLabel?.text = frequentlyAskedQuestionsContent[indexPath.row].answer
         cell.showMoreButton?.tag = indexPath.row
         cell.showMoreButton?.addTarget(self, action: #selector(expandOrShrinkCell(sender:)), for: .touchUpInside)
         cell.selectionStyle = .none
