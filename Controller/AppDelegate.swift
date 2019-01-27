@@ -58,10 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             imageSet = (imageSet + 1) % 3
             rootController.view.addSubview(backgroundImages[imageCount])
-            rootController.view.bringSubview(toFront: backgroundImages[imageCount])
+            rootController.view.bringSubviewToFront(backgroundImages[imageCount])
         }
     }
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
@@ -81,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rootController.view.addSubview(rocketImage)
         rootController.view.addSubview(background)
         
-        rootController.view.bringSubview(toFront: background)
-        rootController.view.bringSubview(toFront: rocketImage)
+        rootController.view.bringSubviewToFront(background)
+        rootController.view.bringSubviewToFront(rocketImage)
         
         setupBackgroundCloudsForLaunchAnimation(rootController: rootController)
         

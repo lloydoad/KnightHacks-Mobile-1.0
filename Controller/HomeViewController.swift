@@ -43,8 +43,8 @@ class HomeViewController: UITableViewController {
         if #available(iOS 11, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationController?.navigationBar.largeTitleTextAttributes = [
-                NSAttributedStringKey.foregroundColor: UIColor.black,
-                NSAttributedStringKey.font: CELL_HEADER_FONT
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
         self.navigationItem.title = "Where to?"

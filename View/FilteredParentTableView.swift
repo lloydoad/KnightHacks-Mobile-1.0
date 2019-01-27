@@ -35,7 +35,7 @@ class FilteredParentTableView: ParentTableView, UICollectionViewDelegate {
         }
     }
     
-    override init(style: UITableViewStyle) {
+    override init(style: UITableView.Style) {
         super.init(style: style)
     }
     
