@@ -6,13 +6,20 @@
 - Xcode 9
 
 ## Setup
-- Download or clone repo
-- Install cocoapods
-```sudo gem install cocoapods```
-- Setup Pods at root
-```pod setup verbose```
-- Install Pods included in repo at repo root
-```pod install```
+- Ensure CocoaPods are in your system through Gems or Homebrew
+```
+$ gem install cocoapods
+$ brew install cocoapods
+```
+- Clone this repository
+```
+$ git clone https://github.com/brianbaso/KnightHacks_iosdev.git
+```
+- Install required pods/dependencies in project root
+```
+$ cd KnightHacks_iosdev
+$ pod install
+```
 
 ## Class Conventions and Usage
 
@@ -32,7 +39,7 @@ Most of the tableview classes inherit common features from `ParentTableView` or 
   
 ###### Usage
 - Initialization
-```swift 
+```swift
 let view = ParentTableView()
 ```
 
@@ -128,8 +135,8 @@ var showMoreButton: UIButton? { set }
   - **NOTE** Some of these changes are only available within specific cell types
 ``` swift 
 var cellType: FormattedTableViewCellType { get, set }
-var hasUpperTags: Bool = false { get, set }
-var hasRegularRightDetail: Bool { get, set }
+var hasUpperTags: Bool { get, set }
+var isTimeStampMinimized: Bool { get, set}
 var hasStyledTags: Bool { get, set }
 var isShowingDetails: Bool { get, set }
 ```
