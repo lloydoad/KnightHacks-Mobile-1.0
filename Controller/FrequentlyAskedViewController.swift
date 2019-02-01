@@ -59,11 +59,14 @@ class FrequentlyAskedViewController: ParentTableView {
         if #available(iOS 11, *) {
             self.navigationItem.largeTitleDisplayMode = .always
             self.navigationController?.navigationBar.largeTitleTextAttributes = [
-                NSAttributedStringKey.foregroundColor: UIColor.white,
-                NSAttributedStringKey.font: CELL_HEADER_FONT
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> e8351b0610f14ff65e7504d95d2297caf0f69617
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     

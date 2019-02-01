@@ -46,7 +46,12 @@ enum Filter: String {
     case internships = "internships"
     case full_time = "full-time"
     case development = "development"
+    case hardware = "hardware"
+    case beginner = "beginner"
+    case advanced = "advanced"
+    case career = "career"
     case design = "design"
+    case local = "local"
     case NOT_SET = "nil"
 }
 
