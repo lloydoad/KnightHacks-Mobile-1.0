@@ -63,10 +63,7 @@ class FrequentlyAskedViewController: ParentTableView {
                 NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
-<<<<<<< HEAD
-        
-=======
->>>>>>> e8351b0610f14ff65e7504d95d2297caf0f69617
+
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
