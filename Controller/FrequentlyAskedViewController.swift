@@ -28,6 +28,12 @@ class FrequentlyAskedViewController: ParentTableView {
         setupNavigationBarUIElements()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.frequentlyAskedQuestionsContent = []
+    }
+    
     func getFrequentlyAskedQuestions() {
 
         RequestSingleton.getData(at: GET_FREQUENTLY_ASKED_QUESTIONS_URL, with: nil) { (responseArray) in
@@ -57,6 +63,10 @@ class FrequentlyAskedViewController: ParentTableView {
                 NSAttributedString.Key.font: CELL_HEADER_FONT
             ]
         }
+<<<<<<< HEAD
+        
+=======
+>>>>>>> e8351b0610f14ff65e7504d95d2297caf0f69617
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
