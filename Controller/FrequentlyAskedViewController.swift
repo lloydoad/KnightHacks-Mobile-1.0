@@ -28,6 +28,12 @@ class FrequentlyAskedViewController: ParentTableView {
         setupNavigationBarUIElements()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.frequentlyAskedQuestionsContent = []
+    }
+    
     func getFrequentlyAskedQuestions() {
 
         RequestSingleton.getData(at: GET_FREQUENTLY_ASKED_QUESTIONS_URL, with: nil) { (responseArray) in
@@ -58,7 +64,7 @@ class FrequentlyAskedViewController: ParentTableView {
             ]
         }
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
