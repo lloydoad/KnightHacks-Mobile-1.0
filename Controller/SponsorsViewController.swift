@@ -98,7 +98,6 @@ class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDe
     
     func setFilterMenuCellContents() -> [FilterButton] {
         return [
-            FilterButton(input: Filter.local),
             FilterButton(input: Filter.internships),
             FilterButton(input: Filter.full_time),
             FilterButton(input: Filter.all)
