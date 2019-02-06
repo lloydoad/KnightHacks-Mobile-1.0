@@ -79,9 +79,12 @@ class FilteredParentTableView: ParentTableView, UICollectionViewDelegate {
             tableViewCellContents = [:]
             tableViewHeaderTitles = []
             filterMenu.set(filters: filterButtons)
+            
             super.tableView.reloadData()
+            self.isEmpty = true
             return
         }
+        
         
         if flag == true {
             filterButtons = delegate.setFilterMenuCellContents()
@@ -90,7 +93,9 @@ class FilteredParentTableView: ParentTableView, UICollectionViewDelegate {
         
         tableViewCellContents = delegate.setTableViewCellContents()
         tableViewHeaderTitles = delegate.setTableViewHeaderTitles()
+        
         super.tableView.reloadData()
+        self.isEmpty = delegate.setTableViewCellContents().isEmpty ? true : false
     }
     
     override func viewDidAppear(_ animated: Bool) {

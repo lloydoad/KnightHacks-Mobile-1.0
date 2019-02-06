@@ -10,9 +10,19 @@ import UIKit
 
 class ParentTableView: UITableViewController {
     
+    var emptyBackgroundView: UIView!
+    var isEmpty: Bool = true {
+        didSet {
+            toggleEmptyView()
+        }
+    }
+    
     // register cell and match space on top of table with navigation bar
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.backgroundView = UIView(frame: self.tableView.frame)
+        self.emptyBackgroundView = setEmptyViewBackground(of: self.tableView)
         
         tableView.separatorStyle = .none
         tableView.register(DynamicTableViewCell.self, forCellReuseIdentifier: DynamicTableViewCell.identifier)
@@ -23,6 +33,26 @@ class ParentTableView: UITableViewController {
         // setup navigation bar
         super.viewWillAppear(animated)
         setupNavigationBar()
+    }
+    
+    private func toggleEmptyView() {
+        if isEmpty {
+            self.emptyBackgroundView.alpha = 1
+        } else {
+            self.emptyBackgroundView.alpha = 0
+        }
+    }
+    
+    private func setEmptyViewBackground(of view: UIView) -> UIView {
+        let stackView = UIStackView(frame: view.frame)
+        
+        boundEdges(of: stackView, to: view, with: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+        stackView.backgroundColor = UIColor.blue
+        
+        // add the image
+        // add random quote
+        
+        return stackView
     }
     
     // setup navigation bar ui
