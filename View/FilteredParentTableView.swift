@@ -85,7 +85,6 @@ class FilteredParentTableView: ParentTableView, UICollectionViewDelegate {
             return
         }
         
-        
         if flag == true {
             filterButtons = delegate.setFilterMenuCellContents()
             filterMenu.set(filters: filterButtons)
