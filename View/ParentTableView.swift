@@ -77,6 +77,7 @@ class ParentTableView: UITableViewController {
         containerCenterOffset = containerStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: centerOffsetConstant)
         containerCenterOffset?.isActive = true
         
+        roverImageView.contentMode = .scaleAspectFit
         roverImageView.translatesAutoresizingMaskIntoConstraints = false
         roverImageView.heightAnchor.constraint(equalToConstant: imageDimension).isActive = true
         roverImageView.widthAnchor.constraint(equalToConstant: imageDimension).isActive = true
