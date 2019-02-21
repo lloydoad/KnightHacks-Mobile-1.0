@@ -39,6 +39,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let currentDate = Date()
         var retrievedScheduleObjects: [ScheduleObject] = []
         
         super.viewWillAppear(animated)
@@ -52,9 +53,11 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
                 return
             }
             
-            for response in responseArray {
-                let singleScheduleObject = ScheduleObject(json: response)
-                retrievedScheduleObjects.append(singleScheduleObject)
+            responseArray.forEach {
+                let singleScheduleObject = ScheduleObject(json: $0)
+                if singleScheduleObject.endDateObject ?? Date() >= currentDate {
+                    retrievedScheduleObjects.append(singleScheduleObject)
+                }
             }
             
             retrievedScheduleObjects = retrievedScheduleObjects.sorted { (firstScheduleObj, secondScheduleObj) -> Bool in
