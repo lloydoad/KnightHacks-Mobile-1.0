@@ -9,6 +9,11 @@
 import Foundation
 import SwiftyJSON
 
+struct ScheduleGroup {
+    var day: String
+    var objects: [ScheduleObject]
+}
+
 class ScheduleObject {
     static let API_START_TIME_PARAMETER_KEY: String = "startTime"
     static let API_TITLE_PARAMETER_KEY: String = "title"
@@ -22,6 +27,7 @@ class ScheduleObject {
     var startTime: String
     var endTime: String
     var formattedTime: String = "invalid time"
+    var formattedHeader: String = "Invalid Header"
     
     var startDateObject: Date?
     var endDateObject: Date?
@@ -34,6 +40,7 @@ class ScheduleObject {
         endTime = json[ScheduleObject.API_END_TIME_PARAMETER_KEY].stringValue
                 
         parseDateObjects()
+        parseHeaderInfo()
     }
     
     init(title: String, eventType: String, location: String, startTime: String, endTime: String) {
@@ -44,6 +51,17 @@ class ScheduleObject {
         self.location = location
         
         parseDateObjects()
+    }
+    
+    func parseHeaderInfo() {
+        var formattedHeaderTitle: String = ""
+        
+        if let startDateObject = self.startDateObject {
+            formattedHeaderTitle += StringDateFormatter.getFormattedTime(from: startDateObject, with: .dayOfWeek) ?? ""
+            formattedHeaderTitle += ", \(StringDateFormatter.getFormattedTime(from: startDateObject, with: .monthAndDay) ?? "")"
+            
+            self.formattedHeader = formattedHeaderTitle
+        }
     }
     
     func parseDateObjects() {
