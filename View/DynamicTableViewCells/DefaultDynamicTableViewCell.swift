@@ -27,7 +27,11 @@ extension DynamicTableViewCell {
         let insets = UIEdgeInsets(top: backgroundInnerMargin, left: backgroundInnerMargin, bottom: -backgroundInnerMargin, right: -backgroundInnerMargin)
         boundEdges(of: mainVerticalStack, to: backgroundViewWithShadow!, with: insets)
         
-        let innerHorizontalStack = getPresetUIStackView(axis: .horizontal, alignment: .center, distribution: .fillProportionally, spacing: 22)
+        let innerHorizontalStack = getPresetUIStackView(axis: .horizontal, alignment: .center, distribution: .fill, spacing: 22)
+        
+        titleLabel?.numberOfLines = 0
+        timeLabel?.translatesAutoresizingMaskIntoConstraints = false
+        timeLabel?.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
         innerHorizontalStack.addArrangedSubview(titleLabel!)
         innerHorizontalStack.addArrangedSubview(timeLabel!)
