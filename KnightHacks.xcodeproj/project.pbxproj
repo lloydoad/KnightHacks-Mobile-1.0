@@ -52,6 +52,7 @@
 		5E0A3A8C21E7A76200A72EAE /* WorkshopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */; };
 		5E0C2E0121CEB8700069AD4F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */; };
 		5E0C2E0321CF51850069AD4F /* WorkshopsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */; };
+		5E5318B42208B06A00086963 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5318B32208B06A00086963 /* StoreKit.framework */; };
 		AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		5E0A3A8B21E7A76100A72EAE /* WorkshopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopsViewController.swift; sourceTree = "<group>"; };
 		5E0C2E0021CEB8700069AD4F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCacheController.swift; path = Controller/ImageCacheController.swift; sourceTree = SOURCE_ROOT; };
 		5E0C2E0221CF51850069AD4F /* WorkshopsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopsObject.swift; sourceTree = "<group>"; };
+		5E5318B32208B06A00086963 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88A40BD14E15F8496777AD3 /* Pods-KnightHacks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFEAE69B48A33C336A5720AA /* Pods_KnightHacks.framework in Frameworks */,
+				5E5318B42208B06A00086963 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +135,7 @@
 		3BA2CBC770B204EFEEB31965 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E5318B32208B06A00086963 /* StoreKit.framework */,
 				718E55091B5D85DC06B91632 /* Pods_KnightHacks.framework */,
 			);
 			name = Frameworks;
@@ -299,6 +303,11 @@
 					4C4197AD213338680002CBEB = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -566,7 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UMPLM5DFZC;
 				INFOPLIST_FILE = KnightHacks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -586,7 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UMPLM5DFZC;
 				INFOPLIST_FILE = KnightHacks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
