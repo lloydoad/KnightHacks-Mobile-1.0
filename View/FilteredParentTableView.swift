@@ -106,5 +106,9 @@ class FilteredParentTableView: ParentTableView, UICollectionViewDelegate {
             self.filterMenu.scrollToItem(at: lastIndexInCollectionView, at: .right, animated: true)
             isBarAnimationComplete = true
         }
+        
+        if self.childDelegate?.setTableViewCellContents().isEmpty ?? false {
+            self.isEmpty = true
+        }
     }
 }

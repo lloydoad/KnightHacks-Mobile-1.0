@@ -44,8 +44,9 @@ extension DynamicTableViewCell {
         
         let innerHorizontalStack = getPresetUIStackView(axis: .horizontal, alignment: .center, distribution: .fill, spacing: 22)
         
-        titleLabel?.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel?.widthAnchor.constraint(lessThanOrEqualToConstant: 120).isActive = true
+        titleLabel?.numberOfLines = 0
+        timeLabel?.translatesAutoresizingMaskIntoConstraints = false
+        timeLabel?.widthAnchor.constraint(equalToConstant: 80).isActive = true
         innerHorizontalStack.addArrangedSubview(titleLabel!)
         innerHorizontalStack.addArrangedSubview(timeLabel!)
         mainVerticalStack.addArrangedSubview(innerHorizontalStack)

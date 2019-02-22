@@ -63,6 +63,7 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
     }
     
     private func fetchData() {
+        let currentDate = Date()
         var workshopsObjects: [WorkshopsObject] = []
 
         RequestSingleton.getData(at: GET_WORKSHOPS_UPDATE, with: nil) { (responseArray) in
@@ -74,8 +75,11 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
                 return
             }
             
-            workshopsObjects = responseArray.map {
-                return WorkshopsObject(json: $0)
+            responseArray.forEach {
+                let workshop = WorkshopsObject(json: $0)
+                if workshop.endDateObject ?? Date() >= currentDate {
+                    workshopsObjects.append(workshop)
+                }
             }
             
             workshopsObjects.sort(by: {

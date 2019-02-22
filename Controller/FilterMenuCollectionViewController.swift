@@ -12,6 +12,7 @@ class FilterMenuCollectionViewController: UICollectionView, UICollectionViewData
     private var filterButtons: [FilterButton] = [] {
         didSet {
             self.reloadData()
+            self.updateTableContentInset()
         }
     }
     override var numberOfSections: Int {
@@ -29,6 +30,17 @@ class FilterMenuCollectionViewController: UICollectionView, UICollectionViewData
         self.contentInset = UIEdgeInsets(top: 5, left: 20, bottom: 3, right: 20)
         
         self.register(FilterMenuButtonCollectionViewCell.self, forCellWithReuseIdentifier: FilterMenuButtonCollectionViewCell.identifier)
+    }
+    
+    private func updateTableContentInset() {
+        let numRows = self.getFilters().count
+        let cellWidth: CGFloat = FILTER_MENU_HEIGHT - 40
+        
+        if numRows < 4 {
+            let cellContentWidth = cellWidth * CGFloat(integerLiteral: numRows)
+            let sideInsets = (self.frame.size.width - cellContentWidth) / 2
+            self.contentInset = UIEdgeInsets(top: 3, left: sideInsets, bottom: 3, right: sideInsets - 10)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

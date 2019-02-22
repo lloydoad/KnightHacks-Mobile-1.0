@@ -83,6 +83,15 @@ class FrequentlyAskedViewController: ParentTableView {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isCellReduced[indexPath.row] = !isCellReduced[indexPath.row]
+        
+        tableView.allowsSelectionDuringEditing = false
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+    }
+    
     @objc func expandOrShrinkCell(sender: UIButton) {
         isCellReduced[sender.tag] = !isCellReduced[sender.tag]
 
