@@ -92,6 +92,8 @@ class FrequentlyAskedViewController: ParentTableView {
         tableView.endUpdates()
     }
     
+    
+    
     @objc func expandOrShrinkCell(sender: UIButton) {
         isCellReduced[sender.tag] = !isCellReduced[sender.tag]
 
