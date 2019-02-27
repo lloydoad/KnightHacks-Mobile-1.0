@@ -107,7 +107,6 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
     
     func setFilterMenuCellContents() -> [FilterButton] {
         return [
-            FilterButton(input: Filter.activity),
             FilterButton(input: Filter.food),
             FilterButton(input: Filter.talks),
             FilterButton(input: Filter.workshops),
