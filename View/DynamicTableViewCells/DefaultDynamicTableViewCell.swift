@@ -31,7 +31,7 @@ extension DynamicTableViewCell {
         
         titleLabel?.numberOfLines = 0
         timeLabel?.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel?.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        timeLabel?.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         innerHorizontalStack.addArrangedSubview(titleLabel!)
         innerHorizontalStack.addArrangedSubview(timeLabel!)
