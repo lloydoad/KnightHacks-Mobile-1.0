@@ -75,6 +75,9 @@ class StringDateFormatter {
             }
             
             return timeSince + unit
+        case .hourMinuteTwelve:
+            LOCAL_DATE_FORMATTER.dateFormat = "h:mm a"
+            return LOCAL_DATE_FORMATTER.string(from: date)
         case .hourMinuteMeridiem:
             LOCAL_DATE_FORMATTER.dateFormat = "HH:mm"
             return LOCAL_DATE_FORMATTER.string(from: date)

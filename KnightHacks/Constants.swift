@@ -95,6 +95,7 @@ enum LatoFont: String {
 // Formats used to define StringDateFormatter return string
 enum DateStringFormat {
     case hourMinuteMeridiem
+    case hourMinuteTwelve
     case timeSinceThen
     case dayOfWeek
     case monthAndDay

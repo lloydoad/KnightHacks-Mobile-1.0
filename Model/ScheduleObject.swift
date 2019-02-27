@@ -66,7 +66,7 @@ class ScheduleObject {
     
     func parseDateObjects() {
         guard let parsedStartTime = StringDateFormatter.convertStringToZuluDate(dateString: startTime),
-            let hourMinuteFormat = StringDateFormatter.getFormattedTime(from: parsedStartTime, with: .hourMinuteMeridiem) else {
+            let hourMinuteFormat = StringDateFormatter.getFormattedTime(from: parsedStartTime, with: .hourMinuteTwelve) else {
             print("Start time parsing error")
             return
         }
