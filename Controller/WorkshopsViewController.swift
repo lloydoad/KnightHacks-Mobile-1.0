@@ -87,7 +87,7 @@ class WorkshopsViewController: FilteredParentTableView, FilteredParentTableViewD
                     $1.startDateObject?.timeIntervalSince1970 ?? 1
             })
             
-            self.allWorkshopObjects = workshopsObjects            
+            self.allWorkshopObjects = workshopsObjects
         }
     }
     
