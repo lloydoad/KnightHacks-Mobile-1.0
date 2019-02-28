@@ -101,6 +101,12 @@ class LiveUpdatesViewController: ParentTableView {
                 self.lastFetchDate = parsedLiveUpdateObject.dateObject?.addingTimeInterval(1)
                 self.liveUpdateObjects.insert(parsedLiveUpdateObject, at: 0)
             }
+            
+            self.liveUpdateObjects.sort(by: {
+                return $0.dateObject?.timeIntervalSince1970 ?? 0 > $1.dateObject?.timeIntervalSince1970 ?? 1
+            })
+            
+            self.lastFetchDate = self.liveUpdateObjects[0].dateObject?.addingTimeInterval(1) ?? Date.init(timeIntervalSinceNow: 0)
         }
     }
     
