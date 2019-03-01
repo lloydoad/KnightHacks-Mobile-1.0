@@ -29,7 +29,7 @@ class LiveUpdateCountdownTimerViewController: UIView {
     let LIVE_INDICATOR_TEXT = "Live"
     let LIVE_INDICATOR_SUBTITLE = "until hacking ends"
     let DEFAULT_COUNTDOWN_TIME = "00:00:00"
-    let ESTIMATED_END_DATE = "2019-03-03T18:00:00.000Z"
+    let ESTIMATED_END_DATE = "2019-03-03T06:00:00-05:00"
     let LIVE_INDICATOR_CORNER_RADIUS = CGFloat(integerLiteral: 7)
     let LIVE_INDICATOR_WIDTH = CGFloat(integerLiteral: 75)
     let LIVE_INDICATOR_HEIGHT = CGFloat(integerLiteral: 40)
