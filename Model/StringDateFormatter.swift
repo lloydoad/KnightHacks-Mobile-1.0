@@ -13,16 +13,15 @@ class StringDateFormatter {
     static var timeSince: String = ""
     static var unit: String = "s"
     
-    static let ISO8601_FORMATTER: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
+    static let ISO8601_FORMATTER: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXX"
         return formatter
     }()
     static let LOCAL_DATE_FORMATTER: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter
     }()
     
