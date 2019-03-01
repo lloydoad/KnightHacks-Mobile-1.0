@@ -41,7 +41,7 @@ enum Filter: String {
     case all = "all"
     case talks = "talk"
     case activity = "activity"
-    case main_event = "main events"
+    case main_event = "main event"
     case food = "food"
     case internships = "internships"
     case full_time = "full-time"

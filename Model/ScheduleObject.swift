@@ -38,7 +38,7 @@ class ScheduleObject {
         location = json[ScheduleObject.API_LOCATION_PARAMETER_KEY].stringValue
         startTime = json[ScheduleObject.API_START_TIME_PARAMETER_KEY].stringValue
         endTime = json[ScheduleObject.API_END_TIME_PARAMETER_KEY].stringValue
-                
+        eventType = eventType.lowercased()
         parseDateObjects()
         parseHeaderInfo()
     }

@@ -15,7 +15,7 @@ class StringDateFormatter {
     
     static let ISO8601_FORMATTER: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds, .withTimeZone]
         return formatter
     }()
     static let LOCAL_DATE_FORMATTER: DateFormatter = {

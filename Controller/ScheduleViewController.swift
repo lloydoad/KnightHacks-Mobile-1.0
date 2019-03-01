@@ -141,7 +141,7 @@ class ScheduleViewController: FilteredParentTableView, FilteredParentTableViewDe
         orderedScheduleObjects = []
         
         allScheduleObjects.forEach {
-            if filter == .all || $0.eventType == filter.rawValue {
+            if filter == .all || $0.eventType.lowercased() == filter.rawValue {
                 if headerSchedulePair[$0.formattedHeader] != nil {
                     headerSchedulePair[$0.formattedHeader]?.append($0)
                 } else {
