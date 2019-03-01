@@ -57,6 +57,8 @@ class SponsorsViewController: FilteredParentTableView, FilteredParentTableViewDe
         cell.titleLabel?.text = content.name
         cell.itemDescriptionLabel?.text = content.description
         cell.timeLabel?.text = content.location
+        cell.timeLabel?.numberOfLines = 0
+        cell.titleLabel?.numberOfLines = 0
         parseImage(at: content.imageUrl, into: cell.contentImageView!, completion: nil)
         content.offerings.enumerated().forEach {
             if $0 < maximumTagCount {
