@@ -106,7 +106,9 @@ class LiveUpdatesViewController: ParentTableView {
                 return $0.dateObject?.timeIntervalSince1970 ?? 0 > $1.dateObject?.timeIntervalSince1970 ?? 1
             })
             
-            self.lastFetchDate = self.liveUpdateObjects[0].dateObject?.addingTimeInterval(1) ?? Date.init(timeIntervalSinceNow: 0)
+            if !self.liveUpdateObjects.isEmpty {
+                self.lastFetchDate = self.liveUpdateObjects[0].dateObject?.addingTimeInterval(1) ?? Date.init(timeIntervalSinceNow: 0)
+            }
         }
     }
     
