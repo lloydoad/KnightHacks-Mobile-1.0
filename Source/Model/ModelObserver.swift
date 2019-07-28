@@ -12,5 +12,5 @@ import Foundation
  Observer pattern for notifying reciever of view model updates
  */
 public protocol ModelObserver {
-    func didFetchModel() -> Void
+    func didFetchModel()
 }

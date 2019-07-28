@@ -43,7 +43,7 @@ internal class LiveUpdatesTableViewCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
     
-    private func intervalToHoursMinutesSeconds(_ date : Date) -> (Int, Int, Int) {
+    private func intervalToHoursMinutesSeconds(_ date: Date) -> (Int, Int, Int) {
         let seconds = Int(Date().timeIntervalSince1970) - Int(date.timeIntervalSince1970)
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }

@@ -5,10 +5,12 @@
 //  Created by Lloyd Dapaah on 7/25/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
+//  Linter Overrides
+//  swiftlint:disable force_unwrapping
 
 import Foundation
 
-fileprivate let dateEngine = DateEngine(format: DateFormat.slashYearMonthDay24HourMinute)
+private let dateEngine = DateEngine(format: DateFormat.slashYearMonthDay24HourMinute)
 
 let dummyFirstUpdate: [LiveUpdateModel] = [
     LiveUpdateModel(

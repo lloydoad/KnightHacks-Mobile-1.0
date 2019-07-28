@@ -22,7 +22,7 @@ public class LiveCountdownView: UIView {
     @IBOutlet private weak var isLiveIndicatorLabel: UILabel!
     
     private var timeToEnd: Int = 0
-    private var currentTimeString: (Int, Int, Int) = (0,0,0)
+    private var currentTimeString: (Int, Int, Int) = (0, 0, 0)
     
     public var isLive: Bool? {
         didSet {
@@ -91,7 +91,7 @@ public class LiveCountdownView: UIView {
         countdownLabel.text = String(format: "%02d:%02d:%02d", currentTimeString.0, currentTimeString.1, currentTimeString.2)
     }
     
-    private func intervalToHoursMinutesSeconds(seconds : Int) -> (Int, Int, Int) {
+    private func intervalToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 }

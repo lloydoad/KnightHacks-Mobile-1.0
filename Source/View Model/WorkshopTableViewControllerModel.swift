@@ -22,7 +22,7 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
     
     func fetchWorkshopData() {
         // make network call
-        fetchedData = WorkshopDummyData
+        fetchedData = dummyWorkshopData
         fetchData()
     }
 }

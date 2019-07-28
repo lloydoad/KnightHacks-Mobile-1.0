@@ -5,12 +5,14 @@
 //  Created by Lloyd Dapaah on 7/21/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
+//  Linter Overrides
+//  swiftlint:disable force_unwrapping
 
 import Foundation
 
-fileprivate var dateEngine = DateEngine()
+private var dateEngine = DateEngine()
 
-var ScheduleDummyData: [ScheduleModel] = [
+var dummyScheduleData: [ScheduleModel] = [
     ScheduleModel(
         title: "Check in begins",
         location: "Engineering 2 Atrium",

@@ -20,7 +20,7 @@ internal class ScheduleTableViewControllerModel: HeaderContentViewModel<Schedule
     
     func fetchScheduleData() {
         // make network call
-        fetchedData = ScheduleDummyData
+        fetchedData = dummyScheduleData
         fetchData()
     }
 }

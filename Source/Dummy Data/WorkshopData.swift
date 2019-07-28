@@ -5,12 +5,14 @@
 //  Created by Lloyd Dapaah on 7/25/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
+//  Linter Overrides
+//  swiftlint:disable force_unwrapping
 
 import Foundation
 
-fileprivate var dateEngine = DateEngine(format: .slashYearMonthDay24HourMinute)
+private var dateEngine = DateEngine(format: .slashYearMonthDay24HourMinute)
 
-let WorkshopDummyData: [WorkshopModel] = [
+let dummyWorkshopData: [WorkshopModel] = [
     WorkshopModel(
         date: dateEngine.getDateFrom("2019/4/11/21/15")!,
         time: "9:15pm",

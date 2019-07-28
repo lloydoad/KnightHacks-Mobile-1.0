@@ -5,6 +5,8 @@
 //  Created by Lloyd Dapaah on 6/23/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
+//  Linter overrides
+//  swiftlint:disable identifier_name
 
 import UIKit
 

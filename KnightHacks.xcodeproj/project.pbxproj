@@ -216,7 +216,7 @@
 		4C34017A22BFFB2A00432D80 = {
 			isa = PBXGroup;
 			children = (
-				4CD3E39B22ED6FA9007E756E /* Sources */,
+				4CD3E39B22ED6FA9007E756E /* Source */,
 				4C3401B822BFFEFD00432D80 /* Resources */,
 				4C34018522BFFB2A00432D80 /* KnightHacks */,
 				4C34019A22BFFB2C00432D80 /* KnightHacksTests */,
@@ -385,7 +385,7 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		4CD3E39B22ED6FA9007E756E /* Sources */ = {
+		4CD3E39B22ED6FA9007E756E /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				4C29A7D222C017F400C113A9 /* Constants */,
@@ -396,7 +396,7 @@
 				4C3401B622BFFEE000432D80 /* View Controller */,
 				4C3401B722BFFEEC00432D80 /* View */,
 			);
-			path = Sources;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		4CE41D0922C56058008836DC /* Fonts */ = {
@@ -426,6 +426,7 @@
 				4C34017F22BFFB2A00432D80 /* Sources */,
 				4C34018022BFFB2A00432D80 /* Frameworks */,
 				4C34018122BFFB2A00432D80 /* Resources */,
+				4CD3E39E22ED70A2007E756E /* Swift Lint Script */,
 			);
 			buildRules = (
 			);
@@ -558,6 +559,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CD3E39E22ED70A2007E756E /* Swift Lint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C34017F22BFFB2A00432D80 /* Sources */ = {

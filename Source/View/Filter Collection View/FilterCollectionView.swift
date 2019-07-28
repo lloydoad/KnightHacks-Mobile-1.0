@@ -33,7 +33,9 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
     
     public static let minimumRequiredHeight: CGFloat = 115
     public static let minimumRequiredWidth: CGFloat = 85
-    public static let minimumCellFrame: CGRect = CGRect(x: 0, y: 0, width: FilterCollectionView.minimumRequiredWidth, height: FilterCollectionView.minimumRequiredHeight)
+    public static let minimumCellFrame: CGRect = CGRect(
+        x: 0, y: 0, width: FilterCollectionView.minimumRequiredWidth, height: FilterCollectionView.minimumRequiredHeight
+    )
     
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!

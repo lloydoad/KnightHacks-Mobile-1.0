@@ -5,6 +5,8 @@
 //  Created by Lloyd Dapaah on 6/25/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
+//  Linter overrides
+//
 
 import Foundation
 
@@ -18,7 +20,7 @@ internal enum FilterNames: String {
     case mainEvent = "Main Event"
     case all = "All"
     case internships = "internships"
-    case full_time = "full-time"
+    case fullTime = "full-time"
     case development = "development"
     case hardware = "hardware"
     case beginner = "beginner"
@@ -26,5 +28,5 @@ internal enum FilterNames: String {
     case career = "career"
     case design = "design"
     case local = "local"
-    case NOT_SET = "nil"
+    case unset = "nil"
 }
