@@ -1,3 +1,9 @@
+addons:
+  homebrew:
+    packages:
+    - swiftlint
+    update: true
+
 language: objective-c
 
 osx_image: xcode10.2
