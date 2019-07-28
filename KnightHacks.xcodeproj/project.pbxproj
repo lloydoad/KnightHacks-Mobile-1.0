@@ -40,11 +40,11 @@
 		4C48BF2F22E8051B00C9C764 /* LiveCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */; };
 		4C73CD0A22EA837F002B678A /* WorkshopTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */; };
 		4C73CD0C22EA8429002B678A /* WorkshopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0B22EA8429002B678A /* WorkshopModel.swift */; };
-		4C73CD0E22EA8BB6002B678A /* WorkshopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0D22EA8BB6002B678A /* WorkshopData.swift */; };
 		4C73CD1022EAA18F002B678A /* LiveUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0F22EAA18F002B678A /* LiveUpdateModel.swift */; };
 		4C73CD1222EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */; };
 		4C73CD1422EAAEAA002B678A /* LiveUpdateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
+		4CD3E39D22ED7045007E756E /* WorkshopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E39C22ED7045007E756E /* WorkshopData.swift */; };
 		4CE41D1422C56058008836DC /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0A22C56058008836DC /* Lato-Italic.ttf */; };
 		4CE41D1522C56058008836DC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0B22C56058008836DC /* Lato-LightItalic.ttf */; };
 		4CE41D1622C56058008836DC /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0C22C56058008836DC /* Lato-Bold.ttf */; };
@@ -122,11 +122,11 @@
 		4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCountdownView.swift; sourceTree = "<group>"; };
 		4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewControllerModel.swift; sourceTree = "<group>"; };
 		4C73CD0B22EA8429002B678A /* WorkshopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopModel.swift; sourceTree = "<group>"; };
-		4C73CD0D22EA8BB6002B678A /* WorkshopData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkshopData.swift; path = "KnightHacks/Testing Data/WorkshopData.swift"; sourceTree = SOURCE_ROOT; };
 		4C73CD0F22EAA18F002B678A /* LiveUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateModel.swift; sourceTree = "<group>"; };
 		4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewControllerModel.swift; sourceTree = "<group>"; };
 		4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateData.swift; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
+		4CD3E39C22ED7045007E756E /* WorkshopData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopData.swift; sourceTree = "<group>"; };
 		4CE41D0A22C56058008836DC /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		4CE41D0B22C56058008836DC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		4CE41D0C22C56058008836DC /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -216,12 +216,7 @@
 		4C34017A22BFFB2A00432D80 = {
 			isa = PBXGroup;
 			children = (
-				4C367A9422E545780006CD2F /* Date Engine */,
-				4C29A7D222C017F400C113A9 /* Constants */,
-				4C3401BB22C0043800432D80 /* Model */,
-				4C3401BC22C0043D00432D80 /* View Model */,
-				4C3401B622BFFEE000432D80 /* View Controller */,
-				4C3401B722BFFEEC00432D80 /* View */,
+				4CD3E39B22ED6FA9007E756E /* Sources */,
 				4C3401B822BFFEFD00432D80 /* Resources */,
 				4C34018522BFFB2A00432D80 /* KnightHacks */,
 				4C34019A22BFFB2C00432D80 /* KnightHacksTests */,
@@ -243,7 +238,6 @@
 		4C34018522BFFB2A00432D80 /* KnightHacks */ = {
 			isa = PBXGroup;
 			children = (
-				4C367A9122E53B210006CD2F /* Testing Data */,
 				4C34018622BFFB2A00432D80 /* AppDelegate.swift */,
 				4C34019222BFFB2B00432D80 /* Info.plist */,
 			);
@@ -326,14 +320,14 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		4C367A9122E53B210006CD2F /* Testing Data */ = {
+		4C367A9122E53B210006CD2F /* Dummy Data */ = {
 			isa = PBXGroup;
 			children = (
+				4CD3E39C22ED7045007E756E /* WorkshopData.swift */,
 				4C367A9222E53BB90006CD2F /* ScheduleData.swift */,
-				4C73CD0D22EA8BB6002B678A /* WorkshopData.swift */,
 				4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */,
 			);
-			path = "Testing Data";
+			path = "Dummy Data";
 			sourceTree = "<group>";
 		};
 		4C367A9422E545780006CD2F /* Date Engine */ = {
@@ -389,6 +383,20 @@
 				4C367A9B22E555660006CD2F /* HeaderDataSource.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4CD3E39B22ED6FA9007E756E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4C29A7D222C017F400C113A9 /* Constants */,
+				4C367A9422E545780006CD2F /* Date Engine */,
+				4C367A9122E53B210006CD2F /* Dummy Data */,
+				4C3401BB22C0043800432D80 /* Model */,
+				4C3401BC22C0043D00432D80 /* View Model */,
+				4C3401B622BFFEE000432D80 /* View Controller */,
+				4C3401B722BFFEEC00432D80 /* View */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4CE41D0922C56058008836DC /* Fonts */ = {
@@ -575,7 +583,6 @@
 				4C73CD0C22EA8429002B678A /* WorkshopModel.swift in Sources */,
 				4C02FFE722C3022F00FC700C /* Miscellaneous.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
-				4C73CD0E22EA8BB6002B678A /* WorkshopData.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
 				4C367A9322E53BB90006CD2F /* ScheduleData.swift in Sources */,
 				4CE41D2522C576D9008836DC /* FilterCollectionViewExtension.swift in Sources */,
@@ -591,6 +598,7 @@
 				4C22AFE222C6DA2900FA99BB /* WorkshopTableViewCell.swift in Sources */,
 				4C367AA422E57C490006CD2F /* NavigationBarViewControllerExtension.swift in Sources */,
 				4C3401BA22C001B200432D80 /* MenuTableViewCell.swift in Sources */,
+				4CD3E39D22ED7045007E756E /* WorkshopData.swift in Sources */,
 				4C29A7CF22C014EF00C113A9 /* HomeMenuModel.swift in Sources */,
 				4CE41D2722C5B0F5008836DC /* NavigationBarViewController.swift in Sources */,
 			);
