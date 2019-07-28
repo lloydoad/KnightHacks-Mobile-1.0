@@ -10,6 +10,8 @@
 
 import UIKit
 
+public var HEADER_IN_SECTION_HEIGHT: Float = 60
+
 internal func addSpecifiedShadow(_ view: UIView?) {
     view?.layer.shadowColor = UIColor.gray.cgColor
     view?.layer.shadowOffset = CGSize(width: 0.2, height: 0.3)
@@ -18,4 +20,11 @@ internal func addSpecifiedShadow(_ view: UIView?) {
     view?.layer.shadowOpacity = 1
 }
 
-public var HEADER_IN_SECTION_HEIGHT: Float = 60
+internal func boundEdges(of child: UIView, to parent: UIView, with borders: UIEdgeInsets) {
+    child.translatesAutoresizingMaskIntoConstraints = false
+    parent.addSubview(child)
+    child.topAnchor.constraint(equalTo: parent.topAnchor, constant: borders.top).isActive = true
+    child.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: borders.bottom).isActive = true
+    child.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: borders.left).isActive = true
+    child.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: borders.right).isActive = true
+}

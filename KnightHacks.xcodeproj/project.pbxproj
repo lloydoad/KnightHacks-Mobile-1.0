@@ -45,6 +45,8 @@
 		4C73CD1422EAAEAA002B678A /* LiveUpdateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
 		4CD3E39D22ED7045007E756E /* WorkshopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E39C22ED7045007E756E /* WorkshopData.swift */; };
+		4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */; };
+		4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */; };
 		4CE41D1422C56058008836DC /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0A22C56058008836DC /* Lato-Italic.ttf */; };
 		4CE41D1522C56058008836DC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0B22C56058008836DC /* Lato-LightItalic.ttf */; };
 		4CE41D1622C56058008836DC /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0C22C56058008836DC /* Lato-Bold.ttf */; };
@@ -127,6 +129,8 @@
 		4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateData.swift; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
 		4CD3E39C22ED7045007E756E /* WorkshopData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopData.swift; sourceTree = "<group>"; };
+		4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketRefreshControlView.xib; sourceTree = "<group>"; };
+		4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketRefreshControlView.swift; sourceTree = "<group>"; };
 		4CE41D0A22C56058008836DC /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		4CE41D0B22C56058008836DC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		4CE41D0C22C56058008836DC /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */,
 				4C48BF2C22E8023D00C9C764 /* LiveCountdownView.xib */,
 				4CE41D2022C567DE008836DC /* FilterTableHeaderView.xib */,
+				4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,9 +283,10 @@
 			isa = PBXGroup;
 			children = (
 				4C02FFE322C2F45600FC700C /* Cells */,
-				4C48BF2B22E801C300C9C764 /* Live Countdown View */,
 				4C517B6A22E6AAAC007F8646 /* Filter Collection View */,
 				4CE41D2222C56945008836DC /* FilterTableHeaderView.swift */,
+				4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */,
+				4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,14 +342,6 @@
 				4C367A9522E5459A0006CD2F /* Date Engine.swift */,
 			);
 			path = "Date Engine";
-			sourceTree = "<group>";
-		};
-		4C48BF2B22E801C300C9C764 /* Live Countdown View */ = {
-			isa = PBXGroup;
-			children = (
-				4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */,
-			);
-			path = "Live Countdown View";
 			sourceTree = "<group>";
 		};
 		4C517B6922E6A77D007F8646 /* NavigationBarViewController */ = {
@@ -528,6 +526,7 @@
 				4CEDF57022C042A30025EF47 /* FilterCollectionView.xib in Resources */,
 				4CE41D1722C56058008836DC /* Lato-Black.ttf in Resources */,
 				4CE41D1A22C56058008836DC /* Lato-Hairline.ttf in Resources */,
+				4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */,
 				4CE41D1822C56058008836DC /* Lato-HairlineItalic.ttf in Resources */,
 				4C34019122BFFB2B00432D80 /* LaunchScreen.storyboard in Resources */,
 				4CE41D1C22C56058008836DC /* Lato-BoldItalic.ttf in Resources */,
@@ -616,6 +615,7 @@
 				4C367AA222E579660006CD2F /* LiveUpdatesTableViewCell.swift in Sources */,
 				4C367A9E22E563D60006CD2F /* ModelObserver.swift in Sources */,
 				4C73CD1022EAA18F002B678A /* LiveUpdateModel.swift in Sources */,
+				4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */,
 				4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */,
 				4C22AFE222C6DA2900FA99BB /* WorkshopTableViewCell.swift in Sources */,
 				4C367AA422E57C490006CD2F /* NavigationBarViewControllerExtension.swift in Sources */,

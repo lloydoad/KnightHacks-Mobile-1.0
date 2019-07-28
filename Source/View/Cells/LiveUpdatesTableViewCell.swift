@@ -49,7 +49,6 @@ internal class LiveUpdatesTableViewCell: UITableViewCell {
     }
     
     private func timePassedString(_ hms: (Int, Int, Int)) -> String {
-        print(hms)
         if hms.0 > 0 {
             return "\(hms.0) hours ago"
         } else if hms.1 > 0 {
