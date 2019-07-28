@@ -86,6 +86,6 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
     }
     
     @objc private func fetchNewUpdates() {
-        print("refreshing")
+        self.viewModel.fetchRecent()
     }
 }

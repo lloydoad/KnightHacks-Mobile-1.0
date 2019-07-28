@@ -12,6 +12,7 @@ import UIKit
  A UIViewController subclass for undoing navigation controller customizations when child views are popped.
  */
 public class NavigationBarViewController: UIViewController {
+    
     override public func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.barTintColor = .white
     }
@@ -21,6 +22,7 @@ public class NavigationBarViewController: UIViewController {
  A UITableViewController subclass for undoing navigation controller customizations when child views are popped.
  */
 public class NavigationBarTableViewController: UITableViewController {
+    
     override public func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.barTintColor = .white
     }
