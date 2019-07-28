@@ -1,0 +1,59 @@
+
+disabled_rules: 
+  - trailing_whitespace
+  - weak_delegate
+  - class_delegate_protocol
+  - large_tuple
+opt_in_rules: 
+  - empty_count
+  - force_unwrapping
+  - fatal_error_message
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - Source
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+  - Resources
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+  - Source/*/ExcludedFile.swift # Exclude files with a wildcard
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+  - explicit_self
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_unwrapping: warning
+force_cast: 
+  severity: error # implicitly
+force_try:
+  severity: error # explicitly
+
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length: 250
+type_body_length:
+  warning: 200 # warning
+  error: 250 # error
+file_length:
+  warning: 270
+  error: 320
+
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 4 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded: iPhone # excluded via string
+
+identifier_name:
+  min_length: # only min_length
+    warning: 0
+    error: 0 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
