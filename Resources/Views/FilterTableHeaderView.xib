@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterTableHeaderView" customModule="KnightHacks" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ao2-hg-950"/>
+                <outlet property="headerLabel" destination="nas-wp-OzC" id="MSM-0P-sJO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="Content View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEr-gC-krH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ckx-AV-4Ab">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nas-wp-OzC">
+                                <rect key="frame" x="30" y="4" width="315" height="52"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nas-wp-OzC" secondAttribute="trailing" constant="30" id="4My-dR-3wS"/>
+                            <constraint firstItem="nas-wp-OzC" firstAttribute="leading" secondItem="Ckx-AV-4Ab" secondAttribute="leading" constant="30" id="qaJ-qq-N4E"/>
+                            <constraint firstItem="nas-wp-OzC" firstAttribute="top" secondItem="Ckx-AV-4Ab" secondAttribute="top" constant="4" id="sNx-8J-C46"/>
+                            <constraint firstAttribute="bottom" secondItem="nas-wp-OzC" secondAttribute="bottom" constant="4" id="yOA-JS-3Jp"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jEr-gC-krH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Pf-r5-U2C"/>
+                <constraint firstItem="jEr-gC-krH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Hul-ZA-79s"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jEr-gC-krH" secondAttribute="trailing" id="Lh8-dV-IL0"/>
+                <constraint firstAttribute="bottom" secondItem="jEr-gC-krH" secondAttribute="bottom" id="poV-CW-Onu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
