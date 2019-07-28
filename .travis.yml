@@ -3,6 +3,11 @@ addons:
     packages:
     - swiftlint
     update: true
+    
+branches:
+  only:
+  - master
+  - stable
 
 language: objective-c
 
