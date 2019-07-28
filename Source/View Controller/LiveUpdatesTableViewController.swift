@@ -20,27 +20,29 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initLiveCountDown()
         
         self.viewModel = LiveUpdateTableViewControllerModel()
         self.viewModel.observer = self
         
+        self.initLiveCountDown()
         self.navigationItem.largeTitleDisplayMode = .never
         self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.attachRefreshControl()
+        self.viewModel.fetchRecent()
+        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
+        
+        self.liveCountDownView.targetEndDate = Date(timeIntervalSinceNow: 45) // dummy time
     }
     
     private func initLiveCountDown() {
         let frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: liveCountDownViewHeight)
         self.liveCountDownView = LiveCountdownView(frame: frame)
         self.tableView.tableHeaderView = liveCountDownView
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
-        self.liveCountDownView.targetEndDate = Date(timeIntervalSinceNow: 45) // dummy time
-        self.viewModel.fetchRecent()
-        self.attachRefreshControl()
     }
     
     // MARK: - Scroll view delegate
@@ -67,6 +69,8 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
         cell.model = viewModel.viewContent[indexPath.row]
         return cell
     }
+    
+    // MARK: - View model delegate
     
     func didFetchModel() {
         tableView.reloadData()

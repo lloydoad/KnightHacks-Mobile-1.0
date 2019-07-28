@@ -10,10 +10,10 @@ import Foundation
 
 internal class LiveUpdateTableViewControllerModel {
     
+    var observer: ModelObserver?
+    
     private var lastUpdateDate: Date?
     private(set) var viewContent: [LiveUpdateModel] = []
-    
-    var observer: ModelObserver?
     
     func fetchRecent() {
         // make network call

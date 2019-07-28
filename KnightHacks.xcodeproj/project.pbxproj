@@ -332,9 +332,9 @@
 				4C29A7D022C0159700C113A9 /* HomeTableViewControllerModel.swift */,
 				4C367A9722E554EB0006CD2F /* HeaderContentViewModel.swift */,
 				4C367A8D22E538220006CD2F /* ScheduleTableViewControllerModel.swift */,
-				4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */,
 				4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */,
 				4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */,
+				4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 		4C517B6B22E6B30E007F8646 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				4C517B6C22E6B383007F8646 /* Protocols */,
+				4C517B6C22E6B383007F8646 /* Model Protocols */,
 				4C367A8F22E53AD70006CD2F /* ScheduleModel.swift */,
 				4C73CD0B22EA8429002B678A /* WorkshopModel.swift */,
 				4CD3E3A722EE3A4A007E756E /* SponsorModel.swift */,
@@ -389,13 +389,13 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
-		4C517B6C22E6B383007F8646 /* Protocols */ = {
+		4C517B6C22E6B383007F8646 /* Model Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				4C367A9922E555460006CD2F /* FilterDataSource.swift */,
 				4C367A9B22E555660006CD2F /* HeaderDataSource.swift */,
 			);
-			path = Protocols;
+			path = "Model Protocols";
 			sourceTree = "<group>";
 		};
 		4CD3E39B22ED6FA9007E756E /* Source */ = {

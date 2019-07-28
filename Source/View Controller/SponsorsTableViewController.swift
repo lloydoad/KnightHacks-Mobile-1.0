@@ -25,8 +25,8 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
         self.filters = viewModel.filters
         
         self.navigationItem.largeTitleDisplayMode = .never
-        self.filterCollectionView = addFilterCollectionView(to: tableView)
         self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
+        self.filterCollectionView = addFilterCollectionView(to: tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +39,8 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
         super.viewDidAppear(animated)
         self.filterCollectionView.shouldStartLoadingAnimation = true
     }
+    
+    // MARK: - Filter Delegate
     
     func didSelectFilter(filter: FilterMenuModel) {
         guard let type = filter.type else { return }
@@ -62,6 +64,8 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
         cell.model = viewModel.viewContent[indexPath.row]
         return cell
     }
+    
+    // MARK: - View model delegate
     
     func didFetchModel() {
         self.tableView.reloadData()

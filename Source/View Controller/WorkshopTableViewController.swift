@@ -27,18 +27,20 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
         self.navigationItem.largeTitleDisplayMode = .never
         self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
         self.filterCollectionView = addFilterCollectionView(to: tableView)
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.fetchWorkshopData()
+        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         filterCollectionView.shouldStartLoadingAnimation = true
     }
+    
+    // MARK: - Filter Delegate
     
     func didSelectFilter(filter: FilterMenuModel) {
         if let type = filter.type {
@@ -47,6 +49,7 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
     }
     
     // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
     }
