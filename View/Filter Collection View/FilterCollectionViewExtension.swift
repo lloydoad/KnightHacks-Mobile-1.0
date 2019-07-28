@@ -18,7 +18,7 @@ public extension FilterCollectionViewExtension {
     /**
      Creates and returns a filter menu (Filter Collection View) which has already been sized and placed in the provided tableview header
      */
-    public func addFilterCollectionView(to table: UITableView) -> FilterCollectionView {
+    func addFilterCollectionView(to table: UITableView) -> FilterCollectionView {
         let frame = CGRect(x: 0, y: 0, width: table.frame.width, height: FilterCollectionView.minimumRequiredHeight)
         let filterCollectionView = FilterCollectionView(frame: frame)
         filterCollectionView.dataSource = self
