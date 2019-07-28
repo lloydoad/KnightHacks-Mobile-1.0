@@ -28,9 +28,7 @@ internal class WorkshopTableViewCell: UITableViewCell {
             descriptionLabel.text = model.description
             addTags(model.filters)
             
-            if let _ = model.imageURL {
-                // fill image
-            }
+            // fill image
         }
     }
     

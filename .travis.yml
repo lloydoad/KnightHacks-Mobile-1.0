@@ -1,0 +1,7 @@
+language: objective-c
+
+osx_image: xcode10.2
+
+xcode_project: KnightHacks.xcodeproj
+xcode_scheme: KnightHacks
+xcode_sdk: iphonesimulator12.2 
