@@ -453,31 +453,32 @@
         <scene sceneID="rOs-Ud-XFx">
             <objects>
                 <tableViewController storyboardIdentifier="FrequentlyAskedTableViewController" id="2QF-NI-5QW" customClass="FrequentlyAskedViewController" customModule="KnightHacks" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0B6-kj-KiH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0B6-kj-KiH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FrequentlyAskedCellIdentifier" rowHeight="100" id="fsy-Fd-4tq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FrequentlyAskedCellIdentifier" rowHeight="100" id="fsy-Fd-4tq" customClass="FrequentlyAskedTableViewCell" customModule="KnightHacks" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fsy-Fd-4tq" id="Mgk-W5-M3l">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zu4-Jv-XxD">
-                                            <rect key="frame" x="23" y="5" width="329" height="78.5"/>
+                                            <rect key="frame" x="23" y="5" width="329" height="79"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SEX-6b-UM3">
-                                                    <rect key="frame" x="8" y="8" width="313" height="62.5"/>
+                                                    <rect key="frame" x="8" y="8" width="313" height="63"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAE-F1-UgN">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Q-bD-hls">
                                                             <rect key="frame" x="0.0" y="11.5" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="cO0-gh-MyN"/>
-                                                                <constraint firstAttribute="height" constant="40" id="vDE-dM-7eb"/>
+                                                                <constraint firstAttribute="height" constant="40" id="bcQ-3y-CYv"/>
+                                                                <constraint firstAttribute="width" constant="40" id="hg3-OK-49U"/>
                                                             </constraints>
-                                                        </imageView>
+                                                            <state key="normal" image="show less button"/>
+                                                        </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-mf-s8h">
                                                             <rect key="frame" x="50" y="11" width="263" height="41"/>
                                                             <subviews>
@@ -487,7 +488,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNF-1P-dkh">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNF-1P-dkh">
                                                                     <rect key="frame" x="0.0" y="20.5" width="263" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -501,6 +502,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="SEX-6b-UM3" secondAttribute="bottom" constant="8" id="CXS-Zg-6xK"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="78.5" id="FI4-Ey-oc2"/>
                                                 <constraint firstItem="SEX-6b-UM3" firstAttribute="leading" secondItem="zu4-Jv-XxD" secondAttribute="leading" constant="8" id="J8T-ey-8hA"/>
                                                 <constraint firstAttribute="trailing" secondItem="SEX-6b-UM3" secondAttribute="trailing" constant="8" id="KaP-6i-J2f"/>
                                                 <constraint firstItem="SEX-6b-UM3" firstAttribute="top" secondItem="zu4-Jv-XxD" secondAttribute="top" constant="8" id="QyM-bk-bJh"/>
@@ -514,6 +516,12 @@
                                         <constraint firstAttribute="trailing" secondItem="zu4-Jv-XxD" secondAttribute="trailing" constant="23" id="xY4-WN-n8m"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="customBackgroundView" destination="zu4-Jv-XxD" id="ebf-Hw-cuF"/>
+                                    <outlet property="descriptionLabel" destination="mNF-1P-dkh" id="ar6-fQ-xKr"/>
+                                    <outlet property="expandContractButton" destination="Z2Q-bD-hls" id="7fA-co-K88"/>
+                                    <outlet property="titleLabel" destination="ku5-Ar-zBa" id="bQk-kc-Osy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -649,5 +657,6 @@
     <resources>
         <image name="knight hacks image" width="51" height="51"/>
         <image name="menu-schedule" width="36" height="45.5"/>
+        <image name="show less button" width="108" height="108"/>
     </resources>
 </document>

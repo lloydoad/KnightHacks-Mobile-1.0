@@ -36,7 +36,11 @@
 		4C367AA022E578AA0006CD2F /* LiveUpdatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */; };
 		4C367AA222E579660006CD2F /* LiveUpdatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */; };
 		4C367AA422E57C490006CD2F /* NavigationBarViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C367AA322E57C490006CD2F /* NavigationBarViewControllerExtension.swift */; };
+		4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38E45D22EF3E0400FC3506 /* FrequentlyAskedModel.swift */; };
+		4C38E46022EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38E45F22EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift */; };
+		4C38E46222EF441200FC3506 /* FrequentlyAskedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C38E46122EF441200FC3506 /* FrequentlyAskedData.swift */; };
 		4C40CA0B22EE63A600ECD930 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */; };
+		4C40CA0D22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40CA0C22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift */; };
 		4C48BF2D22E8023D00C9C764 /* LiveCountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C48BF2C22E8023D00C9C764 /* LiveCountdownView.xib */; };
 		4C48BF2F22E8051B00C9C764 /* LiveCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */; };
 		4C73CD0A22EA837F002B678A /* WorkshopTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */; };
@@ -126,7 +130,11 @@
 		4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesTableViewController.swift; sourceTree = "<group>"; };
 		4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesTableViewCell.swift; sourceTree = "<group>"; };
 		4C367AA322E57C490006CD2F /* NavigationBarViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewControllerExtension.swift; sourceTree = "<group>"; };
+		4C38E45D22EF3E0400FC3506 /* FrequentlyAskedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedModel.swift; sourceTree = "<group>"; };
+		4C38E45F22EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewControllerModel.swift; sourceTree = "<group>"; };
+		4C38E46122EF441200FC3506 /* FrequentlyAskedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedData.swift; sourceTree = "<group>"; };
 		4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
+		4C40CA0C22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedTableViewCell.swift; sourceTree = "<group>"; };
 		4C48BF2C22E8023D00C9C764 /* LiveCountdownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCountdownView.xib; sourceTree = "<group>"; };
 		4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCountdownView.swift; sourceTree = "<group>"; };
 		4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewControllerModel.swift; sourceTree = "<group>"; };
@@ -216,6 +224,7 @@
 				4C22AFE122C6DA2900FA99BB /* WorkshopTableViewCell.swift */,
 				4CD3E3A522EE2621007E756E /* SponsorsTableViewCell.swift */,
 				4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */,
+				4C40CA0C22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -338,6 +347,7 @@
 				4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */,
 				4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */,
 				4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */,
+				4C38E45F22EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -349,6 +359,7 @@
 				4C367A9222E53BB90006CD2F /* ScheduleData.swift */,
 				4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */,
 				4CD3E3AB22EE3F71007E756E /* SponsorData.swift */,
+				4C38E46122EF441200FC3506 /* FrequentlyAskedData.swift */,
 			);
 			path = "Dummy Data";
 			sourceTree = "<group>";
@@ -387,6 +398,7 @@
 				4C73CD0B22EA8429002B678A /* WorkshopModel.swift */,
 				4CD3E3A722EE3A4A007E756E /* SponsorModel.swift */,
 				4C73CD0F22EAA18F002B678A /* LiveUpdateModel.swift */,
+				4C38E45D22EF3E0400FC3506 /* FrequentlyAskedModel.swift */,
 				4C29A7CE22C014EF00C113A9 /* HomeMenuModel.swift */,
 			);
 			path = Internal;
@@ -616,8 +628,10 @@
 				4C29A7D422C0180400C113A9 /* Colors.swift in Sources */,
 				4C367AA022E578AA0006CD2F /* LiveUpdatesTableViewController.swift in Sources */,
 				4C367A9822E554EB0006CD2F /* HeaderContentViewModel.swift in Sources */,
+				4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */,
 				4C367A8E22E538220006CD2F /* ScheduleTableViewControllerModel.swift in Sources */,
 				4CD3E3A422EE2452007E756E /* SponsorsTableViewController.swift in Sources */,
+				4C40CA0D22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift in Sources */,
 				4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */,
 				4C367A9C22E555660006CD2F /* HeaderDataSource.swift in Sources */,
 				4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */,
@@ -638,6 +652,7 @@
 				4C367AA222E579660006CD2F /* LiveUpdatesTableViewCell.swift in Sources */,
 				4C367A9E22E563D60006CD2F /* ModelObserver.swift in Sources */,
 				4C73CD1022EAA18F002B678A /* LiveUpdateModel.swift in Sources */,
+				4C38E46222EF441200FC3506 /* FrequentlyAskedData.swift in Sources */,
 				4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */,
 				4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */,
 				4C22AFE222C6DA2900FA99BB /* WorkshopTableViewCell.swift in Sources */,
@@ -647,6 +662,7 @@
 				4CD3E3A822EE3A4A007E756E /* SponsorModel.swift in Sources */,
 				4C29A7CF22C014EF00C113A9 /* HomeMenuModel.swift in Sources */,
 				4CE41D2722C5B0F5008836DC /* NavigationBarViewController.swift in Sources */,
+				4C38E46022EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
