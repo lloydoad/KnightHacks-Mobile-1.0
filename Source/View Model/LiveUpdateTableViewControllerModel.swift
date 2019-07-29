@@ -10,21 +10,14 @@ import Foundation
 
 internal class LiveUpdateTableViewControllerModel {
     
+    var observer: ModelObserver?
+    
     private var lastUpdateDate: Date?
     private(set) var viewContent: [LiveUpdateModel] = []
     
-    var observer: ModelObserver?
-    
     func fetchRecent() {
         // make network call
-        var fetchedData: [LiveUpdateModel] = []
-        
-        if let lastUpdateDate = lastUpdateDate {
-            print(lastUpdateDate)
-            fetchedData = dummySecondUpdate
-        } else {
-            fetchedData = dummyFirstUpdate
-        }
+        var fetchedData = lastUpdateDate == nil ? dummyFirstUpdate : dummySecondUpdate
         
         if let first = fetchedData.first {
             lastUpdateDate = first.date.addingTimeInterval(1)

@@ -16,33 +16,39 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
     
     private var liveCountDownView: LiveCountdownView!
     private var viewModel: LiveUpdateTableViewControllerModel!
+    private var rocketRefreshControlView: RocketRefreshControlView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.viewModel = LiveUpdateTableViewControllerModel()
+        self.viewModel.observer = self
+        
         self.initLiveCountDown()
-        
-        viewModel = LiveUpdateTableViewControllerModel()
-        viewModel.observer = self
-        
         self.navigationItem.largeTitleDisplayMode = .never
         self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
     }
     
-    private func initLiveCountDown() {
-        let frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: liveCountDownViewHeight)
-        liveCountDownView = LiveCountdownView(frame: frame)
-        tableView.tableHeaderView = liveCountDownView
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.attachRefreshControl()
+        self.viewModel.fetchRecent()
         self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
         
-        /* dummy time */
-        let date = Date(timeIntervalSinceNow: 45)
-        liveCountDownView.targetEndDate = date
-        
-        viewModel.fetchRecent()
+        self.liveCountDownView.targetEndDate = Date(timeIntervalSinceNow: 45) // dummy time
+    }
+    
+    private func initLiveCountDown() {
+        let frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: liveCountDownViewHeight)
+        self.liveCountDownView = LiveCountdownView(frame: frame)
+        self.tableView.tableHeaderView = liveCountDownView
+    }
+    
+    // MARK: - Scroll view delegate
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.rocketRefreshControlView.startAnimation()
     }
 
     // MARK: - Table view data source
@@ -64,8 +70,26 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
         return cell
     }
     
+    // MARK: - View model delegate
+    
     func didFetchModel() {
         tableView.reloadData()
     }
-
+    
+    // MARK: - Refresh Control
+    
+    private func attachRefreshControl() {
+        let control = UIRefreshControl()
+        control.tintColor = .clear
+        control.backgroundColor = .clear
+        control.addTarget(self, action: #selector(fetchNewUpdates), for: .valueChanged)
+        
+        self.tableView.addSubview(control)
+        self.rocketRefreshControlView = RocketRefreshControlView(frame: CGRect.zero)
+        self.rocketRefreshControlView.refreshControl = control
+    }
+    
+    @objc private func fetchNewUpdates() {
+        self.viewModel.fetchRecent()
+    }
 }

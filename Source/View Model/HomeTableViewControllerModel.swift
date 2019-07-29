@@ -17,6 +17,6 @@ internal struct HomeTableViewControllerModel {
         HomeMenuModel(title: "Live Updates", color: BLUE_COLOR, viewControllerID: LiveUpdatesTableViewController.identifier),
         HomeMenuModel(title: "FAQs", color: GREEN_COLOR, viewControllerID: nil),
         HomeMenuModel(title: "Workshops", color: RED_COLOR, viewControllerID: WorkshopTableViewController.identifier),
-        HomeMenuModel(title: "Sponsors", color: BACKGROUND_COLOR, viewControllerID: nil)
+        HomeMenuModel(title: "Sponsors", color: BACKGROUND_COLOR, viewControllerID: SponsorsTableViewController.identifier)
     ]
 }
