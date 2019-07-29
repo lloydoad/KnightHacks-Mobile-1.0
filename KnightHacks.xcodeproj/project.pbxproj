@@ -36,6 +36,7 @@
 		4C367AA022E578AA0006CD2F /* LiveUpdatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */; };
 		4C367AA222E579660006CD2F /* LiveUpdatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */; };
 		4C367AA422E57C490006CD2F /* NavigationBarViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C367AA322E57C490006CD2F /* NavigationBarViewControllerExtension.swift */; };
+		4C40CA0B22EE63A600ECD930 /* FrequentlyAskedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */; };
 		4C48BF2D22E8023D00C9C764 /* LiveCountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C48BF2C22E8023D00C9C764 /* LiveCountdownView.xib */; };
 		4C48BF2F22E8051B00C9C764 /* LiveCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */; };
 		4C73CD0A22EA837F002B678A /* WorkshopTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */; };
@@ -125,6 +126,7 @@
 		4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesTableViewController.swift; sourceTree = "<group>"; };
 		4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesTableViewCell.swift; sourceTree = "<group>"; };
 		4C367AA322E57C490006CD2F /* NavigationBarViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewControllerExtension.swift; sourceTree = "<group>"; };
+		4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentlyAskedViewController.swift; sourceTree = "<group>"; };
 		4C48BF2C22E8023D00C9C764 /* LiveCountdownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCountdownView.xib; sourceTree = "<group>"; };
 		4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCountdownView.swift; sourceTree = "<group>"; };
 		4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewControllerModel.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */,
 				4CD3E3A322EE2452007E756E /* SponsorsTableViewController.swift */,
 				4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */,
+				4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				4C3401B522BFFE5E00432D80 /* HomeTableViewController.swift in Sources */,
 				4C02FFDE22C2E7E100FC700C /* FilterMenuModel.swift in Sources */,
 				4CD3E3AA22EE3B6E007E756E /* SponsorTableViewControllerModel.swift in Sources */,
+				4C40CA0B22EE63A600ECD930 /* FrequentlyAskedViewController.swift in Sources */,
 				4C73CD0A22EA837F002B678A /* WorkshopTableViewControllerModel.swift in Sources */,
 				4C367A9022E53AD70006CD2F /* ScheduleModel.swift in Sources */,
 				4C73CD1222EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift in Sources */,
