@@ -12,11 +12,13 @@
 		4C02FFDE22C2E7E100FC700C /* FilterMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C02FFDD22C2E7E100FC700C /* FilterMenuModel.swift */; };
 		4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C02FFDF22C2F1E600FC700C /* FilterNames.swift */; };
 		4C02FFE522C3002300FC700C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C02FFE422C3002300FC700C /* ScheduleTableViewCell.swift */; };
-		4C02FFE722C3022F00FC700C /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C02FFE622C3022F00FC700C /* Miscellaneous.swift */; };
+		4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C02FFE622C3022F00FC700C /* MiscellaneousViewElements.swift */; };
 		4C22AFE222C6DA2900FA99BB /* WorkshopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C22AFE122C6DA2900FA99BB /* WorkshopTableViewCell.swift */; };
 		4C29A7CF22C014EF00C113A9 /* HomeMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29A7CE22C014EF00C113A9 /* HomeMenuModel.swift */; };
 		4C29A7D122C0159700C113A9 /* HomeTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29A7D022C0159700C113A9 /* HomeTableViewControllerModel.swift */; };
 		4C29A7D422C0180400C113A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29A7D322C0180400C113A9 /* Colors.swift */; };
+		4C2EE7CA22F630D9008C97AF /* EmptyTableBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EE7C922F630D9008C97AF /* EmptyTableBackgroundView.xib */; };
+		4C2EE7CC22F63398008C97AF /* EmptyTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EE7CB22F63398008C97AF /* EmptyTableBackgroundView.swift */; };
 		4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34018622BFFB2A00432D80 /* AppDelegate.swift */; };
 		4C34018C22BFFB2A00432D80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C34018A22BFFB2A00432D80 /* Main.storyboard */; };
 		4C34018E22BFFB2B00432D80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C34018D22BFFB2B00432D80 /* Assets.xcassets */; };
@@ -100,11 +102,13 @@
 		4C02FFDD22C2E7E100FC700C /* FilterMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuModel.swift; sourceTree = "<group>"; };
 		4C02FFDF22C2F1E600FC700C /* FilterNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterNames.swift; sourceTree = "<group>"; };
 		4C02FFE422C3002300FC700C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		4C02FFE622C3022F00FC700C /* Miscellaneous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
+		4C02FFE622C3022F00FC700C /* MiscellaneousViewElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousViewElements.swift; sourceTree = "<group>"; };
 		4C22AFE122C6DA2900FA99BB /* WorkshopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewCell.swift; sourceTree = "<group>"; };
 		4C29A7CE22C014EF00C113A9 /* HomeMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuModel.swift; sourceTree = "<group>"; };
 		4C29A7D022C0159700C113A9 /* HomeTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewControllerModel.swift; sourceTree = "<group>"; };
 		4C29A7D322C0180400C113A9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4C2EE7C922F630D9008C97AF /* EmptyTableBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableBackgroundView.xib; sourceTree = "<group>"; };
+		4C2EE7CB22F63398008C97AF /* EmptyTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableBackgroundView.swift; sourceTree = "<group>"; };
 		4C34018322BFFB2A00432D80 /* KnightHacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnightHacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C34018622BFFB2A00432D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C34018B22BFFB2A00432D80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				4C48BF2C22E8023D00C9C764 /* LiveCountdownView.xib */,
 				4CE41D2022C567DE008836DC /* FilterTableHeaderView.xib */,
 				4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */,
+				4C2EE7C922F630D9008C97AF /* EmptyTableBackgroundView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,7 +240,6 @@
 				4C29A7D322C0180400C113A9 /* Colors.swift */,
 				4CE41D1E22C5606F008836DC /* LatoFonts.swift */,
 				4C02FFDF22C2F1E600FC700C /* FilterNames.swift */,
-				4C02FFE622C3022F00FC700C /* Miscellaneous.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -311,6 +315,8 @@
 				4CE41D2222C56945008836DC /* FilterTableHeaderView.swift */,
 				4C48BF2E22E8051B00C9C764 /* LiveCountdownView.swift */,
 				4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */,
+				4C2EE7CB22F63398008C97AF /* EmptyTableBackgroundView.swift */,
+				4C02FFE622C3022F00FC700C /* MiscellaneousViewElements.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,6 +575,7 @@
 				4CE41D1522C56058008836DC /* Lato-LightItalic.ttf in Resources */,
 				4CE41D1622C56058008836DC /* Lato-Bold.ttf in Resources */,
 				4CE41D1922C56058008836DC /* Lato-Regular.ttf in Resources */,
+				4C2EE7CA22F630D9008C97AF /* EmptyTableBackgroundView.xib in Resources */,
 				4C48BF2D22E8023D00C9C764 /* LiveCountdownView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,7 +643,7 @@
 				4C367A9C22E555660006CD2F /* HeaderDataSource.swift in Sources */,
 				4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */,
 				4C73CD0C22EA8429002B678A /* WorkshopModel.swift in Sources */,
-				4C02FFE722C3022F00FC700C /* Miscellaneous.swift in Sources */,
+				4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
 				4CD3E3AC22EE3F71007E756E /* SponsorData.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
@@ -653,6 +660,7 @@
 				4C367A9E22E563D60006CD2F /* ModelObserver.swift in Sources */,
 				4C73CD1022EAA18F002B678A /* LiveUpdateModel.swift in Sources */,
 				4C38E46222EF441200FC3506 /* FrequentlyAskedData.swift in Sources */,
+				4C2EE7CC22F63398008C97AF /* EmptyTableBackgroundView.swift in Sources */,
 				4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */,
 				4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */,
 				4C22AFE222C6DA2900FA99BB /* WorkshopTableViewCell.swift in Sources */,

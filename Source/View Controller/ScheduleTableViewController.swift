@@ -53,6 +53,7 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        super.addBackgroundView(to: mainTableView, using: viewModel.viewContent)
         return viewModel.numberOfSections
     }
     

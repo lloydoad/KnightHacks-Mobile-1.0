@@ -25,7 +25,8 @@ internal class SponsorsTableViewCell: UITableViewCell {
             nameLabel.text = model.name
             descriptionLabel.text = model.description
             locationLabel.text = model.location
-            // add tags
+            addTags(filters: model.filters)
+            
             // fetch image
         }
     }
@@ -40,5 +41,13 @@ internal class SponsorsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) { }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
-
+    
+    private func addTags(filters: [FilterNames]) {
+        tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        filters.enumerated().forEach {
+            guard $0.offset < 3 else { return }
+            tagStack.addArrangedSubview(createTagInView(defaultText: $0.element.rawValue.capitalized))
+        }
+        tagStack.addArrangedSubview(UIView())
+    }
 }

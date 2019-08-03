@@ -50,6 +50,7 @@ internal class FrequentlyAskedViewController: NavigationBarTableViewController, 
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        super.addBackgroundView(using: viewModel.viewContent)
         return viewModel.viewContent.count
     }
     

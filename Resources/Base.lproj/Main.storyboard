@@ -330,7 +330,7 @@
                                                                         <constraint firstAttribute="height" constant="140" id="uVc-2M-B3g"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ymt-Cf-qxK">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ymt-Cf-qxK">
                                                                     <rect key="frame" x="0.0" y="163" width="287" height="87"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zol-tT-5il" userLabel="Title Container">
@@ -370,11 +370,11 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="115" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </stackView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gt4-b5-eiE" userLabel="Tag Stack">
-                                                                            <rect key="frame" x="0.0" y="30" width="287" height="27"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gt4-b5-eiE" userLabel="Tag Stack">
+                                                                            <rect key="frame" x="0.0" y="35" width="287" height="17"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-em-Lzx">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="27"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="17"/>
                                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </view>
                                                                             </subviews>

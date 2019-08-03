@@ -51,6 +51,7 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        super.addBackgroundView(using: viewModel.viewContent)
         return viewModel.numberOfSections
     }
     

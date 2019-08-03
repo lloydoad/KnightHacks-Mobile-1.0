@@ -54,7 +54,12 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard viewModel != nil else { return 0 }
+        guard viewModel != nil else {
+            super.addBackgroundView(using: [])
+            return 0
+        }
+        
+        super.addBackgroundView(using: viewModel.viewContent)
         return viewModel.viewContent.count
     }
     

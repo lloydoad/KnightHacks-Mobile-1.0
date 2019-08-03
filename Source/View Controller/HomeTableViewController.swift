@@ -31,9 +31,7 @@ internal class HomeTableViewController: UITableViewController, NavigationBarView
             ]
         }
         
-        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = .white
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     // MARK: - Table view datasource

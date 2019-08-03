@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ A custom refresh control view with in-built animation
+ */
 public class RocketRefreshControlView: UIView {
     
     public static var nibName: String = "RocketRefreshControlView"
