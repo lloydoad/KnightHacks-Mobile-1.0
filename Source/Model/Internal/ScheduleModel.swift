@@ -8,6 +8,13 @@
 
 import Foundation
 
+internal struct CodableScheduleModel: Codable {
+    var title: String
+    var location: String
+    var date: String
+    var filters: [String]
+}
+
 internal struct ScheduleModel: HeaderDataSource, FilterDataSource, Comparable {
     
     var filters: [FilterNames]

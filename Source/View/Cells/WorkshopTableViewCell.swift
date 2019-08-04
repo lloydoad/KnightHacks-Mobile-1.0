@@ -45,11 +45,13 @@ internal class WorkshopTableViewCell: UITableViewCell {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
     
     private func addTags(_ filters: [FilterNames]) {
-        (0..<3).forEach {
-            if $0 < filters.count {
-                tagStack.insertArrangedSubview(createLabel(filters[$0].rawValue.capitalized), at: 0)
+        tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        filters.enumerated().forEach {
+            if $0.offset < 3 {
+                tagStack.addArrangedSubview(createLabel($0.element.rawValue.capitalized))
             }
         }
+        tagStack.addArrangedSubview(UIView())
     }
     
     private func createLabel(_ text: String) -> UILabel {

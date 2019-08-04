@@ -18,6 +18,19 @@ internal class HomeTableViewController: UITableViewController, NavigationBarView
     
     override func viewWillAppear(_ animated: Bool) {
         self.add(navigationController: navigationController, and: navigationItem, with: .white, tint: .white)
+        self.updateNavigationTitle()
+    }
+    
+    func updateNavigationTitle() {
+        
+        if #available(iOS 11, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: CELL_HEADER_FONT
+            ]
+        }
+        
         self.navigationController?.view.backgroundColor = .white
     }
     
