@@ -23,11 +23,39 @@ internal class SponsorTableViewControllerModel {
     ]
     
     func fetchSponsorData() {
-        // network call
-        fetchedContent = dummySponsorData
         
-        viewContent = fetchedContent
-        observer?.didFetchModel()
+        let requestSingleton = RequestSingleton<CodableSponsorModel>()
+        requestSingleton.makeRequest(url: requestSingleton.sponsorURL) { (results) in
+            
+            guard let results = results, !results.isEmpty else {
+                self.fetchedContent = []
+                self.viewContent = self.fetchedContent
+                self.observer?.didFetchModel()
+                return
+            }
+            
+            for value in results {
+                
+                var parsed = SponsorModel(
+                    name: value.name,
+                    location: value.location,
+                    imageURL: value.imageURL,
+                    description: value.description,
+                    filters: []
+                )
+                
+                value.filters.forEach {
+                    if let filter = FilterNames(rawValue: $0) {
+                        parsed.filters.append(filter)
+                    }
+                }
+                
+                self.fetchedContent.append(parsed)
+            }
+            
+            self.viewContent = self.fetchedContent
+            self.observer?.didFetchModel()
+        }
     }
     
     func filterSponsorData(with filter: FilterNames) {

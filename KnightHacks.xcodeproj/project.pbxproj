@@ -50,6 +50,11 @@
 		4C73CD1022EAA18F002B678A /* LiveUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD0F22EAA18F002B678A /* LiveUpdateModel.swift */; };
 		4C73CD1222EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */; };
 		4C73CD1422EAAEAA002B678A /* LiveUpdateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */; };
+		4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E7F22F646CF00416BDC /* RequestSingleton.swift */; };
+		4C7E1E8222F646F800416BDC /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8122F646F800416BDC /* Route.swift */; };
+		4C7E1E8422F6497700416BDC /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8322F6497700416BDC /* ServiceTests.swift */; };
+		4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8722F68C7D00416BDC /* ImageCache.swift */; };
+		4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
 		4CD3E39D22ED7045007E756E /* WorkshopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E39C22ED7045007E756E /* WorkshopData.swift */; };
 		4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */; };
@@ -146,6 +151,11 @@
 		4C73CD0F22EAA18F002B678A /* LiveUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateModel.swift; sourceTree = "<group>"; };
 		4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateTableViewControllerModel.swift; sourceTree = "<group>"; };
 		4C73CD1322EAAEAA002B678A /* LiveUpdateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateData.swift; sourceTree = "<group>"; };
+		4C7E1E7F22F646CF00416BDC /* RequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSingleton.swift; sourceTree = "<group>"; };
+		4C7E1E8122F646F800416BDC /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		4C7E1E8322F6497700416BDC /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
+		4C7E1E8722F68C7D00416BDC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestSingleton.swift; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
 		4CD3E39C22ED7045007E756E /* WorkshopData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopData.swift; sourceTree = "<group>"; };
 		4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketRefreshControlView.xib; sourceTree = "<group>"; };
@@ -280,6 +290,7 @@
 			children = (
 				4C34019B22BFFB2C00432D80 /* KnightHacksTests.swift */,
 				4C34019D22BFFB2C00432D80 /* Info.plist */,
+				4C7E1E8322F6497700416BDC /* ServiceTests.swift */,
 			);
 			path = KnightHacksTests;
 			sourceTree = "<group>";
@@ -419,12 +430,24 @@
 			path = "Model Protocols";
 			sourceTree = "<group>";
 		};
+		4C7E1E7E22F646B500416BDC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4C7E1E8122F646F800416BDC /* Route.swift */,
+				4C7E1E8722F68C7D00416BDC /* ImageCache.swift */,
+				4C7E1E7F22F646CF00416BDC /* RequestSingleton.swift */,
+				4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4CD3E39B22ED6FA9007E756E /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				4C29A7D222C017F400C113A9 /* Constants */,
 				4C367A9422E545780006CD2F /* Date Engine */,
 				4C367A9122E53B210006CD2F /* Dummy Data */,
+				4C7E1E7E22F646B500416BDC /* Service */,
 				4C3401BB22C0043800432D80 /* Model */,
 				4C3401BC22C0043D00432D80 /* View Model */,
 				4C3401B622BFFEE000432D80 /* View Controller */,
@@ -636,6 +659,7 @@
 				4C367AA022E578AA0006CD2F /* LiveUpdatesTableViewController.swift in Sources */,
 				4C367A9822E554EB0006CD2F /* HeaderContentViewModel.swift in Sources */,
 				4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */,
+				4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */,
 				4C367A8E22E538220006CD2F /* ScheduleTableViewControllerModel.swift in Sources */,
 				4CD3E3A422EE2452007E756E /* SponsorsTableViewController.swift in Sources */,
 				4C40CA0D22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift in Sources */,
@@ -645,6 +669,7 @@
 				4C73CD0C22EA8429002B678A /* WorkshopModel.swift in Sources */,
 				4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
+				4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */,
 				4CD3E3AC22EE3F71007E756E /* SponsorData.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
 				4C367A9322E53BB90006CD2F /* ScheduleData.swift in Sources */,
@@ -658,6 +683,7 @@
 				4C73CD1222EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift in Sources */,
 				4C367AA222E579660006CD2F /* LiveUpdatesTableViewCell.swift in Sources */,
 				4C367A9E22E563D60006CD2F /* ModelObserver.swift in Sources */,
+				4C7E1E8222F646F800416BDC /* Route.swift in Sources */,
 				4C73CD1022EAA18F002B678A /* LiveUpdateModel.swift in Sources */,
 				4C38E46222EF441200FC3506 /* FrequentlyAskedData.swift in Sources */,
 				4C2EE7CC22F63398008C97AF /* EmptyTableBackgroundView.swift in Sources */,
@@ -671,6 +697,7 @@
 				4C29A7CF22C014EF00C113A9 /* HomeMenuModel.swift in Sources */,
 				4CE41D2722C5B0F5008836DC /* NavigationBarViewController.swift in Sources */,
 				4C38E46022EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift in Sources */,
+				4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C34019C22BFFB2C00432D80 /* KnightHacksTests.swift in Sources */,
+				4C7E1E8422F6497700416BDC /* ServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

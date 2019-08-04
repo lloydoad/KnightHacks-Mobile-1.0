@@ -14,7 +14,7 @@ private var dateEngine = DateEngine(format: .slashYearMonthDay24HourMinute)
 
 let dummyWorkshopData: [WorkshopModel] = [
     WorkshopModel(
-        date: dateEngine.getDateFrom("2019/4/11/21/15")!,
+        date: dateEngine.getDate(from: "2019/4/11/21/15")!,
         time: "9:15pm",
         title: "React Workshop",
         header: "Friday 4/11",
@@ -23,7 +23,7 @@ let dummyWorkshopData: [WorkshopModel] = [
         filters: [.beginner]
     ),
     WorkshopModel(
-        date: dateEngine.getDateFrom("2019/4/11/22/15")!,
+        date: dateEngine.getDate(from: "2019/4/11/22/15")!,
         time: "10:15pm",
         title: "Angular Workshop",
         header: "Friday 4/11",

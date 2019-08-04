@@ -27,7 +27,12 @@ internal class SponsorsTableViewCell: UITableViewCell {
             locationLabel.text = model.location
             addTags(filters: model.filters)
             
-            // fetch image
+            guard let url = model.imageURL else { return }
+            ImageRequestSingleton.getImage(at: url) { (image) in
+                if let image = image {
+                    self.sponsorImageView.image = image
+                }
+            }
         }
     }
     

@@ -8,6 +8,14 @@
 
 import Foundation
 
+internal struct CodableSponsorModel: Codable {
+    var name: String
+    var location: String
+    var imageURL: String
+    var description: String
+    var filters: [String]
+}
+
 internal struct SponsorModel: FilterDataSource {
     
     var name: String
