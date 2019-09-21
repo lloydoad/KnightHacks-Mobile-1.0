@@ -8,6 +8,12 @@
 
 import Foundation
 
+internal struct CodableLiveUpdateModel: Codable {
+    var description: String
+    var date: String
+    var imageURL: String
+}
+
 internal struct LiveUpdateModel: Comparable {
     
     var title: String

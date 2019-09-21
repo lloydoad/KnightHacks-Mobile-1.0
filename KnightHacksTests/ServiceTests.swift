@@ -19,6 +19,44 @@ class ServiceTests: XCTestCase {
         XCTAssertEqual(url?.absoluteString, expectedString)
     }
     
+    func testFetchingDummyLiveupdateData() {
+        
+        let expectation = XCTestExpectation(description: "Done")
+        
+        let dummyUrl = URL(string: Route.altserver + Route.SubRoute.liveupdate)
+        let singleton = RequestSingleton<CodableLiveUpdateModel>()
+        
+        singleton.makeRequest(url: dummyUrl) { (results) in
+            expectation.fulfill()
+            if results == nil || results?.isEmpty ?? false {
+                XCTFail()
+            } else {
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testFetchingDummyWorkshopData() {
+        
+        let expectation = XCTestExpectation(description: "Done")
+        
+        let dummyUrl = URL(string: Route.altserver + Route.SubRoute.workshop)
+        let singleton = RequestSingleton<CodableWorkshopModel>()
+        
+        singleton.makeRequest(url: dummyUrl) { (results) in
+            expectation.fulfill()
+            if results == nil || results?.isEmpty ?? false {
+                XCTFail()
+            } else {
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
     func testRequestSingletonConnection() {
         let expectation = XCTestExpectation(description: "Done")
         

@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct FrequentlyAskedModel {
+internal struct FrequentlyAskedModel: Codable {
     
     var question: String
     var answer: String

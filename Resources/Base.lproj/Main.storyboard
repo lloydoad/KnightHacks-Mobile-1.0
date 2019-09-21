@@ -472,24 +472,24 @@
                                                     <rect key="frame" x="8" y="8" width="313" height="63"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Q-bD-hls">
-                                                            <rect key="frame" x="0.0" y="11.5" width="40" height="40"/>
+                                                            <rect key="frame" x="0.0" y="14" width="35" height="35"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="bcQ-3y-CYv"/>
-                                                                <constraint firstAttribute="width" constant="40" id="hg3-OK-49U"/>
+                                                                <constraint firstAttribute="height" constant="35" id="bcQ-3y-CYv"/>
+                                                                <constraint firstAttribute="width" constant="35" id="hg3-OK-49U"/>
                                                             </constraints>
-                                                            <state key="normal" image="show less button"/>
+                                                            <state key="normal" backgroundImage="show less button"/>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-mf-s8h">
-                                                            <rect key="frame" x="50" y="11" width="263" height="41"/>
+                                                            <rect key="frame" x="45" y="11" width="268" height="41"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku5-Ar-zBa">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="263" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNF-1P-dkh">
-                                                                    <rect key="frame" x="0.0" y="20.5" width="263" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="20.5" width="268" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

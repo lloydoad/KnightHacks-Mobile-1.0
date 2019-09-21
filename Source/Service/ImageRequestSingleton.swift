@@ -56,12 +56,11 @@ internal struct ImageRequestSingleton {
                         return
                     }
                     
-                    UIImage.cacheStorageCheck(at: validatedUrlString, imageData: imageData, completion: { (_) in
-                        decodedImage = UIImage(data: imageData)
-                        completion(decodedImage)
-                    })
+                    UIImage.cacheImage(with: validatedUrlString, data: imageData)
+                    completion(decodedImage)
                 }
             }
+            
             task.resume()
         })
     }

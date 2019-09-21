@@ -25,10 +25,13 @@ internal class LiveUpdatesTableViewCell: UITableViewCell {
             titleLabel.text = model.title
             timeLabel.text = "\(model.time) - \(timePassedString(intervalToHoursMinutesSeconds(model.date)))"
             
+            // future feature: Add image
+            /*
             if let imageURL = model.imageURL {
                 print(imageURL)
                 // change image
             }
+            */
         }
     }
     

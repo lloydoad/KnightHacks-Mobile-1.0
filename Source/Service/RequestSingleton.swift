@@ -12,6 +12,9 @@ internal class RequestSingleton<Model: Codable> {
     
     let scheduleURL = URL(string: Route.server + Route.SubRoute.schedule)
     let sponsorURL = URL(string: Route.server + Route.SubRoute.sponsor)
+    let workshopURL = URL(string: Route.altserver + Route.SubRoute.workshop)
+    let liveUpdateURL = URL(string: Route.altserver + Route.SubRoute.liveupdate)
+    let faqsURL = URL(string: Route.altserver + Route.SubRoute.faqs)
     
     func makeRequest(url: URL?, completion: @escaping ([Model]?) -> Void) {
         

@@ -14,10 +14,14 @@ import Foundation
 internal enum Route: String {
     
     case server = "https://5d3a68a3fa091c0014470961.mockapi.io/connect"
+    case altserver = "https://5d867766cd71160014aae6d4.mockapi.io/api/v1"
     
     enum SubRoute: String {
         case schedule = "/schedule"
+        case faqs = "/faqs"
         case sponsor = "/sponsor"
+        case workshop = "/workshop"
+        case liveupdate = "/liveupdates"
     }
     
     public static func + (lhs: Route, rhs: SubRoute) -> String {

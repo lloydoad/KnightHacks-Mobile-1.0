@@ -23,7 +23,8 @@ internal class FrequentlyAskedTableViewCell: UITableViewCell {
             titleLabel.text = model.question
             descriptionLabel.text = model.answer
             let imageName = descriptionLabel.text == "" ? "show more button" : "show less button"
-            expandContractButton.setImage(UIImage(named: imageName), for: .normal)
+            expandContractButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
+            expandContractButton.imageView?.contentMode = .scaleAspectFit
         }
     }
     
