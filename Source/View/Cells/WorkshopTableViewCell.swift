@@ -28,7 +28,12 @@ internal class WorkshopTableViewCell: UITableViewCell {
             descriptionLabel.text = model.description
             addTags(model.filters)
             
-            // fill image
+            guard let url = model.imageURL else { return }
+            ImageRequestSingleton.getImage(at: url) { (image) in
+                if let image = image {
+                    self.workshopImageView.image = image
+                }
+            }
         }
     }
     

@@ -8,6 +8,20 @@
 
 import Foundation
 
+internal struct CodableWorkshopModel: Codable {
+    var name: String
+    var date: String
+    var location: String
+    var imageURL: String
+    var description: String
+    var filters: [CodableFilter]
+    
+    struct CodableFilter: Codable {
+        var name: String
+        var imageURL: String
+    }
+}
+
 internal struct WorkshopModel: HeaderDataSource, FilterDataSource, Comparable {
     
     var date: Date

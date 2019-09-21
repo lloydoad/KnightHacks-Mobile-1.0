@@ -71,6 +71,15 @@ internal class FrequentlyAskedViewController: NavigationBarTableViewController, 
     
     // MARK: - Table view delegate
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < self.viewModel.viewContent.count else {
+            return
+        }
+        let tagHolderButton = UIButton()
+        tagHolderButton.tag = indexPath.row
+        self.hideOrDisplayDetails(sender: tagHolderButton)
+    }
+    
     @objc func hideOrDisplayDetails(sender: UIButton) {
         self.viewModel.toggleQuestion(at: sender.tag)
         self.tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)

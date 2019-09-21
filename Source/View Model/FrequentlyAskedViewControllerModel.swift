@@ -16,11 +16,21 @@ internal class FrequentlyAskedViewControllerModel {
     private(set) var viewContent: [FrequentlyAskedModel] = []
     
     func fetchFrequentlyAskedData() {
-        // network call
-        fetchedData = dummyFrequentlyAskedData
-        viewContent = fetchedData.map { FrequentlyAskedModel(question: $0.question, answer: "")}
         
-        observer?.didFetchModel()
+        let requestSingleton = RequestSingleton<FrequentlyAskedModel>()
+        requestSingleton.makeRequest(url: requestSingleton.faqsURL) { (results) in
+            
+            guard let results = results, !results.isEmpty else {
+                self.fetchedData = []
+                self.viewContent = self.fetchedData.map { FrequentlyAskedModel(question: $0.question, answer: "")}
+                self.observer?.didFetchModel()
+                return
+            }
+            
+            self.fetchedData = results
+            self.viewContent = self.fetchedData.map { FrequentlyAskedModel(question: $0.question, answer: "")}
+            self.observer?.didFetchModel()
+        }
     }
     
     func toggleQuestion(at index: Int) {

@@ -21,4 +21,8 @@ extension UIImage {
         imageCache.setObject(imageData as AnyObject, forKey: url as AnyObject)
         completion(nil)
     }
+    
+    static func cacheImage(with url: String, data: Data) {
+        imageCache.setObject(data as AnyObject, forKey: url as AnyObject)
+    }
 }
