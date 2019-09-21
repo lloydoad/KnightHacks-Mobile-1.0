@@ -10,7 +10,6 @@ import Foundation
 
 internal struct CodableSponsorModel: Codable {
     var name: String
-    var date: String
     var location: String
     var imageURL: String
     var description: String
