@@ -8,16 +8,15 @@
 
 import Foundation
 
-internal class SponsorTableViewControllerModel {
+internal class SponsorTableViewControllerModel: FilterCollectionViewDataSource {
     
     var observer: ModelObserver?
 
     private var fetchedContent: [SponsorModel] = []
     private(set) var viewContent: [SponsorModel] = []
     
-    private(set) var filters: [FilterMenuModel] = [
-        FilterMenuModel(name: FilterNames.all.rawValue)
-    ]
+    var filterCollectionView: FilterCollectionView?
+    var filters: [FilterMenuModel] = []
     
     func fetchSponsorData() {
         
@@ -40,7 +39,7 @@ internal class SponsorTableViewControllerModel {
                     location: value.location,
                     imageURL: value.imageURL,
                     description: value.description,
-                    filters: dummySponsorFilterGroup.randomElement() ?? []
+                    filters: dummySponsorFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
                 )
                 
                 parsed.filters.forEach {
@@ -50,11 +49,11 @@ internal class SponsorTableViewControllerModel {
                 self.fetchedContent.append(parsed)
             }
             
-            self.filters.append(contentsOf: necessaryFilters)
-            self.filters.append(FilterMenuModel(name: defaultAllFilter))
-            
+            self.filters = necessaryFilters + [FilterMenuModel(name: defaultAllFilter)]
             self.viewContent = self.fetchedContent
+            
             self.observer?.didFetchModel()
+            self.filterCollectionView?.performLoadingAnimation()
         }
     }
     

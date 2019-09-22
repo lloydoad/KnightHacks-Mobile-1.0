@@ -72,7 +72,7 @@
 		4CE41D1F22C5606F008836DC /* LatoFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE41D1E22C5606F008836DC /* LatoFonts.swift */; };
 		4CE41D2122C567DE008836DC /* FilterTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D2022C567DE008836DC /* FilterTableHeaderView.xib */; };
 		4CE41D2322C56945008836DC /* FilterTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE41D2222C56945008836DC /* FilterTableHeaderView.swift */; };
-		4CE41D2522C576D9008836DC /* FilterCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE41D2422C576D9008836DC /* FilterCollectionViewExtension.swift */; };
+		4CE41D2522C576D9008836DC /* FilterCollectionViewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE41D2422C576D9008836DC /* FilterCollectionViewObserver.swift */; };
 		4CE41D2722C5B0F5008836DC /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE41D2622C5B0F5008836DC /* NavigationBarViewController.swift */; };
 		4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */; };
 		4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */; };
@@ -168,7 +168,7 @@
 		4CE41D1E22C5606F008836DC /* LatoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatoFonts.swift; sourceTree = "<group>"; };
 		4CE41D2022C567DE008836DC /* FilterTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableHeaderView.xib; sourceTree = "<group>"; };
 		4CE41D2222C56945008836DC /* FilterTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableHeaderView.swift; sourceTree = "<group>"; };
-		4CE41D2422C576D9008836DC /* FilterCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewExtension.swift; sourceTree = "<group>"; };
+		4CE41D2422C576D9008836DC /* FilterCollectionViewObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewObserver.swift; sourceTree = "<group>"; };
 		4CE41D2622C5B0F5008836DC /* NavigationBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewController.swift; sourceTree = "<group>"; };
 		4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
@@ -352,8 +352,8 @@
 				4C367A9722E554EB0006CD2F /* HeaderContentViewModel.swift */,
 				4C367A8D22E538220006CD2F /* ScheduleTableViewControllerModel.swift */,
 				4C73CD0922EA837F002B678A /* WorkshopTableViewControllerModel.swift */,
-				4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */,
 				4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */,
+				4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */,
 				4C38E45F22EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift */,
 			);
 			path = "View Model";
@@ -380,7 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */,
-				4CE41D2422C576D9008836DC /* FilterCollectionViewExtension.swift */,
+				4CE41D2422C576D9008836DC /* FilterCollectionViewObserver.swift */,
 			);
 			path = "Filter Collection View";
 			sourceTree = "<group>";
@@ -647,7 +647,7 @@
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
 				4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
-				4CE41D2522C576D9008836DC /* FilterCollectionViewExtension.swift in Sources */,
+				4CE41D2522C576D9008836DC /* FilterCollectionViewObserver.swift in Sources */,
 				4C3401B522BFFE5E00432D80 /* HomeTableViewController.swift in Sources */,
 				4C02FFDE22C2E7E100FC700C /* FilterMenuModel.swift in Sources */,
 				4CD3E3AA22EE3B6E007E756E /* SponsorTableViewControllerModel.swift in Sources */,

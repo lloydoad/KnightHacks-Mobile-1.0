@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class WorkshopTableViewController: NavigationBarTableViewController, NavigationBarViewControllerExtension, FilterCollectionViewExtension, ModelObserver {
+internal class WorkshopTableViewController: NavigationBarTableViewController, NavigationBarViewControllerExtension, FilterCollectionViewObserver, ModelObserver {
     
     internal static let identifier: String = "WorkshopTableViewController"
     
@@ -26,7 +26,8 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
         
         self.navigationItem.largeTitleDisplayMode = .never
         self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
-        self.filterCollectionView = addFilterCollectionView(to: tableView)
+        self.filterCollectionView = addFilterCollectionView(to: tableView, datasource: self.viewModel)
+        self.viewModel.filterCollectionView = self.filterCollectionView
     }
     
     override func viewWillAppear(_ animated: Bool) {

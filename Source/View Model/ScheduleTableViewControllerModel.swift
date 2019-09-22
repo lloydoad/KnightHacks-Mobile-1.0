@@ -8,11 +8,12 @@
 
 import Foundation
 
-internal class ScheduleTableViewControllerModel: HeaderContentViewModel<ScheduleModel> {
+internal class ScheduleTableViewControllerModel: HeaderContentViewModel<ScheduleModel>, FilterCollectionViewDataSource {
     
     private let dateEngine = DateEngine(format: .standardISO1806)
     
-    private(set) var filters: [FilterMenuModel] = []
+    var filterCollectionView: FilterCollectionView?
+    var filters: [FilterMenuModel] = []
     
     func fetchScheduleData() {
         let requestSingleton = RequestSingleton<CodableScheduleModel>()
@@ -38,7 +39,7 @@ internal class ScheduleTableViewControllerModel: HeaderContentViewModel<Schedule
                     time: self.dateEngine.getString(of: date, as: .hourColonMinuteMeridian),
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
                     date: date,
-                    filters: dummyScheduleFilterGroup.randomElement() ?? []
+                    filters: dummyScheduleFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
                 )
                 
                 parsed.filters.forEach {
@@ -48,10 +49,10 @@ internal class ScheduleTableViewControllerModel: HeaderContentViewModel<Schedule
                 self.fetchedData.append(parsed)
             }
             
-            self.filters.append(contentsOf: necessaryFilters)
-            self.filters.append(FilterMenuModel(name: FilterNames.all.rawValue))
+            self.filters = necessaryFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
             
             self.fetchData()
+            self.filterCollectionView?.performLoadingAnimation()
         }
     }
 }

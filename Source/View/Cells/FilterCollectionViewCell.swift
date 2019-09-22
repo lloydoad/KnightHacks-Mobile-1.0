@@ -34,10 +34,8 @@ public class FilterCollectionViewCell: UICollectionViewCell {
         didSet {
             guard filterIconImageView != nil else { return }
             if isSelected {
-                print("changing \(model?.name) to true")
                 borderView.layer.borderWidth = borderThickness
             } else {
-                print("changing \(model?.name) to false")
                 borderView.layer.borderWidth = 0
             }
         }

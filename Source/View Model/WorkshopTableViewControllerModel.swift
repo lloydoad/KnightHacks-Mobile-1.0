@@ -8,13 +8,12 @@
 
 import Foundation
 
-internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel> {
+internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel>, FilterCollectionViewDataSource {
     
     private let dateEngine = DateEngine(format: .standardISO1806)
     
-    private(set) var filters: [FilterMenuModel] = [
-        FilterMenuModel(name: FilterNames.all.rawValue)
-    ]
+    var filterCollectionView: FilterCollectionView?
+    var filters: [FilterMenuModel] = []
     
     func fetchWorkshopData() {
         let requestSingleton = RequestSingleton<CodableWorkshopModel>()
@@ -41,7 +40,7 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
                     imageURL: value.imageURL,
                     description: value.description,
-                    filters: dummyWorkshopFilterGroup.randomElement() ?? [] // update filter array
+                    filters: dummyWorkshopFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
                 )
                 
                 parsedValue.filters.forEach {
@@ -51,10 +50,10 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                 self.fetchedData.append(parsedValue)
             }
             
-            self.filters.append(contentsOf: necessaryFilters)
-            self.filters.append(FilterMenuModel(name: FilterNames.all.rawValue))
+            self.filters = necessaryFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
             
             self.fetchData()
+            self.filterCollectionView?.performLoadingAnimation()
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class ScheduleTableViewController: NavigationBarViewController, NavigationBarViewControllerExtension, FilterCollectionViewExtension, ModelObserver {
+internal class ScheduleTableViewController: NavigationBarViewController, NavigationBarViewControllerExtension, FilterCollectionViewObserver, ModelObserver {
     
     internal static let identifier: String = "ScheduleTableViewController"
 
@@ -17,26 +17,23 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
     private var filterCollectionView: FilterCollectionView!
     private var viewModel: ScheduleTableViewControllerModel!
     
-    var filters: [FilterMenuModel] = []
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         self.viewModel = ScheduleTableViewControllerModel()
         self.viewModel.observer = self
-        self.filters = viewModel.filters
         
         self.colorUpper(view: mainTableView, with: BACKGROUND_COLOR)
-        self.filterCollectionView = addFilterCollectionView(to: mainTableView)
+        self.filterCollectionView = addFilterCollectionView(to: mainTableView, datasource: viewModel)
+        self.viewModel.filterCollectionView = self.filterCollectionView
+        
         self.attach(table: mainTableView, toDelegate: self, andDataSource: self)
         self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // change
-//        self.filterCollectionView.shouldStartLoadingAnimation = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,10 +88,6 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
     // MARK: - View model delegate
     
     func didFetchModel() {
-        filters = viewModel.filters
-        filterCollectionView.reloadData()
         mainTableView.reloadData()
-        
-//        filterCollectionView.shouldStartLoadingAnimation = true
     }
 }
