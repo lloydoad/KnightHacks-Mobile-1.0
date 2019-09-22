@@ -49,11 +49,11 @@ internal class WorkshopTableViewCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
     
-    private func addTags(_ filters: [FilterNames]) {
+    private func addTags(_ filters: [FilterMenuModel]) {
         tagStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         filters.enumerated().forEach {
             if $0.offset < 3 {
-                tagStack.addArrangedSubview(createLabel($0.element.rawValue.capitalized))
+                tagStack.addArrangedSubview(createLabel($0.element.name.capitalized))
             }
         }
         tagStack.addArrangedSubview(UIView())

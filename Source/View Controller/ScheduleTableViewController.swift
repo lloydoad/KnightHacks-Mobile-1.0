@@ -35,7 +35,8 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.filterCollectionView.shouldStartLoadingAnimation = true
+        // change
+//        self.filterCollectionView.shouldStartLoadingAnimation = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,9 +46,7 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
     // MARK: - Filter Delegate
     
     func didSelectFilter(filter: FilterMenuModel) {
-        if let type = filter.type {
-            viewModel.filterData(type)
-        }
+        viewModel.filterData(filter)
     }
 
     // MARK: - Table view data source
@@ -92,6 +91,10 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
     // MARK: - View model delegate
     
     func didFetchModel() {
+        filters = viewModel.filters
+        filterCollectionView.reloadData()
         mainTableView.reloadData()
+        
+//        filterCollectionView.shouldStartLoadingAnimation = true
     }
 }

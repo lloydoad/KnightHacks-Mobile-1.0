@@ -22,13 +22,14 @@ internal class HeaderContentViewModel<T: FilterDataSource & HeaderDataSource & C
         observer?.didFetchModel()
     }
     
-    func filterData(_ name: FilterNames) {
-        viewContent = name == .all ? getViewContent(fetchedData) : filter(fetchedData, by: name)
+    public let defaultAllFilter = FilterNames.all.rawValue
+    func filterData(_ name: FilterMenuModel) {
+        viewContent = name.name == defaultAllFilter ? getViewContent(fetchedData) : filter(fetchedData, by: name)
         numberOfSections = viewContent.count
         observer?.didFetchModel()
     }
             
-    private func filter(_ content: [T], by filter: FilterNames) -> [[T]] {
+    private func filter(_ content: [T], by filter: FilterMenuModel) -> [[T]] {
         let filteredContent = content.filter { $0.filters.contains(filter) }
         return getViewContent(filteredContent)
     }

@@ -37,15 +37,13 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        filterCollectionView.shouldStartLoadingAnimation = true
+//        filterCollectionView.shouldStartLoadingAnimation = true
     }
     
     // MARK: - Filter Delegate
     
     func didSelectFilter(filter: FilterMenuModel) {
-        if let type = filter.type {
-            viewModel.filterData(type)
-        }
+        viewModel.filterData(filter)
     }
     
     // MARK: - Table view data source

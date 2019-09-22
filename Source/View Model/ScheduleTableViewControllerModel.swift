@@ -12,13 +12,7 @@ internal class ScheduleTableViewControllerModel: HeaderContentViewModel<Schedule
     
     private let dateEngine = DateEngine(format: .standardISO1806)
     
-    private(set) var filters: [FilterMenuModel] = [
-        FilterMenuModel(type: .food),
-        FilterMenuModel(type: .talk),
-        FilterMenuModel(type: .workshop),
-        FilterMenuModel(type: .mainEvent),
-        FilterMenuModel(type: .all)
-    ]
+    private(set) var filters: [FilterMenuModel] = []
     
     func fetchScheduleData() {
         let requestSingleton = RequestSingleton<CodableScheduleModel>()
@@ -30,29 +24,32 @@ internal class ScheduleTableViewControllerModel: HeaderContentViewModel<Schedule
                 return
             }
             
+            var necessaryFilters: Set<FilterMenuModel> = Set()
+            
             for value in results {
                 
                 guard let date = self.dateEngine.getDate(from: value.date) else {
                     continue
                 }
                 
-                var parsed = ScheduleModel(
+                let parsed = ScheduleModel(
                     title: value.title,
                     location: value.location,
                     time: self.dateEngine.getString(of: date, as: .hourColonMinuteMeridian),
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
                     date: date,
-                    filters: []
+                    filters: dummyScheduleFilterGroup.randomElement() ?? []
                 )
                 
-                value.filters.forEach {
-                    if let filter = FilterNames(rawValue: $0) {
-                        parsed.filters.append(filter)
-                    }
+                parsed.filters.forEach {
+                    necessaryFilters.insert($0)
                 }
                 
                 self.fetchedData.append(parsed)
             }
+            
+            self.filters.append(contentsOf: necessaryFilters)
+            self.filters.append(FilterMenuModel(name: FilterNames.all.rawValue))
             
             self.fetchData()
         }

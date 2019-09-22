@@ -17,14 +17,14 @@ internal struct CodableScheduleModel: Codable {
 
 internal struct ScheduleModel: HeaderDataSource, FilterDataSource, Comparable {
     
-    var filters: [FilterNames]
+    var filters: [FilterMenuModel]
     var title: String
     var location: String
     var time: String
     var header: String
     var date: Date
     
-    init(title: String, location: String, time: String, header: String, date: Date, filters: [FilterNames]) {
+    init(title: String, location: String, time: String, header: String, date: Date, filters: [FilterMenuModel]) {
         self.title = title
         self.location = location
         self.time = time

@@ -43,6 +43,19 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
     public var dataSource: FilterCollectionViewDataSource?
     public var delegate: FilterCollectionViewDelegate?
     
+//    public var viewHasAppeared: Bool = false
+//    public var filters: [FilterMenuModel] = [] {
+//        didSet {
+//            performLoadingAnimation()
+//        }
+//    }
+//
+//    public final func performLoadingAnimation() {
+//        guard viewHasAppeared && !filters.isEmpty else { return }
+//        let path = IndexPath(row: filters.count - 1, section: 0)
+//        collectionView.scrollToItem(at: path, at: .centeredHorizontally, animated: true)
+//    }
+    
     public var shouldStartLoadingAnimation: Bool? {
         didSet {
             guard shouldStartLoadingAnimation == true  else { return }
@@ -98,5 +111,13 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
         }
         cell.model = dataSource?.filters[indexPath.row]
         return cell
+    }
+    
+    public final func reloadData() {
+        guard let content = dataSource?.filters, !content.isEmpty else { return }
+        
+        self.collectionView.reloadData()
+        let path = IndexPath(row: content.count - 1, section: 0)
+        self.collectionView.scrollToItem(at: path, at: .centeredHorizontally, animated: true)
     }
 }

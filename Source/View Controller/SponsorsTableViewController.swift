@@ -43,8 +43,7 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
     // MARK: - Filter Delegate
     
     func didSelectFilter(filter: FilterMenuModel) {
-        guard let type = filter.type else { return }
-        self.viewModel.filterSponsorData(with: type)
+        self.viewModel.filterSponsorData(with: filter)
     }
     
     // MARK: - Table view data source

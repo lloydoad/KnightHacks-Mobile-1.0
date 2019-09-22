@@ -13,13 +13,7 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
     private let dateEngine = DateEngine(format: .standardISO1806)
     
     private(set) var filters: [FilterMenuModel] = [
-        FilterMenuModel(type: .hardware),
-        FilterMenuModel(type: .beginner),
-        FilterMenuModel(type: .advanced),
-        FilterMenuModel(type: .career),
-        FilterMenuModel(type: .design),
-        FilterMenuModel(type: .development),
-        FilterMenuModel(type: .all)
+        FilterMenuModel(name: FilterNames.all.rawValue)
     ]
     
     func fetchWorkshopData() {
@@ -31,6 +25,8 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                 self.fetchData()
                 return
             }
+            
+            var necessaryFilters: Set<FilterMenuModel> = Set()
             
             for value in results {
                 
@@ -45,11 +41,18 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
                     imageURL: value.imageURL,
                     description: value.description,
-                    filters: [] // update filter array
+                    filters: dummyWorkshopFilterGroup.randomElement() ?? [] // update filter array
                 )
+                
+                parsedValue.filters.forEach {
+                    necessaryFilters.insert($0)
+                }
                 
                 self.fetchedData.append(parsedValue)
             }
+            
+            self.filters.append(contentsOf: necessaryFilters)
+            self.filters.append(FilterMenuModel(name: FilterNames.all.rawValue))
             
             self.fetchData()
         }

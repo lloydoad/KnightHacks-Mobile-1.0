@@ -24,7 +24,9 @@ public class FilterCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let model = model else { return }
             filterLabel.text = model.name.capitalized
-            filterIconImageView.image = UIImage(named: model.imageName)
+            
+            // fetch image and populate into view
+            filterIconImageView.image = UIImage(named: model.imageURL)
         }
     }
     
@@ -32,8 +34,10 @@ public class FilterCollectionViewCell: UICollectionViewCell {
         didSet {
             guard filterIconImageView != nil else { return }
             if isSelected {
+                print("changing \(model?.name) to true")
                 borderView.layer.borderWidth = borderThickness
             } else {
+                print("changing \(model?.name) to false")
                 borderView.layer.borderWidth = 0
             }
         }

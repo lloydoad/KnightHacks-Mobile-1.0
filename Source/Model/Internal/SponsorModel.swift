@@ -22,9 +22,9 @@ internal struct SponsorModel: FilterDataSource {
     var location: String
     var imageURL: String?
     var description: String
-    var filters: [FilterNames]
+    var filters: [FilterMenuModel]
     
-    init(name: String, location: String, imageURL: String?, description: String, filters: [FilterNames]) {
+    init(name: String, location: String, imageURL: String?, description: String, filters: [FilterMenuModel]) {
         self.name = name
         self.location = location
         self.imageURL = imageURL
