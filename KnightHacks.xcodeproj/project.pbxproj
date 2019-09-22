@@ -338,9 +338,9 @@
 		4C3401BB22C0043800432D80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4C517B6B22E6B30E007F8646 /* Internal */,
 				4C367A9D22E563D60006CD2F /* ModelObserver.swift */,
 				4C02FFDD22C2E7E100FC700C /* FilterMenuModel.swift */,
-				4C517B6B22E6B30E007F8646 /* Internal */,
 			);
 			path = Model;
 			sourceTree = "<group>";
