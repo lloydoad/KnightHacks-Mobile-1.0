@@ -43,13 +43,30 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
     public var dataSource: FilterCollectionViewDataSource?
     public var delegate: FilterCollectionViewDelegate?
     
-    public var shouldStartLoadingAnimation: Bool? {
-        didSet {
-            guard shouldStartLoadingAnimation == true  else { return }
-            guard let datasource = dataSource else { return }
-            collectionView.selectItem(at: IndexPath(row: datasource.filters.count - 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
-        }
+//    public var viewHasAppeared: Bool = false
+//    public var filters: [FilterMenuModel] = []
+    
+    public final func performLoadingAnimation() {
+        
+        guard self.window != nil else { return }
+        guard let source = dataSource, !source.filters.isEmpty else { return }
+        
+        // reload filters
+        collectionView.reloadData()
+        
+        // scroll to end
+        let path = IndexPath(row: source.filters.count - 1, section: 0)
+//        collectionView.scrollToItem(at: path, at: .centeredHorizontally, animated: true)
+        collectionView.selectItem(at: path, animated: true, scrollPosition: .centeredHorizontally)
     }
+    
+//    public var shouldStartLoadingAnimation: Bool? {
+//        didSet {
+//            guard shouldStartLoadingAnimation == true  else { return }
+//            guard let datasource = dataSource else { return }
+//            collectionView.selectItem(at: IndexPath(row: datasource.filters.count - 1, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+//        }
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,8 +97,9 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let source = dataSource, indexPath.row < source.filters.count else { return }
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        delegate?.didSelectFilter(filter: dataSource?.filters[indexPath.row] ?? FilterMenuModel(name: "nil"))
+        delegate?.didSelectFilter(filter: source.filters[indexPath.row])
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -93,10 +111,22 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.identifier, for: indexPath) as? FilterCollectionViewCell, indexPath.row < dataSource?.filters.count ?? 0 else {
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.identifier, for: indexPath) as? FilterCollectionViewCell,
+            let source = dataSource,
+            indexPath.row < source.filters.count
+        else {
             return UICollectionViewCell(frame: FilterCollectionView.minimumCellFrame)
         }
-        cell.model = dataSource?.filters[indexPath.row]
+        cell.model = source.filters[indexPath.row]
         return cell
     }
+    
+//    public final func reloadData() {
+//        guard let !filters.isEmpty else { return }
+//
+//        self.collectionView.reloadData()
+//        let path = IndexPath(row: .count - 1, section: 0)
+//        self.collectionView.scrollToItem(at: path, at: .centeredHorizontally, animated: true)
+//    }
 }

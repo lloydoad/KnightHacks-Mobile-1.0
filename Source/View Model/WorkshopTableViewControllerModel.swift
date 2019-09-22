@@ -8,19 +8,12 @@
 
 import Foundation
 
-internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel> {
+internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel>, FilterCollectionViewDataSource {
     
     private let dateEngine = DateEngine(format: .standardISO1806)
     
-    private(set) var filters: [FilterMenuModel] = [
-        FilterMenuModel(type: .hardware),
-        FilterMenuModel(type: .beginner),
-        FilterMenuModel(type: .advanced),
-        FilterMenuModel(type: .career),
-        FilterMenuModel(type: .design),
-        FilterMenuModel(type: .development),
-        FilterMenuModel(type: .all)
-    ]
+    var filterCollectionView: FilterCollectionView?
+    var filters: [FilterMenuModel] = []
     
     func fetchWorkshopData() {
         let requestSingleton = RequestSingleton<CodableWorkshopModel>()
@@ -31,6 +24,8 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                 self.fetchData()
                 return
             }
+            
+            var necessaryFilters: Set<FilterMenuModel> = Set()
             
             for value in results {
                 
@@ -45,13 +40,20 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
                     imageURL: value.imageURL,
                     description: value.description,
-                    filters: [] // update filter array
+                    filters: dummyWorkshopFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
                 )
+                
+                parsedValue.filters.forEach {
+                    necessaryFilters.insert($0)
+                }
                 
                 self.fetchedData.append(parsedValue)
             }
             
+            self.filters = necessaryFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
+            
             self.fetchData()
+            self.filterCollectionView?.performLoadingAnimation()
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class SponsorsTableViewController: NavigationBarTableViewController, NavigationBarViewControllerExtension, FilterCollectionViewExtension, ModelObserver {
+internal class SponsorsTableViewController: NavigationBarTableViewController, NavigationBarViewControllerExtension, FilterCollectionViewObserver, ModelObserver {
     
     internal static let identifier: String = "SponsorsTableViewController"
     
@@ -26,7 +26,8 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
         
         self.navigationItem.largeTitleDisplayMode = .never
         self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
-        self.filterCollectionView = addFilterCollectionView(to: tableView)
+        self.filterCollectionView = addFilterCollectionView(to: tableView, datasource: self.viewModel)
+        self.viewModel.filterCollectionView = self.filterCollectionView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,14 +38,13 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.filterCollectionView.shouldStartLoadingAnimation = true
+//        self.filterCollectionView.shouldStartLoadingAnimation = true
     }
     
     // MARK: - Filter Delegate
     
     func didSelectFilter(filter: FilterMenuModel) {
-        guard let type = filter.type else { return }
-        self.viewModel.filterSponsorData(with: type)
+        self.viewModel.filterSponsorData(with: filter)
     }
     
     // MARK: - Table view data source

@@ -8,12 +8,11 @@
 
 import Foundation
 
-public struct FilterMenuModel {
+public struct FilterMenuModel: Hashable {
     
     var name: String
-    var imageName: String
-    var type: FilterNames?
-    
+    var imageURL: String
+
     /**
      Initializes content of Filter Button
      - Button name is formatted as-is for labels
@@ -21,11 +20,11 @@ public struct FilterMenuModel {
      */
     init(name: String) {
         self.name = name
-        self.imageName = "\(name.lowercased()) filter icon"
+        self.imageURL = "\(name.lowercased()) filter icon"
     }
     
-    internal init(type: FilterNames) {
-        self.init(name: type.rawValue)
-        self.type = type
+    public func hash(hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(imageURL)
     }
 }

@@ -14,12 +14,6 @@ internal struct CodableWorkshopModel: Codable {
     var location: String
     var imageURL: String
     var description: String
-    var filters: [CodableFilter]
-    
-    struct CodableFilter: Codable {
-        var name: String
-        var imageURL: String
-    }
 }
 
 internal struct WorkshopModel: HeaderDataSource, FilterDataSource, Comparable {
@@ -30,9 +24,9 @@ internal struct WorkshopModel: HeaderDataSource, FilterDataSource, Comparable {
     var header: String
     var imageURL: String?
     var description: String
-    var filters: [FilterNames]
+    var filters: [FilterMenuModel]
     
-    init(date: Date, time: String, title: String, header: String, imageURL: String? = nil, description: String, filters: [FilterNames]) {
+    init(date: Date, time: String, title: String, header: String, imageURL: String? = nil, description: String, filters: [FilterMenuModel]) {
         self.date = date
         self.time = time
         self.title = title

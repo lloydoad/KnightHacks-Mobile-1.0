@@ -8,19 +8,15 @@
 
 import Foundation
 
-internal class SponsorTableViewControllerModel {
+internal class SponsorTableViewControllerModel: FilterCollectionViewDataSource {
     
     var observer: ModelObserver?
 
     private var fetchedContent: [SponsorModel] = []
     private(set) var viewContent: [SponsorModel] = []
     
-    private(set) var filters: [FilterMenuModel] = [
-        FilterMenuModel(type: .partTime),
-        FilterMenuModel(type: .internships),
-        FilterMenuModel(type: .fullTime),
-        FilterMenuModel(type: .all)
-    ]
+    var filterCollectionView: FilterCollectionView?
+    var filters: [FilterMenuModel] = []
     
     func fetchSponsorData() {
         
@@ -34,32 +30,35 @@ internal class SponsorTableViewControllerModel {
                 return
             }
             
+            var necessaryFilters: Set<FilterMenuModel> = Set()
+            
             for value in results {
                 
-                var parsed = SponsorModel(
+                let parsed = SponsorModel(
                     name: value.name,
                     location: value.location,
                     imageURL: value.imageURL,
                     description: value.description,
-                    filters: []
+                    filters: dummySponsorFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
                 )
                 
-                value.filters.forEach {
-                    if let filter = FilterNames(rawValue: $0) {
-                        parsed.filters.append(filter)
-                    }
+                parsed.filters.forEach {
+                    necessaryFilters.insert($0)
                 }
                 
                 self.fetchedContent.append(parsed)
             }
             
+            self.filters = necessaryFilters + [FilterMenuModel(name: defaultAllFilter)]
             self.viewContent = self.fetchedContent
+            
             self.observer?.didFetchModel()
+            self.filterCollectionView?.performLoadingAnimation()
         }
     }
     
-    func filterSponsorData(with filter: FilterNames) {
-        viewContent = filter == .all ? fetchedContent : fetchedContent.filter {$0.filters.contains(filter)}
+    func filterSponsorData(with filter: FilterMenuModel) {
+        viewContent = filter.name == defaultAllFilter ? fetchedContent : fetchedContent.filter { $0.filters.contains(filter) }
         observer?.didFetchModel()
     }
 }

@@ -24,7 +24,9 @@ public class FilterCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let model = model else { return }
             filterLabel.text = model.name.capitalized
-            filterIconImageView.image = UIImage(named: model.imageName)
+            
+            // fetch image and populate into view
+            filterIconImageView.image = UIImage(named: model.imageURL)
         }
     }
     

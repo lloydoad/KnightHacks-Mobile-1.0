@@ -12,5 +12,5 @@ import Foundation
  Datasource protocol used to indicate inheriting class contains filter type behavior
  */
 internal protocol FilterDataSource {
-    var filters: [FilterNames] { get set }
+    var filters: [FilterMenuModel] { get set }
 }
