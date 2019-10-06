@@ -77,6 +77,7 @@
 		4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */; };
 		4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */; };
 		4CEDF57022C042A30025EF47 /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */; };
+		E51F74D9234113C8000AC727 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F74D8234113C8000AC727 /* FilterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
+		E51F74D8234113C8000AC727 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +397,7 @@
 				4C73CD0F22EAA18F002B678A /* LiveUpdateModel.swift */,
 				4C38E45D22EF3E0400FC3506 /* FrequentlyAskedModel.swift */,
 				4C29A7CE22C014EF00C113A9 /* HomeMenuModel.swift */,
+				E51F74D8234113C8000AC727 /* FilterModel.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				4CE41D2722C5B0F5008836DC /* NavigationBarViewController.swift in Sources */,
 				4C38E46022EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift in Sources */,
 				4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */,
+				E51F74D9234113C8000AC727 /* FilterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

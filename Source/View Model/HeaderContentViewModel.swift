@@ -20,6 +20,7 @@ internal class HeaderContentViewModel<T: FilterDataSource & HeaderDataSource & C
         viewContent = getViewContent(fetchedData)
         numberOfSections = viewContent.count
         observer?.didFetchModel()
+        print(viewContent)
     }
     
     public let defaultAllFilter = FilterNames.all.rawValue
