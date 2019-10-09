@@ -12,6 +12,7 @@ public struct FilterMenuModel: Hashable {
     
     var name: String
     var imageURL: String
+    var isLocal: Bool
 
     /**
      Initializes content of Filter Button
@@ -21,6 +22,13 @@ public struct FilterMenuModel: Hashable {
     init(name: String) {
         self.name = name
         self.imageURL = "\(name.lowercased()) filter icon"
+        self.isLocal = true
+    }
+    
+    init(codable: CodableFilterModel) {
+        self.name = codable.name
+        self.imageURL = codable.imageURL
+        self.isLocal = false
     }
     
     public func hash(hasher: inout Hasher) {

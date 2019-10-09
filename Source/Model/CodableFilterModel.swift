@@ -13,11 +13,4 @@ internal struct CodableFilterModel: Codable {
     var workshopId: String
     var name: String
     var imageURL: String
-    
-    init(id: String, workshopId: String, name: String, imageURL: String) {
-        self.id = id;
-        self.workshopId = workshopId;
-        self.name = name;
-        self.imageURL = imageURL;
-    }
 }
