@@ -12,7 +12,7 @@ internal class LiveUpdatesLargeTableViewCell: UITableViewCell {
     
     public static let identifier: String = "LiveUpdatesLargeCellIdentifier"
     
-    @IBOutlet weak var customBackground: UIView!
+    @IBOutlet weak var customBackgroundView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -29,7 +29,7 @@ internal class LiveUpdatesLargeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addSpecifiedShadow(customBackground)
+        addSpecifiedShadow(customBackgroundView)
         timeLabel.font = MINOR_PARAGRAPH_FONT
         titleLabel.font = PARAGRAPH_FONT
     }

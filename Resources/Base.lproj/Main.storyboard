@@ -168,16 +168,16 @@
                                             <rect key="frame" x="23" y="5" width="333" height="215"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jAu-eV-Sjr">
-                                                    <rect key="frame" x="127" y="172.5" width="79.5" height="40"/>
+                                                    <rect key="frame" x="20" y="172.5" width="303" height="40"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sj3-du-bpF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="79.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="303" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Time Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pP-IE-SNI">
-                                                            <rect key="frame" x="0.0" y="22.5" width="79.5" height="17.5"/>
+                                                            <rect key="frame" x="0.0" y="22.5" width="303" height="17.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -196,9 +196,9 @@
                                             <constraints>
                                                 <constraint firstItem="ode-er-X55" firstAttribute="top" secondItem="ZCK-cJ-n9b" secondAttribute="top" id="DMo-cR-muR"/>
                                                 <constraint firstItem="ode-er-X55" firstAttribute="centerX" secondItem="ZCK-cJ-n9b" secondAttribute="centerX" id="Jmv-TH-YRY"/>
-                                                <constraint firstAttribute="trailing" secondItem="jAu-eV-Sjr" secondAttribute="trailing" constant="126.5" id="T4s-kh-ZWU"/>
+                                                <constraint firstAttribute="trailing" secondItem="jAu-eV-Sjr" secondAttribute="trailing" constant="10" id="T4s-kh-ZWU"/>
                                                 <constraint firstAttribute="bottom" secondItem="jAu-eV-Sjr" secondAttribute="bottom" constant="2.5" id="aqu-iz-yB3"/>
-                                                <constraint firstItem="jAu-eV-Sjr" firstAttribute="leading" secondItem="ZCK-cJ-n9b" secondAttribute="leading" constant="127" id="ehO-yi-d6s"/>
+                                                <constraint firstItem="jAu-eV-Sjr" firstAttribute="leading" secondItem="ZCK-cJ-n9b" secondAttribute="leading" constant="20" id="ehO-yi-d6s"/>
                                                 <constraint firstItem="ode-er-X55" firstAttribute="top" secondItem="ZCK-cJ-n9b" secondAttribute="top" id="oI6-Xe-Dzx"/>
                                                 <constraint firstItem="jAu-eV-Sjr" firstAttribute="top" secondItem="ode-er-X55" secondAttribute="bottom" constant="24.5" id="z4e-u4-UBp"/>
                                             </constraints>
@@ -212,7 +212,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="customBackground" destination="ZCK-cJ-n9b" id="cLS-oL-8cy"/>
+                                    <outlet property="customBackgroundView" destination="ZCK-cJ-n9b" id="5w8-IZ-5ce"/>
                                     <outlet property="mainImageView" destination="ode-er-X55" id="0eu-1K-YLD"/>
                                     <outlet property="timeLabel" destination="7pP-IE-SNI" id="eF4-la-DEz"/>
                                     <outlet property="titleLabel" destination="sj3-du-bpF" id="T1j-5O-ZMA"/>
