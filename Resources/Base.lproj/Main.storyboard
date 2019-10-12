@@ -184,22 +184,22 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="knight hacks image" translatesAutoresizingMaskIntoConstraints="NO" id="ode-er-X55">
-                                                    <rect key="frame" x="96.5" y="8" width="140" height="140"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ode-er-X55">
+                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="148"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="140" id="IvC-Q9-cai"/>
-                                                        <constraint firstAttribute="height" constant="140" id="kv7-wb-Ph1"/>
+                                                        <constraint firstAttribute="width" constant="333" id="IvC-Q9-cai"/>
+                                                        <constraint firstAttribute="height" constant="148" id="kv7-wb-Ph1"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="ode-er-X55" firstAttribute="top" secondItem="ZCK-cJ-n9b" secondAttribute="top" constant="8" id="DMo-cR-muR"/>
+                                                <constraint firstItem="ode-er-X55" firstAttribute="top" secondItem="ZCK-cJ-n9b" secondAttribute="top" id="DMo-cR-muR"/>
                                                 <constraint firstItem="ode-er-X55" firstAttribute="centerX" secondItem="ZCK-cJ-n9b" secondAttribute="centerX" id="Jmv-TH-YRY"/>
                                                 <constraint firstAttribute="trailing" secondItem="jAu-eV-Sjr" secondAttribute="trailing" constant="126.5" id="T4s-kh-ZWU"/>
                                                 <constraint firstAttribute="bottom" secondItem="jAu-eV-Sjr" secondAttribute="bottom" constant="2.5" id="aqu-iz-yB3"/>
                                                 <constraint firstItem="jAu-eV-Sjr" firstAttribute="leading" secondItem="ZCK-cJ-n9b" secondAttribute="leading" constant="127" id="ehO-yi-d6s"/>
-                                                <constraint firstItem="ode-er-X55" firstAttribute="top" secondItem="ZCK-cJ-n9b" secondAttribute="top" constant="8" id="oI6-Xe-Dzx"/>
+                                                <constraint firstItem="ode-er-X55" firstAttribute="top" secondItem="ZCK-cJ-n9b" secondAttribute="top" id="oI6-Xe-Dzx"/>
                                                 <constraint firstItem="jAu-eV-Sjr" firstAttribute="top" secondItem="ode-er-X55" secondAttribute="bottom" constant="24.5" id="z4e-u4-UBp"/>
                                             </constraints>
                                         </view>
