@@ -16,7 +16,6 @@ internal struct ImageRequestSingleton {
         let httpsText = "https://"
         let httpText = "http://"
         var decodedImage: UIImage!
-        let dataTest: Data? = nil
         
         // if prefix has no http:// append https://
         // if it is http:// change to https://
@@ -32,7 +31,7 @@ internal struct ImageRequestSingleton {
             return
         }
         
-        UIImage.cacheStorageCheck(at: validatedUrlString, imageData: dataTest, completion: { (cachedImage) in
+        UIImage.cacheStorageCheck(at: validatedUrlString, completion: { (cachedImage) in
             
             guard cachedImage == nil else {
                 decodedImage = cachedImage
@@ -45,8 +44,8 @@ internal struct ImageRequestSingleton {
                 DispatchQueue.main.async {
                     
                     if let err = err {
-                        completion(nil)
                         print(err)
+                        completion(nil)
                         return
                     }
                     
@@ -57,7 +56,13 @@ internal struct ImageRequestSingleton {
                     }
                     
                     UIImage.cacheImage(with: validatedUrlString, data: imageData)
-                    completion(decodedImage)
+                    UIImage.cacheStorageCheck(at: validatedUrlString, completion: { (newCachedImage) in
+                        if let unwrappedCachedImage = newCachedImage {
+                            completion(unwrappedCachedImage)
+                        } else {
+                            completion(nil)
+                        }
+                    })
                 }
             }
             
