@@ -77,6 +77,7 @@
 		4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */; };
 		4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */; };
 		4CEDF57022C042A30025EF47 /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */; };
+		5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
+		5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesLargeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				4C22AFE122C6DA2900FA99BB /* WorkshopTableViewCell.swift */,
 				4CD3E3A522EE2621007E756E /* SponsorsTableViewCell.swift */,
 				4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */,
+				5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */,
 				4C40CA0C22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift */,
 			);
 			path = Cells;
@@ -637,6 +640,7 @@
 				4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */,
 				4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */,
 				4C367A8E22E538220006CD2F /* ScheduleTableViewControllerModel.swift in Sources */,
+				5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */,
 				4CD3E3A422EE2452007E756E /* SponsorsTableViewController.swift in Sources */,
 				4C40CA0D22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift in Sources */,
 				4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */,
