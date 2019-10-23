@@ -8,26 +8,24 @@
 
 import UIKit
 
-internal class ProfileViewController: NavigationBarTableViewController, NavigationBarViewControllerExtension {
+internal class ProfileViewController: NavigationBarViewController, NavigationBarViewControllerExtension {
     internal static let identifier: String = "ProfileViewController"
     
     private var viewModel: ProfileViewControllerModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
-        self.updateNavigationTitle()
+        self.add(navigationController: navigationController, and: navigationItem, with: BLUE_COLOR)
+        updateNavigationTitle()
     }
     
     private func updateNavigationTitle() {
-        self.navigationItem.title = "Frequently Asked"
+        self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.tintColor = .white
         
         if #available(iOS 11, *) {
