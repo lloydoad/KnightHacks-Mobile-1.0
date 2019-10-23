@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R1j-gj-Cpt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R1j-gj-Cpt">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -371,10 +371,10 @@
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gt4-b5-eiE" userLabel="Tag Stack">
-                                                                            <rect key="frame" x="0.0" y="35" width="287" height="17"/>
+                                                                            <rect key="frame" x="0.0" y="35" width="232" height="17"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-em-Lzx">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="17"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="232" height="17"/>
                                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </view>
                                                                             </subviews>
@@ -653,10 +653,37 @@
             </objects>
             <point key="canvasLocation" x="-1303" y="733"/>
         </scene>
+        <!--Player View Controller-->
+        <scene sceneID="VAm-Z5-ExH">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="QAP-gj-F0D" customClass="AVPlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8MJ-Ph-akl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB5-mv-bqy">
+                                <rect key="frame" x="148" y="44" width="79" height="33"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JB5-mv-bqy" firstAttribute="top" secondItem="nhZ-5r-bQ3" secondAttribute="top" id="9pX-1e-heh"/>
+                            <constraint firstItem="JB5-mv-bqy" firstAttribute="centerX" secondItem="8MJ-Ph-akl" secondAttribute="centerX" id="N3G-VZ-jll"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nhZ-5r-bQ3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXJ-2T-0F1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3432.8000000000002" y="731.5270935960591"/>
+        </scene>
     </scenes>
     <resources>
         <image name="knight hacks image" width="51" height="51"/>
-        <image name="menu-schedule" width="36" height="45.666667938232422"/>
+        <image name="menu-schedule" width="36" height="45"/>
         <image name="show less button" width="108" height="108"/>
     </resources>
 </document>
