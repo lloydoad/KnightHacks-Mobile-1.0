@@ -13,8 +13,12 @@ internal class ProfileViewController: NavigationBarViewController, NavigationBar
     
     private var viewModel: ProfileViewControllerModel!
 
+    @IBOutlet weak var QRImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        QRImage.image = UIImage(named: "Sample_QR_Code")
     }
     
     override func viewWillAppear(_ animated: Bool) {
