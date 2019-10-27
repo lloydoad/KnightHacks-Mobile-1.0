@@ -40,7 +40,9 @@ internal class WorkshopTableViewControllerModel: HeaderContentViewModel<Workshop
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
                     imageURL: value.imageURL,
                     description: value.description,
-                    filters: dummyWorkshopFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
+                    filters: value.filters.map {
+                        FilterMenuModel(codable: $0)
+                    }
                 )
                 
                 parsedValue.filters.forEach {

@@ -26,7 +26,17 @@ public class FilterCollectionViewCell: UICollectionViewCell {
             filterLabel.text = model.name.capitalized
             
             // fetch image and populate into view
-            filterIconImageView.image = UIImage(named: model.imageURL)
+            let url = model.imageURL
+            
+            if model.isLocal {
+                filterIconImageView.image = UIImage(named: url)
+            } else {
+                ImageRequestSingleton.getImage(at: url) { (image) in
+                    if let image = image {
+                        self.filterIconImageView.image = image
+                    }
+                }
+            }
         }
     }
     
