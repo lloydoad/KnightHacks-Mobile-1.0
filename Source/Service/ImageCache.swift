@@ -12,13 +12,12 @@ private let imageCache = NSCache<AnyObject, AnyObject>()
 
 extension UIImage {
     
-    static func cacheStorageCheck(at url: String!, imageData: Data?, completion: @escaping (UIImage?) -> Void) {
+    static func cacheStorageCheck(at url: String, completion: @escaping (UIImage?) -> Void) {
         if let cachedImage = imageCache.object(forKey: url as AnyObject) as? Data {
             completion(UIImage(data: cachedImage))
             return
         }
         
-        imageCache.setObject(imageData as AnyObject, forKey: url as AnyObject)
         completion(nil)
     }
     
