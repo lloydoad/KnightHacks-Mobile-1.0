@@ -7,50 +7,59 @@
 //
 
 import Foundation
+import UIKit
 
 internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel>, FilterCollectionViewDataSource {
     
     private let dateEngine = DateEngine(format: .standardISO1806)
+    private let filterType = "workshop"
     
     var filterCollectionView: FilterCollectionView?
     var filters: [FilterMenuModel] = []
     
     func fetchWorkshopData() {
-        let requestSingleton = RequestSingleton<CodableWorkshopModel>()
-        requestSingleton.makeRequest(url: requestSingleton.workshopURL) { (results) in
+        
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
+            let viewFilters = appdelegate.applicationFilters[self.filterType] {
+            self.filters = viewFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
+        } else {
+            self.filters = [FilterMenuModel(name: FilterNames.all.rawValue)]
+        }
+        
+        FirebaseRequestSingleton<WorkshopDictionaryModel>().makeRequest(endpoint: .workshops) { (dictonaryModels) in
             
-            guard let results = results, !results.isEmpty else {
-                self.fetchedData = []
+            self.fetchedData = []
+            
+            guard !dictonaryModels.isEmpty else {
                 self.fetchData()
+                self.filterCollectionView?.performLoadingAnimation()
                 return
             }
             
-            var necessaryFilters: Set<FilterMenuModel> = Set()
+            var filterLookup: [String: FilterMenuModel] = [:]
+            self.filters.forEach { filterLookup[$0.name] = $0 }
             
-            for value in results {
+            dictonaryModels.forEach({ (workshopDictionaryModel) in
+                let date = Date(timeIntervalSince1970: TimeInterval(integerLiteral: workshopDictionaryModel.date))
                 
-                guard let date = self.dateEngine.getDate(from: value.date) else {
-                    continue
-                }
-                
-                let parsedValue = WorkshopModel(
+                var parsedValue = WorkshopModel(
                     date: date,
                     time: self.dateEngine.getString(of: date, as: .hourColonMinuteMeridian),
-                    title: value.name,
+                    title: workshopDictionaryModel.name,
                     header: self.dateEngine.getString(of: date, as: .dayMonth),
-                    imageURL: value.imageURL,
-                    description: value.description,
-                    filters: dummyWorkshopFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
+                    imageURL: workshopDictionaryModel.imageURL,
+                    description: workshopDictionaryModel.description,
+                    filters: []
                 )
                 
-                parsedValue.filters.forEach {
-                    necessaryFilters.insert($0)
+                for filterName in workshopDictionaryModel.filters {
+                    if let filterMenu = filterLookup[filterName] {
+                        parsedValue.filters.append(filterMenu)
+                    }
                 }
                 
                 self.fetchedData.append(parsedValue)
-            }
-            
-            self.filters = necessaryFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
+            })
             
             self.fetchData()
             self.filterCollectionView?.performLoadingAnimation()

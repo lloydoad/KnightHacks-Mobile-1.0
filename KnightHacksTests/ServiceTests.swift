@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Firebase
 @testable import KnightHacks
 
 class ServiceTests: XCTestCase {
@@ -73,5 +74,50 @@ class ServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10.0)
     }
-
+    
+    struct FAQMap {
+        var question: String
+        var answer: String
+        
+        init(dictionary: [String:Any]) {
+            self.question = dictionary["question"] as? String ?? ""
+            self.answer = dictionary["answer"] as? String ?? ""
+        }
+    }
+    
+    func testRetrievingFirebaseData() {
+        
+        let expectation = XCTestExpectation(description: "Done")
+        let database = Firestore.firestore()
+        
+        database.collection("faqs").getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                var results: [FAQMap] = []
+                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
+                    results.append(FAQMap(dictionary: queryDocumentSnapshot.data()))
+                })
+                
+                print(results)
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testGenericFirebaseRequest() {
+        let expectation = XCTestExpectation(description: "Done")
+        
+        FirebaseRequestSingleton<WorkshopDictionaryModel>().makeRequest(endpoint: .workshops) { (results) in
+            if results.isEmpty {
+                XCTFail()
+            } else {
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
 }
