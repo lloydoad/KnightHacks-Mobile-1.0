@@ -52,6 +52,7 @@
 		4C7E1E8422F6497700416BDC /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8322F6497700416BDC /* ServiceTests.swift */; };
 		4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8722F68C7D00416BDC /* ImageCache.swift */; };
 		4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */; };
+		4CB743892381A8720072AFDA /* UIConfigurationList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CB743882381A8720072AFDA /* UIConfigurationList.plist */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
 		4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */; };
 		4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */; };
@@ -77,8 +78,8 @@
 		4CEDF56A22C022B10025EF47 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */; };
 		4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */; };
 		4CEDF57022C042A30025EF47 /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */; };
-		E51F74D9234113C8000AC727 /* CodableFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F74D8234113C8000AC727 /* CodableFilterModel.swift */; };
 		5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */; };
+		E51F74D9234113C8000AC727 /* CodableFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F74D8234113C8000AC727 /* CodableFilterModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		4C7E1E8322F6497700416BDC /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		4C7E1E8722F68C7D00416BDC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestSingleton.swift; sourceTree = "<group>"; };
+		4CB743882381A8720072AFDA /* UIConfigurationList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UIConfigurationList.plist; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
 		4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketRefreshControlView.xib; sourceTree = "<group>"; };
 		4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketRefreshControlView.swift; sourceTree = "<group>"; };
@@ -175,8 +177,8 @@
 		4CEDF56922C022B10025EF47 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
-		E51F74D8234113C8000AC727 /* CodableFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFilterModel.swift; sourceTree = "<group>"; };
 		5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesLargeTableViewCell.swift; sourceTree = "<group>"; };
+		E51F74D8234113C8000AC727 /* CodableFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFilterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			children = (
 				4C34018622BFFB2A00432D80 /* AppDelegate.swift */,
 				4C34019222BFFB2B00432D80 /* Info.plist */,
+				4CB743882381A8720072AFDA /* UIConfigurationList.plist */,
 			);
 			path = KnightHacks;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				4C34019122BFFB2B00432D80 /* LaunchScreen.storyboard in Resources */,
 				4CE41D1C22C56058008836DC /* Lato-BoldItalic.ttf in Resources */,
 				4CE41D1B22C56058008836DC /* Lato-BlackItalic.ttf in Resources */,
+				4CB743892381A8720072AFDA /* UIConfigurationList.plist in Resources */,
 				4C34018E22BFFB2B00432D80 /* Assets.xcassets in Resources */,
 				4C02FFDC22C2DC0900FC700C /* FilterCollectionViewCell.xib in Resources */,
 				4CE41D1422C56058008836DC /* Lato-Italic.ttf in Resources */,
