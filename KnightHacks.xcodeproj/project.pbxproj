@@ -78,6 +78,8 @@
 		4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */; };
 		4CEDF57022C042A30025EF47 /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */; };
 		E51F74D9234113C8000AC727 /* CodableFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F74D8234113C8000AC727 /* CodableFilterModel.swift */; };
+		E53B747D235E3D4C0022264E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B747C235E3D4C0022264E /* ProfileViewController.swift */; };
+		E53B747F235E3F990022264E /* ProfileViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B747E235E3F990022264E /* ProfileViewControllerModel.swift */; };
 		5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +178,8 @@
 		4CEDF56B22C03BCC0025EF47 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
 		4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
 		E51F74D8234113C8000AC727 /* CodableFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFilterModel.swift; sourceTree = "<group>"; };
+		E53B747C235E3D4C0022264E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E53B747E235E3F990022264E /* ProfileViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerModel.swift; sourceTree = "<group>"; };
 		5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesLargeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -309,6 +313,7 @@
 				4CD3E3A322EE2452007E756E /* SponsorsTableViewController.swift */,
 				4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */,
 				4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */,
+				E53B747C235E3D4C0022264E /* ProfileViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */,
 				4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */,
 				4C38E45F22EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift */,
+				E53B747E235E3F990022264E /* ProfileViewControllerModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -641,6 +647,7 @@
 				4C367AA022E578AA0006CD2F /* LiveUpdatesTableViewController.swift in Sources */,
 				4C367A9822E554EB0006CD2F /* HeaderContentViewModel.swift in Sources */,
 				4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */,
+				E53B747F235E3F990022264E /* ProfileViewControllerModel.swift in Sources */,
 				4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */,
 				4C367A8E22E538220006CD2F /* ScheduleTableViewControllerModel.swift in Sources */,
 				5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */,
@@ -651,6 +658,7 @@
 				4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */,
 				4C73CD0C22EA8429002B678A /* WorkshopModel.swift in Sources */,
 				4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */,
+				E53B747D235E3D4C0022264E /* ProfileViewController.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
 				4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
