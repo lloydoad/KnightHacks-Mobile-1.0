@@ -52,7 +52,7 @@ internal struct FilterDictionaryModel: DictionaryCodable {
             let imageURL = dataRecieved[Keys.picture.rawValue] as? String,
             let associatedView = dataRecieved[Keys.type.rawValue] as? String
         else {
-            throw ReadingError.parseFail("Failed to parse workshops")
+            throw RuntimeException.dictionaryDecoding("Failed to parse filter")
         }
         
         self.name = name

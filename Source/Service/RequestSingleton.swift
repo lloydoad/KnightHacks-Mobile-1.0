@@ -46,10 +46,6 @@ internal class RequestSingleton<Model: Codable> {
     }
 }
 
-public protocol DictionaryCodable {
-    init(dataRecieved: NSDictionary) throws
-}
-
 internal class FirebaseRequestSingleton<ModelDictionary: DictionaryCodable> {
     
     enum FirebaseRequestEndpoints: String {

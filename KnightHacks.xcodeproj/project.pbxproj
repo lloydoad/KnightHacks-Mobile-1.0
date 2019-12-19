@@ -54,6 +54,7 @@
 		4C7E1E8422F6497700416BDC /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8322F6497700416BDC /* ServiceTests.swift */; };
 		4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8722F68C7D00416BDC /* ImageCache.swift */; };
 		4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */; };
+		4C9B1ED823ABD26B003FB507 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1ED723ABD26B003FB507 /* File.swift */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
 		4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */; };
 		4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */; };
@@ -157,6 +158,7 @@
 		4C7E1E8322F6497700416BDC /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		4C7E1E8722F68C7D00416BDC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestSingleton.swift; sourceTree = "<group>"; };
+		4C9B1ED723ABD26B003FB507 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
 		4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketRefreshControlView.xib; sourceTree = "<group>"; };
 		4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketRefreshControlView.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				4C367A9922E555460006CD2F /* FilterDataSource.swift */,
 				4C367A9B22E555660006CD2F /* HeaderDataSource.swift */,
+				4C9B1ED723ABD26B003FB507 /* File.swift */,
 			);
 			path = "Model Protocols";
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
 				4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */,
+				4C9B1ED823ABD26B003FB507 /* File.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
 				4CE41D2522C576D9008836DC /* FilterCollectionViewObserver.swift in Sources */,
 				4C3401B522BFFE5E00432D80 /* HomeTableViewController.swift in Sources */,

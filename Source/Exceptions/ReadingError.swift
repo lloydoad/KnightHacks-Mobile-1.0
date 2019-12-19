@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum ReadingError: Error {
-    case parseFail(String)
+public enum RuntimeException: Error {
+    case dictionaryDecoding(String)
 }
