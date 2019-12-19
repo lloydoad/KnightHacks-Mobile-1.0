@@ -9,6 +9,7 @@ target 'KnightHacks' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/Messaging'
 
   target 'KnightHacksTests' do
     inherit! :search_paths
