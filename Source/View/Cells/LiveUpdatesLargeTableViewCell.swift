@@ -26,7 +26,7 @@ internal class LiveUpdatesLargeTableViewCell: UITableViewCell {
             timeLabel.text = "\(model.time) - \(timePassedString(intervalToHoursMinutesSeconds(model.date)))"
             mainImageView.contentMode = .scaleAspectFill
             mainImageView.clipsToBounds = true
-            mainImageView.layer.cornerRadius = 5
+            mainImageView.layer.cornerRadius = 14
             mainImageView.layer.borderColor = UIColor.gray.cgColor
             mainImageView.layer.borderWidth = 0.5
             
