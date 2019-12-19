@@ -6,7 +6,6 @@
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel>, FilterCollectionViewDataSource {

@@ -54,7 +54,7 @@
 		4C7E1E8422F6497700416BDC /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8322F6497700416BDC /* ServiceTests.swift */; };
 		4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8722F68C7D00416BDC /* ImageCache.swift */; };
 		4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */; };
-		4C9B1ED823ABD26B003FB507 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1ED723ABD26B003FB507 /* File.swift */; };
+		4C9B1ED823ABD26B003FB507 /* DictionaryCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1ED723ABD26B003FB507 /* DictionaryCodable.swift */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
 		4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */; };
 		4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */; };
@@ -62,7 +62,7 @@
 		4CD3E3A622EE2621007E756E /* SponsorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A522EE2621007E756E /* SponsorsTableViewCell.swift */; };
 		4CD3E3A822EE3A4A007E756E /* SponsorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A722EE3A4A007E756E /* SponsorModel.swift */; };
 		4CD3E3AA22EE3B6E007E756E /* SponsorTableViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */; };
-		4CDF966E235D4F7B00D53156 /* ReadingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF966D235D4F7B00D53156 /* ReadingError.swift */; };
+		4CDF966E235D4F7B00D53156 /* RuntimeExceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF966D235D4F7B00D53156 /* RuntimeExceptions.swift */; };
 		4CE41D1422C56058008836DC /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0A22C56058008836DC /* Lato-Italic.ttf */; };
 		4CE41D1522C56058008836DC /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0B22C56058008836DC /* Lato-LightItalic.ttf */; };
 		4CE41D1622C56058008836DC /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE41D0C22C56058008836DC /* Lato-Bold.ttf */; };
@@ -158,7 +158,7 @@
 		4C7E1E8322F6497700416BDC /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		4C7E1E8722F68C7D00416BDC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestSingleton.swift; sourceTree = "<group>"; };
-		4C9B1ED723ABD26B003FB507 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		4C9B1ED723ABD26B003FB507 /* DictionaryCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCodable.swift; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
 		4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketRefreshControlView.xib; sourceTree = "<group>"; };
 		4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketRefreshControlView.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		4CD3E3A522EE2621007E756E /* SponsorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsTableViewCell.swift; sourceTree = "<group>"; };
 		4CD3E3A722EE3A4A007E756E /* SponsorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorModel.swift; sourceTree = "<group>"; };
 		4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorTableViewControllerModel.swift; sourceTree = "<group>"; };
-		4CDF966D235D4F7B00D53156 /* ReadingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingError.swift; sourceTree = "<group>"; };
+		4CDF966D235D4F7B00D53156 /* RuntimeExceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeExceptions.swift; sourceTree = "<group>"; };
 		4CE41D0A22C56058008836DC /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		4CE41D0B22C56058008836DC /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		4CE41D0C22C56058008836DC /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 			children = (
 				4C367A9922E555460006CD2F /* FilterDataSource.swift */,
 				4C367A9B22E555660006CD2F /* HeaderDataSource.swift */,
-				4C9B1ED723ABD26B003FB507 /* File.swift */,
+				4C9B1ED723ABD26B003FB507 /* DictionaryCodable.swift */,
 			);
 			path = "Model Protocols";
 			sourceTree = "<group>";
@@ -475,7 +475,7 @@
 		4CDF966C235D4F6100D53156 /* Exceptions */ = {
 			isa = PBXGroup;
 			children = (
-				4CDF966D235D4F7B00D53156 /* ReadingError.swift */,
+				4CDF966D235D4F7B00D53156 /* RuntimeExceptions.swift */,
 			);
 			path = Exceptions;
 			sourceTree = "<group>";
@@ -698,21 +698,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -777,7 +771,7 @@
 				4C367AA022E578AA0006CD2F /* LiveUpdatesTableViewController.swift in Sources */,
 				4C367A9822E554EB0006CD2F /* HeaderContentViewModel.swift in Sources */,
 				4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */,
-				4CDF966E235D4F7B00D53156 /* ReadingError.swift in Sources */,
+				4CDF966E235D4F7B00D53156 /* RuntimeExceptions.swift in Sources */,
 				4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */,
 				4C367A8E22E538220006CD2F /* ScheduleTableViewControllerModel.swift in Sources */,
 				4CD3E3A422EE2452007E756E /* SponsorsTableViewController.swift in Sources */,
@@ -789,7 +783,7 @@
 				4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
 				4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */,
-				4C9B1ED823ABD26B003FB507 /* File.swift in Sources */,
+				4C9B1ED823ABD26B003FB507 /* DictionaryCodable.swift in Sources */,
 				4C34018722BFFB2A00432D80 /* AppDelegate.swift in Sources */,
 				4CE41D2522C576D9008836DC /* FilterCollectionViewObserver.swift in Sources */,
 				4C3401B522BFFE5E00432D80 /* HomeTableViewController.swift in Sources */,

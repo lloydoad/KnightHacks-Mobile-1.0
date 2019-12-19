@@ -85,21 +85,13 @@ class ServiceTests: XCTestCase {
         }
     }
     
-    func testRetrievingFirebaseData() {
-        
+    func testGenericFirebaseRequest() {
         let expectation = XCTestExpectation(description: "Done")
-        let database = Firestore.firestore()
         
-        database.collection("faqs").getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("Error getting documents: \(err)")
+        FirebaseRequestSingleton<WorkshopModel>().makeRequest(endpoint: .workshops) { (results) in
+            if results.isEmpty {
+                XCTFail()
             } else {
-                var results: [FAQMap] = []
-                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-                    results.append(FAQMap(dictionary: queryDocumentSnapshot.data()))
-                })
-                
-                print(results)
                 expectation.fulfill()
             }
         }
@@ -107,15 +99,24 @@ class ServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func testGenericFirebaseRequest() {
+    func testDownloadingFilterImage() {
         let expectation = XCTestExpectation(description: "Done")
-        
-        FirebaseRequestSingleton<WorkshopDictionaryModel>().makeRequest(endpoint: .workshops) { (results) in
-            if results.isEmpty {
+
+        let storage = Storage.storage()
+        storage.reference(withPath: "filters/beginner filter icon.png").getData(maxSize: 1 * 1024 * 1024) { data, error in
+            
+            if let _ = error {
                 XCTFail()
-            } else {
-                expectation.fulfill()
+                return
             }
+            
+            guard let imageData = data else {
+                XCTFail()
+                return
+            }
+            
+            print(imageData)
+            expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 10.0)

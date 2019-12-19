@@ -25,8 +25,12 @@ public class FilterCollectionViewCell: UICollectionViewCell {
             guard let model = model else { return }
             filterLabel.text = model.name.capitalized
             
-            // fetch image and populate into view
             filterIconImageView.image = UIImage(named: model.imageURL)
+            ImageRequestSingleton.firebaseGetImage(reference: model.imageURL) { (image) in
+                if let image = image, self.filterLabel.text != "All" {
+                    self.filterIconImageView.image = image
+                }
+            }
         }
     }
     

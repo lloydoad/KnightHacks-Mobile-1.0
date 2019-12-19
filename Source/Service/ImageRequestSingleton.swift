@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 internal struct ImageRequestSingleton {
     
@@ -63,5 +64,42 @@ internal struct ImageRequestSingleton {
             
             task.resume()
         })
+    }
+    
+    static let storage = Storage.storage()
+    static func firebaseGetImage(reference: String, completion: @escaping (UIImage?) -> Void) {
+        
+        UIImage.cacheStorageCheck(at: reference, imageData: nil, completion: { (cachedImage) in
+            
+            if let decodedImage = cachedImage {
+                completion(decodedImage)
+                return
+            }
+            
+            storage.reference(withPath: reference).getData(maxSize: 1 * 1024 * 1024) { data, error in
+                DispatchQueue.main.async {
+                    if let _ = error {
+                        completion(nil)
+                        return
+                    }
+                    
+                    guard let imageData = data else {
+                        completion(nil)
+                        print("Error: Could not convert response to Data")
+                        return
+                    }
+                    
+                    guard let image = UIImage(data: imageData) else {
+                        completion(nil)
+                        print("Error: Could not convert data to image")
+                        return
+                    }
+                    
+                    UIImage.cacheImage(with: reference, data: imageData)
+                    completion(image)
+                }
+            }
+        })
+        
     }
 }

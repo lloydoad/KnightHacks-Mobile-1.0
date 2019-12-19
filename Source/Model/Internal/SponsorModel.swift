@@ -6,7 +6,7 @@
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 internal struct CodableSponsorModel: Codable {
     var name: String
@@ -16,6 +16,14 @@ internal struct CodableSponsorModel: Codable {
 }
 
 internal struct SponsorModel: FilterDataSource {
+    
+    enum Keys: String {
+        case description
+        case location
+        case name
+        case offerings
+        case picture
+    }
     
     var name: String
     var location: String
