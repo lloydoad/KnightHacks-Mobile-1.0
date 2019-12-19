@@ -55,6 +55,7 @@
 		4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8722F68C7D00416BDC /* ImageCache.swift */; };
 		4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */; };
 		4C9B1ED823ABD26B003FB507 /* DictionaryCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1ED723ABD26B003FB507 /* DictionaryCodable.swift */; };
+		4CB743892381A8720072AFDA /* UIConfigurationList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CB743882381A8720072AFDA /* UIConfigurationList.plist */; };
 		4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */; };
 		4CD3E3A022EE010D007E756E /* RocketRefreshControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */; };
 		4CD3E3A222EE0420007E756E /* RocketRefreshControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */; };
@@ -83,6 +84,10 @@
 		4CEDF57022C042A30025EF47 /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEDF56F22C042A30025EF47 /* FilterCollectionView.xib */; };
 		8647834C96F83BFCBAD067CD /* Pods_KnightHacksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3B3907F6AE61C5FCEDDAD9 /* Pods_KnightHacksUITests.framework */; };
 		DD9EB62BB84272D23AB77608 /* Pods_KnightHacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE7FE8F7127EC07389ABAD4 /* Pods_KnightHacks.framework */; };
+		E51F74D9234113C8000AC727 /* CodableFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F74D8234113C8000AC727 /* CodableFilterModel.swift */; };
+		E53B747D235E3D4C0022264E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B747C235E3D4C0022264E /* ProfileViewController.swift */; };
+		E53B747F235E3F990022264E /* ProfileViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B747E235E3F990022264E /* ProfileViewControllerModel.swift */; };
+		5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +164,7 @@
 		4C7E1E8722F68C7D00416BDC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		4C7E1E8922F68D1600416BDC /* ImageRequestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestSingleton.swift; sourceTree = "<group>"; };
 		4C9B1ED723ABD26B003FB507 /* DictionaryCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCodable.swift; sourceTree = "<group>"; };
+		4CB743882381A8720072AFDA /* UIConfigurationList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UIConfigurationList.plist; sourceTree = "<group>"; };
 		4CCA072622C5BAA600ABD8CB /* WorkshopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewController.swift; sourceTree = "<group>"; };
 		4CD3E39F22EE010D007E756E /* RocketRefreshControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketRefreshControlView.xib; sourceTree = "<group>"; };
 		4CD3E3A122EE0420007E756E /* RocketRefreshControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketRefreshControlView.swift; sourceTree = "<group>"; };
@@ -191,6 +197,10 @@
 		94EF99B2845B39677AB161DD /* Pods-KnightHacks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacks/Pods-KnightHacks.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3B3907F6AE61C5FCEDDAD9 /* Pods_KnightHacksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnightHacksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69F365B03B8FE267C71B15D /* Pods-KnightHacksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnightHacksUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnightHacksUITests/Pods-KnightHacksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E51F74D8234113C8000AC727 /* CodableFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFilterModel.swift; sourceTree = "<group>"; };
+		E53B747C235E3D4C0022264E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E53B747E235E3F990022264E /* ProfileViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerModel.swift; sourceTree = "<group>"; };
+		5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdatesLargeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +273,7 @@
 				4C22AFE122C6DA2900FA99BB /* WorkshopTableViewCell.swift */,
 				4CD3E3A522EE2621007E756E /* SponsorsTableViewCell.swift */,
 				4C367AA122E579660006CD2F /* LiveUpdatesTableViewCell.swift */,
+				5E401595235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift */,
 				4C40CA0C22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift */,
 			);
 			path = Cells;
@@ -308,6 +319,7 @@
 				4C34018622BFFB2A00432D80 /* AppDelegate.swift */,
 				4C34019222BFFB2B00432D80 /* Info.plist */,
 				4C2670D023410492002331EF /* GoogleService-Info.plist */,
+				4CB743882381A8720072AFDA /* UIConfigurationList.plist */,
 			);
 			path = KnightHacks;
 			sourceTree = "<group>";
@@ -341,6 +353,7 @@
 				4CD3E3A322EE2452007E756E /* SponsorsTableViewController.swift */,
 				4C367A9F22E578AA0006CD2F /* LiveUpdatesTableViewController.swift */,
 				4C40CA0A22EE63A600ECD930 /* FrequentlyAskedViewController.swift */,
+				E53B747C235E3D4C0022264E /* ProfileViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -377,6 +390,7 @@
 			children = (
 				4C517B6B22E6B30E007F8646 /* Internal */,
 				4C367A9D22E563D60006CD2F /* ModelObserver.swift */,
+				E51F74D8234113C8000AC727 /* CodableFilterModel.swift */,
 				4C02FFDD22C2E7E100FC700C /* FilterMenuModel.swift */,
 			);
 			path = Model;
@@ -392,6 +406,7 @@
 				4CD3E3A922EE3B6E007E756E /* SponsorTableViewControllerModel.swift */,
 				4C73CD1122EAA41D002B678A /* LiveUpdateTableViewControllerModel.swift */,
 				4C38E45F22EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift */,
+				E53B747E235E3F990022264E /* ProfileViewControllerModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -628,6 +643,7 @@
 				4C34019122BFFB2B00432D80 /* LaunchScreen.storyboard in Resources */,
 				4CE41D1C22C56058008836DC /* Lato-BoldItalic.ttf in Resources */,
 				4CE41D1B22C56058008836DC /* Lato-BlackItalic.ttf in Resources */,
+				4CB743892381A8720072AFDA /* UIConfigurationList.plist in Resources */,
 				4C34018E22BFFB2B00432D80 /* Assets.xcassets in Resources */,
 				4C02FFDC22C2DC0900FC700C /* FilterCollectionViewCell.xib in Resources */,
 				4CE41D1422C56058008836DC /* Lato-Italic.ttf in Resources */,
@@ -772,8 +788,10 @@
 				4C367A9822E554EB0006CD2F /* HeaderContentViewModel.swift in Sources */,
 				4C38E45E22EF3E0400FC3506 /* FrequentlyAskedModel.swift in Sources */,
 				4CDF966E235D4F7B00D53156 /* RuntimeExceptions.swift in Sources */,
+				E53B747F235E3F990022264E /* ProfileViewControllerModel.swift in Sources */,
 				4C7E1E8822F68C7D00416BDC /* ImageCache.swift in Sources */,
 				4C367A8E22E538220006CD2F /* ScheduleTableViewControllerModel.swift in Sources */,
+				5E401596235041A700B5877A /* LiveUpdatesLargeTableViewCell.swift in Sources */,
 				4CD3E3A422EE2452007E756E /* SponsorsTableViewController.swift in Sources */,
 				4C40CA0D22EE771100ECD930 /* FrequentlyAskedTableViewCell.swift in Sources */,
 				4CCA072722C5BAA600ABD8CB /* WorkshopTableViewController.swift in Sources */,
@@ -781,6 +799,7 @@
 				4CEDF56C22C03BCC0025EF47 /* FilterCollectionView.swift in Sources */,
 				4C73CD0C22EA8429002B678A /* WorkshopModel.swift in Sources */,
 				4C02FFE722C3022F00FC700C /* MiscellaneousViewElements.swift in Sources */,
+				E53B747D235E3D4C0022264E /* ProfileViewController.swift in Sources */,
 				4C02FFE022C2F1E600FC700C /* FilterNames.swift in Sources */,
 				4C7E1E8022F646CF00416BDC /* RequestSingleton.swift in Sources */,
 				4C9B1ED823ABD26B003FB507 /* DictionaryCodable.swift in Sources */,
@@ -808,6 +827,7 @@
 				4CE41D2722C5B0F5008836DC /* NavigationBarViewController.swift in Sources */,
 				4C38E46022EF3EDA00FC3506 /* FrequentlyAskedViewControllerModel.swift in Sources */,
 				4C7E1E8A22F68D1600416BDC /* ImageRequestSingleton.swift in Sources */,
+				E51F74D9234113C8000AC727 /* CodableFilterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,7 +1005,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZG8L9MP57M;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KnightHacks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1004,7 +1024,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZG8L9MP57M;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KnightHacks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1024,6 +1044,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KnightHacksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1045,6 +1066,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KnightHacksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1065,6 +1087,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KnightHacksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1085,6 +1108,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KnightHacksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

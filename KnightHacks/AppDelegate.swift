@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        applicationWillOverrideUI()
         updateApplicationFilters()
         return true
     }
@@ -35,6 +36,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.applicationFilters[$0.associatedView]?.append(FilterMenuModel(name: $0.name, externalImageURL: $0.imageURL))
             }
         }
+    }
+    
+    func applicationWillOverrideUI() {
+        guard let UIConfigurationList = getPlist(withName: "UIConfigurationList") else {
+            return
+        }
+        
+        if let backgroundColorHex = UIConfigurationList[ColorSchemeName.backgroundColor.rawValue] as? String, let intValue = Int(backgroundColorHex, radix: 16) {
+            BACKGROUND_COLOR = UIColor(hex: intValue, alpha: 1)
+        }
+    }
+    
+    func getPlist(withName name: String) -> [String:Any]? {
+        if
+            let path = Bundle.main.path(forResource: name, ofType: "plist"),
+            let xml = FileManager.default.contents(atPath: path) {
+            return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [String:Any]
+        }
+        
+        return nil
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -48,7 +48,7 @@ internal struct LiveUpdateModel: Comparable, DictionaryCodable {
         
         self.date = Date(timeIntervalSince1970: TimeInterval(startTimeSeconds))
         self.title = message
-        self.imageURL = picture == "live-updates/kh-blue.png" ? nil : picture
+        self.imageURL = picture
         self.time = DateEngine(format: .standardISO1806).getString(of: self.date, as: .hourColonMinuteMeridian)
     }
     

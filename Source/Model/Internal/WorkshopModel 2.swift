@@ -14,7 +14,6 @@ internal struct CodableWorkshopModel: Codable {
     var location: String
     var imageURL: String
     var description: String
-    var filters: [CodableFilterModel]
 }
 
 internal struct WorkshopModel: HeaderDataSource, FilterDataSource, DictionaryCodable, Comparable {

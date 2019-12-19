@@ -65,14 +65,29 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: LiveUpdatesTableViewCell.identifier, for: indexPath) as? LiveUpdatesTableViewCell,
-            indexPath.row < viewModel.viewContent.count else {
-            return UITableViewCell()
-        }
+        let cellType = viewModel.viewContent[indexPath.row]
         
-        cell.model = viewModel.viewContent[indexPath.row]
-        return cell
+        // Check if content recieved contains imageURL value. Depending on this value cell type will vary.
+        if cellType.imageURL == nil {
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: LiveUpdatesTableViewCell.identifier, for: indexPath) as? LiveUpdatesTableViewCell,
+                indexPath.row < viewModel.viewContent.count else {
+                return UITableViewCell()
+            }
+            
+            cell.model = viewModel.viewContent[indexPath.row]
+            return cell
+            
+        } else {
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: LiveUpdatesLargeTableViewCell.identifier, for: indexPath) as? LiveUpdatesLargeTableViewCell,
+                indexPath.row < viewModel.viewContent.count else {
+                return UITableViewCell()
+            }
+            
+            cell.model = viewModel.viewContent[indexPath.row]
+            return cell
+        }
     }
     
     // MARK: - View model delegate

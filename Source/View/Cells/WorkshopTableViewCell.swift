@@ -32,6 +32,8 @@ internal class WorkshopTableViewCell: UITableViewCell {
             ImageRequestSingleton.firebaseGetImage(reference: url) { (image) in
                 if let image = image {
                     self.workshopImageView.image = image
+                } else {
+                    print("couldnt fetch image")
                 }
             }
         }

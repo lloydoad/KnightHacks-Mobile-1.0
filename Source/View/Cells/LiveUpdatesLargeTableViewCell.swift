@@ -1,16 +1,16 @@
 //
-//  LiveUpdatesTableViewCell.swift
+//  LiveUpdatesLargeTableViewCell.swift
 //  KnightHacks
 //
-//  Created by Lloyd Dapaah on 7/22/19.
+//  Created by Jamal Yauhari on 10/11/19.
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
 import UIKit
 
-internal class LiveUpdatesTableViewCell: UITableViewCell {
+internal class LiveUpdatesLargeTableViewCell: UITableViewCell {
     
-    public static let identifier: String = "LiveUpdatesCellIdentifier"
+    public static let identifier: String = "LiveUpdatesLargeCellIdentifier"
     
     @IBOutlet weak var customBackgroundView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
@@ -19,12 +19,25 @@ internal class LiveUpdatesTableViewCell: UITableViewCell {
     
     var model: LiveUpdateModel? {
         didSet {
-            
             guard let model = model else { return }
             
+            // set variables values.
             titleLabel.text = model.title
             timeLabel.text = "\(model.time) - \(timePassedString(intervalToHoursMinutesSeconds(model.date)))"
-            // set knighthacks image
+            
+            guard let url = model.imageURL else {
+                // set knighthacks image
+                return
+            }
+            
+            ImageRequestSingleton.firebaseGetImage(reference: url) { (image) in
+                guard let image = image else {
+                    // set knighthacks image
+                    return
+                }
+                
+                self.mainImageView.image = image
+            }
         }
     }
     
@@ -34,10 +47,10 @@ internal class LiveUpdatesTableViewCell: UITableViewCell {
         timeLabel.font = MINOR_PARAGRAPH_FONT
         titleLabel.font = PARAGRAPH_FONT
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) { }
     
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) { }
+    override func setSelected(_ selected: Bool, animated: Bool) {}
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {}
     
     private func intervalToHoursMinutesSeconds(_ date: Date) -> (Int, Int, Int) {
         let seconds = Int(Date().timeIntervalSince1970) - Int(date.timeIntervalSince1970)
