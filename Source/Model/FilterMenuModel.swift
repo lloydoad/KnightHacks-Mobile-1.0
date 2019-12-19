@@ -31,8 +31,41 @@ public struct FilterMenuModel: Hashable {
         self.isLocal = false
     }
     
+    init(name: String, externalImageURL: String) {
+        self.name = name
+        self.imageURL = externalImageURL
+        self.isLocal = false
+    }
+    
     public func hash(hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(imageURL)
+    }
+}
+
+internal struct FilterDictionaryModel: DictionaryCodable {
+    
+    enum Keys: String {
+        case name
+        case picture
+        case type
+    }
+    
+    var name: String
+    var imageURL: String
+    var associatedView: String
+    
+    init(dataRecieved: NSDictionary) throws {
+        guard
+            let name = dataRecieved[Keys.name.rawValue] as? String,
+            let imageURL = dataRecieved[Keys.picture.rawValue] as? String,
+            let associatedView = dataRecieved[Keys.type.rawValue] as? String
+        else {
+            throw RuntimeException.dictionaryDecoding("Failed to parse filter")
+        }
+        
+        self.name = name
+        self.imageURL = imageURL
+        self.associatedView = associatedView
     }
 }

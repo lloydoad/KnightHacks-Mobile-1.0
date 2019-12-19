@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 internal class RequestSingleton<Model: Codable> {
     
@@ -42,5 +43,42 @@ internal class RequestSingleton<Model: Codable> {
         }
         
         task.resume()
+    }
+}
+
+internal class FirebaseRequestSingleton<ModelDictionary: DictionaryCodable> {
+    
+    enum FirebaseRequestEndpoints: String {
+        case liveUpdates = "live_updates"
+        case workshops
+        case sponsors
+        case filters
+        case events
+        case faqs
+    }
+    
+    func makeRequest(endpoint: FirebaseRequestEndpoints, completion: @escaping ([ModelDictionary]) -> Void) {
+        
+        let databaseReference = Database.database().reference()
+        databaseReference.child(endpoint.rawValue).observeSingleEvent(of: .value) { (snapshot) in
+            DispatchQueue.main.async {
+                
+                guard let value = snapshot.value as? [String: Any] else {
+                    completion([])
+                    return
+                }
+                
+                var results: [ModelDictionary] = []
+                value.forEach({ (_, value) in
+                    if
+                        let unwrappedValue = value as? NSDictionary,
+                        let object = try? ModelDictionary(dataRecieved: unwrappedValue) {
+                        results.append(object)
+                    }
+                })
+                
+                completion(results)
+            }
+        }
     }
 }

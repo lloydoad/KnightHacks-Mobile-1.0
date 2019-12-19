@@ -24,7 +24,7 @@ internal class ProfileViewController: NavigationBarViewController, NavigationBar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 
-        self.add(navigationController: navigationController, and: navigationItem, with: BLUE_COLOR)
+        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
         updateNavigationTitle()
     }
     

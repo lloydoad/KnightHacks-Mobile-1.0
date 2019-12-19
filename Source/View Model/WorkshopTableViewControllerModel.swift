@@ -6,53 +6,36 @@
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 internal class WorkshopTableViewControllerModel: HeaderContentViewModel<WorkshopModel>, FilterCollectionViewDataSource {
     
     private let dateEngine = DateEngine(format: .standardISO1806)
+    internal static let filterType = "workshop"
     
     var filterCollectionView: FilterCollectionView?
     var filters: [FilterMenuModel] = []
     
     func fetchWorkshopData() {
-        let requestSingleton = RequestSingleton<CodableWorkshopModel>()
-        requestSingleton.makeRequest(url: requestSingleton.workshopURL) { (results) in
+        
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
+            let viewFilters = appdelegate.applicationFilters[WorkshopTableViewControllerModel.filterType] {
+            self.filters = viewFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
+        } else {
+            self.filters = [FilterMenuModel(name: FilterNames.all.rawValue)]
+        }
+        
+        FirebaseRequestSingleton<WorkshopModel>().makeRequest(endpoint: .workshops) { (dictonaryModels) in
             
-            guard let results = results, !results.isEmpty else {
-                self.fetchedData = []
+            self.fetchedData = []
+            
+            guard !dictonaryModels.isEmpty else {
                 self.fetchData()
+                self.filterCollectionView?.performLoadingAnimation()
                 return
             }
             
-            var necessaryFilters: Set<FilterMenuModel> = Set()
-            
-            for value in results {
-                
-                guard let date = self.dateEngine.getDate(from: value.date) else {
-                    continue
-                }
-                
-                let parsedValue = WorkshopModel(
-                    date: date,
-                    time: self.dateEngine.getString(of: date, as: .hourColonMinuteMeridian),
-                    title: value.name,
-                    header: self.dateEngine.getString(of: date, as: .dayMonth),
-                    imageURL: value.imageURL,
-                    description: value.description,
-                    filters: value.filters.map {
-                        FilterMenuModel(codable: $0)
-                    }
-                )
-                
-                parsedValue.filters.forEach {
-                    necessaryFilters.insert($0)
-                }
-                
-                self.fetchedData.append(parsedValue)
-            }
-            
-            self.filters = necessaryFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
+            self.fetchedData = dictonaryModels
             
             self.fetchData()
             self.filterCollectionView?.performLoadingAnimation()

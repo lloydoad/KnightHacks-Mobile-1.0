@@ -17,30 +17,13 @@ internal class LiveUpdateTableViewControllerModel {
     private(set) var viewContent: [LiveUpdateModel] = []
     
     func fetchRecent() {
-        let requestSingleton = RequestSingleton<CodableLiveUpdateModel>()
-        requestSingleton.makeRequest(url: requestSingleton.liveUpdateURL) { (results) in
-            
-            guard let results = results, !results.isEmpty else {
+        FirebaseRequestSingleton<LiveUpdateModel>().makeRequest(endpoint: .liveUpdates) { (results) in
+            guard !results.isEmpty else {
                 self.fetchRecent()
                 return
             }
             
-            var fetchedData: [LiveUpdateModel] = []
-            for value in results {
-                
-                guard let date = self.dateEngine.getDate(from: value.date) else {
-                    continue
-                }
-                
-                fetchedData.append(
-                    LiveUpdateModel(
-                        title: value.description,
-                        date: date,
-                        time: self.dateEngine.getString(of: date, as: .hourColonMinuteMeridian),
-                        imageURL: value.imageURL
-                    )
-                )
-            }
+            var fetchedData: [LiveUpdateModel] = results
             
             fetchedData.sort()
             fetchedData.reverse()

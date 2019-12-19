@@ -25,7 +25,7 @@ public struct DateEngine {
     
     public init(format: DateFormat = .dashedYearMonthDay) {
         formatter.locale = Locale.current
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = TimeZone(identifier: "EST")
         setDateFormat(format)
     }
     

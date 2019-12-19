@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    public var applicationFilters: [String:[FilterMenuModel]] = [:]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         applicationWillOverrideUI()
+        updateApplicationFilters()
         return true
+    }
+    
+    func updateApplicationFilters() {
+        FirebaseRequestSingleton<FilterDictionaryModel>().makeRequest(endpoint: .filters) { (filters) in
+            
+            guard !filters.isEmpty else {
+                return
+            }
+            
+            filters.forEach {
+                if self.applicationFilters[$0.associatedView] == nil {
+                    self.applicationFilters[$0.associatedView] = []
+                }
+                self.applicationFilters[$0.associatedView]?.append(FilterMenuModel(name: $0.name, externalImageURL: $0.imageURL))
+            }
+        }
     }
     
     func applicationWillOverrideUI() {

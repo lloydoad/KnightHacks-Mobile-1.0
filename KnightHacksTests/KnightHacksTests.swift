@@ -25,12 +25,9 @@ class KnightHacksTests: XCTestCase {
         let TITLE_FONT = UIFont(name: LatoFont.bold.rawValue, size: 20)
         XCTAssertNotNil(TITLE_FONT)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testFoo() {
+        let date = Date(timeIntervalSinceNow: 0)
+        print(date.timeIntervalSince1970)
     }
-
 }
