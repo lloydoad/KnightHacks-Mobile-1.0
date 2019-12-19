@@ -24,7 +24,7 @@ internal class LiveUpdatesTableViewCell: UITableViewCell {
             
             titleLabel.text = model.title
             timeLabel.text = "\(model.time) - \(timePassedString(intervalToHoursMinutesSeconds(model.date)))"
-            // set knighthacks image
+            mainImageView.image = UIImage(named: "kh-blue")
         }
     }
     

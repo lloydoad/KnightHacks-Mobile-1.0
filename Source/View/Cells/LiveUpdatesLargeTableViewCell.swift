@@ -24,15 +24,20 @@ internal class LiveUpdatesLargeTableViewCell: UITableViewCell {
             // set variables values.
             titleLabel.text = model.title
             timeLabel.text = "\(model.time) - \(timePassedString(intervalToHoursMinutesSeconds(model.date)))"
+            mainImageView.contentMode = .scaleAspectFill
+            mainImageView.clipsToBounds = true
+            mainImageView.layer.cornerRadius = 5
+            mainImageView.layer.borderColor = UIColor.gray.cgColor
+            mainImageView.layer.borderWidth = 0.5
             
             guard let url = model.imageURL else {
-                // set knighthacks image
+                mainImageView.image = UIImage(named: "kh-blue")
                 return
             }
             
             ImageRequestSingleton.firebaseGetImage(reference: url) { (image) in
                 guard let image = image else {
-                    // set knighthacks image
+                    self.mainImageView.image = UIImage(named: "kh-blue")
                     return
                 }
                 
