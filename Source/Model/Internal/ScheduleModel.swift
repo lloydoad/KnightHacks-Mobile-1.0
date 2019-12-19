@@ -49,7 +49,7 @@ internal struct ScheduleModel: HeaderDataSource, FilterDataSource, Comparable, D
             let location = dataRecieved[Keys.location.rawValue] as? String,
             let eventType = dataRecieved[Keys.eventType.rawValue] as? String
         else {
-            throw RuntimeException.dictionaryDecoding("Failed to parse workshop")
+            throw RuntimeException.dictionaryDecoding("Failed to parse schedule")
         }
         
         self.date = Date(timeIntervalSince1970: TimeInterval(startTimeSeconds))

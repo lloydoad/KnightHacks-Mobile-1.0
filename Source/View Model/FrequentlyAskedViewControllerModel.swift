@@ -16,11 +16,8 @@ internal class FrequentlyAskedViewControllerModel {
     private(set) var viewContent: [FrequentlyAskedModel] = []
     
     func fetchFrequentlyAskedData() {
-        
-        let requestSingleton = RequestSingleton<FrequentlyAskedModel>()
-        requestSingleton.makeRequest(url: requestSingleton.faqsURL) { (results) in
-            
-            guard let results = results, !results.isEmpty else {
+        FirebaseRequestSingleton<FrequentlyAskedModel>().makeRequest(endpoint: .faqs) { (results) in
+            guard !results.isEmpty else {
                 self.fetchedData = []
                 self.viewContent = self.fetchedData.map { FrequentlyAskedModel(question: $0.question, answer: "")}
                 self.observer?.didFetchModel()

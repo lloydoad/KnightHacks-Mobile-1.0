@@ -78,20 +78,21 @@ internal struct ImageRequestSingleton {
             
             storage.reference(withPath: reference).getData(maxSize: 1 * 1024 * 1024) { data, error in
                 DispatchQueue.main.async {
-                    if let _ = error {
+                    if let error = error {
+                        print(error)
                         completion(nil)
                         return
                     }
                     
                     guard let imageData = data else {
-                        completion(nil)
                         print("Error: Could not convert response to Data")
+                        completion(nil)
                         return
                     }
                     
                     guard let image = UIImage(data: imageData) else {
-                        completion(nil)
                         print("Error: Could not convert data to image")
+                        completion(nil)
                         return
                     }
                     

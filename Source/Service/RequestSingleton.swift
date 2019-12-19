@@ -49,6 +49,7 @@ internal class RequestSingleton<Model: Codable> {
 internal class FirebaseRequestSingleton<ModelDictionary: DictionaryCodable> {
     
     enum FirebaseRequestEndpoints: String {
+        case liveUpdates = "live_updates"
         case workshops
         case sponsors
         case filters
