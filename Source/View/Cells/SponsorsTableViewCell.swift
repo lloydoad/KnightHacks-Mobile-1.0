@@ -28,9 +28,11 @@ internal class SponsorsTableViewCell: UITableViewCell {
             addTags(filters: model.filters)
             
             guard let url = model.imageURL else { return }
-            ImageRequestSingleton.getImage(at: url) { (image) in
+            ImageRequestSingleton.firebaseGetImage(reference: url) { (image) in
                 if let image = image {
                     self.sponsorImageView.image = image
+                } else {
+                    print("couldnt fetch image")
                 }
             }
         }
