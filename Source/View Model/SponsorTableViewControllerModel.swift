@@ -6,11 +6,12 @@
 //  Copyright © 2019 KnightHacks. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 internal class SponsorTableViewControllerModel: FilterCollectionViewDataSource {
     
     var observer: ModelObserver?
+    internal static let filterType = "sponsor"
 
     private var fetchedContent: [SponsorModel] = []
     private(set) var viewContent: [SponsorModel] = []
@@ -20,38 +21,24 @@ internal class SponsorTableViewControllerModel: FilterCollectionViewDataSource {
     
     func fetchSponsorData() {
         
-        let requestSingleton = RequestSingleton<CodableSponsorModel>()
-        requestSingleton.makeRequest(url: requestSingleton.sponsorURL) { (results) in
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
+            let viewFilters = appdelegate.applicationFilters[SponsorTableViewControllerModel.filterType] {
+            self.filters = viewFilters + [FilterMenuModel(name: FilterNames.all.rawValue)]
+        } else {
+            self.filters = [FilterMenuModel(name: FilterNames.all.rawValue)]
+        }
+        
+        FirebaseRequestSingleton<SponsorModel>().makeRequest(endpoint: .sponsors) { (dictonaryModels) in
             
-            guard let results = results, !results.isEmpty else {
-                self.fetchedContent = []
+            self.fetchedContent = []
+            guard !dictonaryModels.isEmpty else {
                 self.viewContent = self.fetchedContent
                 self.observer?.didFetchModel()
                 return
             }
             
-            var necessaryFilters: Set<FilterMenuModel> = Set()
-            
-            for value in results {
-                
-                let parsed = SponsorModel(
-                    name: value.name,
-                    location: value.location,
-                    imageURL: value.imageURL,
-                    description: value.description,
-                    filters: dummySponsorFilterGroup.randomElement() ?? [] // currently being filled with dummy filters
-                )
-                
-                parsed.filters.forEach {
-                    necessaryFilters.insert($0)
-                }
-                
-                self.fetchedContent.append(parsed)
-            }
-            
-            self.filters = necessaryFilters + [FilterMenuModel(name: defaultAllFilter)]
+            self.fetchedContent = dictonaryModels
             self.viewContent = self.fetchedContent
-            
             self.observer?.didFetchModel()
             self.filterCollectionView?.performLoadingAnimation()
         }

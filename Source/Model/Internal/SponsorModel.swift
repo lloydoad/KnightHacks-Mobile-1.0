@@ -15,7 +15,7 @@ internal struct CodableSponsorModel: Codable {
     var description: String
 }
 
-internal struct SponsorModel: FilterDataSource {
+internal struct SponsorModel: FilterDataSource, DictionaryCodable {
     
     enum Keys: String {
         case description
@@ -37,5 +37,30 @@ internal struct SponsorModel: FilterDataSource {
         self.imageURL = imageURL
         self.description = description
         self.filters = filters
+    }
+    
+    init(dataRecieved: NSDictionary) throws {
+        
+        guard
+            let description = dataRecieved[Keys.description.rawValue] as? String,
+            let name = dataRecieved[Keys.name.rawValue] as? String,
+            let picture = dataRecieved[Keys.picture.rawValue] as? String,
+            let location = dataRecieved[Keys.location.rawValue] as? String
+        else {
+            throw RuntimeException.dictionaryDecoding("Failed to parse sponsor")
+        }
+        
+        self.description = description
+        self.name = name
+        self.imageURL = picture
+        self.location = location
+        self.filters = []
+        
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate,
+            let viewFilters = appdelegate.applicationFilters[WorkshopTableViewControllerModel.filterType] {
+            self.filters = viewFilters.filter { (model) -> Bool in
+                model.name == "Full Time" || model.name == "Internships"
+            }
+        }
     }
 }
