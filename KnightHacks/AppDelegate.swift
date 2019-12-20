@@ -135,15 +135,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func setupNotificationSubscriptions() {
         let messaging = Messaging.messaging()
         if UserDefaultsHolder.getUserDefaultValueFor(.isSubscribedToGeneralNotifications) {
-            messaging.subscribe(toTopic: SubscriptionTitle.general.rawValue)
+            messaging.subscribe(toTopic: SubscriptionTitle.GENERAL.rawValue)
         }
         
         if UserDefaultsHolder.getUserDefaultValueFor(.isSubscribedToFoodNotifications) {
-            messaging.subscribe(toTopic: SubscriptionTitle.food.rawValue)
+            messaging.subscribe(toTopic: SubscriptionTitle.FOOD.rawValue)
         }
         
         if UserDefaultsHolder.getUserDefaultValueFor(.isSubscribedToEmergencyNotifications) {
-            messaging.subscribe(toTopic: SubscriptionTitle.emergency.rawValue)
+            messaging.subscribe(toTopic: SubscriptionTitle.EMERGENCY.rawValue)
         }
     }
 }
