@@ -9,7 +9,7 @@
 import Foundation
 
 public enum SubscriptionTitle: String {
-    case general
-    case food
-    case emergency
+    case GENERAL
+    case FOOD
+    case EMERGENCY
 }
