@@ -4,5 +4,15 @@
 <dict>
 	<key>backgroundColor</key>
 	<string>5755D6</string>
+	<key>scheduleMenuColor</key>
+	<string>FF9500</string>
+	<key>workshopMenuColor</key>
+	<string>FF3B31</string>
+	<key>liveUpdatesMenuColor</key>
+	<string>057AFF</string>
+	<key>sponsorsMenuColor</key>
+	<string>5755D6</string>
+	<key>faqsMenuColor</key>
+	<string>229A55</string>
 </dict>
 </plist>

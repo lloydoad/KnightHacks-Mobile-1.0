@@ -55,9 +55,20 @@ var BACKGROUND_COLOR = UIColor(hex: 0x5755D6, alpha: 1)
 let DARK_GREEN_COLOR = UIColor(hex: 0x229A55, alpha: 1)
 let DARK_PURPLE_COLOR = UIColor(hex: 0x250951, alpha: 1)
 
+var SCHEDULE_MENU_COLOR = UIColor(hex: 0xFF9500, alpha: 1)
+var WORKSHOPS_MENU_COLOR = UIColor(hex: 0xFF3B31, alpha: 1)
+var SPONSORS_MENU_COLOR = UIColor(hex: 0x5755D6, alpha: 1)
+var LIVE_UPDATES_MENU_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
+var FAQS_MENU_COLOR = UIColor(hex: 0x229A55, alpha: 1)
+
 let LIGHT_BLUE_SHADE_COLOR = UIColor(hex: 0x0CB2FF, alpha: 1)
 let DARK_BLUE_SHADE_COLOR = UIColor(hex: 0x057AFF, alpha: 1)
 
 public enum ColorSchemeName: String {
     case backgroundColor
+    case scheduleMenuColor
+    case workshopMenuColor
+    case sponsorsMenuColor
+    case liveUpdatesMenuColor
+    case faqsMenuColor
 }
