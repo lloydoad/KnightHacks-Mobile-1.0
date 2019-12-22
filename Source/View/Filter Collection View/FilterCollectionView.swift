@@ -93,6 +93,7 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: FilterCollectionViewCell.nibName, bundle: nil), forCellWithReuseIdentifier: FilterCollectionViewCell.identifier)
+        collectionView.backgroundColor = BACKGROUND_COLOR
         collectionView.reloadData()
     }
     

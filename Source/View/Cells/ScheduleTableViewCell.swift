@@ -32,5 +32,6 @@ internal class ScheduleTableViewCell: UITableViewCell {
         eventTitleLabel.font = TITLE_FONT
         locationLabel.font = PARAGRAPH_FONT
         timeLabel.font = MAJOR_PARAGRAPH_FONT
+        eventTitleLabel.textColor = BACKGROUND_COLOR
     }
 }

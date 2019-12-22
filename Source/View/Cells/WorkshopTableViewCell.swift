@@ -43,6 +43,7 @@ internal class WorkshopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         addSpecifiedShadow(customCellBackground)
         titleLabel.font = TITLE_FONT
+        titleLabel.textColor = BACKGROUND_COLOR
         descriptionLabel.font = PARAGRAPH_FONT
         timeLabel.font = MAJOR_REGULAR_FONT
     }

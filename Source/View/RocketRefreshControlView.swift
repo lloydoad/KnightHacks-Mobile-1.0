@@ -45,6 +45,7 @@ public class RocketRefreshControlView: UIView {
         addSubview(contentView)
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentView.backgroundColor = BACKGROUND_COLOR
         
         imageXAnchor.constant = startXOffset
         rocketImage.transform = CGAffineTransform(rotationAngle: (.pi/2))
