@@ -55,7 +55,6 @@ public class FilterCollectionViewCell: UICollectionViewCell {
         self.initViewLayer(imageBackgroundView, withShadows: true)
         self.initViewLayer(borderView)
         self.filterLabel.font = PARAGRAPH_FONT
-        self.backgroundColor = BACKGROUND_COLOR
     }
 
     private func initViewLayer(_ view: UIView, withShadows hasShadows: Bool = false) {

@@ -25,7 +25,7 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
         self.filters = viewModel.filters
         
         self.navigationItem.largeTitleDisplayMode = .never
-        self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
+        self.colorUpper(view: tableView, with: SPONSORS_MENU_COLOR)
         self.filterCollectionView = addFilterCollectionView(to: tableView, datasource: self.viewModel)
         self.viewModel.filterCollectionView = self.filterCollectionView
     }
@@ -33,7 +33,7 @@ internal class SponsorsTableViewController: NavigationBarTableViewController, Na
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.fetchSponsorData()
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
+        self.add(navigationController: navigationController, and: navigationItem, with: SPONSORS_MENU_COLOR)
     }
     
     override func viewDidAppear(_ animated: Bool) {

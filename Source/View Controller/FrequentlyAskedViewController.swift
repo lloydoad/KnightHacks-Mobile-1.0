@@ -20,7 +20,7 @@ internal class FrequentlyAskedViewController: NavigationBarTableViewController, 
         viewModel = FrequentlyAskedViewControllerModel()
         viewModel.observer = self
         
-        self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
+        self.colorUpper(view: tableView, with: FAQS_MENU_COLOR)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +28,7 @@ internal class FrequentlyAskedViewController: NavigationBarTableViewController, 
         
         self.viewModel.fetchFrequentlyAskedData()
         
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
+        self.add(navigationController: navigationController, and: navigationItem, with: FAQS_MENU_COLOR)
         self.updateNavigationTitle()
     }
     

@@ -30,7 +30,7 @@ public protocol FilterCollectionViewDelegate {
 public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     public static let nibName: String = "FilterCollectionView"
-    
+    let AppDelegate = UIApplication.shared.delegate as! AppDelegate
     public static let minimumRequiredHeight: CGFloat = 115
     public static let minimumRequiredWidth: CGFloat = 85
     public static let minimumCellFrame: CGRect = CGRect(
@@ -93,7 +93,7 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: FilterCollectionViewCell.nibName, bundle: nil), forCellWithReuseIdentifier: FilterCollectionViewCell.identifier)
-        collectionView.backgroundColor = BACKGROUND_COLOR
+        collectionView.backgroundColor = selectedCellColor(selectedController: AppDelegate.selectedCellId)
         collectionView.reloadData()
     }
     
@@ -120,9 +120,30 @@ public class FilterCollectionView: UIView, UICollectionViewDelegate, UICollectio
             return UICollectionViewCell(frame: FilterCollectionView.minimumCellFrame)
         }
         cell.model = source.filters[indexPath.row]
+        cell.backgroundColor = selectedCellColor(selectedController: AppDelegate.selectedCellId)
+        
         return cell
     }
     
+    public func selectedCellColor(selectedController: String) -> UIColor {
+        
+        switch selectedController {
+        case "ScheduleTableViewController":
+            return SCHEDULE_MENU_COLOR
+        case "WorkshopTableViewController":
+            return WORKSHOPS_MENU_COLOR
+        case "SponsorsTableViewController":
+            return SPONSORS_MENU_COLOR
+        case "LiveUpdatesTableViewController":
+            return LIVE_UPDATES_MENU_COLOR
+        case "FrequentlyAskedTableViewController":
+            return FAQS_MENU_COLOR
+        case "ProfileViewController":
+            return PROFILE_MENU_COLOR
+        default:
+            return BACKGROUND_COLOR
+        }
+    }
 //    public final func reloadData() {
 //        guard let !filters.isEmpty else { return }
 //

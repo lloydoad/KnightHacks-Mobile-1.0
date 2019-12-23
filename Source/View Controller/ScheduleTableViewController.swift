@@ -29,7 +29,7 @@ internal class ScheduleTableViewController: NavigationBarViewController, Navigat
         self.viewModel.filterCollectionView = self.filterCollectionView
         
         self.attach(table: mainTableView, toDelegate: self, andDataSource: self)
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
+        self.add(navigationController: navigationController, and: navigationItem, with: SCHEDULE_MENU_COLOR)
     }
     
     override func viewDidAppear(_ animated: Bool) {

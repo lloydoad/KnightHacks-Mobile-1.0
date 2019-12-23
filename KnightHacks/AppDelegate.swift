@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     public var token: String = ""
     public var applicationFilters: [String:[FilterMenuModel]] = [:]
-
+    public var selectedCellId: String = ""
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         applicationWillOverrideUI()
@@ -96,6 +97,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         if let faqsMenuColorHex = UIConfigurationList[ColorSchemeName.faqsMenuColor.rawValue] as? String, let intValue = Int(faqsMenuColorHex, radix: 16) {
+            FAQS_MENU_COLOR = UIColor(hex: intValue, alpha: 1)
+        }
+        
+        if let profileMenuColorHex = UIConfigurationList[ColorSchemeName.profileMenuColor.rawValue] as? String, let intValue = Int(profileMenuColorHex, radix: 16) {
             FAQS_MENU_COLOR = UIColor(hex: intValue, alpha: 1)
         }
         

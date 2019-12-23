@@ -26,7 +26,7 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
         
         self.initLiveCountDown()
         self.navigationItem.largeTitleDisplayMode = .never
-        self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
+        self.colorUpper(view: tableView, with: LIVE_UPDATES_MENU_COLOR)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,7 @@ internal class LiveUpdatesTableViewController: NavigationBarTableViewController,
         
         self.attachRefreshControl()
         self.viewModel.fetchRecent()
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
+        self.add(navigationController: navigationController, and: navigationItem, with: LIVE_UPDATES_MENU_COLOR)
         
         self.liveCountDownView.targetEndDate = Date(timeIntervalSinceNow: 45) // dummy time
     }

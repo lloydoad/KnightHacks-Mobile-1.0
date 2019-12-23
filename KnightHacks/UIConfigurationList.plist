@@ -14,5 +14,7 @@
 	<string>5755D6</string>
 	<key>faqsMenuColor</key>
 	<string>229A55</string>
+	<key>profileMenuColor</key>
+	<string>057AFF</string>
 </dict>
 </plist>

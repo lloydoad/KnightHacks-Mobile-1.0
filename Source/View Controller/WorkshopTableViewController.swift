@@ -25,7 +25,7 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
         self.viewModel.observer = self
         
         self.navigationItem.largeTitleDisplayMode = .never
-        self.colorUpper(view: tableView, with: BACKGROUND_COLOR)
+        self.colorUpper(view: tableView, with: WORKSHOPS_MENU_COLOR)
         self.filterCollectionView = addFilterCollectionView(to: tableView, datasource: self.viewModel)
         self.viewModel.filterCollectionView = self.filterCollectionView
     }
@@ -33,7 +33,7 @@ internal class WorkshopTableViewController: NavigationBarTableViewController, Na
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.fetchWorkshopData()
-        self.add(navigationController: navigationController, and: navigationItem, with: BACKGROUND_COLOR)
+        self.add(navigationController: navigationController, and: navigationItem, with: WORKSHOPS_MENU_COLOR)
     }
     
     override func viewDidAppear(_ animated: Bool) {

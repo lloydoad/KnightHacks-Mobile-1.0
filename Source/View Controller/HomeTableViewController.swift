@@ -61,6 +61,9 @@ internal class HomeTableViewController: UITableViewController, NavigationBarView
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: storyboardID)
             navigationController?.pushViewController(nextViewController, animated: true)
+            let Appdelegate = UIApplication.shared.delegate as! AppDelegate
+            Appdelegate.selectedCellId = viewModel.menuItems[indexPath.row].connectedViewControllerId!
+
         }
     }
 }
