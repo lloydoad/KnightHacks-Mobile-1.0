@@ -1,4 +1,5 @@
 # KnightHacks iOS
+This repository contains version 1 of the knighthacks iOS application. Note that this mobile application only targets iPhones and isn't configured nor tested for tablets. Version 2, which was originally meant for the 2019/2020 academic year can be found [here](https://github.com/KnightHacks/KnightHacks-Mobile-2.0)
 
 ## Requirements
 
